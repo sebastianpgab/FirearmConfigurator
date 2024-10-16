@@ -1,0 +1,12 @@
+{
+    "calibers": [
+        {
+            "id": 1,
+            "name": ".300 Win",
+            "price": "450",
+            "imageUrl": "assets/images/300win.png"
+        }
+
+
+    ]
+}
