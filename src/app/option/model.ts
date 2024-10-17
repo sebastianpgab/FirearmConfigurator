@@ -1,5 +1,5 @@
 export interface Option{
-    Id: number,
+    id: number,
     name: string,
     price: number,
     imageUrl?: string;
