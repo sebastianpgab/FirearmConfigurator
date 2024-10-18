@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+label {
+    color: red;
+}
+
+.title {
+    position: sticky;
+    width: auto;
+    height: 4500;
+    background-color: #27430f;
+    justify-content: center;
+    display: flex;
+
+    box-shadow: 2px 3px 10px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 75px;
+    color: transparent;
+    text-shadow: 1px 1px 0 #ffffff, 2px 2px 0 #aaa, 3px 3px 0 #ddd;
+}
+
+.riffle_photo{
+    margin: 2%;
+text-align: center;
+}
+
+.container {
+    margin: 1%;
+    color: blue($color: #000000);
+}
+
+div {
+    margin: 1%;
+}
+
+.content {
+    width: 80%;
+    margin: auto; 
+    background-color: lightgray;
+    padding: 20px; 
+
+}
