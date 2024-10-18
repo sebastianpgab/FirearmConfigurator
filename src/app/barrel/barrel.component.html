@@ -1,1 +1,22 @@
-<p>barrel works!</p>
+<div *ngIf="jsonData.length > 0">
+
+    <h2>Dostępne kalibry:</h2>
+    <ul>
+      <li *ngFor="let option of jsonData">
+        <h3>{{ option.name }}</h3>
+        <p>Cena: {{ option.price }} PLN</p>
+        <img *ngIf="option.imageUrl" [src]="option.imageUrl" alt="{{ option.name }}" width="100">
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="jsonData.length === 0">
+    <p>Brak danych do wyświetlenia.</p>
+  </div>
+  
+  <form>
+    <label>Kaliber</label>
+    <select>
+        <option *ngFor="let caliber of jsonData"> {{caliber.name}}</option>
+    </select>
+  </form>
