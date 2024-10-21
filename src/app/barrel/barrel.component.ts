@@ -8,15 +8,26 @@ import { Option } from '../option/model';
   styles: []
 })
 export class BarrelComponent implements OnInit {
-  jsonData: Option[] = [];  // Tablica obiektów typu Option
+  jsonDataCalibers: Option[] = [];  // Tablica obiektów typu Option
+  jsonDataContours: Option[] = [];  // Tablica obiektów typu Option
+  jsonDataProfiles: Option[] = [];  // Tablica obiektów typu Option
+  jsonDataLengths: Option[] = [];  // Tablica obiektów typu Option
+  jsonDataOpenSights: Option[] = [];  // Tablica obiektów typu Option
+  jsonDataMuzzleBrakesOrSuppressors: Option[] = [];  // Tablica obiektów typu Option
+
 
   constructor(private barrelService: BarrelService) {}
 
   ngOnInit() {
     this.barrelService.getData().subscribe(data => {
       // Zakładamy, że dane JSON zawierają tablicę 'calibers'
-      this.jsonData = data.calibers as Option[];  // Rzutowanie danych na typ Option
-      console.log(this.jsonData);  // Sprawdź w konsoli
+      this.jsonDataCalibers = data.calibers as Option[]; 
+      this.jsonDataContours = data.contours as Option[];
+      this.jsonDataProfiles = data.profiles as Option[];
+      this.jsonDataLengths = data.lengths as Option[];
+      this.jsonDataOpenSights = data.openSights as Option[];
+      this.jsonDataMuzzleBrakesOrSuppressors = data.muzzleBrakesOrSuppressors as Option[];
+      console.log();  // Sprawdź w konsoli
     }, error => {
       console.error('Błąd przy ładowaniu danych:', error);
     });

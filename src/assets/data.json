@@ -6,5 +6,51 @@
             "price": 450,
             "imageUrl": "assets/images/300win.png"
         }
+    ],
+    "contours":[
+        {
+            "id": 1,
+            "name": "Standard (17 mm)",
+            "price": 450,
+            "imageUrl": "assets/images/standard_contour"
+        }
+    ],
+    "profiles": [
+        {
+            "id": 1,
+            "name": "Zaokrąglony",
+            "price": 0,
+            "image":"assets/images/rounded_profile"
+        },
+        {
+            "id": 2,
+            "name": "Ryfloway",
+            "price": 300,
+            "image":"assets/images/fluted_profile"
+        }
+    ],
+    "lengths": [
+        {
+            "id": 1,
+            "name": "520 mm / 20 1/2''",
+            "price": 100,
+            "image": "assets/images/length"
+        }
+    ],
+    "openSights": [
+        {
+            "id": 1,
+            "name": "Contrast sight",
+            "price": 230,
+            "image": "assets/images/contrast_sight"
+        }
+    ],
+    "muzzleBrakesOrSuppressors": [
+        {
+            "id": 1,
+            "name":  "Blaser Dual Break",
+            "price": 890,
+            "image": "assets/images/dual_break"
+        }
     ]
 }

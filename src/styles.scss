@@ -9,7 +9,7 @@ label {
     background-color: #27430f;
     justify-content: center;
     display: flex;
-
+    text-align: center;
     box-shadow: 2px 3px 10px;
     border-radius: 10px;
 }
@@ -22,7 +22,7 @@ h1 {
 
 .riffle_photo{
     margin: 2%;
-text-align: center;
+    text-align: center;
 }
 
 .container {
@@ -37,7 +37,43 @@ div {
 .content {
     width: 80%;
     margin: auto; 
-    background-color: lightgray;
     padding: 20px; 
 
 }
+//formularz
+.form-group {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 300px; /* Szerokość kontenera */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  select:hover {
+    border-color: #007bff; /* Zmiana koloru obramowania po najechaniu */
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #007bff; /* Kolor obramowania po zaznaczeniu */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efekt cienia po zaznaczeniu */
+  }

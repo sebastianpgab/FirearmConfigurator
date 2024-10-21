@@ -5,21 +5,40 @@
 
   <section class="content">
     <div class="riffle_photo">
-      <img src="assets/riffle_pictures/Blaser_R8_Standard_1140px.jpg" alt="Rifle Photo">
+      <img src="assets/riffle_pictures/blaser_r8_ultimate.jpg" alt="Rifle Photo">
     </div>
 
-    <div *ngIf="jsonData.length > 0">
+    <div *ngIf="jsonDataCalibers.length > 0">
       <form class="container">
         <div>
           <label>Kaliber: </label>
           <select>
-            <option *ngFor="let caliber of jsonData">{{caliber.name}}</option>
-          </select>    
+            <option *ngFor="let caliber of jsonDataCalibers">{{caliber.name}}</option>
+          </select>
+          <label>Kontur: </label>
+          <select>
+            <option *ngFor="let contur of jsonDataContours">{{contur.name}}</option>
+          </select>
+          <label>Profil: </label>
+          <select>
+            <option *ngFor="let profile of jsonDataProfiles">{{profile.name}}</option>
+          </select>
+          <label>Długość: </label>
+          <select>
+            <option *ngFor="let length of jsonDataLengths">{{length.name}}</option>
+          </select>
+          <label>Otwarte przyrządy celownicze: </label>
+          <select>
+            <option *ngFor="let openSight of jsonDataOpenSights">{{openSight.name}}</option>
+          </select>
+          <label>Hamulec wylotowy/tłumik</label>
+          <select>
+            <option *ngFor="let muzzleBrakeOrSuppressor of jsonDataMuzzleBrakesOrSuppressors">{{muzzleBrakeOrSuppressor.name}}</option>
+          </select>
         </div>
       </form>
     </div>
-
-    <div *ngIf="jsonData.length === 0">
+    <div *ngIf="jsonDataCalibers.length === 0">
       <p>Brak danych do wyświetlenia.</p>
     </div>
 </section>
