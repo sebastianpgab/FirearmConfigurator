@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+label {
+    color: red;
+}
+
+.title {
+    position: sticky;
+    width: auto;
+    height: 4500;
+    background-color: #27430f;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    box-shadow: 2px 3px 10px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 75px;
+    color: transparent;
+    text-shadow: 1px 1px 0 #ffffff, 2px 2px 0 #aaa, 3px 3px 0 #ddd;
+}
+
+.riffle_photo{
+    margin: 2%;
+    text-align: center;
+}
+
+.container {
+    margin: 1%;
+    color: blue($color: #000000);
+}
+
+div {
+    margin: 1%;
+}
+
+.content {
+    width: 80%;
+    margin: auto; 
+    padding: 20px; 
+
+}
+//formularz
+.form-group {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 300px; /* Szerokość kontenera */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  select:hover {
+    border-color: #007bff; /* Zmiana koloru obramowania po najechaniu */
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #007bff; /* Kolor obramowania po zaznaczeniu */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efekt cienia po zaznaczeniu */
+  }
