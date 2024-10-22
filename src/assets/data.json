@@ -1,56 +1,109 @@
 {
-    "calibers": [
+    "features": {
+      "contours": [
         {
-            "id": 1,
-            "name": ".300 Win",
-            "price": 450,
-            "imageUrl": "assets/images/300win.png"
-        }
-    ],
-    "contours":[
-        {
-            "id": 1,
-            "name": "Standard (17 mm)",
-            "price": 450,
-            "imageUrl": "assets/images/standard_contour"
-        }
-    ],
-    "profiles": [
-        {
-            "id": 1,
-            "name": "Zaokrąglony",
-            "price": 0,
-            "image":"assets/images/rounded_profile"
+          "id": 1,
+          "name": "Standard (17 mm)",
+          "price": 450,
+          "imageUrl": "assets/images/standard_contour.png",
+          "availableCalibers": [1, 2] 
         },
         {
-            "id": 2,
-            "name": "Ryfloway",
-            "price": 300,
-            "image":"assets/images/fluted_profile"
+          "id": 2,
+          "name": "Ryflowany",
+          "price": 300,
+          "imageUrl": "assets/images/fluted_contour.png",
+          "availableCalibers": [2, 3] 
         }
-    ],
-    "lengths": [
+      ],
+      "calibers": [
         {
-            "id": 1,
-            "name": "520 mm / 20 1/2''",
-            "price": 100,
-            "image": "assets/images/length"
-        }
-    ],
-    "openSights": [
+          "id": 1,
+          "name": ".300 Win",
+          "price": 450,
+          "imageUrl": "assets/images/300win.png",
+          "availableProfiles": [1]  
+        },
         {
-            "id": 1,
-            "name": "Contrast sight",
-            "price": 230,
-            "image": "assets/images/contrast_sight"
-        }
-    ],
-    "muzzleBrakesOrSuppressors": [
+          "id": 2,
+          "name": ".308 Win",
+          "price": 400,
+          "imageUrl": "assets/images/308win.png",
+          "availableProfiles": [1, 2] 
+        },
         {
-            "id": 1,
-            "name":  "Blaser Dual Break",
-            "price": 890,
-            "image": "assets/images/dual_break"
+          "id": 3,
+          "name": ".223 Rem",
+          "price": 350,
+          "imageUrl": "assets/images/223rem.png",
+          "availableProfiles": [2]
         }
+      ],
+      "profiles": [
+        {
+          "id": 1,
+          "name": "Zaokrąglony",
+          "price": 0,
+          "image": "assets/images/rounded_profile.png",
+          "availableLengths": [1, 2] 
+        },
+        {
+          "id": 2,
+          "name": "Ryflowany",
+          "price": 300,
+          "image": "assets/images/fluted_profile.png",
+          "availableLengths": [1]
+        }
+      ],
+      "lengths": [
+        {
+          "id": 1,
+          "name": "520 mm / 20 1/2''",
+          "price": 100,
+          "image": "assets/images/length.png",
+          "availableOpenSights": [1] 
+        },
+        {
+          "id": 2,
+          "name": "610 mm / 24''",
+          "price": 150,
+          "image": "assets/images/length_610.png",
+          "availableOpenSights": [1]
+        }
+      ],
+      "openSights": [
+        {
+          "id": 1,
+          "name": "Contrast sight",
+          "price": 230,
+          "image": "assets/images/contrast_sight.png",
+          "availableMuzzleBrakesOrSuppressors": [1]  
+        }
+      ],
+      "muzzleBrakesOrSuppressors": [
+        {
+          "id": 1,
+          "name": "Blaser Dual Brake",
+          "price": 890,
+          "image": "assets/images/dual_brake.png"
+        }
+      ]
+    },
+    "rifles": [
+      {
+        "id": 1,
+        "name": "Blaser R8 Ultimate",
+        "price": 3500,
+        "imageUrl": "assets/images/blaser_r8_ultimate.jpg",
+        "availableContours": [1, 2]
+      },
+      {
+        "id": 2,
+        "name": "Blaser R8 Semi-Weight",
+        "price": 3700,
+        "imageUrl": "assets/images/blaser_r8_semi_weight.jpg",
+        "availableContours": [2] 
+      }
     ]
-}
+  }
+  
