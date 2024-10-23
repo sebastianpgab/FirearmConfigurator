@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BarrelService {
 
-  private jsonUrl = 'assets/data.json'
+  private jsonUrl = 'assets/data.json';  // Ścieżka do pliku JSON
   constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
