@@ -10,10 +10,15 @@ import { BarrelService } from "./barrel.service";
 export class BarrelComponent implements OnInit {
 
   rifles: Rifle[] = [];
-  calibers: string[] = ['309', '321'];  // Tablica stringów
+  calibers: string[] = ['309', '321'];  
+  contours: string[] = ['Standard', 'Semi-weight']; 
+  profiles: string[] = ['Okrągła', 'Ryflowana'];
   features: any;
-  selectedCaliber: string = '';  // Wybrany kaliber
-
+  selectedCaliber: string = ''; 
+  selectedContour: string = '';
+  selectedProfile: string = '';
+  isDisabledCaliber: boolean = true;
+  isDisabledProfile: boolean = true;
 
   constructor(private barrelService: BarrelService) {}
 
@@ -21,9 +26,25 @@ export class BarrelComponent implements OnInit {
     this.barrelService.getData().subscribe(data => {
       this.features = data.features;
       this.rifles = data.rifles;
-      // Dane kalibrów są już ustawione na sztywno w tym przypadku
     }, error => {
       console.error('Błąd przy ładowaniu danych:', error);
     });
+  }
+
+  turnOfOption(): void {
+    // Jeśli Kontur został wybrany, odblokuj Kaliber
+    if (this.selectedContour !== '') {
+      this.isDisabledCaliber = false;
+    } else {
+      this.isDisabledCaliber = true;
+      this.isDisabledProfile = true; // Resetuj profil, jeśli kaliber jest wyłączony
+    }
+
+    // Jeśli Kaliber został wybrany, odblokuj Profil
+    if (this.selectedCaliber !== '') {
+      this.isDisabledProfile = false;
+    } else {
+      this.isDisabledProfile = true;
+    }
   }
 }

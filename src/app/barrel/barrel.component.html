@@ -11,10 +11,23 @@
     <div *ngIf="rifles.length > 0"> <!-- Sprawdzamy, czy mamy dane -->
       <form class="container">
 
-        <label>Kaliber: </label>
-        <select [(ngModel)]="selectedCaliber" name="caliberSelect">
+        <label>Kontur</label>
+        <select [(ngModel)]="selectedContour" name="selectedContour" (ngModelChange)="turnOfOption()">
+          <option [ngValue]="''" disabled>Wybierz kontur</option>
+          <option *ngFor="let contour of contours" [ngValue]="contour">{{contour}}</option>
+        </select>
+
+        <label>Kaliber</label>
+        <select [disabled]="isDisabledCaliber" [(ngModel)]="selectedCaliber" name="selectedCaliber" (ngModelChange)="turnOfOption()">
+          <option [ngValue]="''" disabled>Wybierz kaliber</option>
           <option *ngFor="let caliber of calibers" [ngValue]="caliber">{{caliber}}</option>
         </select>
+
+        <label>Profil</label>
+        <select [disabled]="isDisabledProfile" [(ngModel)]="selectedProfile" name="selectedProfile" (ngModelChange)="turnOfOption()">
+          <option [ngValue]="''" disabled>Wybierz profil</option>
+          <option *ngFor="let profile of profiles" [ngValue]="profile">{{profile}}</option>
+        </select >
         
         <p>Kaliber: {{selectedCaliber}}</p>
 
