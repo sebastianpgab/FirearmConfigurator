@@ -77,3 +77,13 @@ div {
     border-color: #007bff; /* Kolor obramowania po zaznaczeniu */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efekt cienia po zaznaczeniu */
   }
+
+
+  select.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    background-color: #f0f0f0;
+    color: #a0a0a0;
+    border: 1px solid #d0d0d0;
+    cursor: not-allowed; /* Zmieniony kursor, wskazuje brak możliwości wyboru */
+  }

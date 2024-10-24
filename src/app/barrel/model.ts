@@ -1,6 +1,6 @@
 import { Option } from "../option/model";
 
-interface Barrel {
+export interface Barrel {
     calibers: Option[];
     contour: Option[];
     profiles: Option[];
