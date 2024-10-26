@@ -28,11 +28,25 @@
           <option [ngValue]="''" disabled>Wybierz profil</option>
           <option *ngFor="let profile of profiles" [ngValue]="profile">{{profile}}</option>
         </select >
-        
-        <p>Kaliber: {{selectedCaliber}}</p>
 
+        <label>Długość</label>
+        <select [disabled]="isDisabledLength" [(ngModel)]="selectedLenght" name="isDisabledLength" (ngModelChange)="turnOfOption()">
+          <option [ngValue]="''" disabled>Wybierz długość</option>
+          <option *ngFor="let length  of lengths" [ngValue]="length">{{length}}</option>
+        </select>
+
+        <label>Przyrządy celownicze</label>
+        <select [disabled]="isDisabledOpenSight" [(ngModel)]="selectedOpenSight" name="isDisabledOpenSight" (ngModelChange)="turnOfOption()">
+          <option [ngValue]="''" disabled>Wybierz przyrządy celownicze</option>
+          <option *ngFor="let openSight of openSights" [ngValue]="openSight">{{openSight}}</option>
+        </select>
+
+        <label>Hamulce wylotowe/tłumik</label>
+        <select [disabled]="isDisabledMuzzleBreakorSilencer" [(ngModel)]="selectedMuzzleBreakorSilencer" name="isDisabledMuzzleBreakorSilencer" (ngModelChange)="turnOfOption()">
+          <option [ngValue]="''" disabled>Wybierz hamulec/tłumik</option>
+          <option *ngFor="let muzzleBreakorSilencer of muzzleBrakesOrSuppressors" [ngValue]="muzzleBreakorSilencer">{{muzzleBreakorSilencer}}</option>
+        </select>
       </form>
-
     </div>
     <div *ngIf="rifles.length === 0">
       <p>Brak danych do wyświetlenia.</p>
