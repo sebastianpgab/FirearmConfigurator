@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Rifle } from "../rifle/model";
 import { BarrelService } from "./barrel.service";
-
+import { Option } from "../option/model";
 @Component({
   selector: 'app-barrel',
   templateUrl: './barrel.component.html',
@@ -9,17 +9,17 @@ import { BarrelService } from "./barrel.service";
 })
 export class BarrelComponent implements OnInit {
 
+  features: any;
   rifles: Rifle[] = [];
+  contours: Option[] = [];  // Pusta tablica na początek
   calibers: string[] = ['309', '321'];  
-  contours: string[] = ['Standard', 'Semi-weight']; 
   profiles: string[] = ['Okrągła', 'Ryflowana'];
   lengths: string[] = ['22 cali', '23 cali'];
   openSights: string[] = ['światłowodowe',  'trapezowe'];
   muzzleBrakesOrSuppressors: string[] = ['tłumik', 'kompessator'];
 
-  features: any;
   selectedCaliber: string = ''; 
-  selectedContour: string = '';
+  selectedContour: Option = { id: 0, name: '', price: 0, imageUrl: '' };
   selectedProfile: string = '';
   selectedLenght: string = '';
   selectedOpenSight: string = '';
@@ -37,47 +37,24 @@ export class BarrelComponent implements OnInit {
     this.barrelService.getData().subscribe(data => {
       this.features = data.features;
       this.rifles = data.rifles;
+      this.contours = this.features.contours;
+      this.calibers = this.features.calibers;
+      this.profiles = this.features.profiles;
+      this.lengths = this.features.lengths;
+      this.openSights = this.features.openSights;
+      this.muzzleBrakesOrSuppressors = this.features.muzzleBrakesOrSuppressors;
     }, error => {
       console.error('Błąd przy ładowaniu danych:', error);
     });
   }
 
   turnOfOption(): void {
-    // Jeśli Kontur został wybrany, odblokuj Kaliber
-    if (this.selectedContour !== '') {
-      this.isDisabledCaliber = false;
-    } else {
-      this.isDisabledCaliber = true;
-    }
-
-    // Jeśli Kaliber został wybrany, odblokuj Profil
-    if (this.selectedCaliber !== '') {
-      this.isDisabledProfile = false;
-    } else {
-      this.isDisabledProfile = true;
-    }
-
-    //Jesli Profil został wybrany, odblokuj Długość
-    if(this.selectedProfile !== ''){
-      this.isDisabledLength= false;
-    } else{
-      this.isDisabledLength = true;
-    }
-
-    //jesli Dlugość została wybrana, odblokuj Przyrządy celownicze
-    if(this.selectedLenght !== ''){
-      this.isDisabledOpenSight = false;
-    } else {
-      this.isDisabledOpenSight = true;
-    }
-
-    //jeśli Przyrządy celownicze zostały wybrane, odblokuj Hamulce
-    if(this.selectedOpenSight !== ''){
-      this.isDisabledMuzzleBreakorSilencer = false;
-    }else {
-      this.isDisabledMuzzleBreakorSilencer = true;
-    }
+    this.isDisabledCaliber = this.selectedContour.name === '';
+    this.isDisabledProfile = this.selectedCaliber === '';
+    this.isDisabledLength = this.selectedProfile === '';
+    this.isDisabledOpenSight = this.selectedLenght === '';
+    this.isDisabledMuzzleBreakorSilencer = this.selectedOpenSight === '';
   }
 
-  //jeśli 
+  
 }

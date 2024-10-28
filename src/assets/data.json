@@ -5,7 +5,7 @@
           "id": 1,
           "name": "Standard (17 mm)",
           "price": 450,
-          "imageUrl": "assets/images/standard_contour.png",
+          "imageUrl": "assets/images/contour_pictures/R8_a1_0_la_standard_17mm.jpg",
           "availableCalibers": [1, 2] 
         },
         {

@@ -14,7 +14,7 @@
         <label>Kontur</label>
         <select [(ngModel)]="selectedContour" name="selectedContour" (ngModelChange)="turnOfOption()">
           <option [ngValue]="''" disabled>Wybierz kontur</option>
-          <option *ngFor="let contour of contours" [ngValue]="contour">{{contour}}</option>
+          <option *ngFor="let contour of contours" [ngValue]="contour">{{contour?.name}} {{contour?.imageUrl}}</option>
         </select>
 
         <label>Kaliber</label>
