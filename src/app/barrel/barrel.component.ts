@@ -18,6 +18,9 @@ export class BarrelComponent implements OnInit {
   openSights: string[] = ['światłowodowe',  'trapezowe'];
   muzzleBrakesOrSuppressors: string[] = ['tłumik', 'kompessator'];
 
+
+  isContourDropdownOpen = false; // Kontrola widoczności listy
+
   selectedCaliber: string = ''; 
   selectedContour: Option = { id: 0, name: '', price: 0, imageUrl: '' };
   selectedProfile: string = '';
@@ -55,6 +58,5 @@ export class BarrelComponent implements OnInit {
     this.isDisabledOpenSight = this.selectedLenght === '';
     this.isDisabledMuzzleBreakorSilencer = this.selectedOpenSight === '';
   }
-
   
 }

@@ -5,14 +5,21 @@
           "id": 1,
           "name": "Standard (17 mm)",
           "price": 450,
-          "imageUrl": "assets/images/contour_pictures/R8_a1_0_la_standard_17mm.jpg",
+          "imageUrl": "assets/contour_pictures/R8_a1_0_la_standard_17mm.jpg",
           "availableCalibers": [1, 2] 
         },
         {
           "id": 2,
-          "name": "Ryflowany",
+          "name": "Ryflowany (22 mm)",
           "price": 300,
-          "imageUrl": "assets/images/fluted_contour.png",
+          "imageUrl": "assets/contour_pictures/R8_a1_j_la_match_22mm.jpg",
+          "availableCalibers": [2, 3] 
+        },
+        {
+          "id": 2,
+          "name": "Semi-Weight (19 mm)",
+          "price": 300,
+          "imageUrl": "assets/contour_pictures/R8_a1_sw_la_semi_weight_19mm.jpg",
           "availableCalibers": [2, 3] 
         }
       ],

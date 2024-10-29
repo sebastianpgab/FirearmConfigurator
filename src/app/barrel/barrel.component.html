@@ -4,18 +4,32 @@
   </section>
 
   <section class="content">
-    <div class="riffle_photo">
-      <img src="assets/riffle_pictures/blaser_r8_ultimate.jpg" alt="Rifle Photo">
-    </div>
-
+      <div class="riffle_photo">
+        <img src="assets/riffle_pictures/blaser_r8_ultimate.jpg" alt="Rifle Photo" loading="lazy">
+      </div>
+    
     <div *ngIf="rifles.length > 0"> <!-- Sprawdzamy, czy mamy dane -->
       <form class="container">
 
-        <label>Kontur</label>
-        <select [(ngModel)]="selectedContour" name="selectedContour" (ngModelChange)="turnOfOption()">
-          <option [ngValue]="''" disabled>Wybierz kontur</option>
-          <option *ngFor="let contour of contours" [ngValue]="contour">{{contour?.name}} {{contour?.imageUrl}}</option>
-        </select>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Kontur</mat-label>
+          <mat-select
+            [(value)]="selectedContour"
+            (selectionChange)="turnOfOption()"
+            placeholder="Wybierz kontur"
+          >
+            <mat-option
+              *ngFor="let contour of contours"
+              [value]="contour"
+              [disabled]="false"
+            >
+              <div class="option-template">
+                <img [src]="contour.imageUrl" alt="{{ contour.name }}" />
+                <span>{{ contour.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
         <label>Kaliber</label>
         <select [disabled]="isDisabledCaliber" [(ngModel)]="selectedCaliber" name="selectedCaliber" (ngModelChange)="turnOfOption()">
