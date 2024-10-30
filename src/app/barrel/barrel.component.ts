@@ -12,21 +12,21 @@ export class BarrelComponent implements OnInit {
   features: any;
   rifles: Rifle[] = [];
   contours: Option[] = [];  // Pusta tablica na początek
-  calibers: string[] = ['309', '321'];  
-  profiles: string[] = ['Okrągła', 'Ryflowana'];
-  lengths: string[] = ['22 cali', '23 cali'];
-  openSights: string[] = ['światłowodowe',  'trapezowe'];
-  muzzleBrakesOrSuppressors: string[] = ['tłumik', 'kompessator'];
+  calibers: Option[] = [];  
+  profiles: Option[] = [];
+  lengths: Option[] = [];
+  openSights: Option[] = [];
+  muzzleBrakesOrSuppressors: Option[] = [];
 
 
   isContourDropdownOpen = false; // Kontrola widoczności listy
 
-  selectedCaliber: string = ''; 
+  selectedCaliber: Option = { id: 0, name: '', price: 0, imageUrl: '' }; 
   selectedContour: Option = { id: 0, name: '', price: 0, imageUrl: '' };
-  selectedProfile: string = '';
-  selectedLenght: string = '';
-  selectedOpenSight: string = '';
-  selectedMuzzleBreakorSilencer: string = '';
+  selectedProfile: Option = { id: 0, name: '', price: 0, imageUrl: '' };
+  selectedLenght: Option = { id: 0, name: '', price: 0, imageUrl: '' };
+  selectedOpenSight: Option = { id: 0, name: '', price: 0, imageUrl: '' };
+  selectedMuzzleBreakorSilencer: Option = { id: 0, name: '', price: 0, imageUrl: '' };
   
   isDisabledCaliber: boolean = true;
   isDisabledProfile: boolean = true;
@@ -53,10 +53,10 @@ export class BarrelComponent implements OnInit {
 
   turnOfOption(): void {
     this.isDisabledCaliber = this.selectedContour.name === '';
-    this.isDisabledProfile = this.selectedCaliber === '';
-    this.isDisabledLength = this.selectedProfile === '';
-    this.isDisabledOpenSight = this.selectedLenght === '';
-    this.isDisabledMuzzleBreakorSilencer = this.selectedOpenSight === '';
+    this.isDisabledProfile = this.selectedCaliber.name === '';
+    this.isDisabledLength = this.selectedProfile.name === '';
+    this.isDisabledOpenSight = this.selectedLenght.name === '';
+    this.isDisabledMuzzleBreakorSilencer = this.selectedOpenSight.name === '';
   }
-  
+
 }
