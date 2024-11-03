@@ -41,7 +41,7 @@ h1 {
 .riffle_photo {
   width: 100%;
   max-width: 800px;
-  margin: 100px auto;
+  margin: 25px auto;
 }
 
 .riffle_photo img {
@@ -60,14 +60,14 @@ div {
 }
 
 .content {
-    width: 80%;
+    width: 60%;
     margin: auto; 
     padding: 20px; 
 
 }
 //formularz
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 15%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -102,7 +102,6 @@ div {
     border-color: #007bff; /* Kolor obramowania po zaznaczeniu */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efekt cienia po zaznaczeniu */
   }
-
 
   select.disabled {
     pointer-events: none;

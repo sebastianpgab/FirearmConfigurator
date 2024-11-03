@@ -19,7 +19,6 @@ export class BarrelComponent implements OnInit {
   muzzleBrakesOrSuppressors: Option[] = [];
 
 
-  isContourDropdownOpen = false; // Kontrola widoczności listy
 
   selectedCaliber: Option = { id: 0, name: '', price: 0, imageUrl: '' }; 
   selectedContour: Option = { id: 0, name: '', price: 0, imageUrl: '' };

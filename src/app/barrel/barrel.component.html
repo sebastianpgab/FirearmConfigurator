@@ -11,7 +11,7 @@
     <div *ngIf="rifles.length > 0"> <!-- Sprawdzamy, czy mamy dane -->
       <form class="container">
 
-        <mat-form-field appearance="fill" style="width: 70%;">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kontur</mat-label>
           <mat-select
             [(value)]="selectedContour" 
@@ -27,11 +27,10 @@
                 <span>{{ contour.name }}</span>
               </div>
             </mat-option>
-          </mat-select>
-          
+          </mat-select>   
         </mat-form-field>
 
-        <mat-form-field appearance="fill" style="width: 70%;">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kaliber</mat-label>
           <mat-select
             [(value)]="selectedCaliber"
@@ -51,7 +50,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" style="width: 70%;">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Profil</mat-label>
           <mat-select
             [(value)]="selectedProfile"
@@ -70,8 +69,7 @@
           </mat-select>
         </mat-form-field>
 
-
-        <mat-form-field appearance="fill" style="width: 70%;">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Długość</mat-label>
           <mat-select 
           [(value)]="selectedLenght"
@@ -90,25 +88,46 @@
           </mat-select>
         </mat-form-field>
 
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Przyrządy celownicze</mat-label>
+          <mat-select
+          [(value)]="selectedOpenSight"
+          (selectionChange)="turnOfOption()"
+          placeholder="Wybierz przyrząd celowniczy"
+          >
+            <mat-option
+            *ngFor="let openSight of openSights"
+            [value]="openSight"
+            [disabled]="isDisabledOpenSight"
+            >
+            <div class="option-template">
+              <img [src]="openSight.imageUrl" alt="{{ openSight.name }}">
+              <span>{{openSight.name}}</span>
+            </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Hamulce wylotowe/tłumik</mat-label>
+          <mat-select
+          [(value)]="selectedMuzzleBreakorSilencer"
+          (selectionChange)="turnOfOption()"
+          placeholder="Wybierz hamulec/tłumik"
+          >
+          <mat-option
+          *ngFor="let muzzleBreakorSilencer of muzzleBrakesOrSuppressors"
+          [value]="muzzleBreakorSilencer"
+          [disabled]="isDisabledMuzzleBreakorSilencer"
+          >
+          <div class="option-template">
+            <img [src]="muzzleBreakorSilencer.imageUrl" alt="{{ muzzleBreakorSilencer.name }}">
+            <span>{{muzzleBreakorSilencer.name}}</span>
+          </div>
+          </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-        <label>Długość</label>
-        <select [disabled]="isDisabledLength" [(ngModel)]="selectedLenght" name="isDisabledLength" (ngModelChange)="turnOfOption()">
-          <option [ngValue]="''" disabled>Wybierz długość</option>
-          <option *ngFor="let length  of lengths" [ngValue]="length">{{length}}</option>
-        </select>
-
-        <label>Przyrządy celownicze</label>
-        <select [disabled]="isDisabledOpenSight" [(ngModel)]="selectedOpenSight" name="isDisabledOpenSight" (ngModelChange)="turnOfOption()">
-          <option [ngValue]="''" disabled>Wybierz przyrządy celownicze</option>
-          <option *ngFor="let openSight of openSights" [ngValue]="openSight">{{openSight}}</option>
-        </select>
-
-        <label>Hamulce wylotowe/tłumik</label>
-        <select [disabled]="isDisabledMuzzleBreakorSilencer" [(ngModel)]="selectedMuzzleBreakorSilencer" name="isDisabledMuzzleBreakorSilencer" (ngModelChange)="turnOfOption()">
-          <option [ngValue]="''" disabled>Wybierz hamulec/tłumik</option>
-          <option *ngFor="let muzzleBreakorSilencer of muzzleBrakesOrSuppressors" [ngValue]="muzzleBreakorSilencer">{{muzzleBreakorSilencer}}</option>
-        </select>
       </form>
     </div>
     <div *ngIf="rifles.length === 0">
