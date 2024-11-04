@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HomeModule } from './home/home.module';
+import { BarrelModule } from './barrel/barrel.module';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    
+    BarrelModule,
+    HomeModule,
+    AppRoutingModule
     ],
   providers: [],
-  bootstrap: [BarrelComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
