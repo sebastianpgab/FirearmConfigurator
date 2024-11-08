@@ -1,30 +1,27 @@
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(43, 43, 54, 0.85);
-    color: #ffffff;
-    padding: 30px 20px; /* Większy padding dla lepszej przestrzeni */
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    gap: 15px;
-}
-
 .title-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 800px; /* Zwiększenie szerokości maksymalnej sekcji */
+    justify-content: center; /* Zmiana z space-between na center */
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
     gap: 20px;
 }
 
 .logo {
     width: auto;
-    height: 70px; /* Stała wysokość dla logo */
+    height: auto;
     filter: brightness(0) invert(1);
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.logoBlaser {
+    max-height: 95px;
+}
+
+.logoTwojaBron {
+    max-height: 105px;
 }
 
 .title-text {
@@ -47,8 +44,7 @@
     margin: 5px 0 0 0;
 }
 
-/* Styl dla urządzeń mobilnych */
-@media (max-width: 600px) {
+@media (max-width: 692px) {
     .title-row {
         flex-direction: column;
         align-items: center;
@@ -56,7 +52,7 @@
     }
 
     .title {
-        padding: 20px; /* Większy padding na mobilnych */
+        padding: 20px;
         gap: 10px;
     }
 
@@ -69,10 +65,12 @@
     }
 
     .logo {
-        height: 25px; /* Mniejsze logo na urządzeniach mobilnych */
+        max-height: 0px;
+        width: auto;
+        height: auto;
+        flex-shrink: 0;
     }
 }
-
 
 .image-gallery {
     display: flex;
@@ -102,11 +100,14 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8); /* Zwiększone krycie tła */
     color: #ffffff;
     text-align: center;
-    font-size: 16px;
-    padding: 10px;
-    font-weight: bold;
+    font-size: 18px; /* Większy rozmiar czcionki */
+    padding: 15px; /* Większy padding */
+    font-weight: 300; /* Grubsza czcionka */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Cień tekstu */
+    text-transform: uppercase; /* Wersaliki */
     border-radius: 0 0 12px 12px;
+    border-top: 2px solid #ffffff; /* Obramowanie górne */
 }
