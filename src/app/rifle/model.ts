@@ -1,4 +1,4 @@
-import {Barrel} from '../barrel/model';
+import {Barrel} from '../R8/barrel/model';
 
 
 export interface Rifle {
@@ -7,5 +7,11 @@ export interface Rifle {
     price: number,
     imageUrl?: string;
     barrels: Barrel[];
-    availableContours: number[]; 
+    availableContours: number[];
+    availableCalibers: number[]; 
+    availableProfiles: number[];
+    availableLengths: number[];
+    availableOpenSights: number[];
+    availableMuzzleBrakesOrSuppressors: number[];
+
 }

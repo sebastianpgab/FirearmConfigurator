@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { BarrelComponent } from './barrel/barrel.component';
+import { BarrelComponent } from './R8/barrel/barrel.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},

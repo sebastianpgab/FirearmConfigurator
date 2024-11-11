@@ -5,11 +5,30 @@
 
   <section class="content">
       <div class="riffle_photo">
-        <img src="assets/riffle_pictures/blaser_r8_ultimate.jpg" alt="Rifle Photo" loading="lazy">
+        <img [src]="selectedRifle?.imageUrl" alt="Rifle Photo" loading="lazy">
       </div>
     
     <div *ngIf="rifles.length > 0"> <!-- Sprawdzamy, czy mamy dane -->
       <form class="container">
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Model</mat-label>
+          <mat-select
+            [(value)]="selectedRifle" 
+            (selectionChange)="onSelectRifle($event.value)"
+            placeholder="Wybierz model"
+          >
+            <mat-option
+              *ngFor="let rifle of rifles"
+              [value]="rifle"
+            >
+              <div class="option-template">
+                <img [src]="rifle.imageUrl" alt="{{ rifle.name }}" />
+                <span>{{ rifle.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>   
+        </mat-form-field>
+        
 
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kontur</mat-label>

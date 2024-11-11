@@ -16,7 +16,7 @@
           "availableCalibers": [2, 3] 
         },
         {
-          "id": 2,
+          "id": 3,
           "name": "Semi-Weight (19 mm)",
           "price": 300,
           "imageUrl": "assets/contour_pictures/R8_a1_sw_la_semi_weight_19mm.jpg",
@@ -101,15 +101,22 @@
         "id": 1,
         "name": "Blaser R8 Ultimate",
         "price": 3500,
-        "imageUrl": "assets/images/blaser_r8_ultimate.jpg",
-        "availableContours": [1, 2]
+        "imageUrl": "assets/riffle_pictures/blaser_r8_ultimate.jpg",
+        "availableContours": [1, 2],
+        "availableCalibers": [1, 2],
+        "availableProfiles": [1, 2],
+        "availableLengths": [1, 2],
+        "availableOpenSights": [1, 2],
+        "availableMuzzleBrakesOrSuppressors": [1, 2]
+
+
       },
       {
         "id": 2,
-        "name": "Blaser R8 Semi-Weight",
+        "name": "Blaser R8 Blaser R16",
         "price": 3700,
         "imageUrl": "assets/images/blaser_r8_semi_weight.jpg",
-        "availableContours": [2] 
+        "availableContours": [1] 
       }
     ]
   }
