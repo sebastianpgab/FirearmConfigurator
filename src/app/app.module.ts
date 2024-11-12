@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
 import { BarrelModule } from './R8/barrel/barrel.module';
+import { NavbarComponent } from './core/navbar/navbar.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { BarrelModule } from './R8/barrel/barrel.module';
     BrowserAnimationsModule,
     BarrelModule,
     HomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule 
     ],
   providers: [],
   bootstrap: [AppComponent]
