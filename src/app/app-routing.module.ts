@@ -5,9 +5,10 @@ import { HomeComponent } from './home/home.component';
 import { BarrelComponent } from './R8/barrel/barrel.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: 'r8/barrel', component: BarrelComponent},
-  {path: '', component:HomeComponent},
-  {path: '**', component: HomeComponent},
+  { path: 'home', component: HomeComponent },  
+  { path: '**', redirectTo: '/home' }
 ]
 
 @NgModule({
