@@ -94,7 +94,44 @@
           "price": 890,
           "image": "assets/images/dual_brake.png"
         }
-      ]
+      ],
+
+    "buttstockTypes": [
+      { "id": 1, "name": "Kolba standardowa", "price": 200, "imageUrl": "assets/stock_pictures/standard_buttstock.jpg" },
+      { "id": 2, "name": "Kolba z podwójnym wrębem na bawarską poduszkę policzkową", "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg" }
+    ],
+    "woodCategories": [
+      { "id": 1, "name": "Klasa drewna 1", "price": 100, "imageUrl": "assets/wood_pictures/wood_grade1.jpg" },
+      { "id": 2, "name": "Klasa drewna 4", "price": 400, "imageUrl": "assets/wood_pictures/wood_grade4.jpg" }
+    ],
+    "lengthsOfPull": [
+      { "id": 1, "name": "Standardowa długość naciągu z 15 mm (½”) podkładką", "price": 0, "imageUrl": "assets/lengths_of_pull/standard_length.jpg" },
+      { "id": 2, "name": "Indywidualna długość naciągu", "price": 100, "imageUrl": "assets/lengths_of_pull/custom_length.jpg" }
+    ],
+    "individualButtstockMeasures": [
+      { "id": 1, "name": "Kolba z wymiarami fabrycznymi", "price": 0, "imageUrl": "assets/individual_measures/factory_measures.jpg" },
+      { "id": 2, "name": "Kolba z wymiarami indywidualnymi", "price": 150, "imageUrl": "assets/individual_measures/individual_measures.jpg" }
+    ],
+    "buttstockMeasuresTypes": [
+      { "id": 1, "name": "Wymiary fabryczne", "price": 0, "imageUrl": "assets/measures_types/factory.jpg" },
+      { "id": 2, "name": "Wymiary indywidualne", "price": 200, "imageUrl": "assets/measures_types/custom.jpg" }
+    ],
+    "pistolGripCaps": [
+      { "id": 1, "name": "Brak nasadki", "price": 0, "imageUrl": "assets/grip_caps/none.jpg" },
+      { "id": 2, "name": "Nasadka na chwyt pistoletowy", "price": 50, "imageUrl": "assets/grip_caps/custom_grip.jpg" }
+    ],
+    "kickstops": [
+      { "id": 1, "name": "Brak kickstopu", "price": 0, "imageUrl": "assets/kickstops/none.jpg" },
+      { "id": 2, "name": "Kickstop zainstalowany", "price": 100, "imageUrl": "assets/kickstops/kickstop_installed.jpg" }
+    ],
+    "stockMagazines": [
+      { "id": 1, "name": "Brak magazynu", "price": 0, "imageUrl": "assets/stock_magazines/none.jpg" },
+      { "id": 2, "name": "Magazyn w kolbie", "price": 120, "imageUrl": "assets/stock_magazines/stock_magazine.jpg" }
+    ],
+    "forearmOptions": [
+      { "id": 1, "name": "Standardowa końcówka przedniego chwytu", "price": 0, "imageUrl": "assets/forearm_options/standard_tip.jpg" },
+      { "id": 2, "name": "Czarna (syntetyczna) końcówka przedniego chwytu", "price": 80, "imageUrl": "assets/forearm_options/black_tip.jpg" }
+    ]
     },
     "rifles": [
       {
@@ -107,9 +144,16 @@
         "availableProfiles": [1, 2],
         "availableLengths": [1, 2],
         "availableOpenSights": [1, 2],
-        "availableMuzzleBrakesOrSuppressors": [1, 2]
-
-
+        "availableMuzzleBrakesOrSuppressors": [1, 2],
+        "availableButtstockTypes": [1],
+        "availableWoodCategories": [1],
+        "availableLengthsOfPull": [1],
+        "availableIndividualButtstockMeasures": [1],
+        "availableButtstockMeasuresTypes": [1],
+        "availablePistolGripCaps":[1],
+        "availableKickstops":[1],
+        "availableStockMagazines": [1],
+        "availableForearmOptions":[1]
       },
       {
         "id": 2,

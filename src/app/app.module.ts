@@ -13,11 +13,13 @@ import { HomeModule } from './home/home.module';
 import { BarrelModule } from './R8/barrel/barrel.module';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { CoreModule } from './core/core.module';
+import { StockComponent } from './R8/stock/stock.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BarrelComponent
+    BarrelComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,207 @@
+<body>
+    <section class="content">
+      <h1 class="section-title">KOLBA</h1>
+      
+      <div class="stock_photo">
+        <img [src]="selectedRifle?.imageUrl" alt="Stock Photo" loading="lazy">
+      </div>
+    
+      <div *ngIf="rifles.length > 0"> <!-- Sprawdzamy, czy mamy dane -->
+        <form class="container">  
+          <!-- Typ Kolby -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Typ Kolby</mat-label>
+            <mat-select
+              [(value)]="selectedButtstockType" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz typ kolby"
+              [disabled]="isDisabledButtstockType"
+            >
+              <mat-option
+                *ngFor="let option of buttstockTypes"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+          <!-- Kategoria Drewna -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Kategoria Drewna</mat-label>
+            <mat-select
+              [(value)]="selectedWoodCategory" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz kategorię drewna"
+              [disabled]="isDisabledWoodCategory"
+            >
+              <mat-option
+                *ngFor="let option of woodCategories"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+          <!-- Długość Naciągu -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Długość Naciągu</mat-label>
+            <mat-select
+              [(value)]="selectedLengthOfPull" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz długość naciągu"
+              [disabled]="isDisabledLengthOfPull"
+            >
+              <mat-option
+                *ngFor="let option of lengthsOfPull"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+          <!-- Indywidualne Wymiary Kolby -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Indywidualne Wymiary Kolby</mat-label>
+            <mat-select
+              [(value)]="selectedIndividualButtstockMeasure" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz opcję"
+              [disabled]="isDisabledIndividualButtstockMeasure"
+            >
+              <mat-option
+                *ngFor="let option of individualButtstockMeasures"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+          <!-- Typ Wymiarów Kolby -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Typ Wymiarów Kolby</mat-label>
+            <mat-select
+              [(value)]="selectedButtstockMeasuresType" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz typ wymiarów"
+              [disabled]="isDisabledButtstockMeasuresType"
+            >
+              <mat-option
+                *ngFor="let option of buttstockMeasuresTypes"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+          <!-- Nasadka na Chwyt Pistoletowy -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Nasadka na Chwyt Pistoletowy</mat-label>
+            <mat-select
+              [(value)]="selectedPistolGripCap" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz opcję"
+              [disabled]="isDisabledPistolGripCap"
+            >
+              <mat-option
+                *ngFor="let option of pistolGripCaps"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+          <!-- Kickstop -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Kickstop</mat-label>
+            <mat-select
+              [(value)]="selectedKickstop" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz kickstop"
+              [disabled]="isDisabledKickstop"
+            >
+              <mat-option
+                *ngFor="let option of kickstops"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+          <!-- Magazyn w Kolbie -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Magazyn w Kolbie</mat-label>
+            <mat-select
+              [(value)]="selectedStockMagazine" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz magazyn"
+              [disabled]="isDisabledStockMagazine"
+            >
+              <mat-option
+                *ngFor="let option of stockMagazines"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+          <!-- Opcja Przedłużenia -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Opcja Przedłużenia</mat-label>
+            <mat-select
+              [(value)]="selectedForearmOption" 
+              (selectionChange)="updateOptions()"
+              placeholder="Wybierz opcję"
+              [disabled]="isDisabledForearmOption"
+            >
+              <mat-option
+                *ngFor="let option of forearmOptions"
+                [value]="option"
+              >
+                <div class="option-template">
+                  <img [src]="option.imageUrl" alt="{{ option.name }}" />
+                  <span>{{ option.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>   
+          </mat-form-field>
+  
+        </form>
+      </div>
+      <div *ngIf="rifles.length === 0">
+        <p>Brak danych do wyświetlenia.</p>
+      </div>
+    </section>
+  </body>
+  

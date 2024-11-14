@@ -1,5 +1,5 @@
 import { Component, OnInit, Optional } from "@angular/core";
-import { Rifle } from "../../rifle/model";
+import { Rifle } from "../rifle/model";
 import { BarrelService } from "./barrel.service";
 import { Option } from "../../option/model";
 
@@ -39,6 +39,7 @@ export class BarrelComponent implements OnInit {
     this.barrelService.getData().subscribe(data => {
       this.features = data.features;
       this.rifles = data.rifles;
+      this.selectedRifle = this.rifles[0]
       this.contours = this.features.contours;
       this.calibers = this.features.calibers;
       this.profiles = this.features.profiles;
