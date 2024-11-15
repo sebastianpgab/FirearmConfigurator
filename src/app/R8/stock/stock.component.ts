@@ -3,6 +3,7 @@ import { Stock } from "./model";
 import { StockService } from "./stock.service";
 import { Option } from "../../option/model";
 import { Rifle } from "../rifle/model"; // Importujemy model Rifle
+import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({
   selector: 'app-stock',
@@ -11,9 +12,9 @@ import { Rifle } from "../rifle/model"; // Importujemy model Rifle
 })
 export class StockComponent implements OnInit {
   
+  stockOption: any;
   features: any;
   rifles: Rifle[] = []; // Lista karabinów
-  
   
   buttstockTypes: Option[] = [];
   woodCategories: Option[] = [];
@@ -49,35 +50,52 @@ export class StockComponent implements OnInit {
   isDisabledStockMagazine: boolean = true;
   isDisabledForearmOption: boolean = true;
 
-  constructor(private stockService: StockService) {}
+  constructor(private stockService: StockService, private configuratorService: ConfiguratorService) {
+    this.stockOption = this.configuratorService.getConfiguration('stock');
+  }
+
+  saveStockOption(option: any): void {
+    this.stockOption = option;
+    // Zapisz wybraną opcję kolby
+    this.configuratorService.setConfiguration('stock', option);
+  }
 
   ngOnInit() {
-    this.stockService.getData().subscribe(data => {
-      this.features = data.features;
-      this.rifles = data.rifles;
-      this.selectedRifle = this.rifles[0];
-      
-      // Inicjalizacja opcji
-      this.buttstockTypes = this.features.buttstockTypes;
-      this.woodCategories = this.features.woodCategories;
-      this.lengthsOfPull = this.features.lengthsOfPull;
-      this.individualButtstockMeasures = this.features.individualButtstockMeasures;
-      this.buttstockMeasuresTypes = this.features.buttstockMeasuresTypes;
-      this.pistolGripCaps = this.features.pistolGripCaps;
-      this.kickstops = this.features.kickstops;
-      this.stockMagazines = this.features.stockMagazines;
-      this.forearmOptions = this.features.forearmOptions;
-
-      // Inicjalizacja wybranej kolby
-
-    }, error => {
-      console.error('Błąd przy ładowaniu danych:', error);
-    });
+    this.stockService.getData().subscribe(
+      (data) => {
+        this.features = data.features;
+        this.rifles = data.rifles;
+  
+        // Pobierz wybraną broń z ConfiguratorService
+        const savedRifle = this.configuratorService.getSelectedRifle();
+        this.selectedRifle = savedRifle ? savedRifle : this.rifles[0];
+  
+        // Zaktualizuj opcje na podstawie wybranego karabinu
+        this.onSelectRifle(this.selectedRifle);
+  
+        // Inicjalizacja opcji
+        this.buttstockTypes = this.features.buttstockTypes;
+        this.woodCategories = this.features.woodCategories;
+        this.lengthsOfPull = this.features.lengthsOfPull;
+        this.individualButtstockMeasures = this.features.individualButtstockMeasures;
+        this.buttstockMeasuresTypes = this.features.buttstockMeasuresTypes;
+        this.pistolGripCaps = this.features.pistolGripCaps;
+        this.kickstops = this.features.kickstops;
+        this.stockMagazines = this.features.stockMagazines;
+        this.forearmOptions = this.features.forearmOptions;
+      },
+      (error) => {
+        console.error('Błąd przy ładowaniu danych:', error);
+      }
+    );
   }
 
   onSelectRifle(rifle: Rifle) {
     this.selectedRifle = rifle;
     
+    // Zapisz wybrany karabin w ConfiguratorService
+    this.configuratorService.setSelectedRifle(rifle);
+
     // Filtrowanie opcji na podstawie wybranego karabinu
     this.buttstockTypes = rifle.availableButtstockTypes
       ? this.features.buttstockTypes.filter((option: Option) =>

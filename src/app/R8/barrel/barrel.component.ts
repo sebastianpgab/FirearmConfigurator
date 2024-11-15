@@ -2,6 +2,9 @@ import { Component, OnInit, Optional } from "@angular/core";
 import { Rifle } from "../rifle/model";
 import { BarrelService } from "./barrel.service";
 import { Option } from "../../option/model";
+import { ConfiguratorService } from "src/app/core/services/configurator.service";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-barrel',
@@ -10,6 +13,7 @@ import { Option } from "../../option/model";
 })
 export class BarrelComponent implements OnInit {
   
+  barrelOption: any;
   features: any;
   rifles: Rifle[] = [];
   contours: Option[] = [];
@@ -19,7 +23,7 @@ export class BarrelComponent implements OnInit {
   openSights: Option[] = [];
   muzzleBrakesOrSuppressors: Option[] = [];
 
-  selectedRifle: Rifle | null = null; // Wybrany rifle z szablonu
+  selectedRifle: Rifle | null = null;
   selectedCaliber: Option = { id: 0, name: '', price: 0, imageUrl: '' }; 
   selectedContour: Option = { id: 0, name: '', price: 0, imageUrl: '' };
   selectedProfile: Option = { id: 0, name: '', price: 0, imageUrl: '' };
@@ -33,13 +37,18 @@ export class BarrelComponent implements OnInit {
   isDisabledOpenSight: boolean = true;
   isDisabledMuzzleBreakorSilencer: boolean = true;
 
-  constructor(private barrelService: BarrelService) {}
+  constructor(private barrelService: BarrelService, private configuratorService: ConfiguratorService,
+    private router: Router 
+  ) {
+    this.barrelOption = this.configuratorService.getConfiguration('barrel');
+  }
 
   ngOnInit() {
     this.barrelService.getData().subscribe(data => {
       this.features = data.features;
       this.rifles = data.rifles;
-      this.selectedRifle = this.rifles[0]
+      const savedRifle = this.configuratorService.getSelectedRifle();
+      this.selectedRifle = savedRifle ? savedRifle : this.rifles[0];
       this.contours = this.features.contours;
       this.calibers = this.features.calibers;
       this.profiles = this.features.profiles;
@@ -51,15 +60,36 @@ export class BarrelComponent implements OnInit {
     });
   }
 
+  saveBarrelOption(option: any): void {
+    this.barrelOption = option;
+    this.configuratorService.setConfiguration('barrel', option);
+  }
+
+  onNext(): void {
+    const option = {
+      rifle: this.selectedRifle,
+      contour: this.selectedContour,
+      caliber: this.selectedCaliber,
+      profile: this.selectedProfile,
+      length: this.selectedLenght,
+      openSight: this.selectedOpenSight,
+      muzzleBrakeOrSuppressor: this.selectedMuzzleBreakorSilencer
+    };
+
+    this.saveBarrelOption(option);
+    this.router.navigate(['/r8/stock']);
+  }
+
   onSelectRifle(rifle: Rifle) {
     this.selectedRifle = rifle;
   
+    this.configuratorService.setSelectedRifle(rifle);
     // Filtrowanie konturów
     this.contours = rifle.availableContours
       ? this.features.contours.filter((contour: Option) =>
           rifle.availableContours.includes(contour.id)
         )
-      : []; // Pusta tablica, jeśli brak `availableContours`
+      : [];
   
     // Filtrowanie kalibrów
     this.calibers = rifle.availableCalibers
