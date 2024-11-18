@@ -2,20 +2,19 @@ import { Component, OnInit } from "@angular/core";
 import { Stock } from "./model";
 import { StockService } from "./stock.service";
 import { Option } from "../../option/model";
-import { Rifle } from "../rifle/model"; // Importujemy model Rifle
-import { ConfiguratorService } from "src/app/core/services/configurator.service";
+import { Rifle } from "../rifle/model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock',
   templateUrl: './stock.component.html',
-  styleUrls: [] 
+  styleUrls: []
 })
 export class StockComponent implements OnInit {
-  
-  stockOption: any;
+
   features: any;
-  rifles: Rifle[] = []; // Lista karabinów
-  
+  rifles: Rifle[] = [];
+
   buttstockTypes: Option[] = [];
   woodCategories: Option[] = [];
   lengthsOfPull: Option[] = [];
@@ -26,21 +25,18 @@ export class StockComponent implements OnInit {
   stockMagazines: Option[] = [];
   forearmOptions: Option[] = [];
 
-  selectedRifle: Rifle | null = null; // Wybrany karabin
-  selectedStock: Stock | null = null; // Wybrana kolba
+  selectedRifle: Rifle | null = null;
 
-  selectedButtstockType: Option = { id: 0, name: '', price: 0, imageUrl: '' }; 
-  selectedWoodCategory: Option = { id: 0, name: '', price: 0, imageUrl: '' };
-  selectedLengthOfPull: Option = { id: 0, name: '', price: 0, imageUrl: '' };
-  selectedIndividualButtstockMeasure: Option = { id: 0, name: '', price: 0, imageUrl: '' };
-  selectedButtstockMeasuresType: Option = { id: 0, name: '', price: 0, imageUrl: '' };
-  selectedPistolGripCap: Option = { id: 0, name: '', price: 0, imageUrl: '' };
-  selectedKickstop: Option = { id: 0, name: '', price: 0, imageUrl: '' };
-  selectedStockMagazine: Option = { id: 0, name: '', price: 0, imageUrl: '' };
-  selectedForearmOption: Option = { id: 0, name: '', price: 0, imageUrl: '' };
+  selectedButtstockType: Option | null = null;
+  selectedWoodCategory: Option | null = null;
+  selectedLengthOfPull: Option | null = null;
+  selectedIndividualButtstockMeasure: Option | null = null;
+  selectedButtstockMeasuresType: Option | null = null;
+  selectedPistolGripCap: Option | null = null;
+  selectedKickstop: Option | null = null;
+  selectedStockMagazine: Option | null = null;
+  selectedForearmOption: Option | null = null;
 
-  // Zmienne kontrolujące dostępność pól
-  isDisabledButtstockType: boolean = false;
   isDisabledWoodCategory: boolean = true;
   isDisabledLengthOfPull: boolean = true;
   isDisabledIndividualButtstockMeasure: boolean = true;
@@ -50,39 +46,29 @@ export class StockComponent implements OnInit {
   isDisabledStockMagazine: boolean = true;
   isDisabledForearmOption: boolean = true;
 
-  constructor(private stockService: StockService, private configuratorService: ConfiguratorService) {
-    this.stockOption = this.configuratorService.getConfiguration('stock');
-  }
-
-  saveStockOption(option: any): void {
-    this.stockOption = option;
-    // Zapisz wybraną opcję kolby
-    this.configuratorService.setConfiguration('stock', option);
-  }
+  constructor(
+    private stockService: StockService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    const savedRifle = JSON.parse(sessionStorage.getItem('selectedRifle') || 'null');
+    this.selectedRifle = savedRifle;
+
     this.stockService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
-  
-        // Pobierz wybraną broń z ConfiguratorService
-        const savedRifle = this.configuratorService.getSelectedRifle();
-        this.selectedRifle = savedRifle ? savedRifle : this.rifles[0];
-  
-        // Zaktualizuj opcje na podstawie wybranego karabinu
-        this.onSelectRifle(this.selectedRifle);
-  
-        // Inicjalizacja opcji
-        this.buttstockTypes = this.features.buttstockTypes;
-        this.woodCategories = this.features.woodCategories;
-        this.lengthsOfPull = this.features.lengthsOfPull;
-        this.individualButtstockMeasures = this.features.individualButtstockMeasures;
-        this.buttstockMeasuresTypes = this.features.buttstockMeasuresTypes;
-        this.pistolGripCaps = this.features.pistolGripCaps;
-        this.kickstops = this.features.kickstops;
-        this.stockMagazines = this.features.stockMagazines;
-        this.forearmOptions = this.features.forearmOptions;
+
+        if (!this.selectedRifle && this.rifles.length > 0) {
+          this.selectedRifle = this.rifles[0];
+        }
+
+        // Aktualizacja opcji na podstawie wybranego karabinu
+        this.updateOptionsBasedOnRifle();
+
+        // Aktualizacja stanów opcji
+        this.updateOptionStates();
       },
       (error) => {
         console.error('Błąd przy ładowaniu danych:', error);
@@ -90,79 +76,68 @@ export class StockComponent implements OnInit {
     );
   }
 
-  onSelectRifle(rifle: Rifle) {
-    this.selectedRifle = rifle;
-    
-    // Zapisz wybrany karabin w ConfiguratorService
-    this.configuratorService.setSelectedRifle(rifle);
+  onNext(): void {
+    // Zapisanie wybranej strzelby do sessionStorage
+    sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));
 
-    // Filtrowanie opcji na podstawie wybranego karabinu
-    this.buttstockTypes = rifle.availableButtstockTypes
-      ? this.features.buttstockTypes.filter((option: Option) =>
-          rifle.availableButtstockTypes.includes(option.id)
-        )
-      : [];
-    
-    this.woodCategories = rifle.availableWoodCategories
-      ? this.features.woodCategories.filter((option: Option) =>
-          rifle.availableWoodCategories.includes(option.id)
-        )
-      : [];
-
-    this.lengthsOfPull = rifle.availableLengthsOfPull
-      ? this.features.lengthsOfPull.filter((option: Option) =>
-          rifle.availableLengthsOfPull.includes(option.id)
-        )
-      : [];
-
-    this.individualButtstockMeasures = rifle.availableIndividualButtstockMeasures
-      ? this.features.individualButtstockMeasures.filter((option: Option) =>
-          rifle.availableIndividualButtstockMeasures.includes(option.id)
-        )
-      : [];
-
-    this.buttstockMeasuresTypes = rifle.availableButtstockMeasuresTypes
-      ? this.features.buttstockMeasuresTypes.filter((option: Option) =>
-          rifle.availableButtstockMeasuresTypes.includes(option.id)
-        )
-      : [];
-
-    this.pistolGripCaps = rifle.availablePistolGripCaps
-      ? this.features.pistolGripCaps.filter((option: Option) =>
-          rifle.availablePistolGripCaps.includes(option.id)
-        )
-      : [];
-
-    this.kickstops = rifle.availableKickstops
-      ? this.features.kickstops.filter((option: Option) =>
-          rifle.availableKickstops.includes(option.id)
-        )
-      : [];
-
-    this.stockMagazines = rifle.availableStockMagazines
-      ? this.features.stockMagazines.filter((option: Option) =>
-          rifle.availableStockMagazines.includes(option.id)
-        )
-      : [];
-
-    this.forearmOptions = rifle.availableForearmOptions
-      ? this.features.forearmOptions.filter((option: Option) =>
-          rifle.availableForearmOptions.includes(option.id)
-        )
-      : [];
-
-    // Aktualizacja dostępności pól
-    this.updateOptions();
+    // Nawigacja do kolejnego kroku
+    this.router.navigate(['/next-step']);
   }
 
-  updateOptions(): void {
-    this.isDisabledWoodCategory = !this.selectedButtstockType.name;
-    this.isDisabledLengthOfPull = !this.selectedWoodCategory.name;
-    this.isDisabledIndividualButtstockMeasure = !this.selectedLengthOfPull.name;
-    this.isDisabledButtstockMeasuresType = !this.selectedIndividualButtstockMeasure.name;
-    this.isDisabledPistolGripCap = !this.selectedButtstockMeasuresType.name;
-    this.isDisabledKickstop = !this.selectedPistolGripCap.name;
-    this.isDisabledStockMagazine = !this.selectedKickstop.name;
-    this.isDisabledForearmOption = !this.selectedStockMagazine.name;
+  onSelectRifle(rifle: Rifle) {
+    this.selectedRifle = rifle;
+
+    // Zapisanie wybranej strzelby do sessionStorage
+    sessionStorage.setItem('selectedRifle', JSON.stringify(rifle));
+
+    // Aktualizacja opcji na podstawie nowo wybranego karabinu
+    this.updateOptionsBasedOnRifle();
+
+    // Aktualizacja stanów opcji
+    this.updateOptionStates();
+  }
+
+  private updateOptionsBasedOnRifle(): void {
+    if (!this.selectedRifle) {
+      this.buttstockTypes = [];
+      this.woodCategories = [];
+      this.lengthsOfPull = [];
+      this.individualButtstockMeasures = [];
+      this.buttstockMeasuresTypes = [];
+      this.pistolGripCaps = [];
+      this.kickstops = [];
+      this.stockMagazines = [];
+      this.forearmOptions = [];
+      return;
+    }
+
+    this.buttstockTypes = this.filterOptions('buttstockTypes', this.selectedRifle.availableButtstockTypes);
+    this.woodCategories = this.filterOptions('woodCategories', this.selectedRifle.availableWoodCategories);
+    this.lengthsOfPull = this.filterOptions('lengthsOfPull', this.selectedRifle.availableLengthsOfPull);
+    this.individualButtstockMeasures = this.filterOptions('individualButtstockMeasures', this.selectedRifle.availableIndividualButtstockMeasures);
+    this.buttstockMeasuresTypes = this.filterOptions('buttstockMeasuresTypes', this.selectedRifle.availableButtstockMeasuresTypes);
+    this.pistolGripCaps = this.filterOptions('pistolGripCaps', this.selectedRifle.availablePistolGripCaps);
+    this.kickstops = this.filterOptions('kickstops', this.selectedRifle.availableKickstops);
+    this.stockMagazines = this.filterOptions('stockMagazines', this.selectedRifle.availableStockMagazines);
+    this.forearmOptions = this.filterOptions('forearmOptions', this.selectedRifle.availableForearmOptions);
+  }
+
+  private filterOptions(featureKey: string, availableIds: number[] | undefined): Option[] {
+    return availableIds
+      ? this.features[featureKey].filter((option: Option) =>
+          availableIds.includes(option.id)
+        )
+      : [];
+  }
+
+  updateOptionStates(): void {
+    this.isDisabledWoodCategory = !this.selectedButtstockType;
+    this.isDisabledLengthOfPull = !this.selectedWoodCategory;
+    this.isDisabledIndividualButtstockMeasure = !this.selectedLengthOfPull;
+    this.isDisabledButtstockMeasuresType = !this.selectedIndividualButtstockMeasure;
+    this.isDisabledPistolGripCap = !this.selectedButtstockMeasuresType;
+    this.isDisabledKickstop = !this.selectedPistolGripCap;
+    this.isDisabledStockMagazine = !this.selectedKickstop;
+    this.isDisabledForearmOption = !this.selectedStockMagazine;
   }
 }
