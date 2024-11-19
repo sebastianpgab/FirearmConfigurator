@@ -2,7 +2,7 @@
   <section class="content">
     <h1 class="section-title">KOLBA</h1>
     
-    <div class="stock_photo">
+    <div class="riffle_photo">
       <img [src]="selectedRifle?.imageUrl" alt="Stock Photo" loading="lazy">
     </div>
   
@@ -198,7 +198,9 @@
         </mat-form-field>
   
       </form>
-      <button (click)="onNext()">Przejdź dalej</button>
+      <div class="button-container">
+        <button class="custom-button" (click)="onNext()">Przejdź dalej</button>
+      </div>
     </div>
     <div *ngIf="rifles.length === 0">
       <p>Brak danych do wyświetlenia.</p>

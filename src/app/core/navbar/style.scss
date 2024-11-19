@@ -1,36 +1,103 @@
 .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #990000; // Czerwony kolor tła
-    padding: 20px;
-    width: 100%;
+  background-color: #990000; /* Czerwone tło */
+  padding: 10px 20px;
+  width: 100%;
+  position: relative;
+}
+
+.navbar-header {
+  display: flex;
+  justify-content: flex-start; /* Ikona po lewej stronie */
+  align-items: center;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Ukryty domyślnie */
+}
+
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 100%; /* Poniżej przycisku menu */
+  left: 0;
+  right: 0;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  max-height: 200px; /* Maksymalna wysokość menu */
+  overflow-y: auto; /* Dodaj przewijanie, jeśli menu jest dłuższe */
+  z-index: 1000;
+}
+
+.dropdown-list.show {
+  display: block;
+}
+
+.dropdown-list li a {
+  display: block;
+  padding: 15px;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-list li a:hover {
+  background-color: #f1f1f1;
+}
+
+.close-dropdown {
+  display: none; /* Ukryj przycisk zamykający */
+}
+
+/* Stylizacja dla urządzeń mobilnych */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Pokaż przycisk na małych ekranach */
   }
-  
-  .title-row {
-    @extend .title-row; // Wykorzystujemy istniejące style
+
+  /* Ukryj linki nawigacyjne na małych ekranach */
+  .navbar-links {
+    display: none;
   }
-  
-  .title-text {
-    @extend .title-text;
+
+  .custom-dropdown {
+    position: relative;
   }
-  
-  .title-heading {
-    @extend .title-heading;
+
+  .dropdown-list {
+    right: auto; /* Dopasuj pozycję do ekranu */
   }
-  
-  .subtitle {
-    @extend .subtitle;
+}
+
+/* Stylizacja dla większych ekranów */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none; /* Ukryj przycisk na dużych ekranach */
   }
-  
+
+  .custom-dropdown {
+    display: none; /* Ukryj dropdown na dużych ekranach */
+  }
+
   .navbar-links {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: row;
     gap: 15px;
-    margin-top: 20px;
+    align-items: center;
   }
-  
+
   .navbar-link {
     color: #ffffff;
     text-decoration: none;
@@ -39,15 +106,8 @@
     border-radius: 5px;
     transition: background-color 0.3s ease;
   }
-  
+
   .navbar-link:hover {
-    background-color: #cc0000; // Ciemniejszy czerwony przy najechaniu
+    background-color: #cc0000;
   }
-  
-  @media (max-width: 692px) {
-    .navbar-links {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
+}

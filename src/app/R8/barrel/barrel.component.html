@@ -134,7 +134,9 @@
         </mat-form-field>
 
       </form>
-      <button (click)="onNext()">Przejdź dalej</button>
+      <div class="button-container">
+        <button class="custom-button" (click)="onNext()">Przejdź dalej</button>
+      </div>
     </div>
     <div *ngIf="rifles.length === 0">
       <p>Brak danych do wyświetlenia.</p>

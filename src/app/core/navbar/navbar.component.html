@@ -1,12 +1,18 @@
 <!-- Navbar -->
-<nav class="navbar" *ngIf="!isHomePage()">  
-    <!-- Linki nawigacyjne -->
-    <div class="navbar-links">
-      <a href="http://localhost:4201/r8/barrel" class="navbar-link">Lufa</a>
-      <a href="http://localhost:4201/r8/stock" class="navbar-link">Kolba</a>
-      <a href="#" class="navbar-link">Optyka</a>
-      <a href="#" class="navbar-link">Akcesoria</a>
-      <a href="#" class="navbar-link">Podsumowanie</a>
-    </div>
-  </nav>
-  
+<nav class="navbar" *ngIf="!isHomePage()">
+  <!-- Nagłówek z przyciskiem hamburger menu -->
+  <div class="navbar-header">
+    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+  </div>
+
+  <!-- Niestandardowy dropdown -->
+  <div class="custom-dropdown" *ngIf="menuOpen">
+    <!-- Dodajemy przycisk zamykający -->
+    <button class="close-dropdown" (click)="toggleMenu()">✖</button>
+    <ul class="dropdown-list show">
+      <li *ngFor="let category of categories">
+        <a (click)="navigateTo(category)">{{ category.title }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
