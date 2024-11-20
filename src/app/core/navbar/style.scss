@@ -7,7 +7,7 @@
 
 .navbar-header {
   display: flex;
-  justify-content: flex-start; /* Ikona po lewej stronie */
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -28,7 +28,7 @@
 .dropdown-list {
   display: none;
   position: absolute;
-  top: 100%; /* Poniżej przycisku menu */
+  top: 100%;
   left: 0;
   right: 0;
   background-color: white;
@@ -36,8 +36,8 @@
   padding: 0;
   list-style: none;
   border: 1px solid #ccc;
-  max-height: 200px; /* Maksymalna wysokość menu */
-  overflow-y: auto; /* Dodaj przewijanie, jeśli menu jest dłuższe */
+  max-height: 200px;
+  overflow-y: auto;
   z-index: 1000;
 }
 
@@ -58,16 +58,15 @@
 }
 
 .close-dropdown {
-  display: none; /* Ukryj przycisk zamykający */
+  display: none;
 }
 
 /* Stylizacja dla urządzeń mobilnych */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block; /* Pokaż przycisk na małych ekranach */
+    display: block;
   }
 
-  /* Ukryj linki nawigacyjne na małych ekranach */
   .navbar-links {
     display: none;
   }
@@ -77,25 +76,40 @@
   }
 
   .dropdown-list {
-    right: auto; /* Dopasuj pozycję do ekranu */
+    right: auto;
   }
 }
 
 /* Stylizacja dla większych ekranów */
 @media (min-width: 769px) {
   .menu-toggle {
-    display: none; /* Ukryj przycisk na dużych ekranach */
+    display: none;
   }
 
   .custom-dropdown {
-    display: none; /* Ukryj dropdown na dużych ekranach */
+    display: none;
   }
 
   .navbar-links {
+    display: block;
+  }
+
+  .navbar-links ul {
     display: flex;
     flex-direction: row;
-    gap: 15px;
     align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-links ul li {
+    margin-right: 15px;
+  }
+
+  .navbar-links ul li:last-child {
+    margin-right: 0;
   }
 
   .navbar-link {

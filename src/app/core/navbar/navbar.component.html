@@ -5,13 +5,22 @@
     <button class="menu-toggle" (click)="toggleMenu()">☰</button>
   </div>
 
-  <!-- Niestandardowy dropdown -->
+  <!-- Niestandardowy dropdown dla urządzeń mobilnych -->
   <div class="custom-dropdown" *ngIf="menuOpen">
     <!-- Dodajemy przycisk zamykający -->
     <button class="close-dropdown" (click)="toggleMenu()">✖</button>
     <ul class="dropdown-list show">
       <li *ngFor="let category of categories">
         <a (click)="navigateTo(category)">{{ category.title }}</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="navbar-links">
+    <ul>
+      <li *ngFor="let category of categories">
+        <a class="navbar-link" (click)="navigateTo(category)">{{ category.title }}</a>
       </li>
     </ul>
   </div>

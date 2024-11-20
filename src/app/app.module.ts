@@ -18,7 +18,6 @@ import { StockComponent } from './R8/stock/stock.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BarrelComponent,
     StockComponent
   ],
   imports: [
@@ -28,10 +27,10 @@ import { StockComponent } from './R8/stock/stock.component';
     MatFormFieldModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    BarrelModule,
     HomeModule,
     AppRoutingModule,
-    CoreModule 
+    CoreModule,
+    BarrelModule
     ],
   providers: [],
   bootstrap: [AppComponent]
