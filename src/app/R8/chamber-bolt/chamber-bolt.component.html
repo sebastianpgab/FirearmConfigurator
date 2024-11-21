@@ -1,0 +1,113 @@
+<body>
+    <section class="content">
+      <h1 class="section-title">KOMORA ZAMKA</h1>
+  
+      <div class="riffle_photo">
+        <img [src]="selectedRifle?.imageUrl" alt="Rifle Photo" loading="lazy">
+      </div>
+  
+      <div *ngIf="rifles.length > 0">
+        <!-- Check if data exists -->
+        <form class="container">
+  
+          <!-- Chamber Engraving -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Zdobienie Komory Zamkowe</mat-label>
+            <mat-select
+              [(value)]="selectedChamberEngraving"
+              (selectionChange)="updateOptionStates()"
+              placeholder="Wybierz zdobienie komory zamkowej"
+            >
+              <mat-option *ngFor="let engraving of chamberEngravings" [value]="engraving">
+                <div class="option-template">
+                  <img [src]="engraving.imageUrl" alt="{{ engraving.name }}" />
+                  <span>{{ engraving.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Bolt Handle -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Rączka Zamka</mat-label>
+            <mat-select
+              [(value)]="selectedBoltHandle"
+              (selectionChange)="updateOptionStates()"
+              placeholder="Wybierz rączkę zamka"
+              [disabled]="isDisabledBoltHandle"
+            >
+              <mat-option *ngFor="let handle of boltHandles" [value]="handle">
+                <div class="option-template">
+                  <img [src]="handle.imageUrl" alt="{{ handle.name }}" />
+                  <span>{{ handle.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Trigger -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Spust</mat-label>
+            <mat-select
+              [(value)]="selectedTrigger"
+              (selectionChange)="updateOptionStates()"
+              placeholder="Wybierz spust"
+              [disabled]="isDisabledTrigger"
+            >
+              <mat-option *ngFor="let trigger of triggers" [value]="trigger">
+                <div class="option-template">
+                  <img [src]="trigger.imageUrl" alt="{{ trigger.name }}" />
+                  <span>{{ trigger.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Bolt Head -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Głowica Zamka</mat-label>
+            <mat-select
+              [(value)]="selectedBoltHead"
+              (selectionChange)="updateOptionStates()"
+              placeholder="Wybierz głowicę zamka"
+              [disabled]="isDisabledBoltHead"
+            >
+              <mat-option *ngFor="let boltHead of boltHeads" [value]="boltHead">
+                <div class="option-template">
+                  <img [src]="boltHead.imageUrl" alt="{{ boltHead.name }}" />
+                  <span>{{ boltHead.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Sliding Safety -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Bezpiecznik suwakowy</mat-label>
+            <mat-select
+              [(value)]="selectedSlidingSafety"
+              (selectionChange)="updateOptionStates()"
+              placeholder="Wybierz bezpiecznik suwakowy"
+              [disabled]="isDisabledSlidingSafety"
+            >
+              <mat-option *ngFor="let safety of slidingSafeties" [value]="safety">
+                <div class="option-template">
+                  <img [src]="safety.imageUrl" alt="{{ safety.name }}" />
+                  <span>{{ safety.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+  
+        <div class="button-container">
+          <button class="custom-button" (click)="onNext()">Proceed to Next</button>
+        </div>
+      </div>
+  
+      <div *ngIf="rifles.length === 0">
+        <p>No data to display.</p>
+      </div>
+    </section>
+  </body>
+  

@@ -19,7 +19,7 @@ export class NavbarComponent {
   categories: Category[] = [
     { title: 'Lufa', path: '/r8/barrel' },
     { title: 'Kolba', path: '/r8/stock' },
-    { title: 'Optyka', path: '/r8/optics' },
+    { title: 'Komora zamka', path: '/r8/chamberBolt' },
     { title: 'Akcesoria', path: '/r8/accessories' },
     { title: 'Podsumowanie', path: '/r8/summary' }
   ];
