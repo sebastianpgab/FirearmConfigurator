@@ -1,1 +1,68 @@
-<p>accessory works!</p>
+<section class="content">
+    <h1 class="section-title">Akcesoria</h1>
+
+    <div class="riffle_photo">
+        <img [src]="selectedRifle?.imageUrl" alt="Rifle Photo" loading="lazy">
+      </div>
+  
+    <form class="container">
+  
+      <!-- Gun Case -->
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Futerał na broń</mat-label>
+        <mat-select
+          [(value)]="selectedGunCase"
+          (selectionChange)="updateOptionStates()"
+          placeholder="Wybierz futerał na broń"
+        >
+          <mat-option *ngFor="let option of gunCases" [value]="option">
+            <div class="option-template">
+              <img [src]="option.imageUrl" alt="{{ option.name }}" />
+              <span>{{ option.name }}</span>
+            </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Soft Gun Cover -->
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Pokrowiec miękki</mat-label>
+        <mat-select
+          [(value)]="selectedSoftGunCover"
+          (selectionChange)="updateOptionStates()"
+          placeholder="Wybierz pokrowiec miękki"
+          [disabled]="isDisabledSoftGunCover"
+        >
+          <mat-option *ngFor="let option of softGunCovers" [value]="option">
+            <div class="option-template">
+              <img [src]="option.imageUrl" alt="{{ option.name }}" />
+              <span>{{ option.name }}</span>
+            </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Rifle Sling -->
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Pas do broni</mat-label>
+        <mat-select
+          [(value)]="selectedRifleSling"
+          placeholder="Wybierz pas do broni"
+          [disabled]="isDisabledRifleSling"
+        >
+          <mat-option *ngFor="let option of rifleSlings" [value]="option">
+            <div class="option-template">
+              <img [src]="option.imageUrl" alt="{{ option.name }}" />
+              <span>{{ option.name }}</span>
+            </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>  
+    </form>
+
+    <div class="button-container">
+        <button class="back-button" (click)="onBack()">← Cofnij</button>
+        <button class="next-button" (click)="onNext()">Dalej →</button>
+      </div>   
+  </section>
+  
