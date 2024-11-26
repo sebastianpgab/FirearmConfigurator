@@ -3,6 +3,7 @@ import { Option } from "../../option/model";
 import { AccessoryService } from "./accessory.service";
 import { Router } from "@angular/router";
 import { Rifle } from "../rifle/model";
+import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({
   selector: "app-accessory",
@@ -22,12 +23,10 @@ export class AccessoryComponent implements OnInit {
   selectedSoftGunCover: Option | null = null;
   selectedRifleSling: Option | null = null;
 
-  isDisabledSoftGunCover: boolean = true;
-  isDisabledRifleSling: boolean = true;
-
   constructor(
     private accessoryService: AccessoryService,
-    private router: Router
+    private router: Router,
+    private configuratorService: ConfiguratorService
   ) {}
 
   ngOnInit() {
@@ -42,17 +41,25 @@ export class AccessoryComponent implements OnInit {
         this.selectedRifle = savedRifle ? savedRifle : this.rifles[0];
 
         // Load options
-        this.gunCases = this.features["gunCases"];
-        this.softGunCovers = this.features["softGunCovers"];
-        this.rifleSlings = this.features["rifleSlings"];
+        this.updateOptionsBasedOnRifle();
 
-        // Update option states
-        this.updateOptionStates();
       },
       (error) => {
         console.error("Error loading accessory data:", error);
       }
     );
+  }
+
+  private updateOptionsBasedOnRifle(): void {
+    if(!this.selectedRifle){
+      this.gunCases = [];
+      this.softGunCovers = [];
+      this.rifleSlings = [];
+      return;
+    }
+    this.gunCases = this.configuratorService.filterOptions(this.features, 'gunCases', this.selectedRifle.availableGunCases)
+    this.softGunCovers = this.configuratorService.filterOptions(this.features, 'softGunCovers', this.selectedRifle.availableSoftGunCovers)
+    this.rifleSlings = this.configuratorService.filterOptions(this.features, 'rifleSlings', this.selectedRifle.availableRifleSlings)
   }
 
   onNext(): void {
@@ -72,8 +79,4 @@ export class AccessoryComponent implements OnInit {
     this.router.navigate(["/r8/chamberBolt"]);
     }
 
-  public updateOptionStates(): void {
-    this.isDisabledSoftGunCover = !this.selectedGunCase;
-    this.isDisabledRifleSling = !this.selectedSoftGunCover;
-  }
 }

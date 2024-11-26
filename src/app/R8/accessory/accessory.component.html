@@ -12,7 +12,6 @@
         <mat-label>Futerał na broń</mat-label>
         <mat-select
           [(value)]="selectedGunCase"
-          (selectionChange)="updateOptionStates()"
           placeholder="Wybierz futerał na broń"
         >
           <mat-option *ngFor="let option of gunCases" [value]="option">
@@ -29,9 +28,7 @@
         <mat-label>Pokrowiec miękki</mat-label>
         <mat-select
           [(value)]="selectedSoftGunCover"
-          (selectionChange)="updateOptionStates()"
           placeholder="Wybierz pokrowiec miękki"
-          [disabled]="isDisabledSoftGunCover"
         >
           <mat-option *ngFor="let option of softGunCovers" [value]="option">
             <div class="option-template">
@@ -48,7 +45,6 @@
         <mat-select
           [(value)]="selectedRifleSling"
           placeholder="Wybierz pas do broni"
-          [disabled]="isDisabledRifleSling"
         >
           <mat-option *ngFor="let option of rifleSlings" [value]="option">
             <div class="option-template">

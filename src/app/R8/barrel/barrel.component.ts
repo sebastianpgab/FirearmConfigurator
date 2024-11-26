@@ -3,6 +3,7 @@ import { Rifle } from "../rifle/model";
 import { BarrelService } from "./barrel.service";
 import { Option } from "../../option/model";
 import { Router } from '@angular/router';
+import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({
   selector: 'app-barrel',
@@ -36,7 +37,8 @@ export class BarrelComponent implements OnInit {
 
   constructor(
     private barrelService: BarrelService,
-    private router: Router
+    private router: Router,
+    private configuratorService: ConfiguratorService
   ) {}
 
   ngOnInit() {
@@ -93,20 +95,12 @@ export class BarrelComponent implements OnInit {
       return;
     }
 
-    this.contours = this.filterOptions('contours', this.selectedRifle.availableContours);
-    this.calibers = this.filterOptions('calibers', this.selectedRifle.availableCalibers);
-    this.profiles = this.filterOptions('profiles', this.selectedRifle.availableProfiles);
-    this.lengths = this.filterOptions('lengths', this.selectedRifle.availableLengths);
-    this.openSights = this.filterOptions('openSights', this.selectedRifle.availableOpenSights);
-    this.muzzleBrakesOrSuppressors = this.filterOptions('muzzleBrakesOrSuppressors', this.selectedRifle.availableMuzzleBrakesOrSuppressors);
-  }
-
-  private filterOptions(featureKey: string, availableIds: number[] | undefined): Option[] {
-    return availableIds
-      ? this.features[featureKey].filter((option: Option) =>
-          availableIds.includes(option.id)
-        )
-      : [];
+    this.contours = this.configuratorService.filterOptions(this.features, 'contours', this.selectedRifle.availableContours);
+    this.calibers = this.configuratorService.filterOptions(this.features, 'calibers', this.selectedRifle.availableCalibers);
+    this.profiles = this.configuratorService.filterOptions(this.features, 'profiles', this.selectedRifle.availableProfiles);
+    this.lengths = this.configuratorService.filterOptions(this.features, 'lengths', this.selectedRifle.availableLengths);
+    this.openSights = this.configuratorService.filterOptions(this.features, 'openSights', this.selectedRifle.availableOpenSights);
+    this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(this.features, 'muzzleBrakesOrSuppressors', this.selectedRifle.availableMuzzleBrakesOrSuppressors);
   }
 
   public updateOptionStates(): void {

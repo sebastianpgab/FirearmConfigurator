@@ -4,6 +4,7 @@ import { StockService } from "./stock.service";
 import { Option } from "../../option/model";
 import { Rifle } from "../rifle/model";
 import { Router } from '@angular/router';
+import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({
   selector: 'app-stock',
@@ -48,7 +49,8 @@ export class StockComponent implements OnInit {
 
   constructor(
     private stockService: StockService,
-    private router: Router
+    private router: Router,
+    private configuratorService: ConfiguratorService
   ) {}
 
   ngOnInit() {
@@ -81,8 +83,12 @@ export class StockComponent implements OnInit {
     sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));
 
     // Nawigacja do kolejnego kroku
-    this.router.navigate(['/next-step']);
+    this.router.navigate(['/r8/chamberBolt']);
   }
+
+  onBack() {
+    this.router.navigate(['/r8/barrel']);
+    }
 
   onSelectRifle(rifle: Rifle) {
     this.selectedRifle = rifle;
@@ -111,23 +117,15 @@ export class StockComponent implements OnInit {
       return;
     }
 
-    this.buttstockTypes = this.filterOptions('buttstockTypes', this.selectedRifle.availableButtstockTypes);
-    this.woodCategories = this.filterOptions('woodCategories', this.selectedRifle.availableWoodCategories);
-    this.lengthsOfPull = this.filterOptions('lengthsOfPull', this.selectedRifle.availableLengthsOfPull);
-    this.individualButtstockMeasures = this.filterOptions('individualButtstockMeasures', this.selectedRifle.availableIndividualButtstockMeasures);
-    this.buttstockMeasuresTypes = this.filterOptions('buttstockMeasuresTypes', this.selectedRifle.availableButtstockMeasuresTypes);
-    this.pistolGripCaps = this.filterOptions('pistolGripCaps', this.selectedRifle.availablePistolGripCaps);
-    this.kickstops = this.filterOptions('kickstops', this.selectedRifle.availableKickstops);
-    this.stockMagazines = this.filterOptions('stockMagazines', this.selectedRifle.availableStockMagazines);
-    this.forearmOptions = this.filterOptions('forearmOptions', this.selectedRifle.availableForearmOptions);
-  }
-
-  private filterOptions(featureKey: string, availableIds: number[] | undefined): Option[] {
-    return availableIds
-      ? this.features[featureKey].filter((option: Option) =>
-          availableIds.includes(option.id)
-        )
-      : [];
+    this.buttstockTypes = this.configuratorService.filterOptions(this.features, 'buttstockTypes', this.selectedRifle.availableButtstockTypes);
+    this.woodCategories = this.configuratorService.filterOptions(this.features, 'woodCategories', this.selectedRifle.availableWoodCategories);
+    this.lengthsOfPull = this.configuratorService.filterOptions(this.features, 'lengthsOfPull', this.selectedRifle.availableLengthsOfPull);
+    this.individualButtstockMeasures = this.configuratorService.filterOptions(this.features, 'individualButtstockMeasures', this.selectedRifle.availableIndividualButtstockMeasures);
+    this.buttstockMeasuresTypes = this.configuratorService.filterOptions(this.features, 'buttstockMeasuresTypes', this.selectedRifle.availableButtstockMeasuresTypes);
+    this.pistolGripCaps = this.configuratorService.filterOptions(this.features, 'pistolGripCaps', this.selectedRifle.availablePistolGripCaps);
+    this.kickstops = this.configuratorService.filterOptions(this.features, 'kickstops', this.selectedRifle.availableKickstops);
+    this.stockMagazines = this.configuratorService.filterOptions(this.features, 'stockMagazines', this.selectedRifle.availableStockMagazines);
+    this.forearmOptions = this.configuratorService.filterOptions(this.features, 'forearmOptions', this.selectedRifle.availableForearmOptions);
   }
 
   updateOptionStates(): void {

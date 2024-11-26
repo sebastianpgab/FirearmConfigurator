@@ -232,8 +232,43 @@ div {
 
   .button-container {
     display: flex;
-    justify-content: flex-end; /* Wyrównanie do prawej strony */
+    justify-content: space-between; /* Domyślnie rozmieszczenie przycisków */
+    gap: 10px; /* Odstęp między przyciskami */
   }
+
+.button-container button:only-child {
+    margin-left: auto; /* Przesuwa jedyny przycisk na prawo */
+    margin-right: 0;   /* Resetuje prawy margines */
+  }
+
+  
+  button {
+    display: flex; /* Flexbox w przycisku dla strzałki i tekstu */
+    align-items: center; /* Wyśrodkowanie w pionie */
+    justify-content: center; /* Wyśrodkowanie w poziomie */
+    padding: 8px 16px; /* Odstępy wewnętrzne */
+    font-size: 16px; /* Rozmiar tekstu */
+    font-weight: 500; /* Trochę pogrubiony tekst */
+    border: none; /* Usunięcie obramowania */
+    border-radius: 4px; /* Zaokrąglone rogi */
+    background-color: #b30000; /* Czerwone tło */
+    color: white; /* Biały tekst */
+    cursor: pointer; /* Wskaźnik ręki */
+    transition: background-color 0.3s ease; /* Płynna zmiana koloru */
+  }
+  
+  button:hover {
+    background-color: #990000; /* Ciemniejszy odcień czerwieni przy najechaniu */
+  }
+  
+  .back-button {
+    padding-left: 20px; /* Więcej miejsca dla strzałki z lewej */
+  }
+  
+  .next-button {
+    padding-right: 20px; /* Więcej miejsca dla strzałki z prawej */
+  }
+  
   
   .custom-button {
     background-color: #3f51b5; /* Primary color */

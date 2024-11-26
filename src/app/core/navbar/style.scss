@@ -61,6 +61,55 @@
   display: none;
 }
 
+.active {
+  color: #fff; /* Biały kolor tekstu */
+  background-color: #b30000; /* Ciemnoczerwone tło */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  padding: 6px 10px; /* Wewnętrzne odstępy */
+  text-decoration: none; /* Brak podkreślenia */
+  font-weight: normal; /* Normalna grubość czcionki */
+  transition: all 0.3s ease; /* Płynne przejścia */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtelny cień */
+}
+
+.active:hover {
+  background-color: #990000; /* Jeszcze ciemniejszy odcień czerwieni przy najechaniu */
+  color: #f8f8f8; /* Lekko przygaszony biały tekst */
+}
+
+.navbar-link {
+  color: #fff; /* Biały kolor tekstu */
+  text-decoration: none; /* Brak podkreślenia */
+  padding: 8px 12px; /* Wewnętrzne odstępy */
+  display: inline-block; /* Umożliwia dodanie tła i marginesów */
+  transition: all 0.3s ease; /* Płynne przejścia */
+  cursor: pointer; /* Zmiana kursora na "rękę" */
+  position: relative; /* Dla efektu przesunięcia */
+}
+
+.navbar-link::after {
+  content: ''; /* Pseudo-element do efektu */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: transparent; /* Domyślnie niewidoczne */
+  transition: all 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #ffe6e6; /* Jasnoczerwony tekst przy najechaniu */
+  transform: translateY(-2px); /* Subtelne przesunięcie w górę */
+}
+
+.navbar-link:hover::after {
+  background-color: #fff; /* Pasek podświetlenia */
+  height: 2px; /* Wysokość podświetlenia */
+}
+
+
+
 /* Stylizacja dla urządzeń mobilnych */
 @media (max-width: 768px) {
   .menu-toggle {
@@ -82,6 +131,7 @@
 
 /* Stylizacja dla większych ekranów */
 @media (min-width: 769px) {
+  
   .menu-toggle {
     display: none;
   }

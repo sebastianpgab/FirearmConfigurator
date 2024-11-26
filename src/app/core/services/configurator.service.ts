@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Rifle } from 'src/app/R8/rifle/model';
+import { Option } from "../../option/model";
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,13 @@ export class ConfiguratorService {
 
   getFullConfiguration(): any {
     return this.configuration;
+  }
+
+  public filterOptions(features: any, featureKey: string, availableIds: number[] | undefined): Option[] {
+    return availableIds
+      ? features[featureKey].filter((option: Option) =>
+          availableIds.includes(option.id)
+        )
+      : [];
   }
 }

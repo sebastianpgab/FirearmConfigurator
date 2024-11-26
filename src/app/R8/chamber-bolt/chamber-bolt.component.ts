@@ -3,6 +3,7 @@ import { Rifle } from "../rifle/model";
 import { ChamberBoltService } from "./chamber-bolt.service";
 import { Option } from "../../option/model";
 import { Router } from '@angular/router';
+import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({
   selector: 'app-chamber-bolt',
@@ -33,7 +34,8 @@ export class ChamberBoltComponent implements OnInit {
 
   constructor(
     private chamberBoltService: ChamberBoltService,
-    private router: Router
+    private router: Router,
+    private configuratorService: ConfiguratorService
   ) {}
 
   ngOnInit() {
@@ -63,7 +65,11 @@ export class ChamberBoltComponent implements OnInit {
     sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));
 
     // Navigate to the next step
-    this.router.navigate(['/next-step']);
+    this.router.navigate(['/r8/accessory']);
+  }
+
+  onBack() {
+    this.router.navigate(['/r8/stock']);
   }
 
   onSelectRifle(rifle: Rifle) {
@@ -89,19 +95,11 @@ export class ChamberBoltComponent implements OnInit {
       return;
     }
 
-    this.chamberEngravings = this.filterOptions('chamberEngravings', this.selectedRifle.availableChamberEngravings);
-    this.boltHandles = this.filterOptions('boltHandles', this.selectedRifle.availableBoltHandles);
-    this.triggers = this.filterOptions('triggers', this.selectedRifle.availableTriggers);
-    this.boltHeads = this.filterOptions('boltHeads', this.selectedRifle.availableBoltHeads);
-    this.slidingSafeties = this.filterOptions('slidingSafeties', this.selectedRifle.availableSlidingSafeties);
-  }
-
-  private filterOptions(featureKey: string, availableIds: number[] | undefined): Option[] {
-    return availableIds
-      ? this.features[featureKey].filter((option: Option) =>
-          availableIds.includes(option.id)
-        )
-      : [];
+    this.chamberEngravings = this.configuratorService.filterOptions(this.features, 'chamberEngravings', this.selectedRifle.availableChamberEngravings);
+    this.boltHandles = this.configuratorService.filterOptions(this.features, 'boltHandles', this.selectedRifle.availableBoltHandles);
+    this.triggers = this.configuratorService.filterOptions(this.features, 'triggers', this.selectedRifle.availableTriggers);
+    this.boltHeads = this.configuratorService.filterOptions(this.features, 'boltHeads', this.selectedRifle.availableBoltHeads);
+    this.slidingSafeties = this.configuratorService.filterOptions(this.features, 'slidingSafeties', this.selectedRifle.availableSlidingSafeties);
   }
 
   public updateOptionStates(): void {

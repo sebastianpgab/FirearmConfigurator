@@ -1,6 +1,7 @@
 import {Barrel} from '../barrel/model';
 import { Stock } from '../../R8/stock/model';
 import { ChamberBolt } from '../chamber-bolt/model';
+import { Accessory } from '../accessory/model';
 
 
 
@@ -36,4 +37,8 @@ export interface Rifle {
     availableBoltHeads: number[];
     availableSlidingSafeties: number[];
 
+    accessory: Accessory[];
+    availableGunCases: number[];
+    availableSoftGunCovers: number[];
+    availableRifleSlings: number [];
 }

@@ -151,6 +151,18 @@
     "slidingSafeties": [
       { "id": 1, "name": "Bezpiecznik standardowy", "price": 0, "imageUrl": "assets/sliding_safeties/standard.jpg" },
       { "id": 2, "name": "Bezpiecznik zewnętrzny", "price": 150, "imageUrl": "assets/sliding_safeties/external.jpg" }
+    ],
+    "gunCases": [
+      {"id": 1, "name": "Walika duża skórzana", "price": 125, "imageUrl":"assets/images/contrast_sight.png"},
+      {"id": 2, "name": "Walika mała skórzana", "price": 225, "imageUrl":"assets/images/contrast_sight.png"}
+    ],
+    "softGunCovers": [
+      {"id": 1, "name": "Pokoriwec mały", "price": 123, "imageUrl": "assets/images/contrast_sight.png"},
+      {"id": 2, "name": "Pokrowiec duży", "price": 343, "imageUrl": "assets/images/contrast_sight.png"}
+    ],
+    "rifleSlings": [
+      {"id": 1, "name": "Pasek parciany na broń", "price:": 541, "imageUrl":"assets/bolt_handles/standard.jpg"},
+      {"id": 2, "name": "Pasek skórzany na broń", "price:": 241, "imageUrl":"assets/bolt_handles/standard.jpg"}
     ]
     },
     "rifles": [
@@ -181,7 +193,11 @@
         "availableBoltHandles":[1,2],
         "availableTriggers":[1],
         "availableBoltHeads":[1,2],
-        "availableSlidingSafeties": [1]
+        "availableSlidingSafeties": [1],
+
+        "availableGunCases": [1,2],
+        "availableSoftGunCovers": [1,2],
+        "availableRifleSlings": [1,2]
       },
       {
         "id": 2,

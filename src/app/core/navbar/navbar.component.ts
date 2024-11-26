@@ -12,7 +12,6 @@ interface Category {
   styleUrls: ['./style.scss']
 })
 export class NavbarComponent {
-
   menuOpen: boolean = false;
   dropdownOpen: boolean = false;
 
@@ -20,8 +19,8 @@ export class NavbarComponent {
     { title: 'Lufa', path: '/r8/barrel' },
     { title: 'Kolba', path: '/r8/stock' },
     { title: 'Komora zamka', path: '/r8/chamberBolt' },
-    { title: 'Akcesoria', path: '/r8/accessories' },
-    { title: 'Podsumowanie', path: '/r8/summary' }
+    { title: 'Akcesoria', path: '/r8/accessory' },
+    { title: 'Podsumowanie', path: '/r8/summary' },
   ];
 
   @ViewChild('dropdownButton') dropdownButton!: ElementRef;
@@ -34,11 +33,7 @@ export class NavbarComponent {
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
-    if (this.menuOpen) {
-      this.dropdownOpen = true; 
-    } else {
-      this.dropdownOpen = false;
-    }
+    this.dropdownOpen = this.menuOpen;
   }
 
   toggleDropdown(): void {
@@ -49,5 +44,9 @@ export class NavbarComponent {
     this.router.navigate([category.path]);
     this.menuOpen = false;
     this.dropdownOpen = false;
+  }
+
+  isActiveCategory(category: Category): boolean {
+    return this.router.url === category.path;
   }
 }

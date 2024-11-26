@@ -99,12 +99,13 @@
             </mat-select>
           </mat-form-field>
         </form>
-  
+
         <div class="button-container">
-          <button class="custom-button" (click)="onNext()">Proceed to Next</button>
+          <button class="back-button" (click)="onBack()">← Cofnij</button>
+          <button class="next-button" (click)="onNext()">Dalej →</button>
         </div>
+
       </div>
-  
       <div *ngIf="rifles.length === 0">
         <p>No data to display.</p>
       </div>

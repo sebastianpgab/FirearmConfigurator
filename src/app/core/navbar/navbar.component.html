@@ -1,4 +1,3 @@
-<!-- Navbar -->
 <nav class="navbar" *ngIf="!isHomePage()">
   <!-- Nagłówek z przyciskiem hamburger menu -->
   <div class="navbar-header">
@@ -11,16 +10,27 @@
     <button class="close-dropdown" (click)="toggleMenu()">✖</button>
     <ul class="dropdown-list show">
       <li *ngFor="let category of categories">
-        <a (click)="navigateTo(category)">{{ category.title }}</a>
+        <a
+          (click)="navigateTo(category)"
+          [class.active]="isActiveCategory(category)"
+        >
+          {{ category.title }}
+        </a>
       </li>
     </ul>
   </div>
 
-
+  <!-- Linki nawigacyjne -->
   <div class="navbar-links">
     <ul>
       <li *ngFor="let category of categories">
-        <a class="navbar-link" (click)="navigateTo(category)">{{ category.title }}</a>
+        <a
+          class="navbar-link"
+          (click)="navigateTo(category)"
+          [class.active]="isActiveCategory(category)"
+        >
+          {{ category.title }}
+        </a>
       </li>
     </ul>
   </div>
