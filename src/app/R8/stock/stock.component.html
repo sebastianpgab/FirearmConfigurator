@@ -10,7 +10,7 @@
       <!-- Sprawdzamy, czy mamy dane -->
       <form class="container">
         <!-- Typ Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="buttstockTypes && buttstockTypes.length > 0">
           <mat-label>Typ Kolby</mat-label>
           <mat-select
             [(value)]="selectedButtstockType"
@@ -30,7 +30,7 @@
         </mat-form-field>
   
         <!-- Kategoria Drewna -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="woodCategories && woodCategories.length > 0">
           <mat-label>Kategoria Drewna</mat-label>
           <mat-select
             [(value)]="selectedWoodCategory"
@@ -51,7 +51,7 @@
         </mat-form-field>
   
         <!-- Długość Naciągu -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="lengthsOfPull && lengthsOfPull.length > 0">
           <mat-label>Długość Naciągu</mat-label>
           <mat-select
             [(value)]="selectedLengthOfPull"
@@ -72,7 +72,7 @@
         </mat-form-field>
   
         <!-- Indywidualne Wymiary Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="individualButtstockMeasures && individualButtstockMeasures.length > 0">
           <mat-label>Indywidualne Wymiary Kolby</mat-label>
           <mat-select
             [(value)]="selectedIndividualButtstockMeasure"
@@ -93,7 +93,7 @@
         </mat-form-field>
   
         <!-- Typ Wymiarów Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="buttstockMeasuresTypes && buttstockMeasuresTypes.length > 0">
           <mat-label>Typ Wymiarów Kolby</mat-label>
           <mat-select
             [(value)]="selectedButtstockMeasuresType"
@@ -114,7 +114,7 @@
         </mat-form-field>
   
         <!-- Nasadka na Chwyt Pistoletowy -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="pistolGripCaps && pistolGripCaps.length > 0">
           <mat-label>Nasadka na Chwyt Pistoletowy</mat-label>
           <mat-select
             [(value)]="selectedPistolGripCap"
@@ -135,7 +135,7 @@
         </mat-form-field>
   
         <!-- Kickstop -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="kickstops && kickstops.length > 0">
           <mat-label>Kickstop</mat-label>
           <mat-select
             [(value)]="selectedKickstop"
@@ -156,7 +156,7 @@
         </mat-form-field>
   
         <!-- Magazyn w Kolbie -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="stockMagazines && stockMagazines.length > 0">
           <mat-label>Magazyn w Kolbie</mat-label>
           <mat-select
             [(value)]="selectedStockMagazine"
@@ -177,7 +177,7 @@
         </mat-form-field>
   
         <!-- Opcja Przedłużenia -->
-        <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="forearmOptions && forearmOptions.length > 0">
           <mat-label>Opcja Przedłużenia</mat-label>
           <mat-select
             [(value)]="selectedForearmOption"
