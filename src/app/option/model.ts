@@ -3,4 +3,6 @@ export interface Option{
     name: string,
     price: number,
     imageUrl?: string;
+    availableCalibers?: [];
+    availableProfiles?: [];
 }

@@ -16,13 +16,15 @@ import { CoreModule } from './core/core.module';
 import { StockComponent } from './R8/stock/stock.component';
 import { ChamberBoltComponent } from './R8/chamber-bolt/chamber-bolt.component';
 import { AccessoryComponent } from './R8/accessory/accessory.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StockComponent,
     ChamberBoltComponent,
-    AccessoryComponent
+    AccessoryComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

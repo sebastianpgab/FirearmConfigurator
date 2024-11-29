@@ -2,16 +2,15 @@ import { Component, OnInit } from "@angular/core";
 import { Rifle } from "../rifle/model";
 import { BarrelService } from "./barrel.service";
 import { Option } from "../../option/model";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({
-  selector: 'app-barrel',
-  templateUrl: './barrel.component.html',
-  styleUrls: [] 
+  selector: "app-barrel",
+  templateUrl: "./barrel.component.html",
+  styleUrls: [],
 })
 export class BarrelComponent implements OnInit {
-
   features: any;
   rifles: Rifle[] = [];
   contours: Option[] = [];
@@ -41,73 +40,143 @@ export class BarrelComponent implements OnInit {
     private configuratorService: ConfiguratorService
   ) {}
 
-  ngOnInit() {
-    // Odczytanie zapisanej strzelby z sessionStorage
-    const savedRifle = JSON.parse(sessionStorage.getItem('selectedRifle') || 'null');
+  ngOnInit(): void {
+    const savedRifle = JSON.parse(sessionStorage.getItem("selectedRifle") || "null");
 
-    this.barrelService.getData().subscribe(data => {
-      this.features = data.features;
-      this.rifles = data.rifles;
+    this.barrelService.getData().subscribe(
+      (data) => {
+        this.features = data.features;
+        this.rifles = data.rifles;
 
-      // Ustawienie wybranej strzelby
-      this.selectedRifle = savedRifle ? savedRifle : this.rifles[0];
+        // Ustawienie wybranej strzelby
+        this.selectedRifle = savedRifle || this.rifles[0];
 
-      // Aktualizacja opcji na podstawie wybranej strzelby
-      this.updateOptionsBasedOnRifle();
-
-      // Aktualizacja stanów opcji (włączanie/wyłączanie)
-      this.updateOptionStates();
-
-    }, error => {
-      console.error('Błąd przy ładowaniu danych:', error);
-    });
+        this.updateOptionsBasedOnRifle();
+        this.updateOptionStates();
+      },
+      (error) => {
+        console.error("Błąd przy ładowaniu danych:", error);
+      }
+    );
   }
 
   onNext(): void {
-    // Zapisanie wybranej strzelby do sessionStorage
-    sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));
-
-    // Nawigacja do kolejnego kroku
-    this.router.navigate(['/r8/stock']);
+    if (this.selectedRifle) {
+      sessionStorage.setItem("selectedRifle", JSON.stringify(this.selectedRifle));
+    }
+    this.router.navigate(["/r8/stock"]);
   }
 
-  onSelectRifle(rifle: Rifle) {
+  onSelectRifle(rifle: Rifle): void {
     this.selectedRifle = rifle;
-
-    // Zapisanie wybranej strzelby do sessionStorage
-    sessionStorage.setItem('selectedRifle', JSON.stringify(rifle));
-
-    // Aktualizacja opcji na podstawie nowo wybranej strzelby
+    sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
     this.updateOptionsBasedOnRifle();
+    this.updateOptionStates();
+  }
 
-    // Aktualizacja stanów opcji
+  onSelectContour(contour: Option): void {
+    this.selectedContour = contour;
+    this.updateCalibersForSelectedContour();
+    this.updateOptionStates();
+  }
+
+  onSelectCaliber(caliber: Option): void{
+    this.selectedCaliber = caliber;
+    this.updateProfilsForSelectedCaliber();
     this.updateOptionStates();
   }
 
   private updateOptionsBasedOnRifle(): void {
     if (!this.selectedRifle) {
-      this.contours = [];
-      this.calibers = [];
-      this.profiles = [];
-      this.lengths = [];
-      this.openSights = [];
-      this.muzzleBrakesOrSuppressors = [];
+      this.resetOptions();
       return;
     }
 
-    this.contours = this.configuratorService.filterOptions(this.features, 'contours', this.selectedRifle.availableContours);
-    this.calibers = this.configuratorService.filterOptions(this.features, 'calibers', this.selectedRifle.availableCalibers);
-    this.profiles = this.configuratorService.filterOptions(this.features, 'profiles', this.selectedRifle.availableProfiles);
-    this.lengths = this.configuratorService.filterOptions(this.features, 'lengths', this.selectedRifle.availableLengths);
-    this.openSights = this.configuratorService.filterOptions(this.features, 'openSights', this.selectedRifle.availableOpenSights);
-    this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(this.features, 'muzzleBrakesOrSuppressors', this.selectedRifle.availableMuzzleBrakesOrSuppressors);
+    // Kontury na podstawie wybranej strzelby
+    this.contours = this.configuratorService.filterOptions(
+      this.features,
+      "contours",
+      this.selectedRifle.availableContours
+    );
+
+    // Automatycznie ustaw pierwszy kontur, jeśli nie ma wybranego
+    if (!this.selectedContour && this.contours.length > 0) {
+      this.selectedContour = this.contours[0];
+    }
+
+    this.updateCalibersForSelectedContour();
+
+    // Inne opcje (profiles, lengths, itd.)
+    this.profiles = this.configuratorService.filterOptions(
+      this.features,
+      "profiles",
+      this.selectedRifle.availableProfiles
+    );
+    this.lengths = this.configuratorService.filterOptions(
+      this.features,
+      "lengths",
+      this.selectedRifle.availableLengths
+    );
+    this.openSights = this.configuratorService.filterOptions(
+      this.features,
+      "openSights",
+      this.selectedRifle.availableOpenSights
+    );
+    this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(
+      this.features,
+      "muzzleBrakesOrSuppressors",
+      this.selectedRifle.availableMuzzleBrakesOrSuppressors
+    );
   }
 
-  public updateOptionStates(): void {
+  private updateCalibersForSelectedContour(): void {
+    if (this.selectedContour) {
+      const caliberIds = this.selectedContour.availableCalibers;
+      this.calibers = this.configuratorService.filterOptions(
+        this.features,
+        "calibers",
+        caliberIds
+      );
+    } else {
+      this.calibers = [];
+    }
+    this.selectedCaliber = null; // Resetuj wybrany kaliber
+  }
+
+  private updateProfilsForSelectedCaliber(): void {
+    if(this.selectedContour) {
+      const profileIds = this.selectedCaliber?.availableProfiles;
+      this.profiles = this.configuratorService.filterOptions(
+        this.features,
+        "profiles",
+        profileIds
+      );
+    }else{
+      this.profiles =[];
+    }
+    this.selectedProfile = null;
+  }
+
+  private updateOptionStates(): void {
     this.isDisabledCaliber = !this.selectedContour;
     this.isDisabledProfile = !this.selectedCaliber;
     this.isDisabledLength = !this.selectedProfile;
     this.isDisabledOpenSight = !this.selectedLength;
     this.isDisabledMuzzleBrakeOrSuppressor = !this.selectedOpenSight;
+  }
+
+  private resetOptions(): void {
+    this.contours = [];
+    this.calibers = [];
+    this.profiles = [];
+    this.lengths = [];
+    this.openSights = [];
+    this.muzzleBrakesOrSuppressors = [];
+    this.selectedContour = null;
+    this.selectedCaliber = null;
+    this.selectedProfile = null;
+    this.selectedLength = null;
+    this.selectedOpenSight = null;
+    this.selectedMuzzleBrakeOrSuppressor = null;
   }
 }

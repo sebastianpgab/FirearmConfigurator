@@ -31,7 +31,8 @@
           <mat-label>Kontur</mat-label>
           <mat-select
             [(value)]="selectedContour"
-            (selectionChange)="updateOptionStates()"
+            (selectionChange)="onSelectContour($event.value)"
+
             placeholder="Wybierz kontur"
           >
             <mat-option *ngFor="let contour of contours" [value]="contour">
@@ -48,9 +49,10 @@
           <mat-label>Kaliber</mat-label>
           <mat-select
             [(value)]="selectedCaliber"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz kaliber"
             [disabled]="isDisabledCaliber"
+            (selectionChange)="onSelectCaliber($event.value)"
+
           >
             <mat-option *ngFor="let caliber of calibers" [value]="caliber">
               <div class="option-template">
@@ -66,7 +68,6 @@
           <mat-label>Profil</mat-label>
           <mat-select
             [(value)]="selectedProfile"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz profil"
             [disabled]="isDisabledProfile"
           >
@@ -84,7 +85,6 @@
           <mat-label>Długość</mat-label>
           <mat-select
             [(value)]="selectedLength"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz długość"
             [disabled]="isDisabledLength"
           >
@@ -102,7 +102,6 @@
           <mat-label>Przyrządy celownicze</mat-label>
           <mat-select
             [(value)]="selectedOpenSight"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz przyrząd celowniczy"
             [disabled]="isDisabledOpenSight"
           >
@@ -120,7 +119,6 @@
           <mat-label>Hamulce wylotowe/tłumik</mat-label>
           <mat-select
             [(value)]="selectedMuzzleBrakeOrSuppressor"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz hamulec/tłumik"
             [disabled]="isDisabledMuzzleBrakeOrSuppressor"
           >
