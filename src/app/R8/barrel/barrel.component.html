@@ -70,6 +70,7 @@
             [(value)]="selectedProfile"
             placeholder="Wybierz profil"
             [disabled]="isDisabledProfile"
+            (selectionChange)="onSelectProfile($event.value)"
           >
             <mat-option *ngFor="let profile of profiles" [value]="profile">
               <div class="option-template">

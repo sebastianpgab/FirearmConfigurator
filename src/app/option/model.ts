@@ -5,4 +5,5 @@ export interface Option{
     imageUrl?: string;
     availableCalibers?: [];
     availableProfiles?: [];
+    availableLengths?: [];
 }

@@ -70,6 +70,9 @@ export class BarrelComponent implements OnInit {
   onSelectRifle(rifle: Rifle): void {
     this.selectedRifle = rifle;
     sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
+
+    //this.resetOptions();
+
     this.updateOptionsBasedOnRifle();
     this.updateOptionStates();
   }
@@ -86,46 +89,46 @@ export class BarrelComponent implements OnInit {
     this.updateOptionStates();
   }
 
+  onSelectProfile(profil: Option): void{
+    this.selectedProfile = profil;
+    this.updateLengthsForSelectedProfil();
+    this.updateOptionStates();
+  }
+
   private updateOptionsBasedOnRifle(): void {
     if (!this.selectedRifle) {
-      this.resetOptions();
-      return;
+        this.resetOptions();
+        return;
     }
 
-    // Kontury na podstawie wybranej strzelby
     this.contours = this.configuratorService.filterOptions(
-      this.features,
-      "contours",
-      this.selectedRifle.availableContours
+        this.features,
+        "contours",
+        this.selectedRifle.availableContours
     );
 
-    // Automatycznie ustaw pierwszy kontur, jeśli nie ma wybranego
-    if (!this.selectedContour && this.contours.length > 0) {
-      this.selectedContour = this.contours[0];
-    }
-
+    this.selectedContour = null;
     this.updateCalibersForSelectedContour();
 
-    // Inne opcje (profiles, lengths, itd.)
     this.profiles = this.configuratorService.filterOptions(
-      this.features,
-      "profiles",
-      this.selectedRifle.availableProfiles
+        this.features,
+        "profiles",
+        this.selectedRifle.availableProfiles
     );
-    this.lengths = this.configuratorService.filterOptions(
-      this.features,
-      "lengths",
-      this.selectedRifle.availableLengths
-    );
+
+    // Reset profilu i długości
+    this.selectedProfile = null;
+    this.updateLengthsForSelectedProfil(); // Odśwież długości na podstawie zresetowanego profilu
+
     this.openSights = this.configuratorService.filterOptions(
-      this.features,
-      "openSights",
-      this.selectedRifle.availableOpenSights
+        this.features,
+        "openSights",
+        this.selectedRifle.availableOpenSights
     );
     this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(
-      this.features,
-      "muzzleBrakesOrSuppressors",
-      this.selectedRifle.availableMuzzleBrakesOrSuppressors
+        this.features,
+        "muzzleBrakesOrSuppressors",
+        this.selectedRifle.availableMuzzleBrakesOrSuppressors
     );
   }
 
@@ -144,7 +147,7 @@ export class BarrelComponent implements OnInit {
   }
 
   private updateProfilsForSelectedCaliber(): void {
-    if(this.selectedContour) {
+    if(this.selectedCaliber) {
       const profileIds = this.selectedCaliber?.availableProfiles;
       this.profiles = this.configuratorService.filterOptions(
         this.features,
@@ -155,6 +158,20 @@ export class BarrelComponent implements OnInit {
       this.profiles =[];
     }
     this.selectedProfile = null;
+  }
+
+  private updateLengthsForSelectedProfil(): void {
+    if(this.selectedProfile) {
+      const lengthIds = this.selectedProfile?.availableLengths;
+      this.lengths = this.configuratorService.filterOptions(
+        this.features,
+        "lengths",
+        lengthIds
+      );
+    }else{
+      this.lengths =[];
+    }
+    this.selectedLength = null;
   }
 
   private updateOptionStates(): void {

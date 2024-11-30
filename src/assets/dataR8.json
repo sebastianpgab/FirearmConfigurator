@@ -174,27 +174,8 @@
 
         "availableContours": [1, 2],
         "availableProfiles": [1, 2],
+        "availableLengths": [1, 2]
 
-
-        "availableButtstockTypes": [1],
-        "availableWoodCategories": [1],
-        "availableLengthsOfPull": [1],
-        "availableIndividualButtstockMeasures": [1],
-        "availableButtstockMeasuresTypes": [1],
-        "availablePistolGripCaps":[1],
-        "availableKickstops":[1],
-        "availableStockMagazines": [1],
-        "availableForearmOptions":[1],
-
-        "availableChamberEngravings":[1, 2],
-        "availableBoltHandles":[1,2],
-        "availableTriggers":[1],
-        "availableBoltHeads":[1,2],
-        "availableSlidingSafeties": [1],
-
-        "availableGunCases": [1,2],
-        "availableSoftGunCovers": [1,2],
-        "availableRifleSlings": [1,2]
       },
       {
         "id": 2,
