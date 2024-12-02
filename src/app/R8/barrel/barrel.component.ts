@@ -48,7 +48,6 @@ export class BarrelComponent implements OnInit {
         this.features = data.features;
         this.rifles = data.rifles;
 
-        // Ustawienie wybranej strzelby
         this.selectedRifle = savedRifle || this.rifles[0];
 
         this.updateOptionsBasedOnRifle();
@@ -70,8 +69,6 @@ export class BarrelComponent implements OnInit {
   onSelectRifle(rifle: Rifle): void {
     this.selectedRifle = rifle;
     sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
-
-    //this.resetOptions();
 
     this.updateOptionsBasedOnRifle();
     this.updateOptionStates();
@@ -116,9 +113,8 @@ export class BarrelComponent implements OnInit {
         this.selectedRifle.availableProfiles
     );
 
-    // Reset profilu i długości
     this.selectedProfile = null;
-    this.updateLengthsForSelectedProfil(); // Odśwież długości na podstawie zresetowanego profilu
+    this.updateLengthsForSelectedProfil();
 
     this.openSights = this.configuratorService.filterOptions(
         this.features,
@@ -143,7 +139,7 @@ export class BarrelComponent implements OnInit {
     } else {
       this.calibers = [];
     }
-    this.selectedCaliber = null; // Resetuj wybrany kaliber
+    this.selectedCaliber = null; 
   }
 
   private updateProfilsForSelectedCaliber(): void {

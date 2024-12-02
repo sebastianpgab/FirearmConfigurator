@@ -75,13 +75,10 @@ export class ChamberBoltComponent implements OnInit {
   onSelectRifle(rifle: Rifle) {
     this.selectedRifle = rifle;
 
-    // Save selected rifle to sessionStorage
     sessionStorage.setItem('selectedRifle', JSON.stringify(rifle));
 
-    // Update options based on newly selected rifle
     this.updateOptionsBasedOnRifle();
 
-    // Update option states
     this.updateOptionStates();
   }
 
