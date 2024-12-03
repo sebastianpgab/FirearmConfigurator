@@ -2,9 +2,11 @@
   <section class="content">
     <h1 class="section-title">KALIBER & LUFA</h1>
 
-    <div class="riffle_photo">
-      <img [src]="selectedRifle?.imageUrl" alt="Rifle Photo" loading="lazy">
+    <div class="rifle-preview">
+      <img [src]="selectedContour?.imageUrl" alt="Stock" class="rifle-layer" />
+      <img [src]="selectedProfile?.imageUrl" alt="Barrel" class="rifle-layer" />
     </div>
+  
 
     <div *ngIf="rifles.length > 0">
       <!-- Sprawdzamy, czy mamy dane -->
@@ -88,6 +90,8 @@
             [(value)]="selectedLength"
             placeholder="Wybierz długość"
             [disabled]="isDisabledLength"
+            (selectionChange)="onSelectLength($event.value)"
+
           >
             <mat-option *ngFor="let length of lengths" [value]="length">
               <div class="option-template">
@@ -105,6 +109,8 @@
             [(value)]="selectedOpenSight"
             placeholder="Wybierz przyrząd celowniczy"
             [disabled]="isDisabledOpenSight"
+            (selectionChange)="onSelectProfile($event.value)"
+
           >
             <mat-option *ngFor="let openSight of openSights" [value]="openSight">
               <div class="option-template">

@@ -6,4 +6,6 @@ export interface Option{
     availableCalibers?: [];
     availableProfiles?: [];
     availableLengths?: [];
+    availableOpenSights?: [];
+
 }

@@ -21,7 +21,7 @@ export class BarrelComponent implements OnInit {
   muzzleBrakesOrSuppressors: Option[] = [];
 
   selectedRifle: Rifle | null = null;
-  selectedContour: Option | null = null;
+  selectedContour: Option | null = null
   selectedCaliber: Option | null = null;
   selectedProfile: Option | null = null;
   selectedLength: Option | null = null;
@@ -49,6 +49,7 @@ export class BarrelComponent implements OnInit {
         this.rifles = data.rifles;
 
         this.selectedRifle = savedRifle || this.rifles[0];
+        this.selectedContour = this.features.barrel[0];
 
         this.updateOptionsBasedOnRifle();
         this.updateOptionStates();
@@ -89,6 +90,12 @@ export class BarrelComponent implements OnInit {
   onSelectProfile(profil: Option): void{
     this.selectedProfile = profil;
     this.updateLengthsForSelectedProfil();
+    this.updateOptionStates();
+  }
+
+  onSelectLength(openSight: Option): void {
+    this. selectedOpenSight = openSight;
+    this.updateOpenSightsForSelectedLength();
     this.updateOptionStates();
   }
 
@@ -168,6 +175,20 @@ export class BarrelComponent implements OnInit {
       this.lengths =[];
     }
     this.selectedLength = null;
+  }
+
+  private updateOpenSightsForSelectedLength(): void {
+    if(this.selectedProfile) {
+      const openSightIds = this.selectedProfile?.availableOpenSights;
+      this.openSights = this.configuratorService.filterOptions(
+        this.features,
+        "openSights",
+        openSightIds
+      );
+    }else{
+      this.openSights =[];
+    }
+    this.selectedOpenSight = null;
   }
 
   private updateOptionStates(): void {

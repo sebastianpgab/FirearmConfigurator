@@ -289,3 +289,20 @@ div {
     background-color: #1a237e; /* Jeszcze ciemniejszy odcień przy kliknięciu */
   }
   
+//nkładanie obrazów na siebie 
+.rifle-preview {
+  position: relative; /* Ustawia kontekst pozycji */
+  width: 400px; /* Szerokość obszaru wyświetlania */
+  height: 300px; /* Wysokość obszaru wyświetlania */
+  margin: 0 auto; /* Centruje w poziomie */
+  border: 1px solid #ccc; /* Opcjonalne: obramowanie dla wizualizacji */
+}
+
+.rifle-layer {
+  position: absolute; /* Nakłada obrazy na siebie */
+  top: 0; /* Dopasowanie do górnej krawędzi */
+  left: 0; /* Dopasowanie do lewej krawędzi */
+  width: 100%; /* Obrazy skalują się do wielkości obszaru */
+  height: 100%;
+  object-fit: contain; /* Zachowuje proporcje obrazów */
+}

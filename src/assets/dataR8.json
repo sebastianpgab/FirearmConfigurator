@@ -5,21 +5,21 @@
           "id": 1,
           "name": "Standard (17 mm)",
           "price": 450,
-          "imageUrl": "assets/contour_pictures/R8_a1_0_la_standard_17mm.jpg",
+          "imageUrl": "",
           "availableCalibers": [1, 2] 
         },
         {
           "id": 2,
           "name": "Ryflowany (22 mm)",
           "price": 300,
-          "imageUrl": "assets/contour_pictures/R8_a1_j_la_match_22mm.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_47.png",
           "availableCalibers": [2, 3] 
         },
         {
           "id": 3,
           "name": "Semi-Weight (19 mm)",
           "price": 300,
-          "imageUrl": "assets/contour_pictures/R8_a1_sw_la_semi_weight_19mm.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
           "availableCalibers": [2, 3] 
         }
       ],
@@ -28,21 +28,21 @@
           "id": 1,
           "name": ".300 Win",
           "price": 450,
-          "imageUrl": "assets/images/300win.png",
+          "imageUrl": "",
           "availableProfiles": [1]  
         },
         {
           "id": 2,
           "name": ".308 Win",
           "price": 400,
-          "imageUrl": "assets/images/308win.png",
+          "imageUrl": "",
           "availableProfiles": [1, 2] 
         },
         {
           "id": 3,
           "name": ".223 Rem",
           "price": 350,
-          "imageUrl": "assets/images/223rem.png",
+          "imageUrl": "",
           "availableProfiles": [2]
         }
       ],
@@ -51,14 +51,14 @@
           "id": 1,
           "name": "Zaokrąglony",
           "price": 0,
-          "image": "assets/images/rounded_profile.png",
+          "image": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_47.png",
           "availableLengths": [1, 2] 
         },
         {
           "id": 2,
           "name": "Ryflowany",
           "price": 300,
-          "image": "assets/images/fluted_profile.png",
+          "image": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
           "availableLengths": [1]
         }
       ],
@@ -67,14 +67,14 @@
           "id": 1,
           "name": "520 mm / 20 1/2''",
           "price": 100,
-          "image": "assets/images/length.png",
+          "image": "",
           "availableOpenSights": [1] 
         },
         {
           "id": 2,
           "name": "610 mm / 24''",
           "price": 150,
-          "image": "assets/images/length_610.png",
+          "image": "",
           "availableOpenSights": [1]
         }
       ],
@@ -83,21 +83,27 @@
           "id": 1,
           "name": "Contrast sight",
           "price": 230,
-          "image": "assets/images/contrast_sight.png",
+          "image": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "availableMuzzleBrakesOrSuppressors": [1]  
         }
       ],
       "muzzleBrakesOrSuppressors": [
         {
           "id": 1,
-          "name": "Blaser Dual Brake",
+          "name": "Blaser Dual Brake 1",
           "price": 890,
-          "image": "assets/images/dual_brake.png"
+          "image": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Blaser Dual Brake 2",
+          "price": 890,
+          "image": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B.png"
         }
       ],
 
     "buttstockTypes": [
-      { "id": 1, "name": "Kolba standardowa", "price": 200, "imageUrl": "assets/stock_pictures/standard_buttstock.jpg" },
+      { "id": 1, "name": "Kolba standardowa", "price": 200, "imageUrl": "assets/BlaserR8/puzzle/R8_holz_standard_hs_k2.png" },
       { "id": 2, "name": "Kolba z podwójnym wrębem na bawarską poduszkę policzkową", "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg" }
     ],
     "woodCategories": [
@@ -133,7 +139,7 @@
       { "id": 2, "name": "Czarna (syntetyczna) końcówka przedniego chwytu", "price": 80, "imageUrl": "assets/forearm_options/black_tip.jpg" }
     ],
     "chamberEngravings": [
-      { "id": 1, "name": "Standardowe zdobienie", "price": 100, "imageUrl": "assets/chamber_engravings/standard.jpg" },
+      { "id": 1, "name": "Standardowe zdobienie", "price": 100, "imageUrl": "assets/BlaserR8/puzzle/R8_Systemanschluss-Abdunkler_Success.png" },
       { "id": 2, "name": "Ekskluzywne zdobienie", "price": 300, "imageUrl": "assets/chamber_engravings/exclusive.jpg" }
     ],
     "boltHandles": [
@@ -174,7 +180,8 @@
 
         "availableContours": [1, 2],
         "availableProfiles": [1, 2],
-        "availableLengths": [1, 2]
+        "availableLengths": [1, 2],
+        "openSights": [1,2]
 
       },
       {

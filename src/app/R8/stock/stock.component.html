@@ -2,8 +2,9 @@
   <section class="content">
     <h1 class="section-title">KOLBA</h1>
     
-    <div class="riffle_photo">
-      <img [src]="selectedRifle?.imageUrl" alt="Stock Photo" loading="lazy">
+    <div class="rifle-preview">
+      <img [src]="selectedButtstockType?.imageUrl" alt="Stock" class="rifle-layer" />
+      <img [src]="selectedButtstockType?.imageUrl" alt="Barrel" class="rifle-layer" />
     </div>
   
     <div *ngIf="rifles.length > 0">
