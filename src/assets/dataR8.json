@@ -51,14 +51,14 @@
           "id": 1,
           "name": "Zaokrąglony",
           "price": 0,
-          "image": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_47.png",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_47.png",
           "availableLengths": [1, 2] 
         },
         {
           "id": 2,
           "name": "Ryflowany",
           "price": 300,
-          "image": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
           "availableLengths": [1]
         }
       ],
@@ -67,14 +67,14 @@
           "id": 1,
           "name": "520 mm / 20 1/2''",
           "price": 100,
-          "image": "",
+          "imageUrl": "",
           "availableOpenSights": [1] 
         },
         {
           "id": 2,
           "name": "610 mm / 24''",
           "price": 150,
-          "image": "",
+          "imageUrl": "",
           "availableOpenSights": [1]
         }
       ],
@@ -83,8 +83,8 @@
           "id": 1,
           "name": "Contrast sight",
           "price": 230,
-          "image": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
-          "availableMuzzleBrakesOrSuppressors": [1]  
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
+          "availableMuzzleBrakesOrSuppressors": [1, 2]  
         }
       ],
       "muzzleBrakesOrSuppressors": [
@@ -92,13 +92,13 @@
           "id": 1,
           "name": "Blaser Dual Brake 1",
           "price": 890,
-          "image": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
         },
         {
-          "id": 1,
+          "id": 2,
           "name": "Blaser Dual Brake 2",
           "price": 890,
-          "image": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B.png"
         }
       ],
 
@@ -178,10 +178,11 @@
         "price": 3500,
         "imageUrl": "assets/riffle_pictures/blaser_r8_ultimate.jpg",
 
-        "availableContours": [1, 2],
+        "availableContours": [1, 2, 3],
         "availableProfiles": [1, 2],
         "availableLengths": [1, 2],
-        "openSights": [1,2]
+        "openSights": [1,2],
+        "muzzleBrakesOrSuppressors":[1, 2]
 
       },
       {
@@ -190,7 +191,7 @@
         "price": 3700,
         "imageUrl": "assets/images/blaser_r8_semi_weight.jpg",
         
-        "availableContours": [1, 2], 
+        "availableContours": [1, 2, 3], 
         "availableCalibers": [1, 2],
         "availableProfiles": [1, 2],
         "availableLengths": [1, 2],

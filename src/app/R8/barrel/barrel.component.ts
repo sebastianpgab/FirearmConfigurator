@@ -94,8 +94,13 @@ export class BarrelComponent implements OnInit {
   }
 
   onSelectLength(openSight: Option): void {
-    this. selectedOpenSight = openSight;
+    this.selectedOpenSight = openSight;
     this.updateOpenSightsForSelectedLength();
+    this.updateOptionStates();
+  }
+  onSelectOpenSight(muzzleBrakesOrSuppressor: Option): void {
+    this.selectedMuzzleBrakeOrSuppressor = muzzleBrakesOrSuppressor;
+    this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
     this.updateOptionStates();
   }
 
@@ -114,6 +119,15 @@ export class BarrelComponent implements OnInit {
     this.selectedContour = null;
     this.updateCalibersForSelectedContour();
 
+    this.calibers = this.configuratorService.filterOptions(
+      this.features,
+      "calibers",
+      this.selectedRifle.availableCalibers
+    )
+
+    this.selectedCaliber = null;
+    this. updateProfilsForSelectedCaliber();
+
     this.profiles = this.configuratorService.filterOptions(
         this.features,
         "profiles",
@@ -128,6 +142,7 @@ export class BarrelComponent implements OnInit {
         "openSights",
         this.selectedRifle.availableOpenSights
     );
+
     this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(
         this.features,
         "muzzleBrakesOrSuppressors",
@@ -178,8 +193,8 @@ export class BarrelComponent implements OnInit {
   }
 
   private updateOpenSightsForSelectedLength(): void {
-    if(this.selectedProfile) {
-      const openSightIds = this.selectedProfile?.availableOpenSights;
+    if(this.selectedLength) {
+      const openSightIds = this.selectedLength?.availableOpenSights;
       this.openSights = this.configuratorService.filterOptions(
         this.features,
         "openSights",
@@ -189,6 +204,20 @@ export class BarrelComponent implements OnInit {
       this.openSights =[];
     }
     this.selectedOpenSight = null;
+  }
+
+  private updateMuzzleBrakesOrSuppressorsSelectedOpenSight():void {
+    if(this.selectedOpenSight){
+      const muzzleBrakesOrSuppressorIds = this.selectedOpenSight?.availableMuzzleBrakesOrSuppressors;
+      this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(
+        this.features,
+        "muzzleBrakesOrSuppressors",
+        muzzleBrakesOrSuppressorIds
+      );
+      }else{
+        this.muzzleBrakesOrSuppressors = [];
+    }
+    this.selectedMuzzleBrakeOrSuppressor = null;
   }
 
   private updateOptionStates(): void {

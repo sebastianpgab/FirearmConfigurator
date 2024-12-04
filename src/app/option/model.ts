@@ -7,5 +7,5 @@ export interface Option{
     availableProfiles?: [];
     availableLengths?: [];
     availableOpenSights?: [];
-
+    availableMuzzleBrakesOrSuppressors?: [];
 }
