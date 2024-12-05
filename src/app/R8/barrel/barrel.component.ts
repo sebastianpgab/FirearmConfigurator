@@ -48,10 +48,16 @@ export class BarrelComponent implements OnInit {
         this.features = data.features;
         this.rifles = data.rifles;
 
-        this.selectedRifle = savedRifle || this.rifles[0];
-        this.selectedContour = this.features.barrel[0];
+            // Jeśli karabin nie został ustawiony, ustaw z sessionStorage lub domyślny
+        if (!this.selectedRifle) {
+          this.selectedRifle = savedRifle || this.rifles[0];
+        }
 
-        this.updateOptionsBasedOnRifle();
+          // Zapisz domyślny karabin w sessionStorage, jeśli brak zapisu
+        if (!savedRifle && this.selectedRifle) {
+          sessionStorage.setItem("selectedRifle", JSON.stringify(this.selectedRifle));
+        }
+
         this.updateOptionStates();
       },
       (error) => {
@@ -71,85 +77,110 @@ export class BarrelComponent implements OnInit {
     this.selectedRifle = rifle;
     sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
 
-    this.updateOptionsBasedOnRifle();
+    this.updateOptionsBasedOnRifle("rifle");
     this.updateOptionStates();
   }
 
   onSelectContour(contour: Option): void {
     this.selectedContour = contour;
-    this.updateCalibersForSelectedContour();
+
+    this.updateOptionsBasedOnRifle("contour");
     this.updateOptionStates();
   }
-
-  onSelectCaliber(caliber: Option): void{
+    
+  onSelectCaliber(caliber: Option): void {
     this.selectedCaliber = caliber;
-    this.updateProfilsForSelectedCaliber();
+
+    this.updateOptionsBasedOnRifle("caliber");
     this.updateOptionStates();
   }
 
-  onSelectProfile(profil: Option): void{
+  onSelectProfile(profil: Option): void {
     this.selectedProfile = profil;
-    this.updateLengthsForSelectedProfil();
+
+    this.updateOptionsBasedOnRifle("profile");
+    this.updateOptionStates();
+  } 
+
+  onSelectLength(length: Option): void {
+    this.selectedLength = length;
+
+    this.updateOptionsBasedOnRifle("length");
     this.updateOptionStates();
   }
-
-  onSelectLength(openSight: Option): void {
+  
+  onSelectOpenSight(openSight: Option): void {
     this.selectedOpenSight = openSight;
-    this.updateOpenSightsForSelectedLength();
-    this.updateOptionStates();
-  }
-  onSelectOpenSight(muzzleBrakesOrSuppressor: Option): void {
-    this.selectedMuzzleBrakeOrSuppressor = muzzleBrakesOrSuppressor;
-    this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
+
+    this.updateOptionsBasedOnRifle("openSight");
     this.updateOptionStates();
   }
 
-  private updateOptionsBasedOnRifle(): void {
+  private updateOptionsBasedOnRifle(changedOption: string): void {
     if (!this.selectedRifle) {
         this.resetOptions();
         return;
     }
 
-    this.contours = this.configuratorService.filterOptions(
-        this.features,
-        "contours",
-        this.selectedRifle.availableContours
-    );
+    // Jeśli zmieniono karabin, resetujemy wszystko
+    if (changedOption === "rifle") {
+        this.resetOptions();
+        // Aktualizujemy kontury na podstawie wybranego karabinu
+        this.contours = this.configuratorService.filterOptions(
+            this.features,
+            "contours",
+            this.selectedRifle.availableContours
+        );
+        this.selectedContour = null;
+        this.updateCalibersForSelectedContour();
+    }
 
-    this.selectedContour = null;
-    this.updateCalibersForSelectedContour();
+    // Jeśli zmieniono kontur
+    if (changedOption === "contour") {
+        this.selectedCaliber = null;
+        this.selectedProfile = null;
+        this.selectedLength = null;
+        this.selectedOpenSight = null;
+        this.selectedMuzzleBrakeOrSuppressor = null;
 
-    this.calibers = this.configuratorService.filterOptions(
-      this.features,
-      "calibers",
-      this.selectedRifle.availableCalibers
-    )
+        this.updateCalibersForSelectedContour();
+    }
 
-    this.selectedCaliber = null;
-    this. updateProfilsForSelectedCaliber();
+    // Jeśli zmieniono kaliber
+    if (changedOption === "caliber") {
+        this.selectedProfile = null;
+        this.selectedLength = null;
+        this.selectedOpenSight = null;
+        this.selectedMuzzleBrakeOrSuppressor = null;
 
-    this.profiles = this.configuratorService.filterOptions(
-        this.features,
-        "profiles",
-        this.selectedRifle.availableProfiles
-    );
+        this.updateProfilsForSelectedCaliber();
+    }
 
-    this.selectedProfile = null;
-    this.updateLengthsForSelectedProfil();
+    // Jeśli zmieniono profil
+    if (changedOption === "profile") {
+        this.selectedLength = null;
+        this.selectedOpenSight = null;
+        this.selectedMuzzleBrakeOrSuppressor = null;
 
-    this.openSights = this.configuratorService.filterOptions(
-        this.features,
-        "openSights",
-        this.selectedRifle.availableOpenSights
-    );
+        this.updateLengthsForSelectedProfil();
+    }
 
-    this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(
-        this.features,
-        "muzzleBrakesOrSuppressors",
-        this.selectedRifle.availableMuzzleBrakesOrSuppressors
-    );
-  }
+    // Jeśli zmieniono długość
+    if (changedOption === "length") {
+        this.selectedOpenSight = null;
+        this.selectedMuzzleBrakeOrSuppressor = null;
 
+        this.updateOpenSightsForSelectedLength();
+    }
+
+    // Jeśli zmieniono otwarty celownik
+    if (changedOption === "openSight") {
+        this.selectedMuzzleBrakeOrSuppressor = null;
+
+        this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
+    }
+}
+  
   private updateCalibersForSelectedContour(): void {
     if (this.selectedContour) {
       const caliberIds = this.selectedContour.availableCalibers;

@@ -290,19 +290,37 @@ div {
   }
   
 //nkładanie obrazów na siebie 
+
 .rifle-preview {
   position: relative; /* Ustawia kontekst pozycji */
-  width: 400px; /* Szerokość obszaru wyświetlania */
-  height: 300px; /* Wysokość obszaru wyświetlania */
+  width: 100%; /* Wypełnia szerokość rodzica */
+  max-width: 600px; /* Maksymalna szerokość na dużych ekranach */
+  aspect-ratio: 4 / 3; /* Zapewnia proporcje szerokości do wysokości */
   margin: 0 auto; /* Centruje w poziomie */
-  border: 1px solid #ccc; /* Opcjonalne: obramowanie dla wizualizacji */
+  background-color: #f9f9f9; /* Dodanie tła dla lepszej widoczności */
+  overflow: hidden; /* Zapobiega wyciekom obrazów poza kontener */
 }
 
 .rifle-layer {
   position: absolute; /* Nakłada obrazy na siebie */
-  top: 0; /* Dopasowanie do górnej krawędzi */
-  left: 0; /* Dopasowanie do lewej krawędzi */
-  width: 100%; /* Obrazy skalują się do wielkości obszaru */
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%; /* Dopasowuje szerokość obrazu */
+  height: 100%; /* Dopasowuje wysokość obrazu */
   object-fit: contain; /* Zachowuje proporcje obrazów */
+  display: block; /* Upewnia się, że obrazek jest widoczny */
 }
+
+/* Media queries dla urządzeń mobilnych */
+@media screen and (max-width: 768px) {
+  .rifle-preview {
+    max-width: 400px; /* Maksymalna szerokość dla tabletów */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .rifle-preview {
+    max-width: 300px; /* Maksymalna szerokość dla telefonów */
+  }
+}
+
