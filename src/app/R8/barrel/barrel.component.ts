@@ -42,22 +42,38 @@ export class BarrelComponent implements OnInit {
 
   ngOnInit(): void {
     const savedRifle = JSON.parse(sessionStorage.getItem("selectedRifle") || "null");
-
+    const savedContour = JSON.parse(sessionStorage.getItem("selectedContour") || "null");
+  
     this.barrelService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
-
-            // Jeśli karabin nie został ustawiony, ustaw z sessionStorage lub domyślny
+  
+        // Ustawienie selectedRifle z sessionStorage lub domyślnego
         if (!this.selectedRifle) {
           this.selectedRifle = savedRifle || this.rifles[0];
         }
-
-          // Zapisz domyślny karabin w sessionStorage, jeśli brak zapisu
+  
+        // Zapisz selectedRifle do sessionStorage, jeśli nie był zapisany
         if (!savedRifle && this.selectedRifle) {
           sessionStorage.setItem("selectedRifle", JSON.stringify(this.selectedRifle));
         }
-
+  
+        // Aktualizacja opcji na podstawie selectedRifle
+        this.updateOptionsBasedOnRifle("rifle");
+  
+        // Teraz, gdy contours są zaktualizowane, ustaw selectedContour
+        if (!this.selectedContour && this.contours.length > 0) {
+          this.selectedContour = savedContour || this.contours[0];
+        }
+  
+        // Zapisz selectedContour do sessionStorage, jeśli jest dostępny
+        if (this.selectedContour) {
+          sessionStorage.setItem("selectedContour", JSON.stringify(this.selectedContour));
+          // Wywołaj onSelectContour, aby zaktualizować kolejne opcje
+          this.onSelectContour(this.selectedContour);
+        }
+  
         this.updateOptionStates();
       },
       (error) => {
@@ -65,10 +81,14 @@ export class BarrelComponent implements OnInit {
       }
     );
   }
+  
 
   onNext(): void {
     if (this.selectedRifle) {
       sessionStorage.setItem("selectedRifle", JSON.stringify(this.selectedRifle));
+    }
+    if (this.selectedContour) {
+      sessionStorage.setItem("selectedContour", JSON.stringify(this.selectedContour));
     }
     this.router.navigate(["/r8/stock"]);
   }
@@ -83,6 +103,7 @@ export class BarrelComponent implements OnInit {
 
   onSelectContour(contour: Option): void {
     this.selectedContour = contour;
+    sessionStorage.setItem("selectedContour", JSON.stringify(contour));
 
     this.updateOptionsBasedOnRifle("contour");
     this.updateOptionStates();
