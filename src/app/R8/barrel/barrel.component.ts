@@ -43,6 +43,7 @@ export class BarrelComponent implements OnInit {
   ngOnInit(): void {
     const savedRifle = JSON.parse(sessionStorage.getItem("selectedRifle") || "null");
     const savedContour = JSON.parse(sessionStorage.getItem("selectedContour") || "null");
+    const savedCaliber = JSON.parse(sessionStorage.getItem("selectedCaliber") || "null");
   
     this.barrelService.getData().subscribe(
       (data) => {
@@ -51,27 +52,33 @@ export class BarrelComponent implements OnInit {
   
         // Ustawienie selectedRifle z sessionStorage lub domyślnego
         if (!this.selectedRifle) {
-          this.selectedRifle = savedRifle || this.rifles[0];
+          this.selectedRifle = savedRifle || this.rifles[1];
         }
-  
-        // Zapisz selectedRifle do sessionStorage, jeśli nie był zapisany
-        if (!savedRifle && this.selectedRifle) {
-          sessionStorage.setItem("selectedRifle", JSON.stringify(this.selectedRifle));
+        //jesli nie został wybrany oraz zapisany karabin to wykonaj metode onSelected
+        if (this.selectedRifle) {
+          this.onSelectRifle(this.selectedRifle)
         }
-  
-        // Aktualizacja opcji na podstawie selectedRifle
-        this.updateOptionsBasedOnRifle("rifle");
-  
-        // Teraz, gdy contours są zaktualizowane, ustaw selectedContour
-        if (!this.selectedContour && this.contours.length > 0) {
-          this.selectedContour = savedContour || this.contours[0];
-        }
-  
-        // Zapisz selectedContour do sessionStorage, jeśli jest dostępny
+
         if (this.selectedContour) {
-          sessionStorage.setItem("selectedContour", JSON.stringify(this.selectedContour));
-          // Wywołaj onSelectContour, aby zaktualizować kolejne opcje
           this.onSelectContour(this.selectedContour);
+        }
+        
+        if (this.selectedCaliber) {
+          this.onSelectCaliber(this.selectedCaliber);
+        }
+  
+        this.updateOptionsBasedOnRifle("rifle");
+
+        if(savedRifle) {
+          this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
+        }
+  
+        if (savedContour) {
+          this.selectedContour = this.contours.find(c => c.id === savedContour.id) || null;
+        }
+
+        if(savedCaliber){
+          this.selectedCaliber = this.calibers.find(c => c.id === savedCaliber.id) || null;
         }
   
         this.updateOptionStates();
@@ -84,12 +91,6 @@ export class BarrelComponent implements OnInit {
   
 
   onNext(): void {
-    if (this.selectedRifle) {
-      sessionStorage.setItem("selectedRifle", JSON.stringify(this.selectedRifle));
-    }
-    if (this.selectedContour) {
-      sessionStorage.setItem("selectedContour", JSON.stringify(this.selectedContour));
-    }
     this.router.navigate(["/r8/stock"]);
   }
 
@@ -111,6 +112,7 @@ export class BarrelComponent implements OnInit {
     
   onSelectCaliber(caliber: Option): void {
     this.selectedCaliber = caliber;
+    sessionStorage.setItem("selectedCaliber", JSON.stringify(caliber));
 
     this.updateOptionsBasedOnRifle("caliber");
     this.updateOptionStates();
