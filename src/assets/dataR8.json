@@ -6,21 +6,21 @@
           "name": "Standard (17 mm)",
           "price": 450,
           "imageUrl": "",
-          "availableCalibers": [1, 2] 
+          "availableCalibers": [1, 2, 3] 
         },
         {
           "id": 2,
           "name": "Ryflowany (22 mm)",
           "price": 300,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_47.png",
-          "availableCalibers": [2, 3] 
+          "availableCalibers": [1, 2, 3] 
         },
         {
           "id": 3,
           "name": "Semi-Weight (19 mm)",
           "price": 300,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
-          "availableCalibers": [2, 3] 
+          "availableCalibers": [1, 2, 3] 
         }
       ],
       "calibers": [
@@ -178,11 +178,7 @@
         "price": 3500,
         "imageUrl": "assets/riffle_pictures/blaser_r8_ultimate.jpg",
 
-        "availableContours": [1, 2, 3],
-        "availableProfiles": [1, 2],
-        "availableLengths": [1, 2],
-        "openSights": [1,2],
-        "muzzleBrakesOrSuppressors":[1, 2]
+        "availableContours": [1, 2, 3]
 
       },
       {

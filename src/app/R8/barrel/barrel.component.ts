@@ -77,6 +77,8 @@ export class BarrelComponent implements OnInit {
           this.selectedContour = this.contours.find(c => c.id === savedContour.id) || null;
         }
 
+        //tu calibers jest null
+
         if(savedCaliber){
           this.selectedCaliber = this.calibers.find(c => c.id === savedCaliber.id) || null;
         }
@@ -140,22 +142,21 @@ export class BarrelComponent implements OnInit {
   }
 
   private updateOptionsBasedOnRifle(changedOption: string): void {
-    if (!this.selectedRifle) {
-        this.resetOptions();
-        return;
-    }
+    //if (!this.selectedRifle) {
+       // this.resetOptions();
+       // return;
+    //}
 
-    // Jeśli zmieniono karabin, resetujemy wszystko
     if (changedOption === "rifle") {
         this.resetOptions();
-        // Aktualizujemy kontury na podstawie wybranego karabinu
+
         this.contours = this.configuratorService.filterOptions(
             this.features,
             "contours",
-            this.selectedRifle.availableContours
+            this.selectedRifle?.availableContours
         );
-        this.selectedContour = null;
-        this.updateCalibersForSelectedContour();
+        //this.selectedContour = null;
+        //this.updateCalibersForSelectedContour();
     }
 
     // Jeśli zmieniono kontur
@@ -166,7 +167,13 @@ export class BarrelComponent implements OnInit {
         this.selectedOpenSight = null;
         this.selectedMuzzleBrakeOrSuppressor = null;
 
-        this.updateCalibersForSelectedContour();
+        this.calibers = this.configuratorService.filterOptions(
+          this.features,
+          "calibers",
+          this.selectedContour?.availableCalibers
+        );
+
+        //this.updateCalibersForSelectedContour();
     }
 
     // Jeśli zmieniono kaliber
