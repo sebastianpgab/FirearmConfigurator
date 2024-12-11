@@ -67,7 +67,7 @@ export class BarrelComponent implements OnInit {
           this.onSelectCaliber(this.selectedCaliber);
         }
   
-        this.updateOptionsBasedOnRifle("rifle");
+        //this.updateOptionsBasedOnRifle("rifle");
 
         if(savedRifle) {
           this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
@@ -154,6 +154,13 @@ export class BarrelComponent implements OnInit {
             this.features,
             "contours",
             this.selectedRifle?.availableContours
+        
+        );
+        this.calibers = this.configuratorService.filterOptions(
+          this.features,
+          "calibers",
+          //nie pobiera konturów 
+          this.selectedContour?.availableCalibers
         );
         //this.selectedContour = null;
         //this.updateCalibersForSelectedContour();
