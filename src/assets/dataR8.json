@@ -13,7 +13,7 @@
           "name": "Ryflowany (22 mm)",
           "price": 300,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_47.png",
-          "availableCalibers": [1, 2, 3] 
+          "availableCalibers": [1, 2]
         },
         {
           "id": 3,

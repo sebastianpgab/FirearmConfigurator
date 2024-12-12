@@ -44,6 +44,10 @@ export class BarrelComponent implements OnInit {
     const savedRifle = JSON.parse(sessionStorage.getItem("selectedRifle") || "null");
     const savedContour = JSON.parse(sessionStorage.getItem("selectedContour") || "null");
     const savedCaliber = JSON.parse(sessionStorage.getItem("selectedCaliber") || "null");
+    const savedProfile = JSON.parse(sessionStorage.getItem("selectedProfile") || "null");
+    const savedLenght = JSON.parse(sessionStorage.getItem("selectedLenght") || "null");
+    const savedOpenSight = JSON.parse(sessionStorage.getItem("selectedOpenSight") || "null");
+    const savedMuzzleBrakeOrSuppressor = JSON.parse(sessionStorage.getItem("selectedMuzzleBrakeOrSuppressor") || "null");
   
     this.barrelService.getData().subscribe(
       (data) => {
@@ -51,38 +55,55 @@ export class BarrelComponent implements OnInit {
         this.rifles = data.rifles;
   
         // Ustawienie selectedRifle z sessionStorage lub domyślnego
-        if (!this.selectedRifle) {
-          this.selectedRifle = savedRifle || this.rifles[1];
-        }
-        //jesli nie został wybrany oraz zapisany karabin to wykonaj metode onSelected
+        this.selectedRifle = savedRifle ? this.rifles.find(c => c.id === savedRifle.id) || this.rifles[1] : this.rifles[1] || null;
         if (this.selectedRifle) {
-          this.onSelectRifle(this.selectedRifle)
-        }
-
-        if (this.selectedContour) {
-          this.onSelectContour(this.selectedContour);
-        }
-        
-        if (this.selectedCaliber) {
-          this.onSelectCaliber(this.selectedCaliber);
+          this.onSelectRifle(this.selectedRifle);
         }
   
-        //this.updateOptionsBasedOnRifle("rifle");
-
-        if(savedRifle) {
-          this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
-        }
-  
-        if (savedContour) {
+        // Ustawienie selectedContour z sessionStorage po wybraniu karabinu
+        if (savedContour && this.contours.length > 0) {
           this.selectedContour = this.contours.find(c => c.id === savedContour.id) || null;
-        }
-
-        //tu calibers jest null
-
-        if(savedCaliber){
-          this.selectedCaliber = this.calibers.find(c => c.id === savedCaliber.id) || null;
+          if (this.selectedContour) {
+            this.onSelectContour(this.selectedContour);
+          }
         }
   
+        // Ustawienie selectedCaliber z sessionStorage po wybraniu konturu
+        if (savedCaliber && this.calibers.length > 0) {
+          this.selectedCaliber = this.calibers.find(c => c.id === savedCaliber.id) || null;
+          if (this.selectedCaliber) {
+            this.onSelectCaliber(this.selectedCaliber);
+          }
+        }
+
+        if (savedProfile && this.profiles.length > 0) {
+          this.selectedProfile = this.profiles.find(c => c.id === savedProfile.id) || null;
+          if(this.selectedProfile) {
+            this.onSelectProfile(this.selectedProfile);
+          }
+        }
+
+        if(savedLenght && this.lengths.length > 0) {
+          this.selectedLength = this.lengths.find(c => c.id == savedLenght.id) || null;
+          if(this.selectedLength) {
+            this.onSelectLength(this.selectedLength);
+          }
+        }
+
+        if(savedOpenSight && this.openSights.length > 0) {
+          this.selectedOpenSight = this.openSights.find(c => c.id == savedOpenSight.id) || null;
+          if(this.selectedOpenSight) {
+            this.onSelectOpenSight(this.selectedOpenSight);
+          }
+        }
+
+        if(savedMuzzleBrakeOrSuppressor && this.muzzleBrakesOrSuppressors.length > 0) {
+          this.selectedMuzzleBrakeOrSuppressor = this.muzzleBrakesOrSuppressors.find(c => c.id == savedMuzzleBrakeOrSuppressor.id) || null;
+          if(this.selectedMuzzleBrakeOrSuppressor) {
+            this.onSelectMuzzleBrakeOrSuppressor(this.selectedMuzzleBrakeOrSuppressor);
+          }
+        }
+
         this.updateOptionStates();
       },
       (error) => {
@@ -91,7 +112,6 @@ export class BarrelComponent implements OnInit {
     );
   }
   
-
   onNext(): void {
     this.router.navigate(["/r8/stock"]);
   }
@@ -120,8 +140,10 @@ export class BarrelComponent implements OnInit {
     this.updateOptionStates();
   }
 
-  onSelectProfile(profil: Option): void {
-    this.selectedProfile = profil;
+  onSelectProfile(profile: Option): void {
+    this.selectedProfile = profile;
+    sessionStorage.setItem("selectedProfile", JSON.stringify(profile));
+
 
     this.updateOptionsBasedOnRifle("profile");
     this.updateOptionStates();
@@ -129,6 +151,7 @@ export class BarrelComponent implements OnInit {
 
   onSelectLength(length: Option): void {
     this.selectedLength = length;
+    sessionStorage.setItem("selectedLenght", JSON.stringify(length));
 
     this.updateOptionsBasedOnRifle("length");
     this.updateOptionStates();
@@ -136,86 +159,76 @@ export class BarrelComponent implements OnInit {
   
   onSelectOpenSight(openSight: Option): void {
     this.selectedOpenSight = openSight;
+    sessionStorage.setItem("selectedOpenSight", JSON.stringify(openSight))
 
     this.updateOptionsBasedOnRifle("openSight");
     this.updateOptionStates();
   }
 
+  onSelectMuzzleBrakeOrSuppressor(muzzleBrakeOrSuppressor: Option): void {
+    this.selectedMuzzleBrakeOrSuppressor = muzzleBrakeOrSuppressor;
+    sessionStorage.setItem("selectedMuzzleBrakeOrSuppressor", JSON.stringify(muzzleBrakeOrSuppressor))
+  }
+
   private updateOptionsBasedOnRifle(changedOption: string): void {
-    //if (!this.selectedRifle) {
-       // this.resetOptions();
-       // return;
-    //}
+    if (!this.selectedRifle) {
+       this.resetOptions();
+       return;
+    }
 
     if (changedOption === "rifle") {
         this.resetOptions();
-
-        this.contours = this.configuratorService.filterOptions(
-            this.features,
-            "contours",
-            this.selectedRifle?.availableContours
-        
-        );
-        this.calibers = this.configuratorService.filterOptions(
-          this.features,
-          "calibers",
-          //nie pobiera konturów 
-          this.selectedContour?.availableCalibers
-        );
-        //this.selectedContour = null;
-        //this.updateCalibersForSelectedContour();
+        this.updateContoursForSelectedRifle();
     }
 
-    // Jeśli zmieniono kontur
     if (changedOption === "contour") {
         this.selectedCaliber = null;
         this.selectedProfile = null;
         this.selectedLength = null;
         this.selectedOpenSight = null;
         this.selectedMuzzleBrakeOrSuppressor = null;
-
-        this.calibers = this.configuratorService.filterOptions(
-          this.features,
-          "calibers",
-          this.selectedContour?.availableCalibers
-        );
-
-        //this.updateCalibersForSelectedContour();
+        this.updateCalibersForSelectedContour();
     }
 
-    // Jeśli zmieniono kaliber
     if (changedOption === "caliber") {
         this.selectedProfile = null;
         this.selectedLength = null;
         this.selectedOpenSight = null;
         this.selectedMuzzleBrakeOrSuppressor = null;
-
         this.updateProfilsForSelectedCaliber();
     }
 
-    // Jeśli zmieniono profil
     if (changedOption === "profile") {
         this.selectedLength = null;
         this.selectedOpenSight = null;
         this.selectedMuzzleBrakeOrSuppressor = null;
-
         this.updateLengthsForSelectedProfil();
     }
 
-    // Jeśli zmieniono długość
     if (changedOption === "length") {
         this.selectedOpenSight = null;
         this.selectedMuzzleBrakeOrSuppressor = null;
-
         this.updateOpenSightsForSelectedLength();
     }
 
-    // Jeśli zmieniono otwarty celownik
     if (changedOption === "openSight") {
         this.selectedMuzzleBrakeOrSuppressor = null;
-
         this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
     }
+}
+
+private updateContoursForSelectedRifle(): void {
+  if (this.selectedRifle) {
+    const contourIds = this.selectedRifle.availableContours;
+    this.contours = this.configuratorService.filterOptions(
+      this.features,
+      "contours",
+      contourIds
+    );
+  } else {
+    this.contours = [];
+  }
+  this.selectedContour = null; 
 }
   
   private updateCalibersForSelectedContour(): void {
