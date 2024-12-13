@@ -17,6 +17,7 @@ import { StockComponent } from './R8/stock/stock.component';
 import { ChamberBoltComponent } from './R8/chamber-bolt/chamber-bolt.component';
 import { AccessoryComponent } from './R8/accessory/accessory.component';
 import { SummaryComponent } from './summary/summary.component';
+import { RifleModule } from './R8/rifle/rifle.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SummaryComponent } from './summary/summary.component';
     HomeModule,
     AppRoutingModule,
     CoreModule,
-    BarrelModule
+    BarrelModule,
+    RifleModule
     ],
   providers: [],
   bootstrap: [AppComponent]

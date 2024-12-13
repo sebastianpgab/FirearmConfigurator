@@ -84,21 +84,21 @@ export class BarrelComponent implements OnInit {
         }
 
         if(savedLenght && this.lengths.length > 0) {
-          this.selectedLength = this.lengths.find(c => c.id == savedLenght.id) || null;
+          this.selectedLength = this.lengths.find(c => c.id === savedLenght.id) || null;
           if(this.selectedLength) {
             this.onSelectLength(this.selectedLength);
           }
         }
 
         if(savedOpenSight && this.openSights.length > 0) {
-          this.selectedOpenSight = this.openSights.find(c => c.id == savedOpenSight.id) || null;
+          this.selectedOpenSight = this.openSights.find(c => c.id === savedOpenSight.id) || null;
           if(this.selectedOpenSight) {
             this.onSelectOpenSight(this.selectedOpenSight);
           }
         }
 
         if(savedMuzzleBrakeOrSuppressor && this.muzzleBrakesOrSuppressors.length > 0) {
-          this.selectedMuzzleBrakeOrSuppressor = this.muzzleBrakesOrSuppressors.find(c => c.id == savedMuzzleBrakeOrSuppressor.id) || null;
+          this.selectedMuzzleBrakeOrSuppressor = this.muzzleBrakesOrSuppressors.find(c => c.id === savedMuzzleBrakeOrSuppressor.id) || null;
           if(this.selectedMuzzleBrakeOrSuppressor) {
             this.onSelectMuzzleBrakeOrSuppressor(this.selectedMuzzleBrakeOrSuppressor);
           }
@@ -168,9 +168,10 @@ export class BarrelComponent implements OnInit {
   onSelectMuzzleBrakeOrSuppressor(muzzleBrakeOrSuppressor: Option): void {
     this.selectedMuzzleBrakeOrSuppressor = muzzleBrakeOrSuppressor;
     sessionStorage.setItem("selectedMuzzleBrakeOrSuppressor", JSON.stringify(muzzleBrakeOrSuppressor))
+    console.log('MuzzleBrakeOrSuppressor saved:', muzzleBrakeOrSuppressor);
   }
 
-  private updateOptionsBasedOnRifle(changedOption: string): void {
+  public updateOptionsBasedOnRifle(changedOption: string): void {
     if (!this.selectedRifle) {
        this.resetOptions();
        return;
@@ -301,7 +302,7 @@ private updateContoursForSelectedRifle(): void {
     this.selectedMuzzleBrakeOrSuppressor = null;
   }
 
-  private updateOptionStates(): void {
+  public updateOptionStates(): void {
     this.isDisabledCaliber = !this.selectedContour;
     this.isDisabledProfile = !this.selectedCaliber;
     this.isDisabledLength = !this.selectedProfile;
