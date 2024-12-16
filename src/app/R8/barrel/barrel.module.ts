@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { BarrelComponent } from './barrel.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { BarrelComponent } from './barrel.component';
 
 
 
@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatFormFieldModule,
     MatSelectModule,
-  ]
+  ],
+  exports: [BarrelComponent]
 })
 export class BarrelModule { }

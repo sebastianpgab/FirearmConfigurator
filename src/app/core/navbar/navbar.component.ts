@@ -16,6 +16,7 @@ export class NavbarComponent {
   dropdownOpen: boolean = false;
 
   categories: Category[] = [
+    { title: 'Model', path: '/r8/model' },
     { title: 'Lufa', path: '/r8/barrel' },
     { title: 'Kolba', path: '/r8/stock' },
     { title: 'Komora zamka', path: '/r8/chamberBolt' },
