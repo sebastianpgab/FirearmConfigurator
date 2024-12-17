@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ConfiguratorService } from 'src/app/core/services/configurator.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class BarrelService {
 
   private jsonUrl = 'assets/dataR8.json';  // Ścieżka do pliku JSON
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private configuratorService: ConfiguratorService) {}
 
   getData(): Observable<any> {
     return this.http.get<any>(this.jsonUrl);

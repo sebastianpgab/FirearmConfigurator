@@ -123,9 +123,6 @@ export class BarrelComponent implements OnInit {
   }
 
   onSelectRifle(rifle: Rifle): void {
-    this.selectedRifle = rifle;
-    sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
-
     this.updateOptionsBasedOnRifle("rifle");
     this.barrelService.updateOptionStates(
       this.selectedContour,
