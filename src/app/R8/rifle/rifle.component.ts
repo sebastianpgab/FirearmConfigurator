@@ -41,10 +41,9 @@ export class RifleComponent implements OnInit {
     this.selectedRifle = rifle;
     sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
 
-   this.barrelService.resetOptions();
-   //this.rifleService.updateContoursForSelectedRifle(this.selectedRifle);
-
-  }
+    this.barrelService.resetOptions();
+    this.rifleService.updateContoursForSelectedRifle(this.selectedRifle, this.features);
+}
 
 
 

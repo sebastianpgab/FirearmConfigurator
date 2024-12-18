@@ -3,21 +3,27 @@ import { Option } from "../../option/model";
 import { ConfiguratorService } from 'src/app/core/services/configurator.service';
 import { BarrelService } from '../barrel/barrel.service';
 import { Rifle } from './model';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class RifleService {
-
+  private contoursSubject = new BehaviorSubject<Option[]>([]);
+  contours$ = this.contoursSubject.asObservable();
   features: any;
-  constructor(private configuratorService: ConfiguratorService, private barrelService: BarrelService) { }
+  constructor(private configuratorService: ConfiguratorService) { }
 
-  public updateContoursForSelectedRifle(selectedRifle: any): Option[] {
+
+  public updateContoursForSelectedRifle(selectedRifle: Rifle | null, features: any[]): void {
     if (selectedRifle) {
-      const contourIds = selectedRifle.availableContours;
-      return this.configuratorService.filterOptions(this.features, "contours", contourIds);
+        const contourIds = selectedRifle.availableContours;
+        const contours = this.configuratorService.filterOptions(features, "contours", contourIds);
+        this.contoursSubject.next(contours); // Aktualizacja obserwowalnej wartości
+    } else {
+        this.contoursSubject.next([]); // Pusta tablica
     }
-    return [];
-  }   
+  }
+
 }

@@ -4,6 +4,7 @@ import { BarrelService } from "./barrel.service";
 import { Option } from "../../option/model";
 import { Router } from "@angular/router";
 import { ConfiguratorService } from "src/app/core/services/configurator.service";
+import { RifleService } from "../rifle/rifle.service";
 
 @Component({
   selector: "app-barrel",
@@ -12,6 +13,7 @@ import { ConfiguratorService } from "src/app/core/services/configurator.service"
 })
 export class BarrelComponent implements OnInit {
   features: any;
+  options: any = {};
   rifles: Rifle[] = [];
   contours: Option[] = [];
   calibers: Option[] = [];
@@ -37,11 +39,11 @@ export class BarrelComponent implements OnInit {
   constructor(
     private barrelService: BarrelService,
     private router: Router,
-    private configuratorService: ConfiguratorService
+    private configuratorService: ConfiguratorService,
+    private rifleService: RifleService
   ) {}
 
   ngOnInit(): void {
-    const savedRifle = JSON.parse(sessionStorage.getItem("selectedRifle") || "null");
     const savedContour = JSON.parse(sessionStorage.getItem("selectedContour") || "null");
     const savedCaliber = JSON.parse(sessionStorage.getItem("selectedCaliber") || "null");
     const savedProfile = JSON.parse(sessionStorage.getItem("selectedProfile") || "null");
@@ -53,12 +55,18 @@ export class BarrelComponent implements OnInit {
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
-  
-        // Ustawienie selectedRifle z sessionStorage lub domyślnego
-        this.selectedRifle = savedRifle ? this.rifles.find(c => c.id === savedRifle.id) || this.rifles[1] : this.rifles[1] || null;
-        if (this.selectedRifle) {
-          this.onSelectRifle(this.selectedRifle);
-        }
+
+        this.barrelService.modelChanged$.subscribe((model) => {
+          if (model) {
+            this.options = this.barrelService.options; // Pobierz zresetowane opcje
+            // Wykonaj dodatkowe akcje, jeśli wymagane
+            console.log('Model zmieniony:', model);
+          }
+        });
+
+        this.rifleService.contours$.subscribe((contours) => {
+          this.contours = contours;
+        });
   
         // Ustawienie selectedContour z sessionStorage po wybraniu karabinu
         if (savedContour && this.contours.length > 0) {
@@ -120,17 +128,6 @@ export class BarrelComponent implements OnInit {
   
   onNext(): void {
     this.router.navigate(["/r8/stock"]);
-  }
-
-  onSelectRifle(rifle: Rifle): void {
-    this.updateOptionsBasedOnRifle("rifle");
-    this.barrelService.updateOptionStates(
-      this.selectedContour,
-      this.selectedCaliber,
-      this.selectedProfile,
-      this.selectedLength,
-      this.selectedOpenSight
-     );
   }
 
   onSelectContour(contour: Option): void {
@@ -216,11 +213,6 @@ export class BarrelComponent implements OnInit {
        return;
     }
 
-    if (changedOption === "rifle") {
-        this.barrelService.resetOptions();
-        this.updateContoursForSelectedRifle();
-    }
-
     if (changedOption === "contour") {
         this.selectedCaliber = null;
         this.selectedProfile = null;
@@ -255,20 +247,6 @@ export class BarrelComponent implements OnInit {
         this.selectedMuzzleBrakeOrSuppressor = null;
         this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
     }
-}
-
-private updateContoursForSelectedRifle(): void {
-  if (this.selectedRifle) {
-    const contourIds = this.selectedRifle.availableContours;
-    this.contours = this.configuratorService.filterOptions(
-      this.features,
-      "contours",
-      contourIds
-    );
-  } else {
-    this.contours = [];
-  }
-  this.selectedContour = null; 
 }
   
   private updateCalibersForSelectedContour(): void {
