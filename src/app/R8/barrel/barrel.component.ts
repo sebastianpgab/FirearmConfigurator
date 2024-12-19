@@ -44,6 +44,7 @@ export class BarrelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const savedRifle = JSON.parse(sessionStorage.getItem("selectedRifle") || "null");
     const savedContour = JSON.parse(sessionStorage.getItem("selectedContour") || "null");
     const savedCaliber = JSON.parse(sessionStorage.getItem("selectedCaliber") || "null");
     const savedProfile = JSON.parse(sessionStorage.getItem("selectedProfile") || "null");
@@ -56,17 +57,17 @@ export class BarrelComponent implements OnInit {
         this.features = data.features;
         this.rifles = data.rifles;
 
-        this.barrelService.modelChanged$.subscribe((model) => {
-          if (model) {
-            this.options = this.barrelService.options; // Pobierz zresetowane opcje
-            // Wykonaj dodatkowe akcje, jeśli wymagane
-            console.log('Model zmieniony:', model);
-          }
-        });
-
         this.rifleService.contours$.subscribe((contours) => {
           this.contours = contours;
         });
+
+        this.rifleService.model$.subscribe(() => {
+          this.barrelService.resetOptions();          
+        })
+
+        if (savedRifle && this.rifles.length > 0) {
+          this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
+        }
   
         // Ustawienie selectedContour z sessionStorage po wybraniu karabinu
         if (savedContour && this.contours.length > 0) {

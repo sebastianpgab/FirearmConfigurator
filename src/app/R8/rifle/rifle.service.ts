@@ -11,18 +11,22 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class RifleService {
   private contoursSubject = new BehaviorSubject<Option[]>([]);
-  contours$ = this.contoursSubject.asObservable();
-  features: any;
-  constructor(private configuratorService: ConfiguratorService) { }
+  private modelSubject = new BehaviorSubject<Option[]>([]);
 
+  contours$ = this.contoursSubject.asObservable();
+  model$ = this.modelSubject.asObservable();
+
+  constructor(private configuratorService: ConfiguratorService) { }
 
   public updateContoursForSelectedRifle(selectedRifle: Rifle | null, features: any[]): void {
     if (selectedRifle) {
         const contourIds = selectedRifle.availableContours;
         const contours = this.configuratorService.filterOptions(features, "contours", contourIds);
         this.contoursSubject.next(contours); // Aktualizacja obserwowalnej wartości
+        this.modelSubject.next([]); 
     } else {
         this.contoursSubject.next([]); // Pusta tablica
+        this.modelSubject.next([]);
     }
   }
 
