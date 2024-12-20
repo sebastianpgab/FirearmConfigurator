@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { ConfiguratorService } from 'src/app/core/services/configurator.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,46 +8,49 @@ import { ConfiguratorService } from 'src/app/core/services/configurator.service'
 export class BarrelService {
   private jsonUrl = 'assets/dataR8.json'; // Ścieżka do pliku JSON
 
-  constructor(private http: HttpClient, private configuratorService: ConfiguratorService) {}
+  // Wspólny stan dla komponentów
+  private stateSubject = new BehaviorSubject<any>({
+    selectedRifle: null,
+    selectedContour: null,
+    selectedCaliber: null,
+    selectedProfile: null,
+    selectedLength: null,
+    selectedOpenSight: null,
+    selectedMuzzleBrakeOrSuppressor: null,
+    isDisabledCaliber: true,
+    isDisabledProfile: true,
+    isDisabledLength: true,
+    isDisabledOpenSight: true,
+    isDisabledMuzzleBrakeOrSuppressor: true,
+  });
+
+  state$ = this.stateSubject.asObservable();
+
+  constructor(private http: HttpClient) {}
 
   // Pobierz dane z pliku JSON
   getData(): Observable<any> {
     return this.http.get<any>(this.jsonUrl);
   }
 
-  // Aktualizuj stany opcji w zależności od wybranych wartości
-  public updateOptionStates(
-    selectedContour: any,
-    selectedCaliber: any,
-    selectedProfile: any,
-    selectedLength: any,
-    selectedOpenSight: any
-  ): any {
-    return {
-      isDisabledCaliber: !selectedContour,
-      isDisabledProfile: !selectedCaliber,
-      isDisabledLength: !selectedProfile,
-      isDisabledOpenSight: !selectedLength,
-      isDisabledMuzzleBrakeOrSuppressor: !selectedOpenSight,
-    };
+  updateState(partialState: Partial<any>): void {
+    const currentState = this.stateSubject.getValue();
+    this.stateSubject.next({ ...currentState, ...partialState });
   }
-
-  // Resetuj opcje do wartości początkowych
-  public resetOptions(): any {
-    return {
-      contours: [],
-      calibers: [],
-      profiles: [],
-      lengths: [],
-      openSights: [],
-      muzzleBrakesOrSuppressors: [],
+  
+  resetOptions(): void {
+    this.updateState({
       selectedContour: null,
       selectedCaliber: null,
       selectedProfile: null,
       selectedLength: null,
       selectedOpenSight: null,
       selectedMuzzleBrakeOrSuppressor: null,
-    };
+      isDisabledCaliber: true,
+      isDisabledProfile: true,
+      isDisabledLength: true,
+      isDisabledOpenSight: true,
+      isDisabledMuzzleBrakeOrSuppressor: true,
+    });
   }
-
 }
