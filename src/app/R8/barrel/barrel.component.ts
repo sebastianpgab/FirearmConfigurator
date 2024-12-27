@@ -39,6 +39,16 @@ export class BarrelComponent implements OnInit {
   isDisabledOpenSight: boolean = true;
   isDisabledMuzzleBrakeOrSuppressor: boolean = true;
 
+  private optionHierarchy = [
+    "selectedRifle",
+    "selectedContour",
+    "selectedCaliber",
+    "selectedProfile",
+    "selectedLength",
+    "selectedOpenSight",
+    "selectedMuzzleBrakeOrSuppressor",
+  ];
+
   constructor(
     private barrelService: BarrelService,
     private router: Router,
@@ -51,7 +61,7 @@ export class BarrelComponent implements OnInit {
     const savedContour = JSON.parse(sessionStorage.getItem("selectedContour") || "null");
     const savedCaliber = JSON.parse(sessionStorage.getItem("selectedCaliber") || "null");
     const savedProfile = JSON.parse(sessionStorage.getItem("selectedProfile") || "null");
-    const savedLenght = JSON.parse(sessionStorage.getItem("selectedLenght") || "null");
+    const savedLength = JSON.parse(sessionStorage.getItem("selectedLength") || "null");
     const savedOpenSight = JSON.parse(sessionStorage.getItem("selectedOpenSight") || "null");
     const savedMuzzleBrakeOrSuppressor = JSON.parse(sessionStorage.getItem("selectedMuzzleBrakeOrSuppressor") || "null");
 
@@ -99,8 +109,8 @@ export class BarrelComponent implements OnInit {
           }
         }
 
-        if(savedLenght && this.lengths.length > 0) {
-          this.selectedLength = this.lengths.find(c => c.id === savedLenght.id) || null;
+        if(savedLength && this.lengths.length > 0) {
+          this.selectedLength = this.lengths.find(c => c.id === savedLength.id) || null;
           if(this.selectedLength) {
             this.onSelectLength(this.selectedLength);
           }
@@ -153,7 +163,6 @@ export class BarrelComponent implements OnInit {
       selectedCaliber: caliber,
       isDisabledProfile: false,
     });
-
   }
 
   onSelectProfile(profile: Option): void {
@@ -162,7 +171,10 @@ export class BarrelComponent implements OnInit {
 
 
     this.updateOptionsBasedOnRifle("profile");
-
+    this.barrelService.updateState({
+      selectedProfile: profile,
+      isDisabledLength: false,
+    });
 
   } 
 
@@ -171,7 +183,10 @@ export class BarrelComponent implements OnInit {
     sessionStorage.setItem("selectedLenght", JSON.stringify(length));
 
     this.updateOptionsBasedOnRifle("length");
-
+    this.barrelService.updateState({
+      selectedLength: length,
+      isDisabledOpenSight: false,
+    });
 
   }
   
@@ -180,6 +195,10 @@ export class BarrelComponent implements OnInit {
     sessionStorage.setItem("selectedOpenSight", JSON.stringify(openSight))
 
     this.updateOptionsBasedOnRifle("openSight");
+    this.barrelService.updateState({
+      selectedOpenSight: openSight,
+      isDisabledMuzzleBrakeOrSuppressor: false,
+    })
 
 
   }
@@ -193,45 +212,44 @@ export class BarrelComponent implements OnInit {
 
   public updateOptionsBasedOnRifle(changedOption: string): void {
     if (!this.selectedRifle) {
-       this.barrelService.resetOptions();
-       return;
+      this.barrelService.resetOptions();
+      sessionStorage.clear(); // Zerowanie wszystkich danych, jeśli brak karabinu
+      return;
     }
-
+  
+    console.log(`Resetowanie opcji po: ${changedOption}`);
+    this.configuratorService.resetOptionsAfter(changedOption, this.optionHierarchy, this);
+  
     if (changedOption === "contour") {
-        this.selectedCaliber = null;
-        this.selectedProfile = null;
-        this.selectedLength = null;
-        this.selectedOpenSight = null;
-        this.selectedMuzzleBrakeOrSuppressor = null;
-        this.updateCalibersForSelectedContour();
+      this.updateCalibersForSelectedContour();
     }
-
+  
     if (changedOption === "caliber") {
-        this.selectedProfile = null;
-        this.selectedLength = null;
-        this.selectedOpenSight = null;
-        this.selectedMuzzleBrakeOrSuppressor = null;
-        this.updateProfilsForSelectedCaliber();
+      this.updateProfilsForSelectedCaliber();
     }
-
+  
     if (changedOption === "profile") {
-        this.selectedLength = null;
-        this.selectedOpenSight = null;
-        this.selectedMuzzleBrakeOrSuppressor = null;
-        this.updateLengthsForSelectedProfil();
+      this.updateLengthsForSelectedProfil();
     }
-
+  
     if (changedOption === "length") {
-        this.selectedOpenSight = null;
-        this.selectedMuzzleBrakeOrSuppressor = null;
-        this.updateOpenSightsForSelectedLength();
+      this.updateOpenSightsForSelectedLength();
     }
-
+  
     if (changedOption === "openSight") {
-        this.selectedMuzzleBrakeOrSuppressor = null;
-        this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
+      this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
     }
-}
+  
+    console.log("Aktualny stan po resetowaniu:", {
+      selectedContour: this.selectedContour,
+      selectedCaliber: this.selectedCaliber,
+      selectedProfile: this.selectedProfile,
+      selectedLength: this.selectedLength,
+      selectedOpenSight: this.selectedOpenSight,
+      selectedMuzzleBrakeOrSuppressor: this.selectedMuzzleBrakeOrSuppressor,
+    });
+  }
+  
   
   private updateCalibersForSelectedContour(): void {
     if (this.selectedContour) {

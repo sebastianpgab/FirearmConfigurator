@@ -43,6 +43,7 @@ export class RifleComponent implements OnInit {
 
     this.barrelService.resetOptions();
     this.barrelService.updateState(this.selectedRifle);
+    this.rifleService.updateContoursForSelectedRifle(this.selectedRifle, this.features);
 
 }
 

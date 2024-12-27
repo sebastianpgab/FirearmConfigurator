@@ -22,4 +22,18 @@ export class ConfiguratorService {
       ? features[featureKey].filter((option: Option) =>
           availableIds.includes(option.id)): [];
   }
+
+  public resetOptionsAfter(optionName: string, optionHierarchy: string[], component: any): void {
+    const startIndex = optionHierarchy.indexOf(optionName) + 1;
+  
+    if (startIndex > 0) {
+      for (let i = startIndex; i < optionHierarchy.length; i++) {
+        const option = optionHierarchy[i];
+        component[option] = null; // Resetuje wartość w komponencie
+        sessionStorage.removeItem(option); // Usuwa wartość z sessionStorage
+      }
+    }
+  }
+  
+  
 }

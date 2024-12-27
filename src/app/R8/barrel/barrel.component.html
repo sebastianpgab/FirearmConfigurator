@@ -17,7 +17,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kontur</mat-label>
           <mat-select
-            [(value)]="selectedContour"
+            [(value)]="state.selectedContour"
             (selectionChange)="onSelectContour($event.value)"
 
             placeholder="Wybierz kontur"
@@ -37,7 +37,7 @@
           <mat-select
             [(value)]="selectedCaliber"
             placeholder="Wybierz kaliber"
-            [disabled]="isDisabledCaliber"
+            [disabled]="state.isDisabledCaliber"
             (selectionChange)="onSelectCaliber($event.value)"
 
           >
@@ -56,7 +56,7 @@
           <mat-select
             [(value)]="selectedProfile"
             placeholder="Wybierz profil"
-            [disabled]="isDisabledProfile"
+            [disabled]="state.isDisabledProfile"
             (selectionChange)="onSelectProfile($event.value)"
           >
             <mat-option *ngFor="let profile of profiles" [value]="profile">
@@ -74,7 +74,7 @@
           <mat-select
             [(value)]="selectedLength"
             placeholder="Wybierz długość"
-            [disabled]="isDisabledLength"
+            [disabled]="state.isDisabledLength"
             (selectionChange)="onSelectLength($event.value)"
 
           >
@@ -93,7 +93,7 @@
           <mat-select
             [(value)]="selectedOpenSight"
             placeholder="Wybierz przyrząd celowniczy"
-            [disabled]="isDisabledOpenSight"
+            [disabled]="state.isDisabledOpenSight"
             (selectionChange)="onSelectOpenSight($event.value)"
           >
             <mat-option *ngFor="let openSight of openSights" [value]="openSight">
@@ -111,7 +111,7 @@
           <mat-select
             [(value)]="selectedMuzzleBrakeOrSuppressor"
             placeholder="Wybierz hamulec/tłumik"
-            [disabled]="isDisabledMuzzleBrakeOrSuppressor"
+            [disabled]="state.isDisabledMuzzleBrakeOrSuppressor"
             (selectionChange)="onSelectMuzzleBrakeOrSuppressor($event.value)"
           >
             <mat-option *ngFor="let muzzleBrakeOrSuppressor of muzzleBrakesOrSuppressors" [value]="muzzleBrakeOrSuppressor">

@@ -24,10 +24,6 @@ export class RifleService {
         const contours = this.configuratorService.filterOptions(features, "contours", contourIds);
         this.contoursSubject.next(contours); // Aktualizacja obserwowalnej wartości
         this.modelSubject.next([]); 
-    } else {
-        this.contoursSubject.next([]); // Pusta tablica
-        this.modelSubject.next([]);
     }
   }
-
 }
