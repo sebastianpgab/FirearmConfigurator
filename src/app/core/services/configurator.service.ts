@@ -11,6 +11,16 @@ export class ConfiguratorService {
 
   private jsonUrl = 'assets/dataR8.json';  // Ścieżka do pliku JSON
 
+    private optionHierarchy = [
+      "rifle",
+      "contour",
+      "caliber",
+      "profile",
+      "length",
+      "openSight",
+      "muzzleBrakeOrSuppressor",
+    ];
+
   constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
@@ -23,17 +33,32 @@ export class ConfiguratorService {
           availableIds.includes(option.id)): [];
   }
 
-  public resetOptionsAfter(optionName: string, optionHierarchy: string[], component: any): void {
-    const startIndex = optionHierarchy.indexOf(optionName) + 1;
+  public resetOptionsAfter(optionName: string, component: any): void {
+    const startIndex = this.optionHierarchy.indexOf(optionName) + 1;
   
     if (startIndex > 0) {
-      for (let i = startIndex; i < optionHierarchy.length; i++) {
-        const option = optionHierarchy[i];
-        component[option] = null; // Resetuje wartość w komponencie
-        sessionStorage.removeItem(option); // Usuwa wartość z sessionStorage
+      console.log(`Resetowanie opcji od indeksu ${startIndex}: ${this.optionHierarchy.slice(startIndex)}`);
+      for (let i = startIndex; i < this.optionHierarchy.length; i++) {
+        const option = this.optionHierarchy[i];
+        const formattedOption = this.formatOptionName(option);
+  
+        // Resetowanie zmiennej w komponencie
+        component[`selected${option.charAt(0).toUpperCase() + option.slice(1)}`] = null;
+        console.log(`Zmienna ${formattedOption} zresetowana do:`, component[`selected${option.charAt(0).toUpperCase() + option.slice(1)}`]);
+  
+        // Usuwanie z sessionStorage
+        sessionStorage.removeItem(formattedOption);
+        console.log(`Usunięto z sessionStorage: ${formattedOption}`);
       }
+    } else {
+      console.log(`Opcja ${optionName} nie została znaleziona w hierarchii.`);
     }
   }
+  
+  private formatOptionName(option: string): string {
+    return "selected" + option.charAt(0).toUpperCase() + option.slice(1);
+  }
+  
   
   
 }

@@ -39,16 +39,6 @@ export class BarrelComponent implements OnInit {
   isDisabledOpenSight: boolean = true;
   isDisabledMuzzleBrakeOrSuppressor: boolean = true;
 
-  private optionHierarchy = [
-    "selectedRifle",
-    "selectedContour",
-    "selectedCaliber",
-    "selectedProfile",
-    "selectedLength",
-    "selectedOpenSight",
-    "selectedMuzzleBrakeOrSuppressor",
-  ];
-
   constructor(
     private barrelService: BarrelService,
     private router: Router,
@@ -218,7 +208,7 @@ export class BarrelComponent implements OnInit {
     }
   
     console.log(`Resetowanie opcji po: ${changedOption}`);
-    this.configuratorService.resetOptionsAfter(changedOption, this.optionHierarchy, this);
+    this.configuratorService.resetOptionsAfter(changedOption, this);
   
     if (changedOption === "contour") {
       this.updateCalibersForSelectedContour();

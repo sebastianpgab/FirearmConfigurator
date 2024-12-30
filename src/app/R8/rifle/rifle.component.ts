@@ -29,22 +29,20 @@ export class RifleComponent implements OnInit {
       this.rifles = data.rifles;
 
       // Ustawienie selectedRifle z sessionStorage lub domyślnego
-      this.selectedRifle = savedRifle ? this.rifles.find(c => c.id === savedRifle.id) || this.rifles[1] : this.rifles[1] || null;
-      if (this.selectedRifle) {
-        this.onSelectRifle(this.selectedRifle);
-      }     
-    }
+      this.selectedRifle = savedRifle && savedRifle.id ? this.rifles.find((c) => c.id === savedRifle.id) || null : null;
+      this.rifleService.updateContoursForSelectedRifle(this.selectedRifle, this.features);
+
+      }
     )
+
   }
 
   onSelectRifle(rifle: Rifle): void {
     this.selectedRifle = rifle;
+    this.configuratorService.resetOptionsAfter("rifle", this)
     sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
-
-    this.barrelService.resetOptions();
     this.barrelService.updateState(this.selectedRifle);
     this.rifleService.updateContoursForSelectedRifle(this.selectedRifle, this.features);
-
 }
 
 
