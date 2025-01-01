@@ -13,11 +13,12 @@ import { Subscription } from "rxjs";
   styleUrls: [],
 })
 export class BarrelComponent implements OnInit {
+  
+  private subscription!: Subscription;
   features: any;
   options: any = {};
   rifles: Rifle[] = [];
   state: any; // Przechowuje aktualny stan z serwisu
-  private subscription!: Subscription;
   contours: Option[] = [];
   calibers: Option[] = [];
   profiles: Option[] = [];
@@ -58,15 +59,12 @@ export class BarrelComponent implements OnInit {
     this.subscription = this.barrelService.state$.subscribe((state) => {
       this.state = state; // Aktualizuje lokalny stan
     });
-  
+
     this.barrelService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
-
-        this.rifleService.contours$.subscribe((contours) => {
-          this.contours = contours;
-        });
+        this.contours = this.features.contours;
 
         this.rifleService.model$.subscribe(() => {
           this.barrelService.resetOptions();          
@@ -76,7 +74,6 @@ export class BarrelComponent implements OnInit {
           this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
         }
   
-        // Ustawienie selectedContour z sessionStorage po wybraniu karabinu
         if (savedContour && this.contours.length > 0) {
           this.selectedContour = this.contours.find(c => c.id === savedContour.id) || null;
           if (this.selectedContour) {
@@ -84,7 +81,6 @@ export class BarrelComponent implements OnInit {
           }
         }
   
-        // Ustawienie selectedCaliber z sessionStorage po wybraniu konturu
         if (savedCaliber && this.calibers.length > 0) {
           this.selectedCaliber = this.calibers.find(c => c.id === savedCaliber.id) || null;
           if (this.selectedCaliber) {
@@ -119,7 +115,6 @@ export class BarrelComponent implements OnInit {
             this.onSelectMuzzleBrakeOrSuppressor(this.selectedMuzzleBrakeOrSuppressor);
           }
         }        
-
       },
       (error) => {
         console.error("Błąd przy ładowaniu danych:", error);
@@ -127,10 +122,6 @@ export class BarrelComponent implements OnInit {
     );
   }
   
-  onNext(): void {
-    this.router.navigate(["/r8/stock"]);
-  }
-
   onSelectContour(contour: Option): void {
     this.selectedContour = contour;
     sessionStorage.setItem("selectedContour", JSON.stringify(contour));
@@ -140,13 +131,11 @@ export class BarrelComponent implements OnInit {
       selectedContour: contour,
       isDisabledCaliber: false,
     });
-
   }
     
   onSelectCaliber(caliber: Option): void {
     this.selectedCaliber = caliber;
     sessionStorage.setItem("selectedCaliber", JSON.stringify(caliber));
-
     this.updateOptionsBasedOnRifle("caliber");
 
     this.barrelService.updateState({
@@ -158,9 +147,8 @@ export class BarrelComponent implements OnInit {
   onSelectProfile(profile: Option): void {
     this.selectedProfile = profile;
     sessionStorage.setItem("selectedProfile", JSON.stringify(profile));
-
-
     this.updateOptionsBasedOnRifle("profile");
+
     this.barrelService.updateState({
       selectedProfile: profile,
       isDisabledLength: false,
@@ -171,8 +159,8 @@ export class BarrelComponent implements OnInit {
   onSelectLength(length: Option): void {
     this.selectedLength = length;
     sessionStorage.setItem("selectedLenght", JSON.stringify(length));
-
     this.updateOptionsBasedOnRifle("length");
+
     this.barrelService.updateState({
       selectedLength: length,
       isDisabledOpenSight: false,
@@ -183,31 +171,26 @@ export class BarrelComponent implements OnInit {
   onSelectOpenSight(openSight: Option): void {
     this.selectedOpenSight = openSight;
     sessionStorage.setItem("selectedOpenSight", JSON.stringify(openSight))
-
     this.updateOptionsBasedOnRifle("openSight");
+
     this.barrelService.updateState({
       selectedOpenSight: openSight,
       isDisabledMuzzleBrakeOrSuppressor: false,
     })
-
-
   }
 
   onSelectMuzzleBrakeOrSuppressor(muzzleBrakeOrSuppressor: Option): void {
     this.selectedMuzzleBrakeOrSuppressor = muzzleBrakeOrSuppressor;
     sessionStorage.setItem("selectedMuzzleBrakeOrSuppressor", JSON.stringify(muzzleBrakeOrSuppressor))
-
-
   }
 
   public updateOptionsBasedOnRifle(changedOption: string): void {
     if (!this.selectedRifle) {
       this.barrelService.resetOptions();
-      sessionStorage.clear(); // Zerowanie wszystkich danych, jeśli brak karabinu
+      sessionStorage.clear();
       return;
     }
   
-    console.log(`Resetowanie opcji po: ${changedOption}`);
     this.configuratorService.resetOptionsAfter(changedOption, this);
   
     if (changedOption === "contour") {
@@ -229,15 +212,6 @@ export class BarrelComponent implements OnInit {
     if (changedOption === "openSight") {
       this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
     }
-  
-    console.log("Aktualny stan po resetowaniu:", {
-      selectedContour: this.selectedContour,
-      selectedCaliber: this.selectedCaliber,
-      selectedProfile: this.selectedProfile,
-      selectedLength: this.selectedLength,
-      selectedOpenSight: this.selectedOpenSight,
-      selectedMuzzleBrakeOrSuppressor: this.selectedMuzzleBrakeOrSuppressor,
-    });
   }
   
   
@@ -312,12 +286,17 @@ export class BarrelComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    // Odsubskrybuj, aby zapobiec wyciekom pamięci
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
   }
 
-  
+  onNext(): void {
+    this.router.navigate(["/r8/stock"]);
+  }
+
+  onBack() {
+    this.router.navigate(['/r8/model']);
+    }
 
 }

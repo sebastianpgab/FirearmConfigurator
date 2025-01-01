@@ -37,18 +37,11 @@ export class ConfiguratorService {
     const startIndex = this.optionHierarchy.indexOf(optionName) + 1;
   
     if (startIndex > 0) {
-      console.log(`Resetowanie opcji od indeksu ${startIndex}: ${this.optionHierarchy.slice(startIndex)}`);
       for (let i = startIndex; i < this.optionHierarchy.length; i++) {
         const option = this.optionHierarchy[i];
         const formattedOption = this.formatOptionName(option);
-  
-        // Resetowanie zmiennej w komponencie
         component[`selected${option.charAt(0).toUpperCase() + option.slice(1)}`] = null;
-        console.log(`Zmienna ${formattedOption} zresetowana do:`, component[`selected${option.charAt(0).toUpperCase() + option.slice(1)}`]);
-  
-        // Usuwanie z sessionStorage
         sessionStorage.removeItem(formattedOption);
-        console.log(`Usunięto z sessionStorage: ${formattedOption}`);
       }
     } else {
       console.log(`Opcja ${optionName} nie została znaleziona w hierarchii.`);
