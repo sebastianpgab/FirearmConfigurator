@@ -1,21 +1,30 @@
  
+<body>
+  <section class="content">
+    <h1 class="section-title">Model</h1>
 
-<form class="container">
-    <!-- Wybór modelu --> 
-    <mat-form-field appearance="fill" style="width: 100%;">
-      <mat-label>Model</mat-label>
-      <mat-select
-        [(value)]="selectedRifle"
-        (selectionChange)="onSelectRifle($event.value)"
-        placeholder="Wybierz model"
-        
-      >
-        <mat-option *ngFor="let rifle of rifles" [value]="rifle">
-          <div class="option-template">
-            <img [src]="rifle.imageUrl" alt="{{ rifle.name }}" />
-            <span>{{ rifle.name }}</span>
-          </div>
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-</form>
+    <div class="rifle-preview">
+      <img *ngIf="selectedRifle" [src]="selectedRifle.imageUrl" class="rifle-layer">
+    </div>
+    
+    <form class="container">
+        <!-- Wybór modelu --> 
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Model</mat-label>
+          <mat-select
+            [(value)]="selectedRifle"
+            (selectionChange)="onSelectRifle($event.value)"
+            placeholder="Wybierz model"
+            
+          >
+            <mat-option *ngFor="let rifle of rifles" [value]="rifle">
+              <div class="option-template">
+                <img [src]="rifle.imageUrl" alt="{{ rifle.name }}" />
+                <span>{{ rifle.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </form>
+</section>
+</body>
