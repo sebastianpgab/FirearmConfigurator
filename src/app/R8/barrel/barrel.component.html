@@ -3,11 +3,11 @@
     <h1 class="section-title">KALIBER & LUFA</h1>
 
     <div class="rifle-preview">
-      <img [src]="selectedContour?.imageUrl" alt="Contour" class="rifle-layer" />
-      <img [src]="selectedProfile?.imageUrl" alt="Profile" class="rifle-layer" />
-      <img [src]="selectedLength?.imageUrl" alt="Lenght" class="rifle-layer" />
-      <img [src]="selectedOpenSight?.imageUrl" alt="OpenSight" class="rifle-layer" />
-      <img [src]="selectedMuzzleBrakeOrSuppressor?.imageUrl" alt="MuzzleBrakeOrSuppressor" class="rifle-layer" />
+      <img *ngIf="selectedContour" [src]="selectedContour.imageUrl" alt="Contour" class="rifle-layer" />
+      <img *ngIf="selectedProfile" [src]="selectedProfile.imageUrl" alt="Profile" class="rifle-layer" />
+      <img *ngIf="selectedLength" [src]="selectedLength.imageUrl" alt="Lenght" class="rifle-layer" />
+      <img *ngIf="selectedOpenSight" [src]="selectedOpenSight.imageUrl" alt="OpenSight" class="rifle-layer" />
+      <img *ngIf="selectedMuzzleBrakeOrSuppressor" [src]="selectedMuzzleBrakeOrSuppressor.imageUrl" alt="MuzzleBrakeOrSuppressor" class="rifle-layer" />
     </div>
   
     <div *ngIf="rifles.length > 0">
