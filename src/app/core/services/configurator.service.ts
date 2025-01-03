@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Rifle } from 'src/app/R8/rifle/model';
 import { Option } from "../../option/model";
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ConfiguratorState } from "src/app/core/services/model"
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +11,59 @@ export class ConfiguratorService {
 
   private jsonUrl = 'assets/dataR8.json';  // Ścieżka do pliku JSON
 
-    private optionHierarchy = [
-      "rifle",
-      "contour",
-      "caliber",
-      "profile",
-      "length",
-      "openSight",
-      "muzzleBrakeOrSuppressor",
-    ];
+  private optionHierarchy = [
+    "rifle",
+    "contour",
+    "caliber",
+    "profile",
+    "length",
+    "openSight",
+    "muzzleBrakeOrSuppressor",
+  ];
+
+  private stateSubject = new BehaviorSubject<ConfiguratorState>({ 
+    selectedRifle: null,
+    selectedContour: null,
+    selectedCaliber: null,
+    selectedProfile: null,
+    selectedLength: null,
+    selectedOpenSight: null,
+    selectedMuzzleBrakeOrSuppressor: null,
+    selectedButtstockType: null,
+    selectedWoodCategory: null,
+    selectedLengthOfPull: null,
+    selectedIndividualButtstockMeasure: null,
+    selectedButtstockMeasuresType: null,
+    selectedPistolGripCap: null,
+    selectedKickstop: null,
+    selectedStockMagazine: null,
+    selectedForearmOption: null,
+    isDisabledCaliber: true,
+    isDisabledProfile: true,
+    isDisabledLength: true,
+    isDisabledOpenSight: true,
+    isDisabledMuzzleBrakeOrSuppressor: true,
+    isDisabledWoodCategory: true,
+    isDisabledLengthOfPull: true,
+    isDisabledIndividualButtstockMeasure: true,
+    isDisabledButtstockMeasuresType: true,
+    isDisabledPistolGripCap: true,
+    isDisabledKickstop: true,
+    isDisabledStockMagazine: true,
+    isDisabledForearmOption: true,
+  });
+
+  state$ = this.stateSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<any> {
+  public getData(): Observable<any> {
     return this.http.get<any>(this.jsonUrl);
+  }
+
+  public updateState(partialState: Partial<any>): void {
+    const currentState = this.stateSubject.getValue();
+    this.stateSubject.next({ ...currentState, ...partialState });
   }
 
   public filterOptions(features: any, featureKey: string, availableIds: number[] | undefined): Option[] {
@@ -33,14 +72,13 @@ export class ConfiguratorService {
           availableIds.includes(option.id)): [];
   }
 
-  public resetOptionsAfter(optionName: string, component: any): void {
+  public resetOptionsAfter(optionName: string): void {
     const startIndex = this.optionHierarchy.indexOf(optionName) + 1;
   
     if (startIndex > 0) {
       for (let i = startIndex; i < this.optionHierarchy.length; i++) {
         const option = this.optionHierarchy[i];
         const formattedOption = this.formatOptionName(option);
-        component[`selected${option.charAt(0).toUpperCase() + option.slice(1)}`] = null;
         sessionStorage.removeItem(formattedOption);
       }
     } else {

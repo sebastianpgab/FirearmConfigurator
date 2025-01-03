@@ -56,11 +56,11 @@ export class BarrelComponent implements OnInit {
     const savedOpenSight = JSON.parse(sessionStorage.getItem("selectedOpenSight") || "null");
     const savedMuzzleBrakeOrSuppressor = JSON.parse(sessionStorage.getItem("selectedMuzzleBrakeOrSuppressor") || "null");
 
-    this.subscription = this.barrelService.state$.subscribe((state) => {
+    this.subscription = this.configuratorService.state$.subscribe((state) => {
       this.state = state; // Aktualizuje lokalny stan
     });
 
-    this.barrelService.getData().subscribe(
+    this.configuratorService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
@@ -127,7 +127,7 @@ export class BarrelComponent implements OnInit {
     sessionStorage.setItem("selectedContour", JSON.stringify(contour));
     this.updateOptionsBasedOnRifle("contour");
 
-    this.barrelService.updateState({
+    this.configuratorService.updateState({
       selectedContour: contour,
       isDisabledCaliber: false,
     });
@@ -138,7 +138,7 @@ export class BarrelComponent implements OnInit {
     sessionStorage.setItem("selectedCaliber", JSON.stringify(caliber));
     this.updateOptionsBasedOnRifle("caliber");
 
-    this.barrelService.updateState({
+    this.configuratorService.updateState({
       selectedCaliber: caliber,
       isDisabledProfile: false,
     });
@@ -149,11 +149,10 @@ export class BarrelComponent implements OnInit {
     sessionStorage.setItem("selectedProfile", JSON.stringify(profile));
     this.updateOptionsBasedOnRifle("profile");
 
-    this.barrelService.updateState({
+    this.configuratorService.updateState({
       selectedProfile: profile,
       isDisabledLength: false,
     });
-
   } 
 
   onSelectLength(length: Option): void {
@@ -161,11 +160,10 @@ export class BarrelComponent implements OnInit {
     sessionStorage.setItem("selectedLenght", JSON.stringify(length));
     this.updateOptionsBasedOnRifle("length");
 
-    this.barrelService.updateState({
+    this.configuratorService.updateState({
       selectedLength: length,
       isDisabledOpenSight: false,
     });
-
   }
   
   onSelectOpenSight(openSight: Option): void {
@@ -173,7 +171,7 @@ export class BarrelComponent implements OnInit {
     sessionStorage.setItem("selectedOpenSight", JSON.stringify(openSight))
     this.updateOptionsBasedOnRifle("openSight");
 
-    this.barrelService.updateState({
+    this.configuratorService.updateState({
       selectedOpenSight: openSight,
       isDisabledMuzzleBrakeOrSuppressor: false,
     })
@@ -191,7 +189,7 @@ export class BarrelComponent implements OnInit {
       return;
     }
   
-    this.configuratorService.resetOptionsAfter(changedOption, this);
+    this.configuratorService.resetOptionsAfter(changedOption);
   
     if (changedOption === "contour") {
       this.updateCalibersForSelectedContour();
@@ -213,7 +211,6 @@ export class BarrelComponent implements OnInit {
       this.updateMuzzleBrakesOrSuppressorsSelectedOpenSight();
     }
   }
-  
   
   private updateCalibersForSelectedContour(): void {
     if (this.selectedContour) {

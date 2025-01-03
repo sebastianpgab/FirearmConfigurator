@@ -17,8 +17,7 @@ export class RifleComponent implements OnInit {
   rifles: Rifle[] = [];
   features: any;
   contours: Option[] = [];
-
-  
+ 
   constructor(private configuratorService: ConfiguratorService, private barrelService: BarrelService, private rifleService: RifleService) { }
 
   ngOnInit(): void {
@@ -28,7 +27,9 @@ export class RifleComponent implements OnInit {
       this.features = data.features;
       this.rifles = data.rifles;
 
-      this.selectedRifle = savedRifle && savedRifle.id ? this.rifles.find((c) => c.id === savedRifle.id) || null : null;
+      this.selectedRifle = savedRifle.id != null ? this.rifles.find((c) => c.id === savedRifle.id) || null : null;
+      sessionStorage.setItem("selectedRifle", JSON.stringify(this.selectedRifle));
+
       this.rifleService.updateContoursForSelectedRifle(this.selectedRifle, this.features);
       }
     )
@@ -36,9 +37,9 @@ export class RifleComponent implements OnInit {
 
   onSelectRifle(rifle: Rifle): void {
     this.selectedRifle = rifle;
-    this.configuratorService.resetOptionsAfter("rifle", this)
+    this.configuratorService.resetOptionsAfter("rifle")
     sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
-    this.barrelService.updateState(this.selectedRifle);
+    this.configuratorService.updateState(this.selectedRifle);
     this.rifleService.updateContoursForSelectedRifle(this.selectedRifle, this.features);
 }
 }

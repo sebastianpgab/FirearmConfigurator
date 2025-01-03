@@ -57,7 +57,7 @@ export class StockComponent implements OnInit {
     const savedRifle = JSON.parse(sessionStorage.getItem('selectedRifle') || 'null');
     this.selectedRifle = savedRifle;
 
-    this.stockService.getData().subscribe(
+    this.configuratorService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
