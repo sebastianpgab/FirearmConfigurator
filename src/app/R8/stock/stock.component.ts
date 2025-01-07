@@ -5,6 +5,8 @@ import { Option } from "../../option/model";
 import { Rifle } from "../rifle/model";
 import { Router } from '@angular/router';
 import { ConfiguratorService } from "src/app/core/services/configurator.service";
+import { subscribeOn, Subscription } from "rxjs";
+import { RifleService } from "../rifle/rifle.service";
 
 @Component({
   selector: 'app-stock',
@@ -15,7 +17,9 @@ export class StockComponent implements OnInit {
 
   features: any;
   rifles: Rifle[] = [];
+  state: any; // Przechowuje aktualny stan z serwisu
 
+  private subscription!: Subscription;
   buttstockTypes: Option[] = [];
   woodCategories: Option[] = [];
   lengthsOfPull: Option[] = [];
@@ -50,27 +54,41 @@ export class StockComponent implements OnInit {
   constructor(
     private stockService: StockService,
     private router: Router,
-    private configuratorService: ConfiguratorService
+    private configuratorService: ConfiguratorService,
+    private rifleService: RifleService
   ) {}
 
-  ngOnInit() {
+  ngOnInit() { 
     const savedRifle = JSON.parse(sessionStorage.getItem('selectedRifle') || 'null');
-    this.selectedRifle = savedRifle;
+    const savedButtstockType = JSON.parse(sessionStorage.getItem("selectedButtstockType") || "null");
+    const savedWoodCategory = JSON.parse(sessionStorage.getItem("selectedWoodCategory") || "null");
+    const savedLengthOfPull = JSON.parse(sessionStorage.getItem("selectedLengthOfPull") || "null");
+    const savedIndividualButtstockMeasure = JSON.parse(sessionStorage.getItem("selectedIndividualButtstockMeasure") || "null")
+    const savedButtstockMeasuresType = JSON.parse(sessionStorage.getItem("selectedButtstockMeasuresType") || "null")
+    const savedPistolGripCap = JSON.parse(sessionStorage.getItem("selectedPistolGripCap") || "null")
+    const savedKickstop = JSON.parse(sessionStorage.getItem("selectedKickstop") || "null");
+    const savedStockMagazine = JSON.parse(sessionStorage.getItem("selectedStockMagazine") || "null")
+    const savedForearmOption = JSON.parse(sessionStorage.getItem("selectedForearmOption") || "null")
+
+    this.subscription = this.configuratorService.state$.subscribe((state) => {
+      this.state = state;
+    })
 
     this.configuratorService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
+        this.buttstockTypes = this.features.buttstockTypes;
 
-        if (!this.selectedRifle && this.rifles.length > 0) {
-          this.selectedRifle = this.rifles[0];
+        this.rifleService.model$.subscribe(() => {
+          this.stockService.resetOptions();     
+        })
+
+        if (savedRifle && this.rifles.length > 0) {
+          this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
         }
 
-        // Aktualizacja opcji na podstawie wybranego karabinu
-        this.updateOptionsBasedOnRifle();
-
-        // Aktualizacja stanów opcji
-        this.updateOptionStates();
+     
       },
       (error) => {
         console.error('Błąd przy ładowaniu danych:', error);
@@ -78,64 +96,44 @@ export class StockComponent implements OnInit {
     );
   }
 
-  onNext(): void {
-    // Zapisanie wybranej strzelby do sessionStorage
-    sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));
+  onSelectButtstockType(buttstockType: Option): void {
+    this.selectedButtstockType = buttstockType;
+    sessionStorage.setItem("selectedButtstockType", JSON.stringify(buttstockType));
+    this.updateOptionsBasedOnRifle("buttstockType");
 
-    // Nawigacja do kolejnego kroku
-    this.router.navigate(['/r8/chamberBolt']);
+    this.configuratorService.updateState({
+      selectedButtstockType: buttstockType,
+      isDisabledWoodCategory: false;
+    })
   }
 
-  onBack() {
-    this.router.navigate(['/r8/barrel']);
-    }
-
-  onSelectRifle(rifle: Rifle) {
-    this.selectedRifle = rifle;
-
-    // Zapisanie wybranej strzelby do sessionStorage
-    sessionStorage.setItem('selectedRifle', JSON.stringify(rifle));
-
-    // Aktualizacja opcji na podstawie nowo wybranego karabinu
-    this.updateOptionsBasedOnRifle();
-
-    // Aktualizacja stanów opcji
-    this.updateOptionStates();
-  }
-
-  private updateOptionsBasedOnRifle(): void {
+  public updateOptionsBasedOnRifle(changedOption: string): void {
     if (!this.selectedRifle) {
-      this.buttstockTypes = [];
-      this.woodCategories = [];
-      this.lengthsOfPull = [];
-      this.individualButtstockMeasures = [];
-      this.buttstockMeasuresTypes = [];
-      this.pistolGripCaps = [];
-      this.kickstops = [];
-      this.stockMagazines = [];
-      this.forearmOptions = [];
+      this.stockService.resetOptions();
+      sessionStorage.clear();
       return;
     }
 
-    this.buttstockTypes = this.configuratorService.filterOptions(this.features, 'buttstockTypes', this.selectedRifle.availableButtstockTypes);
-    this.woodCategories = this.configuratorService.filterOptions(this.features, 'woodCategories', this.selectedRifle.availableWoodCategories);
-    this.lengthsOfPull = this.configuratorService.filterOptions(this.features, 'lengthsOfPull', this.selectedRifle.availableLengthsOfPull);
-    this.individualButtstockMeasures = this.configuratorService.filterOptions(this.features, 'individualButtstockMeasures', this.selectedRifle.availableIndividualButtstockMeasures);
-    this.buttstockMeasuresTypes = this.configuratorService.filterOptions(this.features, 'buttstockMeasuresTypes', this.selectedRifle.availableButtstockMeasuresTypes);
-    this.pistolGripCaps = this.configuratorService.filterOptions(this.features, 'pistolGripCaps', this.selectedRifle.availablePistolGripCaps);
-    this.kickstops = this.configuratorService.filterOptions(this.features, 'kickstops', this.selectedRifle.availableKickstops);
-    this.stockMagazines = this.configuratorService.filterOptions(this.features, 'stockMagazines', this.selectedRifle.availableStockMagazines);
-    this.forearmOptions = this.configuratorService.filterOptions(this.features, 'forearmOptions', this.selectedRifle.availableForearmOptions);
+    this.configuratorService.resetOptionsAfter(changedOption);
+
+    if(changedOption === "buttstockType") {
+      this.updateWoodCategoryForSelectedButtstockType();
+    }
+
   }
 
-  updateOptionStates(): void {
-    this.isDisabledWoodCategory = !this.selectedButtstockType;
-    this.isDisabledLengthOfPull = !this.selectedWoodCategory;
-    this.isDisabledIndividualButtstockMeasure = !this.selectedLengthOfPull;
-    this.isDisabledButtstockMeasuresType = !this.selectedIndividualButtstockMeasure;
-    this.isDisabledPistolGripCap = !this.selectedButtstockMeasuresType;
-    this.isDisabledKickstop = !this.selectedPistolGripCap;
-    this.isDisabledStockMagazine = !this.selectedKickstop;
-    this.isDisabledForearmOption = !this.selectedStockMagazine;
+  private updateWoodCategoryForSelectedButtstockType(): void {
+    if (this.selectedButtstockType) {
+      const woodCategoryIds = this.selectedButtstockType.
+    }
+  }
+
+  onNext(): void {
+    sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));
+    this.router.navigate(['/r8/chamberBolt']);
+  }
+
+  onBack(): void {
+    this.router.navigate(['/r8/barrel']);
   }
 }
