@@ -8,4 +8,13 @@ export interface Option{
     availableLengths?: [];
     availableOpenSights?: [];
     availableMuzzleBrakesOrSuppressors?: [];
+    availableButtstockTypes?: [];
+    availableWoodCategories?: [];
+    availableLengthsOfPull?: [];
+    availableIndividualButtstockMeasures?: [];
+    availableButtstockMeasuresTypes?: [];
+    availablePistolGripCaps?: [];
+    availableKickstops?: [];
+    availableStockMagazines? : [];
+    availableForearmOptions?: [];
 }

@@ -11,7 +11,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
 import { BarrelModule } from './R8/barrel/barrel.module';
-import { NavbarComponent } from './core/navbar/navbar.component';
 import { CoreModule } from './core/core.module';
 import { StockComponent } from './R8/stock/stock.component';
 import { ChamberBoltComponent } from './R8/chamber-bolt/chamber-bolt.component';

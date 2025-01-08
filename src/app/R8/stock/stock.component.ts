@@ -72,7 +72,7 @@ export class StockComponent implements OnInit {
 
     this.subscription = this.configuratorService.state$.subscribe((state) => {
       this.state = state;
-    })
+    }) 
 
     this.configuratorService.getData().subscribe(
       (data) => {
@@ -88,7 +88,18 @@ export class StockComponent implements OnInit {
           this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
         }
 
-     
+        if(savedButtstockType && this.buttstockTypes.length > 0) {
+          this.selectedButtstockType = this.buttstockTypes.find(c => savedButtstockType.id) || null;
+          if(this.selectedButtstockType){
+            this.onSelectButtstockType(this.selectedButtstockType);
+          }
+        }
+
+        if(savedWoodCategory && this.woodCategories.length > 0){
+          this.selectedWoodCategory = this.buttstockMeasuresTypes.find(c => savedWoodCategory.id) || null;
+        }
+
+
       },
       (error) => {
         console.error('Błąd przy ładowaniu danych:', error);
@@ -103,7 +114,18 @@ export class StockComponent implements OnInit {
 
     this.configuratorService.updateState({
       selectedButtstockType: buttstockType,
-      isDisabledWoodCategory: false;
+      isDisabledWoodCategory: false
+    })
+  }
+
+  onSelectWoodCategory(woodCategory: Option): void {
+    this.selectedWoodCategory = woodCategory;
+    sessionStorage.setItem("selectedWoodCategory", JSON.stringify(woodCategory));
+    this.updateOptionsBasedOnRifle("woodCategory");
+
+    this.configuratorService.updateState({
+      selectedWoodCategory: woodCategory,
+      isDisabledLengthOfPull: false
     })
   }
 
@@ -120,13 +142,26 @@ export class StockComponent implements OnInit {
       this.updateWoodCategoryForSelectedButtstockType();
     }
 
+    if(changedOption == "woodCategory") {
+      //this.updateOptions()
+    }
+
   }
 
   private updateWoodCategoryForSelectedButtstockType(): void {
     if (this.selectedButtstockType) {
-      const woodCategoryIds = this.selectedButtstockType.
+      const woodCategoryIds = this.selectedButtstockType.availableWoodCategories;
+      this.woodCategories = this.configuratorService.filterOptions(
+        this.features,
+        "woodCategories",
+        woodCategoryIds
+      );
+    } else {
+      this.woodCategories = [];
     }
+    this.selectedWoodCategory = null;
   }
+
 
   onNext(): void {
     sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));

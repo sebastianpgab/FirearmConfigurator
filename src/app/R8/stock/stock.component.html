@@ -15,7 +15,7 @@
           <mat-label>Typ Kolby</mat-label>
           <mat-select
             [(value)]="selectedButtstockType"
-            (selectionChange)="updateOptionStates()"
+          
             placeholder="Wybierz typ kolby"
           >
             <mat-option
@@ -35,7 +35,6 @@
           <mat-label>Kategoria Drewna</mat-label>
           <mat-select
             [(value)]="selectedWoodCategory"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz kategorię drewna"
             [disabled]="isDisabledWoodCategory"
           >
@@ -56,7 +55,6 @@
           <mat-label>Długość Naciągu</mat-label>
           <mat-select
             [(value)]="selectedLengthOfPull"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz długość naciągu"
             [disabled]="isDisabledLengthOfPull"
           >
@@ -77,7 +75,6 @@
           <mat-label>Indywidualne Wymiary Kolby</mat-label>
           <mat-select
             [(value)]="selectedIndividualButtstockMeasure"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz opcję"
             [disabled]="isDisabledIndividualButtstockMeasure"
           >
@@ -98,7 +95,6 @@
           <mat-label>Typ Wymiarów Kolby</mat-label>
           <mat-select
             [(value)]="selectedButtstockMeasuresType"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz typ wymiarów"
             [disabled]="isDisabledButtstockMeasuresType"
           >
@@ -119,7 +115,6 @@
           <mat-label>Nasadka na Chwyt Pistoletowy</mat-label>
           <mat-select
             [(value)]="selectedPistolGripCap"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz opcję"
             [disabled]="isDisabledPistolGripCap"
           >
@@ -140,7 +135,6 @@
           <mat-label>Kickstop</mat-label>
           <mat-select
             [(value)]="selectedKickstop"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz kickstop"
             [disabled]="isDisabledKickstop"
           >
@@ -161,7 +155,6 @@
           <mat-label>Magazyn w Kolbie</mat-label>
           <mat-select
             [(value)]="selectedStockMagazine"
-            (selectionChange)="updateOptionStates()"
             placeholder="Wybierz magazyn"
             [disabled]="isDisabledStockMagazine"
           >
@@ -182,7 +175,7 @@
           <mat-label>Opcja Przedłużenia</mat-label>
           <mat-select
             [(value)]="selectedForearmOption"
-            (selectionChange)="updateOptionStates()"
+
             placeholder="Wybierz opcję"
             [disabled]="isDisabledForearmOption"
           >

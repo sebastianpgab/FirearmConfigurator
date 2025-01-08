@@ -177,7 +177,6 @@
         "name": "Blaser R8 Ultimate",
         "price": 3500,
         "imageUrl": "assets/riffle_pictures/blaser_r8_ultimate.jpg",
-
         "availableContours": [1, 2, 3]
 
       },
@@ -185,34 +184,9 @@
         "id": 2,
         "name": "Blaser R8 Blaser R16",
         "price": 3700,
-        "imageUrl": "assets/images/blaser_r8_semi_weight.jpg",
+        "imageUrl": "assets/images/blaser_r8_semi_weight.jpg", 
+        "availableContours": [1, 2]
         
-        "availableContours": [1, 2, 3], 
-        "availableCalibers": [1, 2],
-        "availableProfiles": [1, 2],
-        "availableLengths": [1, 2],
-        "availableOpenSights": [1, 2],
-        "availableMuzzleBrakesOrSuppressors": [1, 2],
-
-        "availableButtstockTypes": [1],
-        "availableWoodCategories": [],
-        "availableLengthsOfPull": [],
-        "availableIndividualButtstockMeasures": [],
-        "availableButtstockMeasuresTypes": [],
-        "availablePistolGripCaps":[],
-        "availableKickstops":[1, 2],
-        "availableStockMagazines": [1],
-        "availableForearmOptions":[],
-
-        "availableChamberEngravings":[1, 2],
-        "availableBoltHandles":[1,2],
-        "availableTriggers":[1],
-        "availableBoltHeads":[1,2],
-        "availableSlidingSafeties": [1],
-
-        "availableGunCases": [1,2],
-        "availableSoftGunCovers": [1,2],
-        "availableRifleSlings": [1,2]
       }
     ]
   }
