@@ -19,6 +19,7 @@ export class BarrelComponent implements OnInit {
   options: any = {};
   rifles: Rifle[] = [];
   state: any; // Przechowuje aktualny stan z serwisu
+  allContours: Option[] = [];
   contours: Option[] = [];
   calibers: Option[] = [];
   profiles: Option[] = [];
@@ -57,14 +58,14 @@ export class BarrelComponent implements OnInit {
     const savedMuzzleBrakeOrSuppressor = JSON.parse(sessionStorage.getItem("selectedMuzzleBrakeOrSuppressor") || "null");
 
     this.subscription = this.configuratorService.state$.subscribe((state) => {
-      this.state = state; // Aktualizuje lokalny stan
+      this.state = state; 
     });
 
     this.configuratorService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
-        this.contours = this.features.contours;
+        this.allContours = this.features.contours;
 
         this.rifleService.model$.subscribe(() => {
           this.barrelService.resetOptions();          
@@ -73,9 +74,17 @@ export class BarrelComponent implements OnInit {
         if (savedRifle && this.rifles.length > 0) {
           this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
         }
+
+        if (this.selectedRifle) {
+          this.contours = this.allContours.filter(contour => 
+            this.selectedRifle?.availableContours.includes(contour.id)
+          );
+        } else { 
+          this.contours = [];
+        }
   
-        if (savedContour && this.contours.length > 0) {
-          this.selectedContour = this.contours.find(c => c.id === savedContour.id) || null;
+        if (savedContour && this.allContours.length > 0) {
+          this.selectedContour = this.allContours.find(c => c.id === savedContour.id) || null;
           if (this.selectedContour) {
             this.onSelectContour(this.selectedContour);
           }
@@ -157,7 +166,7 @@ export class BarrelComponent implements OnInit {
 
   onSelectLength(length: Option): void {
     this.selectedLength = length;
-    sessionStorage.setItem("selectedLenght", JSON.stringify(length));
+    sessionStorage.setItem("selectedLength", JSON.stringify(length));
     this.updateOptionsBasedOnRifle("length");
 
     this.configuratorService.updateState({
@@ -180,6 +189,10 @@ export class BarrelComponent implements OnInit {
   onSelectMuzzleBrakeOrSuppressor(muzzleBrakeOrSuppressor: Option): void {
     this.selectedMuzzleBrakeOrSuppressor = muzzleBrakeOrSuppressor;
     sessionStorage.setItem("selectedMuzzleBrakeOrSuppressor", JSON.stringify(muzzleBrakeOrSuppressor))
+
+    this.configuratorService.updateState({
+      selectedMuzzleBrakeOrSuppressor: muzzleBrakeOrSuppressor,
+    })
   }
 
   public updateOptionsBasedOnRifle(changedOption: string): void {

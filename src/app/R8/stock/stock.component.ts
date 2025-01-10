@@ -21,6 +21,7 @@ export class StockComponent implements OnInit {
   private subscription!: Subscription;
   
   // Listy opcji
+  allButtstockTypes: Option[] = [];
   buttstockTypes: Option[] = [];
   woodCategories: Option[] = [];
   lengthsOfPull: Option[] = [];
@@ -83,7 +84,7 @@ export class StockComponent implements OnInit {
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
-        this.buttstockTypes = this.features.buttstockTypes;
+        this.allButtstockTypes = this.features.buttstockTypes;
 
         // Reset stanu przy zmianie modelu w rifleService
         this.rifleService.model$.subscribe(() => {
@@ -95,6 +96,14 @@ export class StockComponent implements OnInit {
           this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
         }
 
+        if(this.selectedRifle){
+          this.buttstockTypes = this.allButtstockTypes.filter(buttstockType => 
+            this.selectedRifle?.availableButtstockTypes.includes(buttstockType.id)
+          );
+        } else {
+          this.buttstockTypes = [];
+        }
+
         if (savedButtstockType && this.buttstockTypes.length > 0) {
           this.selectedButtstockType = this.buttstockTypes.find(c => c.id === savedButtstockType.id) || null;
           if (this.selectedButtstockType) {
@@ -102,7 +111,6 @@ export class StockComponent implements OnInit {
           }
         }
 
-        // Uwaga: w oryginalnym kodzie była literówka, upewnij się, że wyszukujesz w `woodCategories`, nie w `buttstockMeasuresTypes`.
         if (savedWoodCategory && this.woodCategories.length > 0) {
           this.selectedWoodCategory = this.woodCategories.find(c => c.id === savedWoodCategory.id) || null;
           if (this.selectedWoodCategory) {
@@ -334,7 +342,6 @@ export class StockComponent implements OnInit {
     } else {
       this.woodCategories = [];
     }
-    // Czyścimy wybór
     this.selectedWoodCategory = null;
   }
 
@@ -349,7 +356,6 @@ export class StockComponent implements OnInit {
     } else {
       this.lengthsOfPull = [];
     }
-    // Czyścimy wybór
     this.selectedLengthOfPull = null;
   }
 

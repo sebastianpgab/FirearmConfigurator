@@ -79,6 +79,7 @@ export class ConfiguratorService {
       for (let i = startIndex; i < this.optionHierarchy.length; i++) {
         const option = this.optionHierarchy[i];
         const formattedOption = this.formatOptionName(option);
+        //tu trzeba zrobić tak żeby stan był od razu odświeżany
         sessionStorage.removeItem(formattedOption);
       }
     } else {

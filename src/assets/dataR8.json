@@ -103,36 +103,36 @@
       ],
 
     "buttstockTypes": [
-      { "id": 1, "name": "Kolba standardowa", "price": 200, "imageUrl": "assets/BlaserR8/puzzle/R8_holz_standard_hs_k2.png" },
-      { "id": 2, "name": "Kolba z podwójnym wrębem na bawarską poduszkę policzkową", "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg" }
+      { "id": 1, "name": "Kolba standardowa", "price": 200, "imageUrl": "assets/BlaserR8/puzzle/R8_holz_standard_hs_k2.png", "availableWoodCategories": [1, 2] },
+      { "id": 2, "name": "Kolba z podwójnym wrębem na bawarską poduszkę policzkową", "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg", "availableWoodCategories": [1] }
     ],
     "woodCategories": [
-      { "id": 1, "name": "Klasa drewna 1", "price": 100, "imageUrl": "assets/wood_pictures/wood_grade1.jpg" },
-      { "id": 2, "name": "Klasa drewna 4", "price": 400, "imageUrl": "assets/wood_pictures/wood_grade4.jpg" }
+      { "id": 1, "name": "Klasa drewna 1", "price": 100, "imageUrl": "assets/wood_pictures/wood_grade1.jpg", "availableLengthsOfPull": [1, 2]},
+      { "id": 2, "name": "Klasa drewna 4", "price": 400, "imageUrl": "assets/wood_pictures/wood_grade4.jpg", "availableLengthsOfPull": [1] }
     ],
     "lengthsOfPull": [
-      { "id": 1, "name": "Standardowa długość naciągu z 15 mm (½”) podkładką", "price": 0, "imageUrl": "assets/lengths_of_pull/standard_length.jpg" },
-      { "id": 2, "name": "Indywidualna długość naciągu", "price": 100, "imageUrl": "assets/lengths_of_pull/custom_length.jpg" }
+      { "id": 1, "name": "Standardowa długość naciągu z 15 mm (½”) podkładką", "price": 0, "imageUrl": "assets/lengths_of_pull/standard_length.jpg", "availableIndividualButtstockMeasures": [1, 2]},
+      { "id": 2, "name": "Indywidualna długość naciągu", "price": 100, "imageUrl": "assets/lengths_of_pull/custom_length.jpg", "availableIndividualButtstockMeasures": [1] }
     ],
     "individualButtstockMeasures": [
-      { "id": 1, "name": "Kolba z wymiarami fabrycznymi", "price": 0, "imageUrl": "assets/individual_measures/factory_measures.jpg" },
-      { "id": 2, "name": "Kolba z wymiarami indywidualnymi", "price": 150, "imageUrl": "assets/individual_measures/individual_measures.jpg" }
+      { "id": 1, "name": "Kolba z wymiarami fabrycznymi", "price": 0, "imageUrl": "assets/individual_measures/factory_measures.jpg", "availableButtstockMeasuresTypes": [1, 2] },
+      { "id": 2, "name": "Kolba z wymiarami indywidualnymi", "price": 150, "imageUrl": "assets/individual_measures/individual_measures.jpg", "availableButtstockMeasuresTypes": [1] }
     ],
     "buttstockMeasuresTypes": [
-      { "id": 1, "name": "Wymiary fabryczne", "price": 0, "imageUrl": "assets/measures_types/factory.jpg" },
-      { "id": 2, "name": "Wymiary indywidualne", "price": 200, "imageUrl": "assets/measures_types/custom.jpg" }
+      { "id": 1, "name": "Wymiary fabryczne", "price": 0, "imageUrl": "assets/measures_types/factory.jpg", "availablePistolGripCaps": [1, 2] },
+      { "id": 2, "name": "Wymiary indywidualne", "price": 200, "imageUrl": "assets/measures_types/custom.jpg", "availablePistolGripCaps": [1] }
     ],
     "pistolGripCaps": [
-      { "id": 1, "name": "Brak nasadki", "price": 0, "imageUrl": "assets/grip_caps/none.jpg" },
-      { "id": 2, "name": "Nasadka na chwyt pistoletowy", "price": 50, "imageUrl": "assets/grip_caps/custom_grip.jpg" }
+      { "id": 1, "name": "Brak nasadki", "price": 0, "imageUrl": "assets/grip_caps/none.jpg", "availableKickstops": [1, 2] },
+      { "id": 2, "name": "Nasadka na chwyt pistoletowy", "price": 50, "imageUrl": "assets/grip_caps/custom_grip.jpg", "availableKickstops": [1] }
     ],
     "kickstops": [
-      { "id": 1, "name": "Brak kickstopu", "price": 0, "imageUrl": "assets/kickstops/none.jpg" },
-      { "id": 2, "name": "Kickstop zainstalowany", "price": 100, "imageUrl": "assets/kickstops/kickstop_installed.jpg" }
+      { "id": 1, "name": "Brak kickstopu", "price": 0, "imageUrl": "assets/kickstops/none.jpg", "availableStockMagazines": [1, 2] },
+      { "id": 2, "name": "Kickstop zainstalowany", "price": 100, "imageUrl": "assets/kickstops/kickstop_installed.jpg", "availableStockMagazines": [1] }
     ],
     "stockMagazines": [
-      { "id": 1, "name": "Brak magazynu", "price": 0, "imageUrl": "assets/stock_magazines/none.jpg" },
-      { "id": 2, "name": "Magazyn w kolbie", "price": 120, "imageUrl": "assets/stock_magazines/stock_magazine.jpg" }
+      { "id": 1, "name": "Brak magazynu", "price": 0, "imageUrl": "assets/stock_magazines/none.jpg", "availableForearmOptions": [1, 2] },
+      { "id": 2, "name": "Magazyn w kolbie", "price": 120, "imageUrl": "assets/stock_magazines/stock_magazine.jpg", "availableForearmOptions": [1] }
     ],
     "forearmOptions": [
       { "id": 1, "name": "Standardowa końcówka przedniego chwytu", "price": 0, "imageUrl": "assets/forearm_options/standard_tip.jpg" },
@@ -177,7 +177,9 @@
         "name": "Blaser R8 Ultimate",
         "price": 3500,
         "imageUrl": "assets/riffle_pictures/blaser_r8_ultimate.jpg",
-        "availableContours": [1, 2, 3]
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 2]
+
 
       },
       {
@@ -185,7 +187,9 @@
         "name": "Blaser R8 Blaser R16",
         "price": 3700,
         "imageUrl": "assets/images/blaser_r8_semi_weight.jpg", 
-        "availableContours": [1, 2]
+        "availableContours": [1, 2],
+        "availableButtstockTypes": [2]
+
         
       }
     ]

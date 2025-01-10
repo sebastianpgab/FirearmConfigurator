@@ -19,7 +19,6 @@
           <mat-select
             [(value)]="state.selectedContour"
             (selectionChange)="onSelectContour($event.value)"
-
             placeholder="Wybierz kontur"
           >
             <mat-option *ngFor="let contour of contours" [value]="contour">
@@ -35,7 +34,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kaliber</mat-label>
           <mat-select
-            [(value)]="selectedCaliber"
+            [(value)]="state.selectedCaliber"
             placeholder="Wybierz kaliber"
             [disabled]="state.isDisabledCaliber"
             (selectionChange)="onSelectCaliber($event.value)"
@@ -54,7 +53,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Profil</mat-label>
           <mat-select
-            [(value)]="selectedProfile"
+            [(value)]="state.selectedProfile"
             placeholder="Wybierz profil"
             [disabled]="state.isDisabledProfile"
             (selectionChange)="onSelectProfile($event.value)"
@@ -72,7 +71,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Długość</mat-label>
           <mat-select
-            [(value)]="selectedLength"
+            [(value)]="state.selectedLength"
             placeholder="Wybierz długość"
             [disabled]="state.isDisabledLength"
             (selectionChange)="onSelectLength($event.value)"
@@ -91,7 +90,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Przyrządy celownicze</mat-label>
           <mat-select
-            [(value)]="selectedOpenSight"
+            [(value)]="state.selectedOpenSight"
             placeholder="Wybierz przyrząd celowniczy"
             [disabled]="state.isDisabledOpenSight"
             (selectionChange)="onSelectOpenSight($event.value)"
@@ -109,7 +108,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Hamulce wylotowe/tłumik</mat-label>
           <mat-select
-            [(value)]="selectedMuzzleBrakeOrSuppressor"
+            [(value)]="state.selectedMuzzleBrakeOrSuppressor"
             placeholder="Wybierz hamulec/tłumik"
             [disabled]="state.isDisabledMuzzleBrakeOrSuppressor"
             (selectionChange)="onSelectMuzzleBrakeOrSuppressor($event.value)"

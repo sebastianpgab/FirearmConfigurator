@@ -11,186 +11,165 @@
       <!-- Sprawdzamy, czy mamy dane -->
       <form class="container">
         <!-- Typ Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="buttstockTypes && buttstockTypes.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Typ Kolby</mat-label>
           <mat-select
-            [(value)]="selectedButtstockType"
-          
+            [(value)]="state.selectedButtstockType"
+            (selectionChange)="onSelectButtstockType($event.value)"
             placeholder="Wybierz typ kolby"
           >
-            <mat-option
-              *ngFor="let option of buttstockTypes"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let buttstockType of buttstockTypes" [value]="buttstockType">
+            <div class="option-template">
+              <img [src]="buttstockType.imageUrl" alt="{{ buttstockType.name }}" />
+              <span>{{ buttstockType.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
   
         <!-- Kategoria Drewna -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="woodCategories && woodCategories.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kategoria Drewna</mat-label>
           <mat-select
-            [(value)]="selectedWoodCategory"
+            [(value)]="state.selectedWoodCategory"
+            (selectionChange)="onSelectWoodCategory($event.value)"
             placeholder="Wybierz kategorię drewna"
-            [disabled]="isDisabledWoodCategory"
+            [disabled]="state.isDisabledWoodCategory"
           >
-            <mat-option
-              *ngFor="let option of woodCategories"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let woodCategory of woodCategories" [value]="woodCategory">
+            <div class="option-template">
+              <img [src]="woodCategory.imageUrl" alt="{{ woodCategory.name }}" />
+              <span>{{ woodCategory.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
   
         <!-- Długość Naciągu -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="lengthsOfPull && lengthsOfPull.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Długość Naciągu</mat-label>
           <mat-select
-            [(value)]="selectedLengthOfPull"
+            [(value)]="state.selectedLengthOfPull"
+            (selectionChange)="onSelectLengthOfPull($event.value)"
             placeholder="Wybierz długość naciągu"
-            [disabled]="isDisabledLengthOfPull"
+            [disabled]="state.isDisabledLengthOfPull"
           >
-            <mat-option
-              *ngFor="let option of lengthsOfPull"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let lengthOfPull of lengthsOfPull" [value]="lengthOfPull">
+            <div class="option-template">
+              <img [src]="lengthOfPull.imageUrl" alt="{{ lengthOfPull.name }}" />
+              <span>{{ lengthOfPull.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
   
         <!-- Indywidualne Wymiary Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="individualButtstockMeasures && individualButtstockMeasures.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Indywidualne Wymiary Kolby</mat-label>
           <mat-select
-            [(value)]="selectedIndividualButtstockMeasure"
+            [(value)]="state.selectedIndividualButtstockMeasure"
+            (selectionChange)="onSelectIndividualButtstockMeasure($event.value)"
             placeholder="Wybierz opcję"
-            [disabled]="isDisabledIndividualButtstockMeasure"
+            [disabled]="state.isDisabledIndividualButtstockMeasure"
           >
-            <mat-option
-              *ngFor="let option of individualButtstockMeasures"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let individualButtstockMeasure of individualButtstockMeasures" [value]="individualButtstockMeasure">
+            <div class="option-template">
+              <img [src]="individualButtstockMeasure.imageUrl" alt="{{ individualButtstockMeasure.name }}" />
+              <span>{{ individualButtstockMeasure.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
   
         <!-- Typ Wymiarów Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="buttstockMeasuresTypes && buttstockMeasuresTypes.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Typ Wymiarów Kolby</mat-label>
           <mat-select
-            [(value)]="selectedButtstockMeasuresType"
+            [(value)]="state.selectedButtstockMeasuresType"
+            (selectionChange)="onSelectButtstockMeasuresType($event.value)"
             placeholder="Wybierz typ wymiarów"
-            [disabled]="isDisabledButtstockMeasuresType"
+            [disabled]="state.isDisabledButtstockMeasuresType"
           >
-            <mat-option
-              *ngFor="let option of buttstockMeasuresTypes"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let buttstockMeasuresType of buttstockMeasuresTypes" [value]="buttstockMeasuresType">
+            <div class="option-template">
+              <img [src]="buttstockMeasuresType.imageUrl" alt="{{ buttstockMeasuresType.name }}" />
+              <span>{{ buttstockMeasuresType.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
   
         <!-- Nasadka na Chwyt Pistoletowy -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="pistolGripCaps && pistolGripCaps.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Nasadka na Chwyt Pistoletowy</mat-label>
           <mat-select
-            [(value)]="selectedPistolGripCap"
+            [(value)]="state.selectedPistolGripCap"
+            (selectionChange)="onSelectPistolGripCap($event.value)"
             placeholder="Wybierz opcję"
-            [disabled]="isDisabledPistolGripCap"
+            [disabled]="state.isDisabledPistolGripCap"
           >
-            <mat-option
-              *ngFor="let option of pistolGripCaps"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let pistolGripCap of pistolGripCaps" [value]="pistolGripCap">
+            <div class="option-template">
+              <img [src]="pistolGripCap.imageUrl" alt="{{ pistolGripCap.name }}" />
+              <span>{{ pistolGripCap.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
   
         <!-- Kickstop -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="kickstops && kickstops.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kickstop</mat-label>
           <mat-select
-            [(value)]="selectedKickstop"
+            [(value)]="state.selectedKickstop"
+            (selectionChange)="onSelectKickstop($event.value)"
             placeholder="Wybierz kickstop"
-            [disabled]="isDisabledKickstop"
+            [disabled]="state.isDisabledKickstop"
           >
-            <mat-option
-              *ngFor="let option of kickstops"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let kickstop of kickstops" [value]="kickstop">
+            <div class="option-template">
+              <img [src]="kickstop.imageUrl" alt="{{ kickstop.name }}" />
+              <span>{{ kickstop.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
   
         <!-- Magazyn w Kolbie -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="stockMagazines && stockMagazines.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Magazyn w Kolbie</mat-label>
           <mat-select
-            [(value)]="selectedStockMagazine"
+            [(value)]="state.selectedStockMagazine"
+            (selectionChange)="onSelectStockMagazine($event.value)"
             placeholder="Wybierz magazyn"
-            [disabled]="isDisabledStockMagazine"
+            [disabled]="state.isDisabledStockMagazine"
           >
-            <mat-option
-              *ngFor="let option of stockMagazines"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let stockMagazine of stockMagazines" [value]="stockMagazine">
+            <div class="option-template">
+              <img [src]="stockMagazine.imageUrl" alt="{{ stockMagazine.name }}" />
+              <span>{{ stockMagazine.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
   
         <!-- Opcja Przedłużenia -->
-        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="forearmOptions && forearmOptions.length > 0">
+        <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Opcja Przedłużenia</mat-label>
           <mat-select
-            [(value)]="selectedForearmOption"
-
+            [(value)]="state.selectedForearmOption"
+            (selectionChange)="onSelectForearmOption($event.value)"
             placeholder="Wybierz opcję"
-            [disabled]="isDisabledForearmOption"
+            [disabled]="state.isDisabledForearmOption"
           >
-            <mat-option
-              *ngFor="let option of forearmOptions"
-              [value]="option"
-            >
-              <div class="option-template">
-                <img [src]="option.imageUrl" alt="{{ option.name }}" />
-                <span>{{ option.name }}</span>
-              </div>
-            </mat-option>
+          <mat-option *ngFor="let forearmOption of forearmOptions" [value]="forearmOption">
+            <div class="option-template">
+              <img [src]="forearmOption.imageUrl" alt="{{ forearmOption.name }}" />
+              <span>{{ forearmOption.name }}</span>
+            </div>
+          </mat-option>
           </mat-select>
         </mat-form-field>
-  
       </form>
 
       <div class="button-container">
