@@ -19,7 +19,20 @@ export class StockComponent implements OnInit {
   state: any; // Przechowuje aktualny stan z serwisu
 
   private subscription!: Subscription;
-  
+
+  private optionHierarchy = [
+    "rifle",
+    "buttstockType",
+    "woodCategory",
+    "lengthOfPull",
+    "individualButtstockMeasure",
+    "buttstockMeasuresType",
+    "pistolGripCaps",
+    "kickstop",
+    "stockMagazine",
+    "forearmOption",
+  ];
+
   // Listy opcji
   allButtstockTypes: Option[] = [];
   buttstockTypes: Option[] = [];
@@ -289,7 +302,7 @@ export class StockComponent implements OnInit {
     }
 
     // Resetujemy w serwisie wszystkie opcje zależne od changedOption
-    this.configuratorService.resetOptionsAfter(changedOption);
+   // this.configuratorService.resetOptionsAfter(changedOption, this.optionHierarchy);
 
     if (changedOption === "buttstockType") {
       this.updateWoodCategoryForSelectedButtstockType();
