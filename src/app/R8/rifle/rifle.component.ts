@@ -17,6 +17,26 @@ export class RifleComponent implements OnInit {
   rifles: Rifle[] = [];
   features: any;
   contours: Option[] = [];
+
+  private optionHierarchy =
+    [
+    "rifle",
+    "contour",
+    "caliber",
+    "profile",
+    "length",
+    "openSight",
+    "muzzleBrakeOrSuppressor",
+    "buttstockType",
+    "woodCategory",
+    "lengthOfPull",
+    "individualButtstockMeasure",
+    "buttstockMeasuresType",
+    "pistolGripCap",
+    "kickstop",
+    "stockMagazine",
+    "forearmOption"
+  ];
  
   constructor(private configuratorService: ConfiguratorService, private barrelService: BarrelService, private rifleService: RifleService) { }
 
@@ -37,7 +57,7 @@ export class RifleComponent implements OnInit {
 
   onSelectRifle(rifle: Rifle): void {
     this.selectedRifle = rifle;
-    this.configuratorService.resetOptionsAfter("rifle")
+    this.configuratorService.resetOptionsAfter("rifle", this.optionHierarchy)
     sessionStorage.setItem("selectedRifle", JSON.stringify(rifle));
     this.configuratorService.updateState(this.selectedRifle);
     this.rifleService.updateContoursForSelectedRifle(this.selectedRifle, this.features);

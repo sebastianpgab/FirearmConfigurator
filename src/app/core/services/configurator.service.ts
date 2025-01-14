@@ -11,16 +11,6 @@ export class ConfiguratorService {
 
   private jsonUrl = 'assets/dataR8.json';  // Ścieżka do pliku JSON
 
-  private optionHierarchy = [
-    "rifle",
-    "contour",
-    "caliber",
-    "profile",
-    "length",
-    "openSight",
-    "muzzleBrakeOrSuppressor",
-  ];
-
   private stateSubject = new BehaviorSubject<ConfiguratorState>({ 
     selectedRifle: null,
     selectedContour: null,
@@ -72,23 +62,37 @@ export class ConfiguratorService {
           availableIds.includes(option.id)): [];
   }
 
-  public resetOptionsAfter(optionName: string): void {
-    const startIndex = this.optionHierarchy.indexOf(optionName) + 1;
+  public resetOptionsAfter(optionName: string, optionHierarchy: string[]): void {
+      const startIndex = optionHierarchy.indexOf(optionName) + 1;
   
-    if (startIndex > 0) {
-      for (let i = startIndex; i < this.optionHierarchy.length; i++) {
-        const option = this.optionHierarchy[i];
-        const formattedOption = this.formatOptionName(option);
-        //tu trzeba zrobić tak żeby stan był od razu odświeżany
-        sessionStorage.removeItem(formattedOption);
-      }
-    } else {
-      console.log(`Opcja ${optionName} nie została znaleziona w hierarchii.`);
+      if (startIndex > 0) {
+        const resetState: any = {};
+  
+        for (let i = startIndex; i < optionHierarchy.length; i++) {
+          const option = optionHierarchy[i];
+          const formattedOption = this.formatOptionName(option);
+          const formattedIsDisabled = this.formatIisDisabled(option);
+  
+          sessionStorage.removeItem(formattedOption);
+  
+          // w resetState[“selectedContour”] = null
+          resetState[formattedOption] = null;
+          resetState[formattedIsDisabled] = true;
+        }
+  
+        // Dopiero teraz ustawiamy te wszystkie wartości na null w state
+        this.updateState(resetState);
+      } else {
+        console.log(`Opcja ${optionName} nie została znaleziona w hierarchii.`);
     }
   }
   
   private formatOptionName(option: string): string {
     return "selected" + option.charAt(0).toUpperCase() + option.slice(1);
+  }
+
+  private formatIisDisabled(option: string): string {
+    return "isDisabled" + option.charAt(0).toUpperCase() + option.slice(1);
   }
   
   

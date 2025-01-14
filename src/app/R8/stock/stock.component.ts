@@ -27,7 +27,7 @@ export class StockComponent implements OnInit {
     "lengthOfPull",
     "individualButtstockMeasure",
     "buttstockMeasuresType",
-    "pistolGripCaps",
+    "pistolGripCap",
     "kickstop",
     "stockMagazine",
     "forearmOption",
@@ -301,8 +301,7 @@ export class StockComponent implements OnInit {
       return;
     }
 
-    // Resetujemy w serwisie wszystkie opcje zależne od changedOption
-   // this.configuratorService.resetOptionsAfter(changedOption, this.optionHierarchy);
+    this.configuratorService.resetOptionsAfter(changedOption, this.optionHierarchy);
 
     if (changedOption === "buttstockType") {
       this.updateWoodCategoryForSelectedButtstockType();

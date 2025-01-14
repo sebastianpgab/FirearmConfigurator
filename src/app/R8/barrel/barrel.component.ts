@@ -15,6 +15,17 @@ import { Subscription } from "rxjs";
 export class BarrelComponent implements OnInit {
   
   private subscription!: Subscription;
+
+  private optionHierarchy = [
+    "rifle",
+    "contour",
+    "caliber",
+    "profile",
+    "length",
+    "openSight",
+    "muzzleBrakeOrSuppressor",
+  ];
+
   features: any;
   options: any = {};
   rifles: Rifle[] = [];
@@ -141,7 +152,7 @@ export class BarrelComponent implements OnInit {
       isDisabledCaliber: false,
     });
   }
-    
+     
   onSelectCaliber(caliber: Option): void {
     this.selectedCaliber = caliber;
     sessionStorage.setItem("selectedCaliber", JSON.stringify(caliber));
@@ -202,7 +213,7 @@ export class BarrelComponent implements OnInit {
       return;
     }
   
-    this.configuratorService.resetOptionsAfter(changedOption);
+    this.configuratorService.resetOptionsAfter(changedOption, this.optionHierarchy);
   
     if (changedOption === "contour") {
       this.updateCalibersForSelectedContour();
