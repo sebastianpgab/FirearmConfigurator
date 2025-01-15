@@ -3,8 +3,8 @@
   <section class="content">
     <h1 class="section-title">Model</h1>
 
-    <div class="rifle-preview">
-      <img *ngIf="selectedRifle" [src]="selectedRifle.imageUrl" class="rifle-layer">
+    <div class="rifle-preview" *ngIf="selectedRifle">
+      <img  [src]="selectedRifle.imageUrl" class="rifle-layer">
     </div>
     
     <form class="container">
