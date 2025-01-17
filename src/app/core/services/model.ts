@@ -1,22 +1,23 @@
+import { Option } from "src/app/option/model";
 import { Rifle } from "src/app/R8/rifle/model";
 
 export interface ConfiguratorState {
     selectedRifle: Rifle | null;
-    selectedContour: string | null;
-    selectedCaliber: string | null;
-    selectedProfile: string | null;
-    selectedLength: string | null;
-    selectedOpenSight: string | null;
-    selectedMuzzleBrakeOrSuppressor: string | null;
-    selectedButtstockType: string | null;
-    selectedWoodCategory: string | null;
-    selectedLengthOfPull: string | null;
-    selectedIndividualButtstockMeasure: string | null;
-    selectedButtstockMeasuresType: string | null;
-    selectedPistolGripCap: string | null;
-    selectedKickstop: string | null;
-    selectedStockMagazine: string | null;
-    selectedForearmOption: string | null;
+    selectedContour: Option | null;
+    selectedCaliber: Option | null;
+    selectedProfile: Option | null;
+    selectedLength: Option | null;
+    selectedOpenSight: Option | null;
+    selectedMuzzleBrakeOrSuppressor: Option | null;
+    selectedButtstockType: Option | null;
+    selectedWoodCategory: Option | null;
+    selectedLengthOfPull: Option | null;
+    selectedIndividualButtstockMeasure: Option | null;
+    selectedButtstockMeasuresType: Option | null;
+    selectedPistolGripCap: Option | null;
+    selectedKickstop: Option | null;
+    selectedStockMagazine: Option | null;
+    selectedForearmOption: Option | null;
     isDisabledCaliber: boolean;
     isDisabledProfile: boolean;
     isDisabledLength: boolean;
