@@ -23,6 +23,7 @@ import { RifleComponent } from './R8/rifle/rifle.component';
   declarations: [
     AppComponent,
     StockComponent,
+    BarrelComponent,
     ChamberBoltComponent,
     AccessoryComponent,
     SummaryComponent
