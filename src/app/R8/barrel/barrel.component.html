@@ -3,13 +3,11 @@
     <h1 class="section-title">KALIBER & LUFA</h1>
 
     <div class="rifle-preview">
-      <img *ngIf="selectedContour" [src]="selectedContour.imageUrl" alt="Contour" class="rifle-layer" />
-      <img *ngIf="selectedProfile" [src]="selectedProfile.imageUrl" alt="Profile" class="rifle-layer" />
-      <img *ngIf="selectedLength" [src]="selectedLength.imageUrl" alt="Lenght" class="rifle-layer" />
-      <img *ngIf="selectedOpenSight" [src]="selectedOpenSight.imageUrl" alt="OpenSight" class="rifle-layer" />
-      <img *ngIf="selectedMuzzleBrakeOrSuppressor" [src]="selectedMuzzleBrakeOrSuppressor.imageUrl" alt="MuzzleBrakeOrSuppressor" class="rifle-layer" />
+      <img [src]="state.selectedContour?.imageUrl" alt="Stock" class="rifle-layer" />
+      <img [src]="state.selectedButtstockType?.imageUrl" alt="Barrel" class="rifle-layer" />
     </div>
   
+    
     <div *ngIf="rifles.length > 0">
       <!-- Sprawdzamy, czy mamy dane -->
       <form class="container">
@@ -18,6 +16,7 @@
           <mat-label>Kontur</mat-label>
           <mat-select
             [(value)]="state.selectedContour"
+            [compareWith]="compareOptionsById"
             (selectionChange)="onSelectContour($event.value)"
             placeholder="Wybierz kontur"
           >
@@ -35,6 +34,7 @@
           <mat-label>Kaliber</mat-label>
           <mat-select
             [(value)]="state.selectedCaliber"
+            [compareWith]="compareOptionsById"
             placeholder="Wybierz kaliber"
             [disabled]="state.isDisabledCaliber"
             (selectionChange)="onSelectCaliber($event.value)"
@@ -54,6 +54,7 @@
           <mat-label>Profil</mat-label>
           <mat-select
             [(value)]="state.selectedProfile"
+            [compareWith]="compareOptionsById"
             placeholder="Wybierz profil"
             [disabled]="state.isDisabledProfile"
             (selectionChange)="onSelectProfile($event.value)"
@@ -72,6 +73,7 @@
           <mat-label>Długość</mat-label>
           <mat-select
             [(value)]="state.selectedLength"
+            [compareWith]="compareOptionsById"
             placeholder="Wybierz długość"
             [disabled]="state.isDisabledLength"
             (selectionChange)="onSelectLength($event.value)"
@@ -91,6 +93,7 @@
           <mat-label>Przyrządy celownicze</mat-label>
           <mat-select
             [(value)]="state.selectedOpenSight"
+            [compareWith]="compareOptionsById"
             placeholder="Wybierz przyrząd celowniczy"
             [disabled]="state.isDisabledOpenSight"
             (selectionChange)="onSelectOpenSight($event.value)"
@@ -109,6 +112,7 @@
           <mat-label>Hamulce wylotowe/tłumik</mat-label>
           <mat-select
             [(value)]="state.selectedMuzzleBrakeOrSuppressor"
+            [compareWith]="compareOptionsById"
             placeholder="Wybierz hamulec/tłumik"
             [disabled]="state.isDisabledMuzzleBrakeOrSuppressor"
             (selectionChange)="onSelectMuzzleBrakeOrSuppressor($event.value)"
