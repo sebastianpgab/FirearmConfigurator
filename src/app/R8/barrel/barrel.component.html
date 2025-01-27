@@ -2,9 +2,15 @@
   <section class="content">
     <h1 class="section-title">KALIBER & LUFA</h1>
 
-    <div class="rifle-preview">
-      <img [src]="state.selectedContour?.imageUrl" alt="Stock" class="rifle-layer" />
-      <img [src]="state.selectedButtstockType?.imageUrl" alt="Barrel" class="rifle-layer" />
+    <div class="rifle-preview" *ngIf="state.selectedContour">
+      <img *ngIf="state.selectedContour" [src]="state.selectedContour.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedProfile" [src]="state.selectedProfile.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedOpenSight" [src]="state.selectedOpenSight.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedMuzzleBrakeOrSuppressor" [src]="state.selectedMuzzleBrakeOrSuppressor.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedPistolGripCap" [src]="state.selectedPistolGripCap.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedForearmOption" [src]="state.selectedForearmOption.imageUrl" class="rifle-layer">
     </div>
   
     
@@ -15,7 +21,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kontur</mat-label>
           <mat-select
-            [(value)]="state.selectedContour"
+            [value]="state.selectedContour"
             [compareWith]="compareOptionsById"
             (selectionChange)="onSelectContour($event.value)"
             placeholder="Wybierz kontur"
@@ -33,7 +39,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kaliber</mat-label>
           <mat-select
-            [(value)]="state.selectedCaliber"
+            [value]="state.selectedCaliber"
             [compareWith]="compareOptionsById"
             placeholder="Wybierz kaliber"
             [disabled]="state.isDisabledCaliber"
@@ -53,7 +59,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Profil</mat-label>
           <mat-select
-            [(value)]="state.selectedProfile"
+            [value]="state.selectedProfile"
             [compareWith]="compareOptionsById"
             placeholder="Wybierz profil"
             [disabled]="state.isDisabledProfile"
@@ -72,7 +78,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Długość</mat-label>
           <mat-select
-            [(value)]="state.selectedLength"
+            [value]="state.selectedLength"
             [compareWith]="compareOptionsById"
             placeholder="Wybierz długość"
             [disabled]="state.isDisabledLength"
@@ -92,7 +98,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Przyrządy celownicze</mat-label>
           <mat-select
-            [(value)]="state.selectedOpenSight"
+            [value]="state.selectedOpenSight"
             [compareWith]="compareOptionsById"
             placeholder="Wybierz przyrząd celowniczy"
             [disabled]="state.isDisabledOpenSight"
@@ -111,7 +117,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Hamulce wylotowe/tłumik</mat-label>
           <mat-select
-            [(value)]="state.selectedMuzzleBrakeOrSuppressor"
+            [value]="state.selectedMuzzleBrakeOrSuppressor"
             [compareWith]="compareOptionsById"
             placeholder="Wybierz hamulec/tłumik"
             [disabled]="state.isDisabledMuzzleBrakeOrSuppressor"
