@@ -1,25 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { Stock } from "./model";
-import { StockService } from "./stock.service";
-import { Option } from "../../option/model";
-import { Rifle } from "../rifle/model";
-import { Router } from '@angular/router';
-import { ConfiguratorService } from "src/app/core/services/configurator.service";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
-import { RifleService } from "../rifle/rifle.service";
+import { Router } from "@angular/router";
+
+import { Rifle } from "../rifle/model";
+import { Option } from "../../option/model";
+import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({
-  selector: 'app-stock',
-  templateUrl: './stock.component.html',
-  styleUrls: []
+  selector: "app-stock",
+  templateUrl: "./stock.component.html",
+  styleUrls: [],
 })
-export class StockComponent implements OnInit {
-  features: any;
-  rifles: Rifle[] = [];
-  state: any; // Przechowuje aktualny stan z serwisu
-
+export class StockComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
 
+  /**
+   * Hierarchia opcji – do resetowania "niższych" opcji,
+   * jeśli zmieniamy coś wyżej w łańcuchu.
+   */
   private optionHierarchy = [
     "rifle",
     "buttstockType",
@@ -33,8 +31,12 @@ export class StockComponent implements OnInit {
     "forearmOption",
   ];
 
-  // Listy opcji
+  // Dane z pliku JSON (features) i listy modeli
+  features: any;
+  rifles: Rifle[] = [];
   allButtstockTypes: Option[] = [];
+
+  // Listy opcji do kolejnych selectów
   buttstockTypes: Option[] = [];
   woodCategories: Option[] = [];
   lengthsOfPull: Option[] = [];
@@ -45,307 +47,113 @@ export class StockComponent implements OnInit {
   stockMagazines: Option[] = [];
   forearmOptions: Option[] = [];
 
-  // Wybrane opcje
-  selectedRifle: Rifle | null = null;
-
-  selectedButtstockType: Option | null = null;
-  selectedWoodCategory: Option | null = null;
-  selectedLengthOfPull: Option | null = null;
-  selectedIndividualButtstockMeasure: Option | null = null;
-  selectedButtstockMeasuresType: Option | null = null;
-  selectedPistolGripCap: Option | null = null;
-  selectedKickstop: Option | null = null;
-  selectedStockMagazine: Option | null = null;
-  selectedForearmOption: Option | null = null;
-
-  // Flagi do disabled/enabled
-  isDisabledWoodCategory: boolean = true;
-  isDisabledLengthOfPull: boolean = true;
-  isDisabledIndividualButtstockMeasure: boolean = true;
-  isDisabledButtstockMeasuresType: boolean = true;
-  isDisabledPistolGripCap: boolean = true;
-  isDisabledKickstop: boolean = true;
-  isDisabledStockMagazine: boolean = true;
-  isDisabledForearmOption: boolean = true;
+  // Aktualny stan z serwisu (wybrane opcje, flagi isDisabled itp.)
+  state: any;
 
   constructor(
-    private stockService: StockService,
     private router: Router,
-    private configuratorService: ConfiguratorService,
-    private rifleService: RifleService
+    private configuratorService: ConfiguratorService
   ) {}
 
-  ngOnInit() { 
-    // Odczytujemy z sessionStorage
-    const savedRifle = JSON.parse(sessionStorage.getItem('selectedRifle') || 'null');
-    const savedButtstockType = JSON.parse(sessionStorage.getItem("selectedButtstockType") || "null");
-    const savedWoodCategory = JSON.parse(sessionStorage.getItem("selectedWoodCategory") || "null");
-    const savedLengthOfPull = JSON.parse(sessionStorage.getItem("selectedLengthOfPull") || "null");
-    const savedIndividualButtstockMeasure = JSON.parse(sessionStorage.getItem("selectedIndividualButtstockMeasure") || "null");
-    const savedButtstockMeasuresType = JSON.parse(sessionStorage.getItem("selectedButtstockMeasuresType") || "null");
-    const savedPistolGripCap = JSON.parse(sessionStorage.getItem("selectedPistolGripCap") || "null");
-    const savedKickstop = JSON.parse(sessionStorage.getItem("selectedKickstop") || "null");
-    const savedStockMagazine = JSON.parse(sessionStorage.getItem("selectedStockMagazine") || "null");
-    const savedForearmOption = JSON.parse(sessionStorage.getItem("selectedForearmOption") || "null");
-
+  ngOnInit(): void {
+    // Subskrypcja stanu
     this.subscription = this.configuratorService.state$.subscribe((state) => {
       this.state = state;
     });
 
-    // Pobieramy dane z serwisu
+    // Pobieramy dane
     this.configuratorService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
         this.allButtstockTypes = this.features.buttstockTypes;
 
-        // Reset stanu przy zmianie modelu w rifleService
-        this.rifleService.model$.subscribe(() => {
-          this.stockService.resetOptions();     
-        });
-
-        // Przywracamy zapisane wartości
-        if (savedRifle && this.rifles.length > 0) {
-          this.selectedRifle = this.rifles.find(c => c.id === savedRifle.id) || null;
-        }
-
-        if(this.selectedRifle){
-          this.buttstockTypes = this.allButtstockTypes.filter(buttstockType => 
-            this.selectedRifle?.availableButtstockTypes.includes(buttstockType.id)
-          );
-        } else {
-          this.buttstockTypes = [];
-        }
-
-        if (savedButtstockType && this.buttstockTypes.length > 0) {
-          this.selectedButtstockType = this.buttstockTypes.find(c => c.id === savedButtstockType.id) || null;
-          if (this.selectedButtstockType) {
-            this.onSelectButtstockType(this.selectedButtstockType);
-          }
-        }
-
-        if (savedWoodCategory && this.woodCategories.length > 0) {
-          this.selectedWoodCategory = this.woodCategories.find(c => c.id === savedWoodCategory.id) || null;
-          if (this.selectedWoodCategory) {
-            this.onSelectWoodCategory(this.selectedWoodCategory);
-          }
-        }
-
-        if (savedLengthOfPull && this.lengthsOfPull.length > 0) {
-          this.selectedLengthOfPull = this.lengthsOfPull.find(c => c.id === savedLengthOfPull.id) || null;
-          if (this.selectedLengthOfPull) {
-            this.onSelectLengthOfPull(this.selectedLengthOfPull);
-          }
-        }
-
-        if (savedIndividualButtstockMeasure && this.individualButtstockMeasures.length > 0) {
-          this.selectedIndividualButtstockMeasure = this.individualButtstockMeasures.find(c => c.id === savedIndividualButtstockMeasure.id) || null;
-          if (this.selectedIndividualButtstockMeasure) {
-            this.onSelectIndividualButtstockMeasure(this.selectedIndividualButtstockMeasure);
-          }
-        }
-
-        if (savedButtstockMeasuresType && this.buttstockMeasuresTypes.length > 0) {
-          this.selectedButtstockMeasuresType = this.buttstockMeasuresTypes.find(c => c.id === savedButtstockMeasuresType.id) || null;
-          if (this.selectedButtstockMeasuresType) {
-            this.onSelectButtstockMeasuresType(this.selectedButtstockMeasuresType);
-          }
-        }
-
-        if (savedPistolGripCap && this.pistolGripCaps.length > 0) {
-          this.selectedPistolGripCap = this.pistolGripCaps.find(c => c.id === savedPistolGripCap.id) || null;
-          if (this.selectedPistolGripCap) {
-            this.onSelectPistolGripCap(this.selectedPistolGripCap);
-          }
-        }
-
-        if (savedKickstop && this.kickstops.length > 0) {
-          this.selectedKickstop = this.kickstops.find(c => c.id === savedKickstop.id) || null;
-          if (this.selectedKickstop) {
-            this.onSelectKickstop(this.selectedKickstop);
-          }
-        }
-
-        if (savedStockMagazine && this.stockMagazines.length > 0) {
-          this.selectedStockMagazine = this.stockMagazines.find(c => c.id === savedStockMagazine.id) || null;
-          if (this.selectedStockMagazine) {
-            this.onSelectStockMagazine(this.selectedStockMagazine);
-          }
-        }
-
-        if (savedForearmOption && this.forearmOptions.length > 0) {
-          this.selectedForearmOption = this.forearmOptions.find(c => c.id === savedForearmOption.id) || null;
-          if (this.selectedForearmOption) {
-            this.onSelectForearmOption(this.selectedForearmOption);
-          }
-        }
+        // Przywracamy listy na podstawie aktualnie zapisanych w state wyborów
+        this.restoreSelections();
       },
       (error) => {
-        console.error('Błąd przy ładowaniu danych:', error);
+        console.error("Błąd przy ładowaniu danych:", error);
       }
     );
   }
 
-  // ==============================
-  // Metody onSelect
-  // ==============================
-
-  onSelectButtstockType(buttstockType: Option): void {
-    this.selectedButtstockType = buttstockType;
-    sessionStorage.setItem("selectedButtstockType", JSON.stringify(buttstockType));
-    this.updateOptionsBasedOnRifle("buttstockType");
-
-    this.configuratorService.updateState({
-      selectedButtstockType: buttstockType,
-      isDisabledWoodCategory: false
-    });
-  }
-
-  onSelectWoodCategory(woodCategory: Option): void {
-    this.selectedWoodCategory = woodCategory;
-    sessionStorage.setItem("selectedWoodCategory", JSON.stringify(woodCategory));
-    this.updateOptionsBasedOnRifle("woodCategory");
-
-    this.configuratorService.updateState({
-      selectedWoodCategory: woodCategory,
-      isDisabledLengthOfPull: false
-    });
-  }
-
-  onSelectLengthOfPull(lengthOfPull: Option): void {
-    this.selectedLengthOfPull = lengthOfPull;
-    sessionStorage.setItem("selectedLengthOfPull", JSON.stringify(lengthOfPull));
-    this.updateOptionsBasedOnRifle("lengthOfPull");
-
-    this.configuratorService.updateState({
-      selectedLengthOfPull: lengthOfPull,
-      isDisabledIndividualButtstockMeasure: false
-    });
-  }
-
-  onSelectIndividualButtstockMeasure(measure: Option): void {
-    this.selectedIndividualButtstockMeasure = measure;
-    sessionStorage.setItem("selectedIndividualButtstockMeasure", JSON.stringify(measure));
-    this.updateOptionsBasedOnRifle("individualButtstockMeasure");
-
-    this.configuratorService.updateState({
-      selectedIndividualButtstockMeasure: measure,
-      isDisabledButtstockMeasuresType: false
-    });
-  }
-
-  onSelectButtstockMeasuresType(measureType: Option): void {
-    this.selectedButtstockMeasuresType = measureType;
-    sessionStorage.setItem("selectedButtstockMeasuresType", JSON.stringify(measureType));
-    this.updateOptionsBasedOnRifle("buttstockMeasuresType");
-
-    this.configuratorService.updateState({
-      selectedButtstockMeasuresType: measureType,
-      isDisabledPistolGripCap: false
-    });
-  }
-
-  onSelectPistolGripCap(cap: Option): void {
-    this.selectedPistolGripCap = cap;
-    sessionStorage.setItem("selectedPistolGripCap", JSON.stringify(cap));
-    this.updateOptionsBasedOnRifle("pistolGripCap");
-
-    this.configuratorService.updateState({
-      selectedPistolGripCap: cap,
-      isDisabledKickstop: false
-    });
-  }
-
-  onSelectKickstop(kickstop: Option): void {
-    this.selectedKickstop = kickstop;
-    sessionStorage.setItem("selectedKickstop", JSON.stringify(kickstop));
-    this.updateOptionsBasedOnRifle("kickstop");
-
-    this.configuratorService.updateState({
-      selectedKickstop: kickstop,
-      isDisabledStockMagazine: false
-    });
-  }
-
-  onSelectStockMagazine(magazine: Option): void {
-    this.selectedStockMagazine = magazine;
-    sessionStorage.setItem("selectedStockMagazine", JSON.stringify(magazine));
-    this.updateOptionsBasedOnRifle("stockMagazine");
-
-    this.configuratorService.updateState({
-      selectedStockMagazine: magazine,
-      isDisabledForearmOption: false
-    });
-  }
-
-  onSelectForearmOption(forearm: Option): void {
-    this.selectedForearmOption = forearm;
-    sessionStorage.setItem("selectedForearmOption", JSON.stringify(forearm));
-    this.updateOptionsBasedOnRifle("forearmOption");
-
-    // w tym miejscu możesz nie mieć kolejnej opcji do „odblokowania”,
-    // więc ewentualnie zaktualizuj stan w inny sposób:
-    this.configuratorService.updateState({
-      selectedForearmOption: forearm
-      // tu np. nic nie odblokowujemy dalej...
-    });
-  }
-
-  // ==============================
-  // Metoda główna do aktualizacji
-  // ==============================
-  public updateOptionsBasedOnRifle(changedOption: string): void {
-    if (!this.selectedRifle) {
-      this.stockService.resetOptions();
-      sessionStorage.clear();
-      return;
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
+  }
 
-    this.configuratorService.resetOptionsAfter(changedOption, this.optionHierarchy);
+  /**
+   * compareOptionsById – funkcja pomocnicza do [compareWith] w mat-select,
+   * umożliwia Angularowi wykrycie tej samej opcji (po id), nawet gdy obiekt jest inny referencyjnie.
+   */
+  compareOptionsById = (o1: Option, o2: Option) => {
+    return o1 && o2 ? o1.id === o2.id : o1 === o2;
+  };
 
-    if (changedOption === "buttstockType") {
+  /**
+   * Przywracamy listy opcji w kolejności (buttstockType -> woodCategory -> lengthOfPull -> ...),
+   * jeśli w stanie jest już coś wybrane.
+   */
+  private restoreSelections(): void {
+    // 1) buttstockTypes zależne od wybranego karabinu
+    this.updateButtstockTypesBasedOnRifle();
+
+    // 2) Jeśli mamy selectedButtstockType, wypełniamy woodCategories
+    if (this.state.selectedButtstockType) {
       this.updateWoodCategoryForSelectedButtstockType();
     }
-
-    if (changedOption === "woodCategory") {
+    // 3) Jeśli selectedWoodCategory, wypełniamy lengthsOfPull
+    if (this.state.selectedWoodCategory) {
       this.updateLengthOfPullForSelectedWoodCategory();
     }
-
-    if (changedOption === "lengthOfPull") {
+    // 4) Jeśli selectedLengthOfPull, wypełniamy individualButtstockMeasures
+    if (this.state.selectedLengthOfPull) {
       this.updateIndividualButtstockMeasureForSelectedLengthOfPull();
     }
-
-    if (changedOption === "individualButtstockMeasure") {
+    // 5) Jeśli selectedIndividualButtstockMeasure, wypełniamy buttstockMeasuresTypes
+    if (this.state.selectedIndividualButtstockMeasure) {
       this.updateButtstockMeasuresTypeForSelectedIndividualButtstockMeasure();
     }
-
-    if (changedOption === "buttstockMeasuresType") {
+    // 6) Jeśli selectedButtstockMeasuresType, wypełniamy pistolGripCaps
+    if (this.state.selectedButtstockMeasuresType) {
       this.updatePistolGripCapForSelectedButtstockMeasuresType();
     }
-
-    if (changedOption === "pistolGripCap") {
+    // 7) Jeśli selectedPistolGripCap, wypełniamy kickstops
+    if (this.state.selectedPistolGripCap) {
       this.updateKickstopForSelectedPistolGripCap();
     }
-
-    if (changedOption === "kickstop") {
+    // 8) Jeśli selectedKickstop, wypełniamy stockMagazines
+    if (this.state.selectedKickstop) {
       this.updateStockMagazineForSelectedKickstop();
     }
-
-    if (changedOption === "stockMagazine") {
+    // 9) Jeśli selectedStockMagazine, wypełniamy forearmOptions
+    if (this.state.selectedStockMagazine) {
       this.updateForearmOptionForSelectedStockMagazine();
     }
-
-    // "forearmOption" może już niczego nie aktualizować,
-    // ale można dodać analogiczną metodę, jeśli to potrzebne.
   }
 
   // ==============================
-  // Metody prywatne do filtrowania
+  //  Metody prywatne do wypełniania list
   // ==============================
 
+  /**
+   * Od wybranego karabinu (selectedRifle) zależy, jakie buttstockTypes są dostępne.
+   */
+  private updateButtstockTypesBasedOnRifle(): void {
+    if (this.state.selectedRifle) {
+      const availableButtstockTypeIds = this.state.selectedRifle.availableButtstockTypes;
+      this.buttstockTypes = this.allButtstockTypes.filter((option) =>
+        availableButtstockTypeIds.includes(option.id)
+      );
+    } else {
+      this.buttstockTypes = [];
+    }
+  }
+
   private updateWoodCategoryForSelectedButtstockType(): void {
-    if (this.selectedButtstockType) {
-      const woodCategoryIds = this.selectedButtstockType.availableWoodCategories;
+    if (this.state.selectedButtstockType) {
+      const woodCategoryIds = this.state.selectedButtstockType.availableWoodCategories;
       this.woodCategories = this.configuratorService.filterOptions(
         this.features,
         "woodCategories",
@@ -354,12 +162,11 @@ export class StockComponent implements OnInit {
     } else {
       this.woodCategories = [];
     }
-    this.selectedWoodCategory = null;
   }
 
   private updateLengthOfPullForSelectedWoodCategory(): void {
-    if (this.selectedWoodCategory) {
-      const lengthOfPullIds = this.selectedWoodCategory.availableLengthsOfPull;
+    if (this.state.selectedWoodCategory) {
+      const lengthOfPullIds = this.state.selectedWoodCategory.availableLengthsOfPull;
       this.lengthsOfPull = this.configuratorService.filterOptions(
         this.features,
         "lengthsOfPull",
@@ -368,12 +175,11 @@ export class StockComponent implements OnInit {
     } else {
       this.lengthsOfPull = [];
     }
-    this.selectedLengthOfPull = null;
   }
 
   private updateIndividualButtstockMeasureForSelectedLengthOfPull(): void {
-    if (this.selectedLengthOfPull) {
-      const measureIds = this.selectedLengthOfPull.availableIndividualButtstockMeasures;
+    if (this.state.selectedLengthOfPull) {
+      const measureIds = this.state.selectedLengthOfPull.availableIndividualButtstockMeasures;
       this.individualButtstockMeasures = this.configuratorService.filterOptions(
         this.features,
         "individualButtstockMeasures",
@@ -382,26 +188,24 @@ export class StockComponent implements OnInit {
     } else {
       this.individualButtstockMeasures = [];
     }
-    this.selectedIndividualButtstockMeasure = null;
   }
 
   private updateButtstockMeasuresTypeForSelectedIndividualButtstockMeasure(): void {
-    if (this.selectedIndividualButtstockMeasure) {
-      const measuresTypeIds = this.selectedIndividualButtstockMeasure.availableButtstockMeasuresTypes;
+    if (this.state.selectedIndividualButtstockMeasure) {
+      const measureTypeIds = this.state.selectedIndividualButtstockMeasure.availableButtstockMeasuresTypes;
       this.buttstockMeasuresTypes = this.configuratorService.filterOptions(
         this.features,
         "buttstockMeasuresTypes",
-        measuresTypeIds
+        measureTypeIds
       );
     } else {
       this.buttstockMeasuresTypes = [];
     }
-    this.selectedButtstockMeasuresType = null;
   }
 
   private updatePistolGripCapForSelectedButtstockMeasuresType(): void {
-    if (this.selectedButtstockMeasuresType) {
-      const capIds = this.selectedButtstockMeasuresType.availablePistolGripCaps;
+    if (this.state.selectedButtstockMeasuresType) {
+      const capIds = this.state.selectedButtstockMeasuresType.availablePistolGripCaps;
       this.pistolGripCaps = this.configuratorService.filterOptions(
         this.features,
         "pistolGripCaps",
@@ -410,12 +214,11 @@ export class StockComponent implements OnInit {
     } else {
       this.pistolGripCaps = [];
     }
-    this.selectedPistolGripCap = null;
   }
 
   private updateKickstopForSelectedPistolGripCap(): void {
-    if (this.selectedPistolGripCap) {
-      const kickstopIds = this.selectedPistolGripCap.availableKickstops;
+    if (this.state.selectedPistolGripCap) {
+      const kickstopIds = this.state.selectedPistolGripCap.availableKickstops;
       this.kickstops = this.configuratorService.filterOptions(
         this.features,
         "kickstops",
@@ -424,12 +227,11 @@ export class StockComponent implements OnInit {
     } else {
       this.kickstops = [];
     }
-    this.selectedKickstop = null;
   }
 
   private updateStockMagazineForSelectedKickstop(): void {
-    if (this.selectedKickstop) {
-      const magazineIds = this.selectedKickstop.availableStockMagazines;
+    if (this.state.selectedKickstop) {
+      const magazineIds = this.state.selectedKickstop.availableStockMagazines;
       this.stockMagazines = this.configuratorService.filterOptions(
         this.features,
         "stockMagazines",
@@ -438,12 +240,11 @@ export class StockComponent implements OnInit {
     } else {
       this.stockMagazines = [];
     }
-    this.selectedStockMagazine = null;
   }
 
   private updateForearmOptionForSelectedStockMagazine(): void {
-    if (this.selectedStockMagazine) {
-      const forearmIds = this.selectedStockMagazine.availableForearmOptions;
+    if (this.state.selectedStockMagazine) {
+      const forearmIds = this.state.selectedStockMagazine.availableForearmOptions;
       this.forearmOptions = this.configuratorService.filterOptions(
         this.features,
         "forearmOptions",
@@ -452,23 +253,155 @@ export class StockComponent implements OnInit {
     } else {
       this.forearmOptions = [];
     }
-    this.selectedForearmOption = null;
   }
 
   // ==============================
-  // Nawigacja Dalej / Wstecz
+  // EVENTY WYBORU (onSelect...)
+  // ==============================
+
+  onSelectButtstockType(newButtstockType: Option): void {
+    const oldId = this.state.selectedButtstockType?.id;
+    if (oldId === newButtstockType.id) {
+      return; // bez zmian
+    }
+
+    this.configuratorService.resetOptionsAfter("buttstockType", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedButtstockType: newButtstockType,
+      isDisabledWoodCategory: false,
+    });
+
+    // Wypełniamy kolejną listę
+    this.updateWoodCategoryForSelectedButtstockType();
+  }
+
+  onSelectWoodCategory(newWoodCategory: Option): void {
+    const oldId = this.state.selectedWoodCategory?.id;
+    if (oldId === newWoodCategory.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("woodCategory", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedWoodCategory: newWoodCategory,
+      isDisabledLengthOfPull: false,
+    });
+
+    this.updateLengthOfPullForSelectedWoodCategory();
+  }
+
+  onSelectLengthOfPull(newLength: Option): void {
+    const oldId = this.state.selectedLengthOfPull?.id;
+    if (oldId === newLength.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("lengthOfPull", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedLengthOfPull: newLength,
+      isDisabledIndividualButtstockMeasure: false,
+    });
+
+    this.updateIndividualButtstockMeasureForSelectedLengthOfPull();
+  }
+
+  onSelectIndividualButtstockMeasure(newMeasure: Option): void {
+    const oldId = this.state.selectedIndividualButtstockMeasure?.id;
+    if (oldId === newMeasure.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("individualButtstockMeasure", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedIndividualButtstockMeasure: newMeasure,
+      isDisabledButtstockMeasuresType: false,
+    });
+
+    this.updateButtstockMeasuresTypeForSelectedIndividualButtstockMeasure();
+  }
+
+  onSelectButtstockMeasuresType(newMeasureType: Option): void {
+    const oldId = this.state.selectedButtstockMeasuresType?.id;
+    if (oldId === newMeasureType.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("buttstockMeasuresType", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedButtstockMeasuresType: newMeasureType,
+      isDisabledPistolGripCap: false,
+    });
+
+    this.updatePistolGripCapForSelectedButtstockMeasuresType();
+  }
+
+  onSelectPistolGripCap(newCap: Option): void {
+    const oldId = this.state.selectedPistolGripCap?.id;
+    if (oldId === newCap.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("pistolGripCap", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedPistolGripCap: newCap,
+      isDisabledKickstop: false,
+    });
+
+    this.updateKickstopForSelectedPistolGripCap();
+  }
+
+  onSelectKickstop(newKickstop: Option): void {
+    const oldId = this.state.selectedKickstop?.id;
+    if (oldId === newKickstop.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("kickstop", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedKickstop: newKickstop,
+      isDisabledStockMagazine: false,
+    });
+
+    this.updateStockMagazineForSelectedKickstop();
+  }
+
+  onSelectStockMagazine(newMagazine: Option): void {
+    const oldId = this.state.selectedStockMagazine?.id;
+    if (oldId === newMagazine.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("stockMagazine", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedStockMagazine: newMagazine,
+      isDisabledForearmOption: false,
+    });
+
+    this.updateForearmOptionForSelectedStockMagazine();
+  }
+
+  onSelectForearmOption(newForearm: Option): void {
+    const oldId = this.state.selectedForearmOption?.id;
+    if (oldId === newForearm.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("forearmOption", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedForearmOption: newForearm,
+    });
+  }
+
+  // ==============================
+  // Nawigacja
   // ==============================
   onNext(): void {
-    // Zapamiętujemy wybrane opcje
-    sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));
-    // ... analogicznie dla innych, jeśli chcesz:
-    // sessionStorage.setItem('selectedButtstockType', JSON.stringify(this.selectedButtstockType));
-    // ...
-
-    this.router.navigate(['/r8/chamberBolt']);
+    // Przejście do kolejnego kroku, np. chamberBolt
+    this.router.navigate(["/r8/chamberBolt"]);
   }
 
   onBack(): void {
-    this.router.navigate(['/r8/barrel']);
+    // Powrót do poprzedniego ekranu, np. barrel
+    this.router.navigate(["/r8/barrel"]);
   }
 }
