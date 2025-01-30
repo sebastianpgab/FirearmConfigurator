@@ -2,9 +2,15 @@
   <section class="content">
     <h1 class="section-title">KOLBA</h1>
     
-    <div class="rifle-preview">
-      <img [src]="selectedButtstockType?.imageUrl" alt="Stock" class="rifle-layer" />
-      <img [src]="selectedButtstockType?.imageUrl" alt="Barrel" class="rifle-layer" />
+    <div class="rifle-preview" *ngIf="state.selectedContour">
+      <img *ngIf="state.selectedContour" [src]="state.selectedContour.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedProfile" [src]="state.selectedProfile.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedOpenSight" [src]="state.selectedOpenSight.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedMuzzleBrakeOrSuppressor" [src]="state.selectedMuzzleBrakeOrSuppressor.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedPistolGripCap" [src]="state.selectedPistolGripCap.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedForearmOption" [src]="state.selectedForearmOption.imageUrl" class="rifle-layer">
     </div>
   
     <div *ngIf="rifles.length > 0">
@@ -14,7 +20,8 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Typ Kolby</mat-label>
           <mat-select
-            [(value)]="state.selectedButtstockType"
+            [value]="state.selectedButtstockType"
+            [compareWith]="compareOptionsById"
             (selectionChange)="onSelectButtstockType($event.value)"
             placeholder="Wybierz typ kolby"
           >
@@ -31,10 +38,11 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kategoria Drewna</mat-label>
           <mat-select
-            [(value)]="state.selectedWoodCategory"
-            (selectionChange)="onSelectWoodCategory($event.value)"
+            [value]="state.selectedWoodCategory"
+            [compareWith]="compareOptionsById"
             placeholder="Wybierz kategorię drewna"
             [disabled]="state.isDisabledWoodCategory"
+            (selectionChange)="onSelectWoodCategory($event.value)"
           >
           <mat-option *ngFor="let woodCategory of woodCategories" [value]="woodCategory">
             <div class="option-template">
@@ -49,10 +57,11 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Długość Naciągu</mat-label>
           <mat-select
-            [(value)]="state.selectedLengthOfPull"
+            [value]="state.selectedLengthOfPull"
+            [compareWith]="compareOptionsById"
+            [disabled]="state.isDisabledLengthOfPull"
             (selectionChange)="onSelectLengthOfPull($event.value)"
             placeholder="Wybierz długość naciągu"
-            [disabled]="state.isDisabledLengthOfPull"
           >
           <mat-option *ngFor="let lengthOfPull of lengthsOfPull" [value]="lengthOfPull">
             <div class="option-template">
@@ -67,7 +76,8 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Indywidualne Wymiary Kolby</mat-label>
           <mat-select
-            [(value)]="state.selectedIndividualButtstockMeasure"
+            [value]="state.selectedIndividualButtstockMeasure"
+            [compareWith]="compareOptionsById"
             (selectionChange)="onSelectIndividualButtstockMeasure($event.value)"
             placeholder="Wybierz opcję"
             [disabled]="state.isDisabledIndividualButtstockMeasure"
@@ -85,7 +95,8 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Typ Wymiarów Kolby</mat-label>
           <mat-select
-            [(value)]="state.selectedButtstockMeasuresType"
+            [value]="state.selectedButtstockMeasuresType"
+            [compareWith]="compareOptionsById"
             (selectionChange)="onSelectButtstockMeasuresType($event.value)"
             placeholder="Wybierz typ wymiarów"
             [disabled]="state.isDisabledButtstockMeasuresType"
@@ -103,7 +114,8 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Nasadka na Chwyt Pistoletowy</mat-label>
           <mat-select
-            [(value)]="state.selectedPistolGripCap"
+            [value]="state.selectedPistolGripCap"
+            [compareWith]="compareOptionsById"
             (selectionChange)="onSelectPistolGripCap($event.value)"
             placeholder="Wybierz opcję"
             [disabled]="state.isDisabledPistolGripCap"
@@ -121,7 +133,8 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Kickstop</mat-label>
           <mat-select
-            [(value)]="state.selectedKickstop"
+            [value]="state.selectedKickstop"
+            [compareWith]="compareOptionsById"
             (selectionChange)="onSelectKickstop($event.value)"
             placeholder="Wybierz kickstop"
             [disabled]="state.isDisabledKickstop"
@@ -139,7 +152,8 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Magazyn w Kolbie</mat-label>
           <mat-select
-            [(value)]="state.selectedStockMagazine"
+            [value]="state.selectedStockMagazine"
+            [compareWith]="compareOptionsById"
             (selectionChange)="onSelectStockMagazine($event.value)"
             placeholder="Wybierz magazyn"
             [disabled]="state.isDisabledStockMagazine"
@@ -157,7 +171,8 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Opcja Przedłużenia</mat-label>
           <mat-select
-            [(value)]="state.selectedForearmOption"
+            [value]="state.selectedForearmOption"
+            [compareWith]="compareOptionsById"
             (selectionChange)="onSelectForearmOption($event.value)"
             placeholder="Wybierz opcję"
             [disabled]="state.isDisabledForearmOption"

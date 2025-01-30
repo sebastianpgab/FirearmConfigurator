@@ -3,8 +3,15 @@
   <section class="content">
     <h1 class="section-title">Model</h1>
 
-    <div class="rifle-preview" *ngIf="selectedRifle">
-      <img  [src]="selectedRifle.imageUrl" class="rifle-layer">
+    <div class="rifle-preview" *ngIf="state.selectedContour">
+      <img *ngIf="state.selectedContour" [src]="state.selectedContour.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedProfile" [src]="state.selectedProfile.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedOpenSight" [src]="state.selectedOpenSight.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedMuzzleBrakeOrSuppressor" [src]="state.selectedMuzzleBrakeOrSuppressor.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedPistolGripCap" [src]="state.selectedPistolGripCap.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedForearmOption" [src]="state.selectedForearmOption.imageUrl" class="rifle-layer">
     </div>
     
     <form class="container">
@@ -12,8 +19,9 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Model</mat-label>
           <mat-select
-            [(value)]="selectedRifle"
+            [value]="state.selectedRifle"
             (selectionChange)="onSelectRifle($event.value)"
+            [compareWith]="compareById"
             placeholder="Wybierz model"
             
           >
