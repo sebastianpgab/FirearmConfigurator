@@ -1,4 +1,4 @@
-import { Option } from "../../option/model";
+import { Option } from "../option/model";
 
 export interface Barrel {
     calibers: Option[];

@@ -1,4 +1,4 @@
-import { Option } from "src/app/option/model";
+import { Option } from "src/app/R8/option/model";
 import { Rifle } from "src/app/R8/rifle/model";
 
 export interface ConfiguratorState {

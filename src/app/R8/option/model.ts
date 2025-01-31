@@ -17,4 +17,5 @@ export interface Option{
     availableKickstops?: [];
     availableStockMagazines? : [];
     availableForearmOptions?: [];
+    availableBoltHandles?: [];
 }

@@ -1,4 +1,4 @@
-import {Option} from '../../option/model'
+import {Option} from '../option/model'
 
 export interface Stock {
     buttstockType: Option[]; // Typ kolby, np. "Buttstock with double rabbet on Bavarian cheek piece"
