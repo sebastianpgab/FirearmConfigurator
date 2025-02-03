@@ -1,108 +1,289 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Router } from "@angular/router";
+import { Subscription } from "rxjs";
+
 import { Rifle } from "../rifle/model";
-import { ChamberBoltService } from "./chamber-bolt.service";
-import { Option } from "../../option/model";
-import { Router } from '@angular/router';
+import { Option } from "../option/model";
 import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({
-  selector: 'app-chamber-bolt',
-  templateUrl: './chamber-bolt.component.html',
-  styleUrls: [] 
+  selector: "app-chamber-bolt",
+  templateUrl: "./chamber-bolt.component.html",
+  styleUrls: [],
 })
-export class ChamberBoltComponent implements OnInit {
+export class ChamberBoltComponent implements OnInit, OnDestroy {
+  private subscription!: Subscription;
 
+  /**
+   * Hierarchia opcji – do resetowania "niższych" opcji,
+   * jeśli zmieniamy coś wyżej.
+   */
+  private optionHierarchy = [
+    "rifle",
+    "chamberEngraving",
+    "boltHandle",
+    "trigger",
+    "boltHead",
+    "slidingSafety",
+  ];
+
+  // Dane z pliku JSON
   features: any;
   rifles: Rifle[] = [];
+
+  // Listy opcji do kolejnych mat-select
   chamberEngravings: Option[] = [];
   boltHandles: Option[] = [];
   triggers: Option[] = [];
   boltHeads: Option[] = [];
   slidingSafeties: Option[] = [];
 
-  selectedRifle: Rifle | null = null;
-  selectedChamberEngraving: Option | null = null;
-  selectedBoltHandle: Option | null = null;
-  selectedTrigger: Option | null = null;
-  selectedBoltHead: Option | null = null;
-  selectedSlidingSafety: Option | null = null;
-
-  isDisabledBoltHandle: boolean = true;
-  isDisabledTrigger: boolean = true;
-  isDisabledBoltHead: boolean = true;
-  isDisabledSlidingSafety: boolean = true;
+  // Aktualny stan z serwisu
+  state: any;
 
   constructor(
-    private chamberBoltService: ChamberBoltService,
     private router: Router,
     private configuratorService: ConfiguratorService
   ) {}
 
-  ngOnInit() {
-    // Retrieve saved rifle from sessionStorage
-    const savedRifle = JSON.parse(sessionStorage.getItem('selectedRifle') || 'null');
-
-    this.chamberBoltService.getData().subscribe(data => {
-      this.features = data.features;
-      this.rifles = data.rifles;
-
-      // Set selected rifle
-      this.selectedRifle = savedRifle ? savedRifle : this.rifles[0];
-
-      // Update options based on selected rifle
-      this.updateOptionsBasedOnRifle();
-
-      // Update option states
-      this.updateOptionStates();
-
-    }, error => {
-      console.error('Error loading data:', error);
+  ngOnInit(): void {
+    // Subskrybujemy stan z ConfiguratorService
+    this.subscription = this.configuratorService.state$.subscribe((state) => {
+      this.state = state;
     });
+
+    // Pobieramy dane z pliku JSON (lub z dowolnego źródła)
+    this.configuratorService.getData().subscribe(
+      (data) => {
+        this.features = data.features;
+        this.rifles = data.rifles;
+
+        // Przy starcie odtwarzamy listy zależne od tego, co jest już w stanie (jeśli jest)
+        this.restoreSelections();
+      },
+      (error) => {
+        console.error("Błąd przy ładowaniu danych:", error);
+      }
+    );
   }
 
-  onNext(): void {
-    // Save selected rifle to sessionStorage
-    sessionStorage.setItem('selectedRifle', JSON.stringify(this.selectedRifle));
-
-    // Navigate to the next step
-    this.router.navigate(['/r8/accessory']);
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
-  onBack() {
-    this.router.navigate(['/r8/stock']);
-  }
+  /**
+   * compareOptionsById – do [compareWith] w mat-select,
+   * aby rozpoznać tę samą opcję (po id) nawet jeśli obiekt jest inny referencyjnie.
+   */
+  compareOptionsById = (o1: Option, o2: Option) =>
+    o1 && o2 ? o1.id === o2.id : o1 === o2;
 
-  onSelectRifle(rifle: Rifle) {
-    this.selectedRifle = rifle;
-
-    sessionStorage.setItem('selectedRifle', JSON.stringify(rifle));
-
-    this.updateOptionsBasedOnRifle();
-
-    this.updateOptionStates();
-  }
-
-  private updateOptionsBasedOnRifle(): void {
-    if (!this.selectedRifle) {
+  /**
+   * Odtwarza zawartość wszystkich list (chamberEngravings, boltHandles, triggers, itp.)
+   * na podstawie aktualnego stanu (this.state).
+   */
+  private restoreSelections(): void {
+    // 1) Jeśli mamy wybrany Rifle, aktualizujemy listę chamberEngravings:
+    if (this.state?.selectedRifle) {
+      this.updateChamberEngravingsBasedOnRifle();
+    } else {
       this.chamberEngravings = [];
+    }
+
+    // 2) Jeśli mamy wybrany Chamber Engraving, aktualizujemy listę boltHandles:
+    if (this.state?.selectedChamberEngraving) {
+      this.updateBoltHandlesBasedOnChamberEngraving();
+    } else {
       this.boltHandles = [];
+    }
+
+    // 3) Jeśli mamy wybrany Bolt Handle, aktualizujemy listę triggers:
+    if (this.state?.selectedBoltHandle) {
+      this.updateTriggersBasedOnBoltHandle();
+    } else {
       this.triggers = [];
+    }
+
+    // 4) Jeśli mamy wybrany Trigger, aktualizujemy listę boltHeads:
+    if (this.state?.selectedTrigger) {
+      this.updateBoltHeadsBasedOnTrigger();
+    } else {
       this.boltHeads = [];
+    }
+
+    // 5) Jeśli mamy wybrany Bolt Head, aktualizujemy listę slidingSafeties:
+    if (this.state?.selectedBoltHead) {
+      this.updateSlidingSafetiesBasedOnBoltHead();
+    } else {
       this.slidingSafeties = [];
+    }
+  }
+
+  // ------------------------------------------
+  // Metody obsługujące zmianę każdej opcji:
+  // ------------------------------------------
+
+  onSelectRifle(newRifle: Rifle): void {
+    const oldRifleId = this.state.selectedRifle?.id;
+    if (oldRifleId === newRifle.id) {
+      return; // nic się nie zmieniło
+    }
+
+    // Resetujemy opcje "niższe" w hierarchii (od "rifle" w dół)
+    this.configuratorService.resetOptionsAfter("rifle", this.optionHierarchy);
+
+    // Ustawiamy nowy stan
+    this.configuratorService.updateState({
+      selectedRifle: newRifle,
+    });
+
+    this.updateChamberEngravingsBasedOnRifle();
+  }
+
+  onSelectChamberEngraving(newChamberEngraving: Option): void {
+    const oldChamberEngravingId = this.state.selectedChamberEngraving?.id;
+    if (oldChamberEngravingId === newChamberEngraving.id) {
       return;
     }
 
-    this.chamberEngravings = this.configuratorService.filterOptions(this.features, 'chamberEngravings', this.selectedRifle.availableChamberEngravings);
-    this.boltHandles = this.configuratorService.filterOptions(this.features, 'boltHandles', this.selectedRifle.availableBoltHandles);
-    this.triggers = this.configuratorService.filterOptions(this.features, 'triggers', this.selectedRifle.availableTriggers);
-    this.boltHeads = this.configuratorService.filterOptions(this.features, 'boltHeads', this.selectedRifle.availableBoltHeads);
-    this.slidingSafeties = this.configuratorService.filterOptions(this.features, 'slidingSafeties', this.selectedRifle.availableSlidingSafeties);
+    this.configuratorService.resetOptionsAfter("chamberEngraving", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedChamberEngraving: newChamberEngraving,
+      isDisabledBoltHandle: false,
+    });
+
+    this.updateBoltHandlesBasedOnChamberEngraving();
   }
 
-  public updateOptionStates(): void {
-    this.isDisabledBoltHandle = !this.selectedChamberEngraving;
-    this.isDisabledTrigger = !this.selectedBoltHandle;
-    this.isDisabledBoltHead = !this.selectedTrigger;
-    this.isDisabledSlidingSafety = !this.selectedBoltHead;
+  onSelectBoltHandle(newBoltHandle: Option): void {
+    const oldBoltHandleId = this.state.selectedBoltHandle?.id;
+    if (oldBoltHandleId === newBoltHandle.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("boltHandle", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedBoltHandle: newBoltHandle,
+      isDisabledTrigger: false,
+    });
+
+    this.updateTriggersBasedOnBoltHandle();
+  }
+
+  onSelectTrigger(newTrigger: Option): void {
+    const oldTriggerId = this.state.selectedTrigger?.id;
+    if (oldTriggerId === newTrigger.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("trigger", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedTrigger: newTrigger,
+      isDisabledBoltHead: false,
+    });
+
+    this.updateBoltHeadsBasedOnTrigger();
+  }
+
+  onSelectBoltHead(newBoltHead: Option): void {
+    const oldBoltHeadId = this.state.selectedBoltHead?.id;
+    if (oldBoltHeadId === newBoltHead.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("boltHead", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedBoltHead: newBoltHead,
+      isDisabledSlidingSafety: false,
+    });
+
+    this.updateSlidingSafetiesBasedOnBoltHead();
+  }
+
+  onSelectSlidingSafety(newSlidingSafety: Option): void {
+    const oldSlidingSafetyId = this.state.selectedSlidingSafety?.id;
+    if (oldSlidingSafetyId === newSlidingSafety.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter("slidingSafety", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedSlidingSafety: newSlidingSafety,
+    });
+  }
+
+  // ------------------------------------------
+  // Metody aktualizujące listy zależne od poprzednich wyborów
+  // ------------------------------------------
+
+  private updateChamberEngravingsBasedOnRifle(): void {
+    if (this.state.selectedRifle) {
+      this.chamberEngravings = this.configuratorService.filterOptions(
+        this.features,
+        "chamberEngravings",
+        this.state.selectedRifle.availableChamberEngravings
+      );
+    } else {
+      this.chamberEngravings = [];
+    }
+  }
+
+  private updateBoltHandlesBasedOnChamberEngraving(): void {
+    if (this.state.selectedChamberEngraving) {
+      this.boltHandles = this.configuratorService.filterOptions(
+        this.features,
+        "boltHandles",
+        this.state.selectedChamberEngraving.availableBoltHandles
+      );
+    } else {
+      this.boltHandles = [];
+    }
+  }
+
+  private updateTriggersBasedOnBoltHandle(): void {
+    if (this.state.selectedBoltHandle) {
+      this.triggers = this.configuratorService.filterOptions(
+        this.features,
+        "triggers",
+        this.state.selectedBoltHandle.availableTriggers
+      );
+    } else {
+      this.triggers = [];
+    }
+  }
+
+  private updateBoltHeadsBasedOnTrigger(): void {
+    if (this.state.selectedTrigger) {
+      this.boltHeads = this.configuratorService.filterOptions(
+        this.features,
+        "boltHeads",
+        this.state.selectedTrigger.availableBoltHeads
+      );
+    } else {
+      this.boltHeads = [];
+    }
+  }
+
+  private updateSlidingSafetiesBasedOnBoltHead(): void {
+    if (this.state.selectedBoltHead) {
+      this.slidingSafeties = this.configuratorService.filterOptions(
+        this.features,
+        "slidingSafeties",
+        this.state.selectedBoltHead.availableSlidingSafeties
+      );
+    } else {
+      this.slidingSafeties = [];
+    }
+  }
+
+  // --- Nawigacja ---
+  onNext(): void {
+    this.router.navigate(["/r8/accessory"]);
+  }
+
+  onBack(): void {
+    this.router.navigate(["/r8/stock"]);
   }
 }
