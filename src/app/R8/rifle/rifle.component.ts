@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Rifle } from './model';
-import { Option } from "../../option/model";
+import { Option } from "../option/model";
 import { ConfiguratorService } from 'src/app/core/services/configurator.service';
 import { RifleService } from './rifle.service';
 
@@ -12,11 +12,13 @@ import { RifleService } from './rifle.service';
   styles: []
 })
 export class RifleComponent implements OnInit, OnDestroy {
+
   private subscription!: Subscription;
 
   // Główna hierarchia opcji – do resetowania w serwisie
   private optionHierarchy = [
     "rifle",
+    "handConfiguration",
     "contour",
     "caliber",
     "profile",
@@ -35,6 +37,7 @@ export class RifleComponent implements OnInit, OnDestroy {
   ];
 
   rifles: Rifle[] = [];
+  handConfigurations: Option[] = [];
   features: any;
   state: any;
 
@@ -96,16 +99,38 @@ export class RifleComponent implements OnInit, OnDestroy {
     this.configuratorService.resetOptionsAfter("rifle", this.optionHierarchy);
 
     // Uaktualniamy stan globalny
-    this.configuratorService.updateState({ selectedRifle: newRifle });
+    this.configuratorService.updateState({
+      selectedRifle: newRifle,
+      isDisabledHandConfiguration: false,
+     });
+     
+    this.updateHandConfigurationsForSelectedRifle(newRifle, this.features);
+   }
 
-    // Ewentualnie wywołujemy serwis rifleService, jeśli potrzebujemy
-    this.rifleService.updateContoursForSelectedRifle(newRifle, this.features);
-  }
 
-  /**
-   * compareById – do [compareWith] w mat-select lub *ngFor,
-   * jeśli potrzebujemy rozróżniać obiekty po .id
-   */
+  onSelectHandConfiguration(newHandConf: Option): void{
+    const oldId = this.state.selectedHandConfiguration?.id;
+    if(oldId == newHandConf.id) {
+      return;
+    }
+    this.configuratorService.resetOptionsAfter("handConfiguration", this.optionHierarchy);
+      this.configuratorService.updateState({
+        selectedForearmOption: newHandConf,
+      });
+    }
+
+    public updateHandConfigurationsForSelectedRifle(selectedRifle: Rifle | null, features: any[]): void {
+      if(this.state.selectedRifle) {
+        const handConfigurationIds = this.state.selectedRifle.availableHandConfigurations;
+        this.handConfigurations = this.configuratorService.filterOptions(
+          this.features, 
+          "handConfigurations", 
+          handConfigurationIds);
+      }else {
+        this.handConfigurations = [];
+      }
+    }
+
   compareById = (o1: Rifle, o2: Rifle) => {
     return o1 && o2 ? o1.id === o2.id : o1 === o2;
   };

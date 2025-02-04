@@ -1,5 +1,31 @@
 {
     "features": {
+      "handConfigurations": [
+        {
+          "id": 1,
+          "name": "Kolba i zamek po prawej stronie (wyrzut łusek w prawo)",
+          "price": 400,
+          "imageUrl": "" 
+        },
+        {
+          "id": 2,
+          "name": "Kolba i zamek po lewej stronie (wyrzut łusek w lewo)",
+          "price": 400,
+          "imageUrl": "" 
+        },
+        {
+          "id": 3,
+          "name": "Kolba po prawej, zamek po lewej (wyrzut łusek w prawo)",
+          "price": 400,
+          "imageUrl": "" 
+        },
+        {
+          "id": 4,
+          "name": "Kolba po lewej, zamek po prawej (wyrzut łusek w lewo)",
+          "price": 400,
+          "imageUrl": "" 
+        }
+      ],
       "contours": [
         {
           "id": 1,
@@ -139,20 +165,20 @@
       { "id": 2, "name": "Czarna (syntetyczna) końcówka przedniego chwytu", "price": 80, "imageUrl": "assets/forearm_options/black_tip.jpg" }
     ],
     "chamberEngravings": [
-      { "id": 1, "name": "Standardowe zdobienie", "price": 100, "imageUrl": "assets/BlaserR8/puzzle/R8_Systemanschluss-Abdunkler_Success.png" },
-      { "id": 2, "name": "Ekskluzywne zdobienie", "price": 300, "imageUrl": "assets/chamber_engravings/exclusive.jpg" }
+      { "id": 1, "name": "Standardowe zdobienie", "price": 100, "imageUrl": "assets/BlaserR8/puzzle/R8_Systemanschluss-Abdunkler_Success.png", "availableBoltHandles": [1,2]},
+      { "id": 2, "name": "Ekskluzywne zdobienie", "price": 300, "imageUrl": "assets/chamber_engravings/exclusive.jpg", "availableBoltHandles": [1,2] }
     ],
     "boltHandles": [
-      { "id": 1, "name": "Rączka standardowa", "price": 50, "imageUrl": "assets/bolt_handles/standard.jpg" },
-      { "id": 2, "name": "Rączka taktyczna", "price": 150, "imageUrl": "assets/bolt_handles/tactical.jpg" }
+      { "id": 1, "name": "Rączka standardowa", "price": 50, "imageUrl": "assets/bolt_handles/standard.jpg", "availableTriggers": [1,2] },
+      { "id": 2, "name": "Rączka taktyczna", "price": 150, "imageUrl": "assets/bolt_handles/tactical.jpg", "availableTriggers": [1,2]  }
     ],
     "triggers": [
-      { "id": 1, "name": "Spust standardowy", "price": 0, "imageUrl": "assets/triggers/standard.jpg" },
-      { "id": 2, "name": "Spust regulowany", "price": 200, "imageUrl": "assets/triggers/adjustable.jpg" }
+      { "id": 1, "name": "Spust standardowy", "price": 0, "imageUrl": "assets/triggers/standard.jpg", "availableBoltHeads": [1,2] },
+      { "id": 2, "name": "Spust regulowany", "price": 200, "imageUrl": "assets/triggers/adjustable.jpg", "availableBoltHeads": [1,2] }
     ],
     "boltHeads": [
-      { "id": 1, "name": "Głowica standardowa", "price": 100, "imageUrl": "assets/bolt_heads/standard.jpg" },
-      { "id": 2, "name": "Głowica wzmocniona", "price": 250, "imageUrl": "assets/bolt_heads/reinforced.jpg" }
+      { "id": 1, "name": "Głowica standardowa", "price": 100, "imageUrl": "assets/bolt_heads/standard.jpg", "availableSlidingSafeties": [1,2] },
+      { "id": 2, "name": "Głowica wzmocniona", "price": 250, "imageUrl": "assets/bolt_heads/reinforced.jpg", "availableSlidingSafeties": [1,2] }
     ],
     "slidingSafeties": [
       { "id": 1, "name": "Bezpiecznik standardowy", "price": 0, "imageUrl": "assets/sliding_safeties/standard.jpg" },
@@ -177,8 +203,10 @@
         "name": "Blaser R8 Ultimate",
         "price": 3500,
         "imageUrl": "assets/riffle_pictures/blaser_r8_ultimate.jpg",
+        "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableButtstockTypes": [1, 2]
+        "availableButtstockTypes": [1, 2],
+        "availableChamberEngravings": [1,2]
 
 
       },
@@ -188,9 +216,7 @@
         "price": 3700,
         "imageUrl": "assets/images/blaser_r8_semi_weight.jpg", 
         "availableContours": [1, 2],
-        "availableButtstockTypes": [2]
-
-        
+        "availableButtstockTypes": [2] 
       }
     ]
   }

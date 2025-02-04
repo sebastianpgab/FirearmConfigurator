@@ -33,6 +33,24 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+        <!-- Wybór lewo/prawo --> 
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Prawo-/Leworęczna</mat-label>
+          <mat-select
+            [value]="state.selectedRifle"
+            (selectionChange)="onSelectHandConfiguration($event.value)"
+            [compareWith]="compareById"
+            placeholder="Wybierz prawo-/leworęczność"
+            
+          >
+            <mat-option *ngFor="let handConfiguration of handConfigurations" [value]="handConfiguration">
+              <div class="option-template">
+                <img [src]="handConfiguration.imageUrl" alt="{{ handConfiguration.name }}" />
+                <span>{{ handConfiguration.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
     </form>
 </section>
 </body>
