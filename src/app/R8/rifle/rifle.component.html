@@ -37,7 +37,7 @@
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Prawo-/Leworęczna</mat-label>
           <mat-select
-            [value]="state.selectedRifle"
+            [value]="state.selectedHandConfiguration"
             (selectionChange)="onSelectHandConfiguration($event.value)"
             [compareWith]="compareById"
             placeholder="Wybierz prawo-/leworęczność"
