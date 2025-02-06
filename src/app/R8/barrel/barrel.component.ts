@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
 import { Rifle } from "../rifle/model";
-import { Option } from "../../option/model";
+import { Option } from "../option/model";
 import { ConfiguratorService } from "src/app/core/services/configurator.service";
 
 @Component({

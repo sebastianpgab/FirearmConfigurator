@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Option } from "../../option/model";
+import { Option } from "../option/model";
 import { AccessoryService } from "./accessory.service";
 import { Router } from "@angular/router";
 import { Rifle } from "../rifle/model";

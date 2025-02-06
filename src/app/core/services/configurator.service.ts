@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Option } from "../../option/model";
+import { Option } from "../../R8/option/model";
 import { HttpClient } from '@angular/common/http';
 import { ConfiguratorState } from "src/app/core/services/model"
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class ConfiguratorService {
 
   private stateSubject = new BehaviorSubject<ConfiguratorState>({ 
     selectedRifle: null,
+    selectedHandConfiguration: null,
     selectedContour: null,
     selectedCaliber: null,
     selectedProfile: null,
@@ -28,6 +30,12 @@ export class ConfiguratorService {
     selectedKickstop: null,
     selectedStockMagazine: null,
     selectedForearmOption: null,
+    selectedChamberEngraving: null,
+    selectedBoltHandle: null,
+    selectedTrigger: null,
+    selectedBoltHead: null,
+    selectedSlidingSafety: null,
+    isDisabledHandConfiguration: true,
     isDisabledCaliber: true,
     isDisabledProfile: true,
     isDisabledLength: true,
@@ -41,11 +49,15 @@ export class ConfiguratorService {
     isDisabledKickstop: true,
     isDisabledStockMagazine: true,
     isDisabledForearmOption: true,
+    isDisabledBoltHandle: true,
+    isDisabledTrigger: true,
+    isDisabledBoltHead: true,
+    isDisabledslidingSafety: true
   });
 
   state$ = this.stateSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   public getData(): Observable<any> {
     return this.http.get<any>(this.jsonUrl);
@@ -72,10 +84,7 @@ export class ConfiguratorService {
           const option = optionHierarchy[i];
           const formattedOption = this.formatOptionName(option);
           const formattedIsDisabled = this.formatIisDisabled(option);
-  
-          sessionStorage.removeItem(formattedOption);
-  
-          // w resetState[“selectedContour”] = null
+    
           resetState[formattedOption] = null;
           resetState[formattedIsDisabled] = true;
         }
@@ -95,6 +104,18 @@ export class ConfiguratorService {
     return "isDisabled" + option.charAt(0).toUpperCase() + option.slice(1);
   }
   
+  public isPageReloaded(): boolean {
+    // Używamy PerformanceNavigationTiming, aby sprawdzić typ nawigacji
+    const entries = window.performance.getEntriesByType('navigation');
+    if (entries.length > 0) {
+      const navigationEntry = entries[0] as PerformanceNavigationTiming;
+      return navigationEntry.type === 'reload';
+    }
+
+    // Alternatywa dla starszych przeglądarek
+    const navigationType = (window.performance as any).navigation?.type;
+    return navigationType === 1; // 1 oznacza odświeżenie
+  }
   
   
 }

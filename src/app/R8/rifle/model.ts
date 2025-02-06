@@ -1,9 +1,6 @@
 import {Barrel} from '../barrel/model';
 import { Stock } from '../../R8/stock/model';
-import { ChamberBolt } from '../chamber-bolt/model';
 import { Accessory } from '../accessory/model';
-
-
 
 export interface Rifle {
     id: number;
@@ -11,7 +8,8 @@ export interface Rifle {
     price: number,
     imageUrl?: string;
 
-    barrels: Barrel[]; // Lista dostępnych luf
+    availableHandConfigurations: number[];
+
     availableContours: number[];
     availableCalibers: number[]; 
     availableProfiles: number[];
@@ -19,7 +17,6 @@ export interface Rifle {
     availableOpenSights: number[];
     availableMuzzleBrakesOrSuppressors: number[];
 
-    stocks: Stock[]; // Lista dostępnych kolb dla danego karabinu
     availableButtstockTypes: number[];
     availableWoodCategories: number[];
     availableLengthsOfPull: number[];
@@ -30,14 +27,12 @@ export interface Rifle {
     availableStockMagazines: number[];
     availableForearmOptions: number[];
 
-    chamberBolt: ChamberBolt[];
     availableChamberEngravings: number[]; // Lista dostępnych zamków
     availableBoltHandles: number[];
     availableTriggers: number[];
     availableBoltHeads: number[];
     availableSlidingSafeties: number[];
 
-    accessory: Accessory[];
     availableGunCases: number[];
     availableSoftGunCovers: number[];
     availableRifleSlings: number [];
