@@ -1,0 +1,14 @@
+<div class="contact-form">
+    <h2>Wyślij wiadomość</h2>
+  
+    <label>Imię:</label>
+    <input type="text" [(ngModel)]="userName" placeholder="Wpisz swoje imię" />
+  
+    <label>Email:</label>
+    <input type="email" [(ngModel)]="userEmail" placeholder="Wpisz swój e-mail" />
+  
+    <label>Wiadomość:</label>
+    <textarea [(ngModel)]="userMessage" placeholder="Twoja wiadomość"></textarea>
+  
+    <button (click)="sendEmail()">Wyślij</button>
+  </div>
