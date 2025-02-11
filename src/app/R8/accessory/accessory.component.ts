@@ -4,6 +4,7 @@ import { AccessoryService } from "./accessory.service";
 import { Router } from "@angular/router";
 import { Rifle } from "../rifle/model";
 import { ConfiguratorService } from "src/app/core/services/configurator.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-accessory",
@@ -12,11 +13,15 @@ import { ConfiguratorService } from "src/app/core/services/configurator.service"
 })
 export class AccessoryComponent implements OnInit {
 
+
+  private subscription!: Subscription;
   rifles: Rifle[] = [];
   features: any;
   gunCases: Option[] = [];
   softGunCovers: Option[] = [];
   rifleSlings: Option[] = [];
+  state: any;
+  
 
   selectedRifle: Rifle | null = null;
   selectedGunCase: Option | null = null;
@@ -30,15 +35,15 @@ export class AccessoryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const savedRifle = JSON.parse(sessionStorage.getItem('selectedRifle') || 'null');
+
+    this.subscription = this.configuratorService.state$.subscribe((state) => {
+      this.state = state; 
+    });
 
     this.accessoryService.getData().subscribe(
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
-
-        // Ustawienie wybranej strzelby
-        this.selectedRifle = savedRifle ? savedRifle : this.rifles[0];
 
         // Load options
         this.updateOptionsBasedOnRifle();
