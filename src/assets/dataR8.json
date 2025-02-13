@@ -3,27 +3,27 @@
       "handConfigurations": [
         {
           "id": 1,
-          "name": "Kolba i zamek po prawej stronie (wyrzut łusek w prawo)",
+          "name": "Broń praworęczna (kolba i zamek)",
           "price": 400,
-          "imageUrl": "" 
+          "imageUrl": "assets/BlaserR8/puzzle/rifle/a_aa_auslegung_rr.jpg" 
         },
         {
           "id": 2,
-          "name": "Kolba i zamek po lewej stronie (wyrzut łusek w lewo)",
+          "name": "Broń leworęczna (kolba i zamek)",
           "price": 400,
-          "imageUrl": "" 
+          "imageUrl": "assets/BlaserR8/puzzle/rifle/a_aa_auslegung_ll.jpg" 
         },
         {
           "id": 3,
-          "name": "Kolba po prawej, zamek po lewej (wyrzut łusek w prawo)",
+          "name": "Kolba praworęczna z zamkiem leworęcznym",
           "price": 400,
-          "imageUrl": "" 
+          "imageUrl": "assets/BlaserR8/puzzle/rifle/a_aa_auslegung_rl.jpg" 
         },
         {
           "id": 4,
-          "name": "Kolba po lewej, zamek po prawej (wyrzut łusek w lewo)",
+          "name": "Kolba leworęczna z zamkiem praworęcznym",
           "price": 400,
-          "imageUrl": "" 
+          "imageUrl": "assets/BlaserR8/puzzle/rifle/a_aa_auslegung_lr.jpg" 
         }
       ],
       "contours": [
@@ -35,42 +35,394 @@
           "availableCalibers": [1, 2, 3] 
         },
         {
+          "id": 3,
+          "name": "Semi-Weight (19 mm)",
+          "price": 300,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
+          "availableCalibers": [1, 2, 3] 
+        },
+        {
           "id": 2,
-          "name": "Ryflowany (22 mm)",
+          "name": "Match (22 mm)",
           "price": 300,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_47.png",
           "availableCalibers": [1, 2]
         },
         {
           "id": 3,
-          "name": "Semi-Weight (19 mm)",
+          "name": "Safari (22 mm)",
           "price": 300,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
           "availableCalibers": [1, 2, 3] 
         }
       ],
       "calibers": [
+        [
         {
           "id": 1,
-          "name": ".300 Win",
+          "name": "17 HMR",
           "price": 450,
           "imageUrl": "",
-          "availableProfiles": [1]  
+          "availableProfiles": [1]
         },
         {
           "id": 2,
-          "name": ".308 Win",
+          "name": "22 WMR",
           "price": 400,
           "imageUrl": "",
-          "availableProfiles": [1, 2] 
+          "availableProfiles": [1, 2]
         },
         {
           "id": 3,
-          "name": ".223 Rem",
+          "name": "22 Long Rifle",
           "price": 350,
           "imageUrl": "",
           "availableProfiles": [2]
+        },
+        {
+          "id": 4,
+          "name": "17 Hornet",
+          "price": 350,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 5,
+          "name": "22 Hornet",
+          "price": 350,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 6,
+          "name": "204 Ruger",
+          "price": 350,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 7,
+          "name": "222 Rem.",
+          "price": 350,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 8,
+          "name": "223 Rem.",
+          "price": 360,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 9,
+          "name": "22-250 Rem.",
+          "price": 380,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 10,
+          "name": "243 Win.",
+          "price": 400,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 11,
+          "name": "6XC",
+          "price": 420,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 12,
+          "name": "6,5 Creedmoor",
+          "price": 450,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 13,
+          "name": "6,5 x 47 Lapua",
+          "price": 460,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 14,
+          "name": "6,5 x 55 SE",
+          "price": 470,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 15,
+          "name": "6,5-284 Norma",
+          "price": 490,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 16,
+          "name": "270 Win.",
+          "price": 500,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 17,
+          "name": "308 Win.",
+          "price": 510,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 18,
+          "name": "30-06 Spring.",
+          "price": 520,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 19,
+          "name": "300 Win. Mag.",
+          "price": 600,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 20,
+          "name": "338 Lapua",
+          "price": 800,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 21,
+          "name": "6,5 x 57",
+          "price": 495,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 22,
+          "name": "6,5 PRC",
+          "price": 520,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 23,
+          "name": "6,5 x 65 RWS",
+          "price": 500,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 24,
+          "name": "7 x 64",
+          "price": 530,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 25,
+          "name": "8 x 57 IS",
+          "price": 540,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 26,
+          "name": "9,3 x 57",
+          "price": 550,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 27,
+          "name": "9,3 x 62",
+          "price": 560,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 28,
+          "name": "8,5 x 55 Blaser",
+          "price": 570,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 29,
+          "name": "8,5 x 63",
+          "price": 580,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 30,
+          "name": "7,5 x 55 Suisse",
+          "price": 540,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 31,
+          "name": "6,5 x 68",
+          "price": 550,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 32,
+          "name": "8 x 68 S",
+          "price": 570,
+          "imageUrl": "",
+          "availableProfiles": [2]
+        },
+        {
+          "id": 33,
+          "name": "257 Weatherby Mag.",
+          "price": 610,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 34,
+          "name": "270 Weatherby Mag.",
+          "price": 610,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 35,
+          "name": "270 Win. Short Mag.",
+          "price": 620,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 36,
+          "name": "7 mm Rem. Mag.",
+          "price": 630,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 37,
+          "name": "7 mm Blaser Mag.",
+          "price": 650,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 38,
+          "name": "300 Blaser Mag.",
+          "price": 650,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 39,
+          "name": "338 Blaser Mag.",
+          "price": 700,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 40,
+          "name": "375 Blaser Mag.",
+          "price": 720,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 41,
+          "name": "300 Win. Short Mag.",
+          "price": 620,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 42,
+          "name": "300 Weatherby Mag.",
+          "price": 650,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 43,
+          "name": "338 Win. Mag.",
+          "price": 680,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 44,
+          "name": "375 H&H Mag.",
+          "price": 750,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 45,
+          "name": "300 Rem. Ultra Mag.",
+          "price": 700,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 46,
+          "name": "300 Norma Mag.",
+          "price": 750,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 47,
+          "name": "416 Rem. Mag.",
+          "price": 1000,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 48,
+          "name": "458 Win. Mag.",
+          "price": 1100,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 49,
+          "name": "458 Lott",
+          "price": 1150,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 50,
+          "name": "500 Jeffery",
+          "price": 1200,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 51,
+          "name": "10,3 x 68 Mag.",
+          "price": 900,
+          "imageUrl": "",
+          "availableProfiles": [3]
+        },
+        {
+          "id": 52,
+          "name": "10,3 x 60 R",
+          "price": 950,
+          "imageUrl": "",
+          "availableProfiles": [3]
         }
+      ]      
       ],
       "profiles": [
         {
