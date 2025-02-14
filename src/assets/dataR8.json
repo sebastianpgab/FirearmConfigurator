@@ -31,28 +31,28 @@
           "id": 1,
           "name": "Standard (17 mm)",
           "price": 450,
-          "imageUrl": "",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_58.png",
           "availableCalibers": [1, 2, 3] 
         },
         {
           "id": 3,
           "name": "Semi-Weight (19 mm)",
           "price": 300,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
+          "imageUrl": "src/assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_58.png",
           "availableCalibers": [1, 2, 3] 
         },
         {
           "id": 2,
           "name": "Match (22 mm)",
           "price": 300,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_47.png",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_kanneliert_60.png",
           "availableCalibers": [1, 2]
         },
         {
           "id": 3,
           "name": "Safari (22 mm)",
           "price": 300,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_rund_60.png",
           "availableCalibers": [1, 2, 3] 
         }
       ],
