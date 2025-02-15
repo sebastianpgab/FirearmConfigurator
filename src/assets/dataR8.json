@@ -443,16 +443,191 @@
       "lengths": [
         {
           "id": 1,
-          "name": "520 mm / 20 1/2''",
+          "name": "420 mm / 16 ½'' (R8 Silence)",
           "price": 100,
-          "imageUrl": "",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_62.png",
           "availableOpenSights": [1] 
         },
         {
           "id": 2,
-          "name": "610 mm / 24''",
+          "name": "470 mm / 18 ½ (R8 Silence)",
           "price": 150,
-          "imageUrl": "",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_67.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "470 mm / 18 ½ (R8 Standard)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_47.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "470 mm / 18 ½ (R8 Semi-Weight)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_47.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "470 mm / 18 ½ (R8 Semi-Weight Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_47.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "500 mm / 19 ½ (Standard)" ,
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_50.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "520 mm / 20 ½ (Standard)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_52.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "520 mm / 20 ½ (Semi-Weight)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_52.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "520 mm / 20 ½ (Standard Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_kanneliert_52.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "520 mm / 20 ½ (Semi-Weight Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "520 mm / 20 ½ (Silence)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_72.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "580 mm / 23'' (Standard)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_58.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "580 mm / 23'' (Semi-Weight)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_58.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "580 mm / 23'' (Standard Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_kanneliert_58.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "580 mm / 23'' (Ośmioboczna Ryflowan)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_8kt_kanneliert_58.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "580 mm / 23'' (Semi-Weight Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_58.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "600 mm / 23 ⅝'' (Standard Safari)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_rund_60.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "600 mm / 23 ⅝'' (Ryflowana Safari)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_kanneliert_60.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "650 mm / 25 ½'' (Standard)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_65.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "650 mm / 25 ½''(Semi-Weight)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_65.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "650 mm / 25 ½'' (Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_kanneliert_65.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "650 mm / 25 ½'' (Ośmioboczna Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_8kt_kanneliert_65.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "650 mm / 25 ½'' (Semi-Weight Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_65.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "650 mm / 25 ½'' (Safari Ryflowana)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_kanneliert_65.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "685 mm / 27'' (Semi-Weight)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_68-5.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "685 mm / 27'' (Match)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagdmatch_kanneliert_68-5.png",
+          "availableOpenSights": [1]
+        },
+        {
+          "id": 2,
+          "name": "700 mm / 27 ½'' (Standard)",
+          "price": 150,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel//R8_Lauf_Schweiz_rund_70.png",
           "availableOpenSights": [1]
         }
       ],
