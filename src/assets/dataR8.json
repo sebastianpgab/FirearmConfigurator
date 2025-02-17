@@ -634,22 +634,174 @@
       "openSights": [
         {
           "id": 1,
-          "name": "Contrast sight",
+          "name": "Przyrządy celownicze Contrast",
+          "price": 230,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier.png",
+          "availableMuzzleBrakesOrSuppressors": [1, 2]  
+        },
+        {
+          "id": 1,
+          "name": "Szybkie przyrządy celownicze (HIVIZ)",
           "price": 230,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
+          "availableMuzzleBrakesOrSuppressors": [1, 2]  
+        },
+        {
+          "id": 1,
+          "name": "Przyrządy celownicze Safari",
+          "price": 230,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Visier_safari.png",
           "availableMuzzleBrakesOrSuppressors": [1, 2]  
         }
       ],
       "muzzleBrakesOrSuppressors": [
         {
+          "id": 2,
+          "name": "Blaser Dual Brake A(47 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake A(52 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_52.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake A(58 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_58.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake A(65 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_65.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake A(70 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_70.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake B(47 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B_47.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake B(52 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B_52.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake B(58 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B_58.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake B(60 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B_60.png"
+        },
+        {
+          "id": 2,
+          "name": "Blaser Dual Brake B(65 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B_65.png"
+        },
+        {
           "id": 1,
-          "name": "Blaser Dual Brake 1",
+          "name": "Tłumik (D17 47 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D17 52 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D17 58 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_58.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D17 65 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_65.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D17 70 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D19 47 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D19 52 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D19 58 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D19 65 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D19 68 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D22 52 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D22 65 cm)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
+        },
+        {
+          "id": 1,
+          "name": "Tłumik (D22 68 cm)",
           "price": 890,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
         },
         {
           "id": 2,
-          "name": "Blaser Dual Brake 2",
+          "name": "Tłumik Blaser Over-Barrel ",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B.png"
+        },
+        {
+          "id": 2,
+          "name": "Gwint na wylocie lufy z osłoną ochronną",
           "price": 890,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_B.png"
         }
