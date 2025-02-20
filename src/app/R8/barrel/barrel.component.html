@@ -2,16 +2,32 @@
   <section class="content">
     <h1 class="section-title">KALIBER & LUFA</h1>
 
-    <div class="rifle-preview" *ngIf="state.selectedContour">
-      <img *ngIf="state.selectedContour" [src]="state.selectedContour.imageUrl" class="rifle-layer">
-      <img *ngIf="state.selectedProfile" [src]="state.selectedProfile.imageUrl" class="rifle-layer">
-      <img *ngIf="state.selectedOpenSight" [src]="state.selectedOpenSight.imageUrl" class="rifle-layer">
+    <div class="rifle-preview">
+      <!-- Kontur wyświetlamy tylko, jeśli NIE ma profilu i NIE wybrano długości -->
+      <img 
+        *ngIf="state.selectedContour && !state.selectedProfile && !state.onSelectLength"
+        [src]="state.selectedContour.imageUrl" 
+        class="rifle-layer"
+      />
+    
+      <!-- Profil wyświetlamy tylko, jeśli NIE wybrano długości -->
+      <img 
+        *ngIf="state.selectedProfile && !state.onSelectLength"
+        [src]="state.selectedProfile.imageUrl"
+        class="rifle-layer"
+      />
+  
+    
+      <!-- Reszta elementów jak zwykle (jeśli chcesz, też możesz dodać warunki wykluczające) -->
+      <img *ngIf="state.selectedLength" [src]="state.selectedLength.imageUrl" class="rifle-layer">
+      <img *ngIf="state.selectedOpenSight" [src]="state.selectedOpenSight.imageUrl" class="rifle-layer  two-pixel-shift">
       <img *ngIf="state.selectedMuzzleBrakeOrSuppressor" [src]="state.selectedMuzzleBrakeOrSuppressor.imageUrl" class="rifle-layer">
       <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.imageUrl" class="rifle-layer">
       <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.imageUrl" class="rifle-layer">
       <img *ngIf="state.selectedPistolGripCap" [src]="state.selectedPistolGripCap.imageUrl" class="rifle-layer">
       <img *ngIf="state.selectedForearmOption" [src]="state.selectedForearmOption.imageUrl" class="rifle-layer">
     </div>
+    
   
     
     <div *ngIf="rifles.length > 0">
