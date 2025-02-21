@@ -14,10 +14,27 @@ import { ConfiguratorService } from "src/app/core/services/configurator.service"
 export class BarrelComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
 
-  /**
-   * Hierarchia opcji – do resetowania "niższych" opcji,
-   * jeśli zmieniamy coś wyżej.
-   */
+  getOpenSightPosition() {
+    if (!this.state.selectedOpenSight) return { top: '0%', left: '0%' };
+  
+    const match = this.state.selectedOpenSight.name.match(/\d+/);
+    const length = match ? parseInt(match[0], 10) : null;
+  
+    // Pozycje w procentach zamiast pikseli
+    const openSightPositions: { [key: number]: { top: string, left: string } } = {
+      50: { top: '5%', left: '30%' },
+      52: { top: '0%', left: '-5%' },
+      58: { top: '0%', left: '0%' },
+      65: { top: '8%', left: '36%' },
+      70: { top: '9%', left: '38%' }
+    };
+  
+    return length && openSightPositions[length] 
+      ? openSightPositions[length] 
+      : { top: '0%', left: '0%' };
+  }
+  
+    
   private optionHierarchy = [
     "rifle",
     "contour",
