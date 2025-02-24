@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from "@angular/core";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
@@ -14,26 +14,59 @@ import { ConfiguratorService } from "src/app/core/services/configurator.service"
 export class BarrelComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
 
-  getOpenSightPosition() {
-    if (!this.state.selectedOpenSight) return { top: '0%', left: '0%' };
-  
-    const match = this.state.selectedOpenSight.name.match(/\d+/);
-    const length = match ? parseInt(match[0], 10) : null;
-  
-    // Pozycje w procentach zamiast pikseli
-    const openSightPositions: { [key: number]: { top: string, left: string } } = {
+// Pobiera wybrany element na podstawie typu
+private getSelectedItem(type: 'openSight' | 'muzzleBrakeOrSuppressor') {
+  switch (type) {
+    case 'openSight':
+      return this.state.selectedOpenSight;
+    case 'muzzleBrakeOrSuppressor':
+      return this.state.selectedMuzzleBrakeOrSuppressor;
+    default:
+      return null;
+  }
+}
+
+// Pobiera pozycję na podstawie długości
+private getBasePosition(type: 'openSight' | 'muzzleBrakeOrSuppressor', length: number) {
+  const positionMap: { [key: string]: { [key: number]: { top: string, left: string } } } = {
+    openSight: {
       50: { top: '5%', left: '30%' },
-      52: { top: '0%', left: '-5%' },
-      58: { top: '0%', left: '0%' },
+      52: { top: '0%', left: '-5.5%' },
+      58: { top: '0%', left: '-0.5%' },
       65: { top: '8%', left: '36%' },
       70: { top: '9%', left: '38%' }
+    },
+    muzzleBrakeOrSuppressor: {
+      50: { top: '2%', left: '50%' },
+      52: { top: '0%', left: '2.2%' },
+      58: { top: '0%', left: '7%' },
+      65: { top: '5%', left: '44%' },
+      70: { top: '6%', left: '42%' }
+    },
+  };
+
+  return positionMap[type]?.[length] || { top: '0%', left: '0%' };
+}
+
+getAttachmentPosition(type: 'openSight' | 'muzzleBrakeOrSuppressor') {
+  const selectedItem = this.getSelectedItem(type);
+  if (!selectedItem) return { top: '0%', left: '0%' };
+
+  const match = selectedItem.name.match(/\d+/);
+  const length = match ? parseInt(match[0], 10) : null;
+  let position = this.getBasePosition(type, length ?? 0);
+
+  // Jeśli wybrano gwint na lufie, to przesuwamy openSight o 2% w lewo względem jego pierwotnej pozycji
+  if (type === 'openSight' && this.state.selectedMuzzleBrakeOrSuppressor?.name) {
+    return {
+      top: position.top,
+      left: `calc(${position.left} - 0.8%)` // Odjęcie 0.8% od wartości left z positionMap
     };
-  
-    return length && openSightPositions[length] 
-      ? openSightPositions[length] 
-      : { top: '0%', left: '0%' };
   }
-  
+
+  return position;
+}
+
     
   private optionHierarchy = [
     "rifle",
@@ -63,7 +96,8 @@ export class BarrelComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private configuratorService: ConfiguratorService
+    private configuratorService: ConfiguratorService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -290,6 +324,7 @@ export class BarrelComponent implements OnInit, OnDestroy {
     } else {
       this.muzzleBrakesOrSuppressors = [];
     }
+    this.cdr.detectChanges();
   }
 
   // --- Nawigacja ---
