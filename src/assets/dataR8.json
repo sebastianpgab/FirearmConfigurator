@@ -652,7 +652,7 @@
           "price": 230,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
-          "availableMuzzleBrakesOrSuppressors": [1, 2] 
+          "availableMuzzleBrakesOrSuppressors": [2, 7, 12] 
         },
         {
           "id": 4,
@@ -660,7 +660,7 @@
           "price": 230,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
-          "availableMuzzleBrakesOrSuppressors": [1, 2] 
+          "availableMuzzleBrakesOrSuppressors": [3, 8, 13] 
         },
         {
           "id": 5,
@@ -692,7 +692,7 @@
           "price": 230,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
-          "availableMuzzleBrakesOrSuppressors": [1, 2] 
+          "availableMuzzleBrakesOrSuppressors": [2, 7, 12] 
         },
         {
           "id": 9,
@@ -700,7 +700,7 @@
           "price": 230,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
-          "availableMuzzleBrakesOrSuppressors": [1, 2] 
+          "availableMuzzleBrakesOrSuppressors": [3, 8, 13] 
         },
         {
           "id": 10,
@@ -722,7 +722,7 @@
       "muzzleBrakesOrSuppressors": [
         {
           "id": 1,
-          "name": "Blaser Dual Brake (47)",
+          "name": "Blaser Dual Brake (50)",
           "price": 890,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
@@ -730,62 +730,112 @@
           "id": 2,
           "name": "Blaser Dual Brake (52)",
           "price": 890,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_52.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
           "id": 3,
           "name": "Blaser Dual Brake (58)",
           "price": 890,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_58.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
           "id": 4,
           "name": "Blaser Dual Brake (65)",
           "price": 890,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_65.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
           "id": 5,
           "name": "Blaser Dual Brake (70)",
           "price": 890,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_70.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
-          "id": 1,
-          "name": "Tłumik (47)",
+          "id": 6,
+          "name": "Tłumik (50)",
           "price": 890,
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
-          "id": 1,
+          "id": 7,
           "name": "Tłumik (52)",
           "price": 890,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_52.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
-          "id": 1,
-          "name": "Tłumik (58)",
+          "id": 8,
+          "name": "Tłumik (58)" ,
           "price": 890,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_58.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
-          "id": 1,
+          "id": 9,
           "name": "Tłumik (65)",
           "price": 890,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_65.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
-          "id": 1,
+          "id": 10,
           "name": "Tłumik (70)",
           "price": 890,
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_70.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
+        },
+        {
+          "id": 11,
+          "name": "Gwint na lufie (50)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
+        },
+        {
+          "id": 12,
+          "name": "Gwint na lufie (52)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
+        },
+        {
+          "id": 13,
+          "name": "Gwint na lufie (58)" ,
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
+        },
+        {
+          "id": 14,
+          "name": "Gwint na lufie (65)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
+        },
+        {
+          "id": 15,
+          "name": "Gwint na lufie (70)",
+          "price": 890,
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
         }
       ],
 
     "buttstockTypes": [
-      { "id": 1, "name": "Kolba standardowa", "price": 200, "imageUrl": "assets/BlaserR8/puzzle/R8_holz_standard_hs_k2.png", "availableWoodCategories": [1, 2] },
-      { "id": 2, "name": "Kolba z podwójnym wrębem na bawarską poduszkę policzkową", "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg", "availableWoodCategories": [1] }
-    ],
+        { 
+          "id": 1, 
+          "name": "Podpolicznik bawarski z podwójnym skosem", 
+          "price": 200, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k2.png", 
+          "secondaryImageUrl": "aassets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k2.png",
+          "availableWoodCategories": [1, 2] 
+        },
+        { 
+          "id": 2, 
+          "name": "Intuition", 
+          "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/R8_holz_standard_hs_k2.png",
+          "availableWoodCategories": [1] 
+        },
+        { 
+          "id": 2, 
+          "name": "Kolba Safari z podpolicznikiem Monte-Carlo", 
+          "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg",
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/R8_holz_standard_hs_k2.png",
+          "availableWoodCategories": [1] 
+        }
+      ],
     "woodCategories": [
       { "id": 1, "name": "Klasa drewna 1", "price": 100, "imageUrl": "assets/wood_pictures/wood_grade1.jpg", "availableLengthsOfPull": [1, 2]},
       { "id": 2, "name": "Klasa drewna 4", "price": 400, "imageUrl": "assets/wood_pictures/wood_grade4.jpg", "availableLengthsOfPull": [1] }
