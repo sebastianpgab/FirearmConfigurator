@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Option } from "../../R8/option/model";
 import { HttpClient } from '@angular/common/http';
-import { ConfiguratorState } from "src/app/core/services/model"
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+
+import { Option } from '../../R8/option/model';
+import { ConfiguratorState } from 'src/app/core/services/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfiguratorService {
+  /** Ścieżka do pliku JSON z danymi konfiguracyjnymi */
+  private readonly jsonUrl = 'assets/dataR8.json';
 
-  private jsonUrl = 'assets/dataR8.json';  // Ścieżka do pliku JSON
-
-  private stateSubject = new BehaviorSubject<ConfiguratorState>({ 
+  /** Główny stan konfiguratora przechowywany w BehaviorSubject */
+  private readonly stateSubject = new BehaviorSubject<ConfiguratorState>({
     selectedRifle: null,
     selectedHandConfiguration: null,
     selectedContour: null,
@@ -52,70 +54,138 @@ export class ConfiguratorService {
     isDisabledBoltHandle: true,
     isDisabledTrigger: true,
     isDisabledBoltHead: true,
-    isDisabledslidingSafety: true
+    isDisabledSlidingSafety: true
   });
 
-  state$ = this.stateSubject.asObservable();
+  /** Strumień do obserwowania stanu (np. w komponencie) */
+  public state$ = this.stateSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private readonly http: HttpClient,
+    private readonly router: Router
+  ) {}
 
+  /** Zwraca aktualny stan konfiguratora (snapshot) */
+  public getState(): ConfiguratorState {
+    return this.stateSubject.value;
+  }
+
+  /** Pobiera dane z pliku JSON */
   public getData(): Observable<any> {
     return this.http.get<any>(this.jsonUrl);
   }
 
-  public updateState(partialState: Partial<any>): void {
-    const currentState = this.stateSubject.getValue();
+  /** Aktualizuje stan konfiguratora (częściowo) */
+  public updateState(partialState: Partial<ConfiguratorState>): void {
+    const currentState = this.getState();
     this.stateSubject.next({ ...currentState, ...partialState });
   }
 
+  /** Filtruje opcje na podstawie dostępnych ID */
   public filterOptions(features: any, featureKey: string, availableIds: number[] | undefined): Option[] {
-    return availableIds
-      ? features[featureKey].filter((option: Option) =>
-          availableIds.includes(option.id)): [];
+    if (!availableIds) { return []; }
+    return features[featureKey].filter((option: Option) =>
+      availableIds.includes(option.id)
+    );
   }
 
+  /**
+   * Resetuje opcje (i ich disabled) od danego miejsca w hierarchii.
+   * @param optionName nazwa opcji od której zaczynamy reset
+   * @param optionHierarchy tablica zawierająca kolejność opcji
+   */
   public resetOptionsAfter(optionName: string, optionHierarchy: string[]): void {
-      const startIndex = optionHierarchy.indexOf(optionName) + 1;
-  
-      if (startIndex > 0) {
-        const resetState: any = {};
-  
-        for (let i = startIndex; i < optionHierarchy.length; i++) {
-          const option = optionHierarchy[i];
-          const formattedOption = this.formatOptionName(option);
-          const formattedIsDisabled = this.formatIisDisabled(option);
-    
-          resetState[formattedOption] = null;
-          resetState[formattedIsDisabled] = true;
-        }
-  
-        // Dopiero teraz ustawiamy te wszystkie wartości na null w state
-        this.updateState(resetState);
-      } else {
-        console.log(`Opcja ${optionName} nie została znaleziona w hierarchii.`);
+    const startIndex = optionHierarchy.indexOf(optionName) + 1;
+    if (startIndex <= 0) {
+      console.warn(`Opcja "${optionName}" nie została znaleziona w hierarchii.`);
+      return;
     }
+
+    const resetState: Partial<ConfiguratorState> = {};
+    for (let i = startIndex; i < optionHierarchy.length; i++) {
+      const option = optionHierarchy[i];
+      const formattedOption = this.formatOptionName(option);
+      const formattedIsDisabled = this.formatIsDisabledName(option);
+
+      // Wyzerowanie wartości "selected..." i ustawienie "isDisabled..." na true
+      (resetState as any)[formattedOption] = null;
+      (resetState as any)[formattedIsDisabled] = true;
+    }
+
+    this.updateState(resetState);
   }
-  
+
   private formatOptionName(option: string): string {
-    return "selected" + option.charAt(0).toUpperCase() + option.slice(1);
+    return 'selected' + option.charAt(0).toUpperCase() + option.slice(1);
   }
 
-  private formatIisDisabled(option: string): string {
-    return "isDisabled" + option.charAt(0).toUpperCase() + option.slice(1);
+  private formatIsDisabledName(option: string): string {
+    return 'isDisabled' + option.charAt(0).toUpperCase() + option.slice(1);
   }
-  
-  public isPageReloaded(): boolean {
-    // Używamy PerformanceNavigationTiming, aby sprawdzić typ nawigacji
-    const entries = window.performance.getEntriesByType('navigation');
-    if (entries.length > 0) {
-      const navigationEntry = entries[0] as PerformanceNavigationTiming;
-      return navigationEntry.type === 'reload';
+
+  /** Pomocnicza metoda do pobrania wybranej opcji na podstawie typu */
+  private getSelectedItem(type: 'openSight' | 'muzzleBrakeOrSuppressor') {
+    const { selectedOpenSight, selectedMuzzleBrakeOrSuppressor } = this.getState();
+    switch (type) {
+      case 'openSight':
+        return selectedOpenSight;
+      case 'muzzleBrakeOrSuppressor':
+        return selectedMuzzleBrakeOrSuppressor;
+      default:
+        return null;
+    }
+  }
+
+  /** Pobiera pozycję na podstawie długości dla określonego typu elementu */
+  private getBasePosition(
+    type: 'openSight' | 'muzzleBrakeOrSuppressor',
+    length: number
+  ) {
+    const positionMap: Record<
+      string,
+      Record<number, { top: string; left: string }>
+    > = {
+      openSight: {
+        50: { top: '5%', left: '30%' },
+        52: { top: '0%', left: '-5.5%' },
+        58: { top: '0%', left: '-0.5%' },
+        65: { top: '8%', left: '36%' },
+        70: { top: '9%', left: '38%' }
+      },
+      muzzleBrakeOrSuppressor: {
+        50: { top: '2%', left: '50%' },
+        52: { top: '0%', left: '2.2%' },
+        58: { top: '0%', left: '7%' },
+        65: { top: '5%', left: '44%' },
+        70: { top: '6%', left: '42%' }
+      }
+    };
+    return positionMap[type]?.[length] ?? { top: '0%', left: '0%' };
+  }
+
+  /**
+   * Określa pozycję elementu (np. przyrządów celowniczych) na podstawie 
+   * wybranej opcji i długości lufy
+   */
+  public getAttachmentPosition(type: 'openSight' | 'muzzleBrakeOrSuppressor') {
+    const selectedItem = this.getSelectedItem(type);
+    if (!selectedItem) {
+      return { top: '0%', left: '0%' };
     }
 
-    // Alternatywa dla starszych przeglądarek
-    const navigationType = (window.performance as any).navigation?.type;
-    return navigationType === 1; // 1 oznacza odświeżenie
+    // Pobranie długości z nazwy (np. "R8 - 52 cm")
+    const match = selectedItem.name.match(/\d+/);
+    const length = match ? parseInt(match[0], 10) : 0;
+    const position = this.getBasePosition(type, length);
+
+    // Jeśli mamy "gwint" (czyli muzzle brake/suppressor), przesuwamy openSight
+    const { selectedMuzzleBrakeOrSuppressor } = this.getState();
+    if (type === 'openSight' && selectedMuzzleBrakeOrSuppressor?.name) {
+      return {
+        top: position.top,
+        left: `calc(${position.left} - 0.8%)`
+      };
+    }
+    return position;
   }
-  
-  
 }

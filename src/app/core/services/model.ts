@@ -41,6 +41,6 @@ export interface ConfiguratorState {
     isDisabledBoltHandle: boolean;
     isDisabledTrigger: boolean;
     isDisabledBoltHead: boolean;
-    isDisabledslidingSafety: boolean;
+    isDisabledSlidingSafety: boolean;
   }
   

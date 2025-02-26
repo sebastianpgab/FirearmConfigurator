@@ -18,6 +18,7 @@ import { AccessoryComponent } from './R8/accessory/accessory.component';
 import { SummaryComponent } from './summary/summary.component';
 import { RifleModule } from './R8/rifle/rifle.module';
 import { ContactComponent } from './core/contact/contact.component';
+import { RiflePreviewComponent } from './core/rifle-preview/rifle-preview.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ContactComponent } from './core/contact/contact.component';
     ChamberBoltComponent,
     AccessoryComponent,
     SummaryComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,51 @@
+
+<div class="rifle-preview">
+    <!-- Kontur wyświetlamy tylko, jeśli NIE ma profilu i NIE wybrano długości -->
+    <img 
+      *ngIf="state.selectedContour && !state.selectedProfile && !state.onSelectLength"
+      [src]="state.selectedContour.imageUrl" 
+      class="rifle-layer"
+    />
+  
+    <!-- Profil wyświetlamy tylko, jeśli NIE wybrano długości -->
+    <img 
+      *ngIf="state.selectedProfile && !state.onSelectLength"
+      [src]="state.selectedProfile.imageUrl"
+      class="rifle-layer"
+    />
+
+    <img 
+      *ngIf="state.selectedLength" 
+      [src]="state.selectedLength.imageUrl" 
+      class="rifle-layer"
+      [attr.data-key]="state.selectedLength.imageUrl"
+    >
+
+    <ng-container *ngIf="state.selectedOpenSight as openSight">
+      <img 
+        [src]="openSight.imageUrl" 
+        class="rifle-layer"
+        [ngStyle]="{'top': configuratorService.getAttachmentPosition('openSight').top, 'left': configuratorService.getAttachmentPosition('openSight').left}"
+      >
+      
+      <img 
+        *ngIf="openSight.secondaryImageUrl" 
+        [src]="openSight.secondaryImageUrl" 
+        class="rifle-layer"
+        [ngStyle]="{'top': configuratorService.getAttachmentPosition('openSight').top, 'left': configuratorService.getAttachmentPosition('openSight').left}"
+      >
+    </ng-container>    
+      
+  
+    <img 
+    *ngIf="state.selectedMuzzleBrakeOrSuppressor" 
+    [src]="state.selectedMuzzleBrakeOrSuppressor.imageUrl" 
+    class="rifle-layer"
+    [ngStyle]="{'top': configuratorService.getAttachmentPosition('muzzleBrakeOrSuppressor').top, 'left': configuratorService.getAttachmentPosition('muzzleBrakeOrSuppressor').left}"
+  >
+  
+    <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.imageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.imageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedPistolGripCap" [src]="state.selectedPistolGripCap.imageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedForearmOption" [src]="state.selectedForearmOption.imageUrl" class="rifle-layer">
+  </div> 
