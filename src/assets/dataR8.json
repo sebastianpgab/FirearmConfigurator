@@ -818,31 +818,172 @@
           "name": "Podpolicznik bawarski z podwójnym skosem", 
           "price": 200, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k2.png", 
-          "secondaryImageUrl": "aassets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k2.png",
-          "availableWoodCategories": [1, 2] 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k2.png",
+          "availableWoodCategories": [1, 2, 3, 4, 5, 6, 7, 8] 
         },
         { 
           "id": 2, 
           "name": "Intuition", 
-          "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg", 
-          "secondaryImageUrl": "assets/BlaserR8/puzzle/R8_holz_standard_hs_k2.png",
-          "availableWoodCategories": [1] 
+          "price": 250, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k4.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k2.png",
+          "availableWoodCategories": [13, 14] 
         },
         { 
           "id": 2, 
           "name": "Kolba Safari z podpolicznikiem Monte-Carlo", 
-          "price": 250, "imageUrl": "assets/stock_pictures/double_rabbet_bavarian.jpg",
-          "secondaryImageUrl": "assets/BlaserR8/puzzle/R8_holz_standard_hs_k2.png",
-          "availableWoodCategories": [1] 
+          "price": 250, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k7.png",
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k7.png",
+          "availableWoodCategories": [9, 10, 11, 12] 
         }
       ],
     "woodCategories": [
-      { "id": 1, "name": "Klasa drewna 1", "price": 100, "imageUrl": "assets/wood_pictures/wood_grade1.jpg", "availableLengthsOfPull": [1, 2]},
-      { "id": 2, "name": "Klasa drewna 4", "price": 400, "imageUrl": "assets/wood_pictures/wood_grade4.jpg", "availableLengthsOfPull": [1] }
+        { 
+          "id": 1, 
+          "name": "Klasa drewna 3 (standard)", 
+          "price": 100, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k3.png",
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k3.png", 
+          "availableLengthsOfPull": [1, 2]
+        },
+        { 
+          "id": 2, 
+          "name": "Klasa drewna 4 (standard)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k4.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k4.png", 
+          "availableLengthsOfPull": [1, 2] 
+        },
+        { 
+          "id": 3, 
+          "name": "Klasa drewna 5 (standard)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k5.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k5.png", 
+          "availableLengthsOfPull": [1, 2] 
+        },
+        { 
+          "id": 4, 
+          "name": "Klasa drewna 6 (standard)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k6.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k6.png", 
+          "availableLengthsOfPull": [1, 2] 
+        },
+        { 
+          "id": 5, 
+          "name": "Klasa drewna 7 (standard)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k7.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k7.png", 
+          "availableLengthsOfPull": [1, 2] 
+        },
+        { 
+          "id": 6, 
+          "name": "Klasa drewna 8 (standard)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k8.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k8.png", 
+          "availableLengthsOfPull": [1, 2] 
+        },
+        { 
+          "id": 7, 
+          "name": "Klasa drewna 9 (standard)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k9.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k9.png", 
+          "availableLengthsOfPull": [1, 2] 
+        },
+        { 
+          "id": 8, 
+          "name": "Klasa drewna 10 (standard)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k10.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k10.png", 
+          "availableLengthsOfPull": [1, 2] 
+        },
+        { 
+          "id": 9, 
+          "name": "Klasa drewna 7 (safari)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k7.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k7.png", 
+          "availableLengthsOfPull": [1] 
+        },
+        { 
+          "id": 10, 
+          "name": "Klasa drewna 8 (safari)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k8.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k8.png", 
+          "availableLengthsOfPull": [1] 
+        },
+        { 
+          "id": 11, 
+          "name": "Klasa drewna 9 (safari)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k9.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k9.png", 
+          "availableLengthsOfPull": [1] 
+        },
+        { 
+          "id": 12, 
+          "name": "Klasa drewna 10 (safari)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k10.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k10.png", 
+          "availableLengthsOfPull": [1] 
+        }
+        ,
+        { 
+          "id": 13, 
+          "name": "Klasa drewna 4 (intuition)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k4", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k4.png", 
+          "availableLengthsOfPull": [1] 
+        },
+        {
+          "id": 14, 
+          "name": "Klasa drewna 7 (intuition)", 
+          "price": 400, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k7", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k7.png", 
+          "availableLengthsOfPull": [1] 
+        }
     ],
     "lengthsOfPull": [
-      { "id": 1, "name": "Standardowa długość naciągu z 15 mm (½”) podkładką", "price": 0, "imageUrl": "assets/lengths_of_pull/standard_length.jpg", "availableIndividualButtstockMeasures": [1, 2]},
-      { "id": 2, "name": "Indywidualna długość naciągu", "price": 100, "imageUrl": "assets/lengths_of_pull/custom_length.jpg", "availableIndividualButtstockMeasures": [1] }
+        { 
+          "id": 1, 
+          "name": "Dł. naciągu std (370 mm 14⅝”) / Stopka 15 mm (½”)",  
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_1_5cm.png", 
+          "availableIndividualButtstockMeasures": [1, 2]
+        },
+        { 
+          "id": 2, 
+          "name": "Dł. naciągu std (375 mm 14⅝”) / Stopka 20 mm (¾”)", 
+          "price": 100, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_2_5cm.png", 
+          "availableIndividualButtstockMeasures": [1] 
+        },
+        { 
+          "id": 3, 
+          "name": "Dł. naciągu std (350 mm 13¾”) / Stopka 15 mm (½”) (Compact / Intuition / Ultimate)", 
+          "price": 100, 
+          "imageUrl": 
+          "assets/lengths_of_pull/custom_length.jpg", 
+          "availableIndividualButtstockMeasures": [1] 
+        },
+        { 
+          "id": 4, 
+          "name": "Standard 370 mm (14⅝”) / Stopka 27 mm (1⅛”)", 
+          "price": 100, 
+          "imageUrl": 
+          "assets/lengths_of_pull/custom_length.jpg", 
+          "availableIndividualButtstockMeasures": [1] 
+        }
     ],
     "individualButtstockMeasures": [
       { "id": 1, "name": "Kolba z wymiarami fabrycznymi", "price": 0, "imageUrl": "assets/individual_measures/factory_measures.jpg", "availableButtstockMeasuresTypes": [1, 2] },
