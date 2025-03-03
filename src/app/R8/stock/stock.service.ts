@@ -12,7 +12,7 @@ export class StockService {
   private stateSubject = new BehaviorSubject<any>({
     selectedButtstockType: null,
     selectedWoodCategory: null,
-    selectedLengthOfPull: null,
+    selectedRecoilPad: null,
     selectedIndividualButtstockMeasure: null,
     selectedButtstockMeasuresType: null,
     selectedPistolGripCap: null,
@@ -27,7 +27,7 @@ export class StockService {
     this.configuratorService.updateState({
       selectedButtstockType: null,
       selectedWoodCategory: null,
-      selectedLengthOfPull: null,
+      selectedRecoilPad: null,
       selectedIndividualButtstockMeasure: null,
       selectedButtstockMeasuresType: null,
       selectedPistolGripCap: null,
@@ -35,7 +35,7 @@ export class StockService {
       selectedStockMagazine: null,
       selectedForearmOption: null,
       isDisabledWoodCategory: true,
-      isDisabledLengthOfPull: true,
+      isDisabledRecoilPad: true,
       isDisabledIndividualButtstockMeasure: true,
       isDisabledButtstockMeasuresType: true,
       isDisabledPistolGripCap: true,

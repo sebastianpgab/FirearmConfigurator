@@ -46,56 +46,18 @@
   
         <!-- Długość Naciągu -->
         <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Długość Naciągu</mat-label>
+          <mat-label>Długość stopki</mat-label>
           <mat-select
-            [value]="state.selectedLengthOfPull"
+            [value]="state.selectedRecoilPad"
             [compareWith]="compareOptionsById"
-            [disabled]="state.isDisabledLengthOfPull"
-            (selectionChange)="onSelectLengthOfPull($event.value)"
-            placeholder="Wybierz długość naciągu"
+            [disabled]="state.isDisabledRecoilPad"
+            (selectionChange)="onSelectRecoilPad($event.value)"
+            placeholder="Wybierz dlugość stopki"
           >
-          <mat-option *ngFor="let lengthOfPull of lengthsOfPull" [value]="lengthOfPull">
+          <mat-option *ngFor="let recoilPad of recoilPads" [value]="recoilPad">
             <div class="option-template">
-              <img [src]="lengthOfPull.imageUrl" alt="{{ lengthOfPull.name }}" />
-              <span>{{ lengthOfPull.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Indywidualne Wymiary Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Indywidualne Wymiary Kolby</mat-label>
-          <mat-select
-            [value]="state.selectedIndividualButtstockMeasure"
-            [compareWith]="compareOptionsById"
-            (selectionChange)="onSelectIndividualButtstockMeasure($event.value)"
-            placeholder="Wybierz opcję"
-            [disabled]="state.isDisabledIndividualButtstockMeasure"
-          >
-          <mat-option *ngFor="let individualButtstockMeasure of individualButtstockMeasures" [value]="individualButtstockMeasure">
-            <div class="option-template">
-              <img [src]="individualButtstockMeasure.imageUrl" alt="{{ individualButtstockMeasure.name }}" />
-              <span>{{ individualButtstockMeasure.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Typ Wymiarów Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Typ Wymiarów Kolby</mat-label>
-          <mat-select
-            [value]="state.selectedButtstockMeasuresType"
-            [compareWith]="compareOptionsById"
-            (selectionChange)="onSelectButtstockMeasuresType($event.value)"
-            placeholder="Wybierz typ wymiarów"
-            [disabled]="state.isDisabledButtstockMeasuresType"
-          >
-          <mat-option *ngFor="let buttstockMeasuresType of buttstockMeasuresTypes" [value]="buttstockMeasuresType">
-            <div class="option-template">
-              <img [src]="buttstockMeasuresType.imageUrl" alt="{{ buttstockMeasuresType.name }}" />
-              <span>{{ buttstockMeasuresType.name }}</span>
+              <img [src]="recoilPad.imageUrl" alt="{{ recoilPad.name }}" />
+              <span>{{ recoilPad.name }}</span>
             </div>
           </mat-option>
           </mat-select>

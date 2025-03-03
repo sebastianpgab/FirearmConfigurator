@@ -845,7 +845,7 @@
           "price": 100, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k3.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k3.png", 
-          "availableLengthsOfPull": [1, 2]
+          "availableRecoilPads": [1, 2]
         },
         { 
           "id": 2, 
@@ -853,7 +853,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k4.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k4.png", 
-          "availableLengthsOfPull": [1, 2] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
           "id": 3, 
@@ -861,7 +861,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k5.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k5.png", 
-          "availableLengthsOfPull": [1, 2] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
           "id": 4, 
@@ -869,7 +869,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k6.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k6.png", 
-          "availableLengthsOfPull": [1, 2] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
           "id": 5, 
@@ -877,7 +877,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k7.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k7.png", 
-          "availableLengthsOfPull": [1, 2] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
           "id": 6, 
@@ -885,7 +885,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k8.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k8.png", 
-          "availableLengthsOfPull": [1, 2] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
           "id": 7, 
@@ -893,7 +893,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k9.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k9.png", 
-          "availableLengthsOfPull": [1, 2] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
           "id": 8, 
@@ -901,7 +901,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_hs_k10.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k10.png", 
-          "availableLengthsOfPull": [1, 2] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
           "id": 9, 
@@ -909,7 +909,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k7.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k7.png", 
-          "availableLengthsOfPull": [1] 
+          "availableRecoilPads": [1] 
         },
         { 
           "id": 10, 
@@ -917,7 +917,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k8.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k8.png", 
-          "availableLengthsOfPull": [1] 
+          "availableRecoilPads": [1] 
         },
         { 
           "id": 11, 
@@ -925,7 +925,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k9.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k9.png", 
-          "availableLengthsOfPull": [1] 
+          "availableRecoilPads": [1] 
         },
         { 
           "id": 12, 
@@ -933,7 +933,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k10.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k10.png", 
-          "availableLengthsOfPull": [1] 
+          "availableRecoilPads": [1] 
         }
         ,
         { 
@@ -942,7 +942,7 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k4", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k4.png", 
-          "availableLengthsOfPull": [1] 
+          "availableRecoilPads": [1] 
         },
         {
           "id": 14, 
@@ -950,52 +950,91 @@
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k7", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k7.png", 
-          "availableLengthsOfPull": [1] 
+          "availableRecoilPads": [1] 
         }
     ],
-    "lengthsOfPull": [
+    "recoilPads": [
         { 
           "id": 1, 
-          "name": "Dł. naciągu std (370 mm 14⅝”) / Stopka 15 mm (½”)",  
+          "name": "Stopka 1,5 cm (standard) ",  
           "price": 0, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_1_5cm.png", 
-          "availableIndividualButtstockMeasures": [1, 2]
+          "availablePistolGripCaps": [1, 2, 3, 4]
         },
         { 
           "id": 2, 
-          "name": "Dł. naciągu std (375 mm 14⅝”) / Stopka 20 mm (¾”)", 
+          "name": "Stopka 2 cm (standard)", 
           "price": 100, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_2_5cm.png", 
-          "availableIndividualButtstockMeasures": [1] 
+          "availablePistolGripCaps": [1] 
         },
         { 
           "id": 3, 
-          "name": "Dł. naciągu std (350 mm 13¾”) / Stopka 15 mm (½”) (Compact / Intuition / Ultimate)", 
+          "name": "Stopka 1 cm (ProfeSucc)", 
           "price": 100, 
-          "imageUrl": 
-          "assets/lengths_of_pull/custom_length.jpg", 
-          "availableIndividualButtstockMeasures": [1] 
+          "imageUrl": "assets/lengths_of_pull/R8_schaftverlaengerung_professional_1cm.png", 
+          "availablePistolGripCaps": [1] 
+        },
+        { 
+          "id": 3, 
+          "name": "Stopka 2 cm (ProfeSucc)", 
+          "price": 100, 
+          "imageUrl": "assets/lengths_of_pull/R8_schaftverlaengerung_professional_1cm.png", 
+          "availablePistolGripCaps": [1] 
         },
         { 
           "id": 4, 
-          "name": "Standard 370 mm (14⅝”) / Stopka 27 mm (1⅛”)", 
+          "name": "Stopka 1,5 cm (ProfeSucc)", 
           "price": 100, 
-          "imageUrl": 
-          "assets/lengths_of_pull/custom_length.jpg", 
-          "availableIndividualButtstockMeasures": [1] 
+          "imageUrl": "assets/lengths_of_pull/r8_prosuc_gummischaftkappe_1_5_cm.png", 
+          "availablePistolGripCaps": [1] 
+        }
+        ,
+        { 
+          "id": 4, 
+          "name": "Stopka 2 cm (ProfeSucc)", 
+          "price": 100, 
+          "imageUrl": "assets/lengths_of_pull/r8_prosuc_gummischaftkappe_1_5_cm.png", 
+          "availablePistolGripCaps": [1] 
         }
     ],
-    "individualButtstockMeasures": [
-      { "id": 1, "name": "Kolba z wymiarami fabrycznymi", "price": 0, "imageUrl": "assets/individual_measures/factory_measures.jpg", "availableButtstockMeasuresTypes": [1, 2] },
-      { "id": 2, "name": "Kolba z wymiarami indywidualnymi", "price": 150, "imageUrl": "assets/individual_measures/individual_measures.jpg", "availableButtstockMeasuresTypes": [1] }
-    ],
-    "buttstockMeasuresTypes": [
-      { "id": 1, "name": "Wymiary fabryczne", "price": 0, "imageUrl": "assets/measures_types/factory.jpg", "availablePistolGripCaps": [1, 2] },
-      { "id": 2, "name": "Wymiary indywidualne", "price": 200, "imageUrl": "assets/measures_types/custom.jpg", "availablePistolGripCaps": [1] }
-    ],
-    "pistolGripCaps": [
-      { "id": 1, "name": "Brak nasadki", "price": 0, "imageUrl": "assets/grip_caps/none.jpg", "availableKickstops": [1, 2] },
-      { "id": 2, "name": "Nasadka na chwyt pistoletowy", "price": 50, "imageUrl": "assets/grip_caps/custom_grip.jpg", "availableKickstops": [1] }
+    "pistolGripCaps": 
+    [
+        { 
+          "id": 1, 
+          "name": "Brak", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/no-detail.png", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 2, 
+          "name": "Sarna", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_8_pk_rehbock.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 3, 
+          "name": "Jeleń szlachetny", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_6_pk_rothisch.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 4, 
+          "name": "Dzik", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_4_pk_keiler.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 5, 
+          "name": "Kozica", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_9_pk_widder.jpg", 
+          "availableKickstops": [1, 2] 
+        }
     ],
     "kickstops": [
       { "id": 1, "name": "Brak kickstopu", "price": 0, "imageUrl": "assets/kickstops/none.jpg", "availableStockMagazines": [1, 2] },

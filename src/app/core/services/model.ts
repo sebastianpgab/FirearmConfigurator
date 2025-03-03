@@ -12,7 +12,7 @@ export interface ConfiguratorState {
     selectedMuzzleBrakeOrSuppressor: Option | null;
     selectedButtstockType: Option | null;
     selectedWoodCategory: Option | null;
-    selectedLengthOfPull: Option | null;
+    selectedRecoilPad: Option | null;
     selectedIndividualButtstockMeasure: Option | null;
     selectedButtstockMeasuresType: Option | null;
     selectedPistolGripCap: Option | null;
@@ -31,7 +31,7 @@ export interface ConfiguratorState {
     isDisabledOpenSight: boolean;
     isDisabledMuzzleBrakeOrSuppressor: boolean;
     isDisabledWoodCategory: boolean;
-    isDisabledLengthOfPull: boolean;
+    isDisabledRecoilPad: boolean;
     isDisabledIndividualButtstockMeasure: boolean;
     isDisabledButtstockMeasuresType: boolean;
     isDisabledPistolGripCap: boolean;

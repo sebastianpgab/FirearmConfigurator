@@ -22,9 +22,7 @@ export class StockComponent implements OnInit, OnDestroy {
     "rifle",
     "buttstockType",
     "woodCategory",
-    "lengthOfPull",
-    "individualButtstockMeasure",
-    "buttstockMeasuresType",
+    "recoilPad",
     "pistolGripCap",
     "kickstop",
     "stockMagazine",
@@ -39,9 +37,9 @@ export class StockComponent implements OnInit, OnDestroy {
   // Listy opcji do kolejnych selectów
   buttstockTypes: Option[] = [];
   woodCategories: Option[] = [];
-  lengthsOfPull: Option[] = [];
-  individualButtstockMeasures: Option[] = [];
-  buttstockMeasuresTypes: Option[] = [];
+  recoilPads: Option[] = [];
+  //individualButtstockMeasures: Option[] = [];
+  //buttstockMeasuresTypes: Option[] = [];
   pistolGripCaps: Option[] = [];
   kickstops: Option[] = [];
   stockMagazines: Option[] = [];
@@ -103,31 +101,23 @@ export class StockComponent implements OnInit, OnDestroy {
     if (this.state.selectedButtstockType) {
       this.updateWoodCategoryForSelectedButtstockType();
     }
-    // 3) Jeśli selectedWoodCategory, wypełniamy lengthsOfPull
-    if (this.state.selectedWoodCategory) {
-      this.updateLengthOfPullForSelectedWoodCategory();
+    // 3) Jeśli selectedWoodCategory, wypełniamy recoilPads
+    if (this.state.selectedWoodCategory) { 
+      this.updateRecoilPadForSelectedWoodCategory();
     }
     // 4) Jeśli selectedLengthOfPull, wypełniamy individualButtstockMeasures
-    if (this.state.selectedLengthOfPull) {
-      this.updateIndividualButtstockMeasureForSelectedLengthOfPull();
+    if (this.state.selectedRecoilPad) {
+      this.updatePistolGripCapForSelectedRecoilPad();
     }
-    // 5) Jeśli selectedIndividualButtstockMeasure, wypełniamy buttstockMeasuresTypes
-    if (this.state.selectedIndividualButtstockMeasure) {
-      this.updateButtstockMeasuresTypeForSelectedIndividualButtstockMeasure();
-    }
-    // 6) Jeśli selectedButtstockMeasuresType, wypełniamy pistolGripCaps
-    if (this.state.selectedButtstockMeasuresType) {
-      this.updatePistolGripCapForSelectedButtstockMeasuresType();
-    }
-    // 7) Jeśli selectedPistolGripCap, wypełniamy kickstops
+    // 5) Jeśli selectedPistolGripCap, wypełniamy kickstops
     if (this.state.selectedPistolGripCap) {
       this.updateKickstopForSelectedPistolGripCap();
     }
-    // 8) Jeśli selectedKickstop, wypełniamy stockMagazines
+    // 6) Jeśli selectedKickstop, wypełniamy stockMagazines
     if (this.state.selectedKickstop) {
       this.updateStockMagazineForSelectedKickstop();
     }
-    // 9) Jeśli selectedStockMagazine, wypełniamy forearmOptions
+    // 7) Jeśli selectedStockMagazine, wypełniamy forearmOptions
     if (this.state.selectedStockMagazine) {
       this.updateForearmOptionForSelectedStockMagazine();
     }
@@ -164,52 +154,26 @@ export class StockComponent implements OnInit, OnDestroy {
     }
   }
 
-  private updateLengthOfPullForSelectedWoodCategory(): void {
+  private updateRecoilPadForSelectedWoodCategory(): void {
     if (this.state.selectedWoodCategory) {
-      const lengthOfPullIds = this.state.selectedWoodCategory.availableLengthsOfPull;
-      this.lengthsOfPull = this.configuratorService.filterOptions(
+      const recoilPadIds = this.state.selectedWoodCategory.availableRecoilPads;
+      this.recoilPads = this.configuratorService.filterOptions(
         this.features,
-        "lengthsOfPull",
-        lengthOfPullIds
+        "recoilPads", 
+        recoilPadIds
       );
     } else {
-      this.lengthsOfPull = [];
+      this.recoilPads = [];
     }
   }
 
-  private updateIndividualButtstockMeasureForSelectedLengthOfPull(): void {
-    if (this.state.selectedLengthOfPull) {
-      const measureIds = this.state.selectedLengthOfPull.availableIndividualButtstockMeasures;
-      this.individualButtstockMeasures = this.configuratorService.filterOptions(
-        this.features,
-        "individualButtstockMeasures",
-        measureIds
-      );
-    } else {
-      this.individualButtstockMeasures = [];
-    }
-  }
-
-  private updateButtstockMeasuresTypeForSelectedIndividualButtstockMeasure(): void {
-    if (this.state.selectedIndividualButtstockMeasure) {
-      const measureTypeIds = this.state.selectedIndividualButtstockMeasure.availableButtstockMeasuresTypes;
-      this.buttstockMeasuresTypes = this.configuratorService.filterOptions(
-        this.features,
-        "buttstockMeasuresTypes",
-        measureTypeIds
-      );
-    } else {
-      this.buttstockMeasuresTypes = [];
-    }
-  }
-
-  private updatePistolGripCapForSelectedButtstockMeasuresType(): void {
-    if (this.state.selectedButtstockMeasuresType) {
-      const capIds = this.state.selectedButtstockMeasuresType.availablePistolGripCaps;
+  private updatePistolGripCapForSelectedRecoilPad(): void {
+    if (this.state.selectedRecoilPad) {
+      const pistolGripCapIds = this.state.selectedRecoilPad.availablePistolGripCaps;
       this.pistolGripCaps = this.configuratorService.filterOptions(
         this.features,
         "pistolGripCaps",
-        capIds
+        pistolGripCapIds
       );
     } else {
       this.pistolGripCaps = [];
@@ -284,56 +248,27 @@ export class StockComponent implements OnInit, OnDestroy {
     this.configuratorService.resetOptionsAfter("woodCategory", this.optionHierarchy);
     this.configuratorService.updateState({
       selectedWoodCategory: newWoodCategory,
-      isDisabledLengthOfPull: false,
+      isDisabledRecoilPad: false,
     });
 
-    this.updateLengthOfPullForSelectedWoodCategory();
+    this.updateRecoilPadForSelectedWoodCategory();
   }
 
-  onSelectLengthOfPull(newLength: Option): void {
-    const oldId = this.state.selectedLengthOfPull?.id;
-    if (oldId === newLength.id) {
+  onSelectRecoilPad(newRecoilPad: Option): void {
+    const oldId = this.state.selectedRecoilPad?.id;
+    if (oldId === newRecoilPad.id) {
       return;
     }
 
-    this.configuratorService.resetOptionsAfter("lengthOfPull", this.optionHierarchy);
+    this.configuratorService.resetOptionsAfter("recoilPad", this.optionHierarchy);
     this.configuratorService.updateState({
-      selectedLengthOfPull: newLength,
-      isDisabledIndividualButtstockMeasure: false,
-    });
-
-    this.updateIndividualButtstockMeasureForSelectedLengthOfPull();
-  }
-
-  onSelectIndividualButtstockMeasure(newMeasure: Option): void {
-    const oldId = this.state.selectedIndividualButtstockMeasure?.id;
-    if (oldId === newMeasure.id) {
-      return;
-    }
-
-    this.configuratorService.resetOptionsAfter("individualButtstockMeasure", this.optionHierarchy);
-    this.configuratorService.updateState({
-      selectedIndividualButtstockMeasure: newMeasure,
-      isDisabledButtstockMeasuresType: false,
-    });
-
-    this.updateButtstockMeasuresTypeForSelectedIndividualButtstockMeasure();
-  }
-
-  onSelectButtstockMeasuresType(newMeasureType: Option): void {
-    const oldId = this.state.selectedButtstockMeasuresType?.id;
-    if (oldId === newMeasureType.id) {
-      return;
-    }
-
-    this.configuratorService.resetOptionsAfter("buttstockMeasuresType", this.optionHierarchy);
-    this.configuratorService.updateState({
-      selectedButtstockMeasuresType: newMeasureType,
+      selectedRecoilPad: newRecoilPad,
       isDisabledPistolGripCap: false,
     });
 
-    this.updatePistolGripCapForSelectedButtstockMeasuresType();
+    this.updatePistolGripCapForSelectedRecoilPad();
   }
+
 
   onSelectPistolGripCap(newCap: Option): void {
     const oldId = this.state.selectedPistolGripCap?.id;
