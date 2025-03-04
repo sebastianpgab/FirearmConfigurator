@@ -188,4 +188,32 @@ export class ConfiguratorService {
     }
     return position;
   }
+
+  //Zmien opcje X gdy zostanie wybrana opcja Y
+  public updateDependentFeature(
+    features: any,
+    featureKey1: string,
+    availableIds: number[] | undefined,
+    featureKey2: string,
+    selectedId: number,
+    featureName: string
+  ) {
+    if (!features?.[featureKey1] || !availableIds?.length) {
+      console.warn(`Nieprawidłowe dane dla ${featureKey1}`);
+      return;
+    }
+  
+    const featureOptions = features[featureKey2] ?? [];
+    const newSelectedOption = featureOptions.find((option: Option) => option.id === selectedId);
+  
+    if (!newSelectedOption) {
+      console.warn(`Nie znaleziono opcji ${selectedId} dla ${featureKey2}`);
+      return;
+    }
+  
+    console.log(`Aktualizacja ${featureKey2}:`, newSelectedOption);
+    this.stateSubject.next({ ...this.stateSubject.value, [featureName]: newSelectedOption });
+  }
+  
+  
 }
