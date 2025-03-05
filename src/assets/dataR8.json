@@ -1036,17 +1036,91 @@
           "availableKickstops": [1, 2] 
         }
     ],
-    "kickstops": [
-      { "id": 1, "name": "Brak kickstopu", "price": 0, "imageUrl": "assets/kickstops/none.jpg", "availableStockMagazines": [1, 2] },
-      { "id": 2, "name": "Kickstop zainstalowany", "price": 100, "imageUrl": "assets/kickstops/kickstop_installed.jpg", "availableStockMagazines": [1] }
+    "kickstops": 
+    [
+        { 
+          "id": 1, 
+          "name": "Bez kickstopu", 
+          "price": 0,
+          "imageUrl": "assets/BlaserR8/puzzle/stock/kickstop/no-detail.png",
+          "availableStockMagazines": [1, 2, 3, 4, 5, 6] 
+        },
+        { 
+          "id": 2, 
+          "name": "Kickstop", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/kickstop/R8_hi_1_kickstop.jpg", 
+          "availableStockMagazines": [1, 2, 3, 4, 5, 6] 
+        }
     ],
-    "stockMagazines": [
-      { "id": 1, "name": "Brak magazynu", "price": 0, "imageUrl": "assets/stock_magazines/none.jpg", "availableForearmOptions": [1, 2] },
-      { "id": 2, "name": "Magazyn w kolbie", "price": 120, "imageUrl": "assets/stock_magazines/stock_magazine.jpg", "availableForearmOptions": [1] }
+    "stockMagazines": 
+    [
+        { 
+          "id": 1, 
+          "name": "Bez magazynu", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/no-detail.png", 
+          "availableForearmOptions": [1, 2, 3] 
+        },
+        { 
+          "id": 2, 
+          "name": "Grawer 1", 
+          "price": 120, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_1_sm_schaftmag_1.jpg", 
+          "availableForearmOptions": [1, 2, 3] 
+        },
+        { 
+          "id": 3, 
+          "name": "Grawer 2", 
+          "price": 120, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_2_sm_schaftmag_2.jpg", 
+          "availableForearmOptions": [1, 2, 3] 
+        },
+        { 
+          "id": 4, 
+          "name": "Grawer angielskie arabeski", 
+          "price": 120, 
+          "imageUrl":  "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_3a_sm_schaftmag_arabeske.jpg", 
+          "availableForearmOptions": [1, 2, 3] 
+        },
+        { 
+          "id": 5, 
+          "name": "Grawer liść dębu", 
+          "price": 120, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_3b_sm_schaftmag_eichenla.jpg", 
+          "availableForearmOptions": [1, 2, 3] 
+        },
+        { 
+          "id": 6, 
+          "name": "Grawer stary niemiecki liść ", 
+          "price": 120, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_3c_sm_schaftmag_altdeuts.jpg", 
+          "availableForearmOptions": [1, 2, 3] 
+        }
     ],
-    "forearmOptions": [
-      { "id": 1, "name": "Standardowa końcówka przedniego chwytu", "price": 0, "imageUrl": "assets/forearm_options/standard_tip.jpg" },
-      { "id": 2, "name": "Czarna (syntetyczna) końcówka przedniego chwytu", "price": 80, "imageUrl": "assets/forearm_options/black_tip.jpg" }
+    "forearmOptions": 
+    [
+      { 
+        "id": 1, 
+        "name": "Schowek na naboje w kolbie (niekompatybilne z kickstop)", 
+        "price": 0, 
+        "imageUrl": "assets/BlaserR8/puzzle/stock/fore_arm_option/no-detail.png",
+        "availableChamberEngravings": [1,2]
+      },
+      { 
+        "id": 2, 
+        "name": "Czarne (syntetyczne) zakończenie łoża", 
+        "price": 0, 
+        "imageUrl": "assets/BlaserR8/puzzle/stock/fore_arm_option/R8_vo_kunst_abschl.jpg",
+        "availableChamberEngravings": [1,2]
+      },
+      { 
+        "id": 3, 
+        "name": "Zakończenie łoża z hebanu", 
+        "price": 80, 
+        "imageUrl": "assets/BlaserR8/puzzle/stock/fore_arm_option/R8_vo_ebenholz_abschl.jpg",
+        "availableChamberEngravings": [1,2]
+      }
     ],
     "chamberEngravings": [
       { "id": 1, "name": "Standardowe zdobienie", "price": 100, "imageUrl": "assets/BlaserR8/puzzle/R8_Systemanschluss-Abdunkler_Success.png", "availableBoltHandles": [1,2]},
@@ -1084,15 +1158,15 @@
     "rifles": [
       {
         "id": 1,
-        "name": "Blaser R8 Ultimate",
+        "name": "Blaser R8 Luxus",
         "price": 3500,
         "imageUrl": "assets/riffle_pictures/blaser_r8_ultimate.jpg",
+        
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [1, 2],
+        "availableWoodCategories": [2, 5],
         "availableChamberEngravings": [1,2]
-
-
       },
       {
         "id": 2,
