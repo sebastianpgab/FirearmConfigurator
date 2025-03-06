@@ -1105,34 +1105,106 @@
         "name": "Schowek na naboje w kolbie (niekompatybilne z kickstop)", 
         "price": 0, 
         "imageUrl": "assets/BlaserR8/puzzle/stock/fore_arm_option/no-detail.png",
-        "availableChamberEngravings": [1,2]
+        "availableChamberEngravings": [2, 3, 4]
       },
       { 
         "id": 2, 
         "name": "Czarne (syntetyczne) zakończenie łoża", 
         "price": 0, 
         "imageUrl": "assets/BlaserR8/puzzle/stock/fore_arm_option/R8_vo_kunst_abschl.jpg",
-        "availableChamberEngravings": [1,2]
+        "availableChamberEngravings": [2, 3, 4]
       },
       { 
         "id": 3, 
         "name": "Zakończenie łoża z hebanu", 
         "price": 80, 
         "imageUrl": "assets/BlaserR8/puzzle/stock/fore_arm_option/R8_vo_ebenholz_abschl.jpg",
-        "availableChamberEngravings": [1,2]
+        "availableChamberEngravings": [2, 3, 4]
       }
     ],
     "chamberEngravings": [
-      { "id": 1, "name": "Standardowe zdobienie", "price": 100, "imageUrl": "assets/BlaserR8/puzzle/R8_Systemanschluss-Abdunkler_Success.png", "availableBoltHandles": [1,2]},
-      { "id": 2, "name": "Ekskluzywne zdobienie", "price": 300, "imageUrl": "assets/chamber_engravings/exclusive.jpg", "availableBoltHandles": [1,2] }
+      { 
+        "id": 1, 
+        "name": "Czarne z logo", 
+        "price": 100, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_schwarz.png", 
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
+        "availableBoltHandles": [1,2,3] 
+      },
+      { 
+        "id": 2, 
+        "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Sarna", 
+        "price": 300, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_englisch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
+        "availableBoltHandles": [1,2,3] 
+      },
+      { 
+        "id": 3, 
+        "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Dzik", 
+        "price": 300, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_sau_englisch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
+        "availableBoltHandles": [1,2,3] 
+      },
+      { 
+        "id": 4, 
+        "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Kozica", 
+        "price": 300, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_gams_englisch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "availableBoltHandles": [1,2,3] 
+      }
     ],
-    "boltHandles": [
-      { "id": 1, "name": "Rączka standardowa", "price": 50, "imageUrl": "assets/bolt_handles/standard.jpg", "availableTriggers": [1,2] },
-      { "id": 2, "name": "Rączka taktyczna", "price": 150, "imageUrl": "assets/bolt_handles/tactical.jpg", "availableTriggers": [1,2]  }
+    "boltHandles": 
+    [
+      {
+        "id": 1, 
+        "name": "Standardowa kulka", 
+        "price": 50, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_rechts.png", 
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/r8_kammerstengelkugel_schwarz.png", 
+        "availableTriggers": [1,2,3] 
+      },
+      { 
+        "id": 2, 
+        "name": "Drewniana kulka", 
+        "price": 150, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_rechts.png", 
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/r8_kammerstengelkugel_holz.png", 
+        "availableTriggers": [1,2,3]  
+      },
+      { 
+        "id": 3, 
+        "name": "DLC - Diamond Like Carbon", 
+        "price": 150, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_rechts.png", 
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/r8_kammerstengelkugel_dlc.png",
+        "availableTriggers": [1,2,3]  
+      }
     ],
     "triggers": [
-      { "id": 1, "name": "Spust standardowy", "price": 0, "imageUrl": "assets/triggers/standard.jpg", "availableBoltHeads": [1,2] },
-      { "id": 2, "name": "Spust regulowany", "price": 200, "imageUrl": "assets/triggers/adjustable.jpg", "availableBoltHeads": [1,2] }
+      { 
+        "id": 1, 
+        "name": "Standardowy", 
+        "price": 0, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_schwarz.png", 
+        "availableBoltHeads": [1,2] 
+      },
+      { 
+        "id": 2, 
+        "name": "Złocony", 
+        "price": 200, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_gold.png", 
+        "availableBoltHeads": [1,2] 
+      },
+      { 
+        "id": 3, 
+        "name": "DLC - Diamond Like Carbon", 
+        "price": 200, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_dlc.png", 
+        "availableBoltHeads": [1,2] 
+      }
     ],
     "boltHeads": [
       { "id": 1, "name": "Głowica standardowa", "price": 100, "imageUrl": "assets/bolt_heads/standard.jpg", "availableSlidingSafeties": [1,2] },
@@ -1166,7 +1238,7 @@
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [1, 2],
         "availableWoodCategories": [2, 5],
-        "availableChamberEngravings": [1,2]
+        "availableChamberEngravings": [2,3]
       },
       {
         "id": 2,
