@@ -1207,24 +1207,141 @@
       }
     ],
     "boltHeads": [
-      { "id": 1, "name": "Głowica standardowa", "price": 100, "imageUrl": "assets/bolt_heads/standard.jpg", "availableSlidingSafeties": [1,2] },
-      { "id": 2, "name": "Głowica wzmocniona", "price": 250, "imageUrl": "assets/bolt_heads/reinforced.jpg", "availableSlidingSafeties": [1,2] }
+      { 
+        "id": 1, 
+        "name": "Regularna - klasyczny czarny zamek.", 
+        "price": 100, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-head/R8_sb_0_ka_kammer_normal.jpg", 
+        "availableSlidingSafeties": [1,2] 
+      },
+      { 
+        "id": 2, 
+        "name": "Kolor złoty - złoty, nitrowany zamek", 
+        "price": 250, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-head/R8_sb_t_ka_kammer_tiannitri.jpg", 
+        "availableSlidingSafeties": [1,2] 
+      },
+      { 
+        "id": 3, 
+        "name": "DLC - Diamond Like Carbon", 
+        "price": 250, 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-head/SBD_kammer_dlc.jpg", 
+        "availableSlidingSafeties": [1,2] 
+      }
     ],
     "slidingSafeties": [
-      { "id": 1, "name": "Bezpiecznik standardowy", "price": 0, "imageUrl": "assets/sliding_safeties/standard.jpg" },
-      { "id": 2, "name": "Bezpiecznik zewnętrzny", "price": 150, "imageUrl": "assets/sliding_safeties/external.jpg" }
+      { 
+        "id": 1, 
+        "name": "Illuminator control - sterowanie podświetleniem", 
+        "price": 0, 
+        "imageUrl": "assets/BlaserR8/puzzlec/hamber-bolti/illumination-control/R8_ss1_IlluCon.jpg",
+        "availableGunCases": [1,2,3] 
+      }
     ],
-    "gunCases": [
-      {"id": 1, "name": "Walika duża skórzana", "price": 125, "imageUrl":"assets/images/contrast_sight.png"},
-      {"id": 2, "name": "Walika mała skórzana", "price": 225, "imageUrl":"assets/images/contrast_sight.png"}
+    "gunCases": 
+    [
+      {
+        "id": 1, 
+        "name": "Bez walizki", 
+        "price": 125, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/no-detail.png",
+        "availableSoftGunCovers": [1, 2, 3, 4, 5] 
+      },
+      {
+        "id": 2, 
+        "name": "Walika ABS B (1 sztucer, 1 luneta - 82x33x11 cm)", 
+        "price": 125, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zk_b_koffer_b.png",
+        "availableSoftGunCovers": [1, 2, 3, 4, 5] 
+      },
+      {
+        "id": 3, 
+        "name": "Walika ABS C (1 sztucer, 1 wymienna lufa, 2 lunety - 84x45x11 cm)", 
+        "price": 225, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zk_c_koffer_c.png",
+        "availableSoftGunCovers": [1, 2, 3, 4, 5] 
+      }
     ],
-    "softGunCovers": [
-      {"id": 1, "name": "Pokoriwec mały", "price": 123, "imageUrl": "assets/images/contrast_sight.png"},
-      {"id": 2, "name": "Pokrowiec duży", "price": 343, "imageUrl": "assets/images/contrast_sight.png"}
+    "softGunCovers": 
+    [
+      {
+        "id": 1, 
+        "name": "Bez pokrowca", 
+        "price": 123, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/no-detail.png",
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 2, 
+        "name": "Loden/Skóra Typ B (krótki) 110 cm", 
+        "price": 123, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_lb_futteral_lodenleder_b_kurz.png",
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 3, 
+        "name": "Loden/Skóra Typ C (długi) 128 cm", 
+        "price": 343, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cc_futteral_cordura_c_lang.png",
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },      {
+        "id": 4, 
+        "name": "Cordura Typ B (krótki) 110 cm", 
+        "price": 123, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cb_futteral_cordura_b_kurz.png",
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 5, 
+        "name": "Cordura Typ C (długi) 128 cm", 
+        "price": 343, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cc_futteral_cordura_c_lang.png",
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      }
     ],
     "rifleSlings": [
-      {"id": 1, "name": "Pasek parciany na broń", "price:": 541, "imageUrl":"assets/bolt_handles/standard.jpg"},
-      {"id": 2, "name": "Pasek skórzany na broń", "price:": 241, "imageUrl":"assets/bolt_handles/standard.jpg"}
+      {
+        "id": 1, 
+        "name": "Bez paska", 
+        "price:": 541, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/no-detail.png"
+      },
+      {
+        "id": 2, 
+        "name": "Loden/Skóra - Skóra i loden, ciemnoszary, elastyczny", 
+        "price:": 241, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_o_gr_gewehrriemen_lodenleder.png"
+      },
+      {
+        "id": 3, 
+        "name": "HunTec - Neoprenowy, w kamuflażu HunTec, elastyczny", 
+        "price:": 541, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_h_gr_gewehrriemen_huntec.png"
+      },
+      {
+        "id": 4, 
+        "name": "Carbon - Regulowany, w stylu carbon, 2 miejsca na naboje", 
+        "price:": 241, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_c_gr_gewehrriemen_carbon.png"
+      },
+      {
+        "id": 5, 
+        "name": "Skórzany brązowy - Brązowy, regulowany, z szybkozłączem", 
+        "price:": 541, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_g_gr_gewehrriemen_leder.png"
+      },
+      {
+        "id": 6, 
+        "name": "Zielony - Zielony, neoprenowy, z szybkozłączem", 
+        "price:": 241, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_g_gr_gewehrriemen.png"
+      },
+      {
+        "id": 7, 
+        "name": "Antracytowy - Antracytowy, neoprenowy, regulowany, z szybkozłączem", 
+        "price:": 241, 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_a_gr_gewehrrieme_anthrazit.png"
+      }
     ]
     },
     "rifles": [
@@ -1238,7 +1355,8 @@
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [1, 2],
         "availableWoodCategories": [2, 5],
-        "availableChamberEngravings": [2,3]
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [2,3]
       },
       {
         "id": 2,
