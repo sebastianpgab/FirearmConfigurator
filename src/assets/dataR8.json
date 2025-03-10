@@ -31,6 +31,7 @@
           "id": 1,
           "name": "Standard (17 mm)",
           "price": 450,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-barrel/R8_a1_0_la_standard_17mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_58.png",
           "availableCalibers": [1, 2, 3] 
         },
@@ -38,13 +39,15 @@
           "id": 2,
           "name": "Semi-Weight (19 mm)",
           "price": 300,
-          "imageUrl": "src/assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_58.png",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-barrel/R8_a1_sw_la_semi_weight_19mm.jpg",
+          "imageUrl": "src/assets/BlaserR8/puzzle/barrel/R8_a1_sw_la_semi_weight_19mm.png",
           "availableCalibers": [1, 2, 3] 
         },
         {
           "id": 3,
           "name": "Match (22 mm)",
           "price": 300,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-barrel/R8_a1_j_la_match_22mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_kanneliert_60.png",
           "availableCalibers": [1, 2]
         },
@@ -52,6 +55,7 @@
           "id": 4,
           "name": "Safari (22 mm)",
           "price": 300,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-barrel/R8_a1_s_la_safari_22mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_rund_60.png",
           "availableCalibers": [1, 2, 3] 
         }
@@ -61,364 +65,364 @@
           "id": 1,
           "name": "17 HMR",
           "price": 450,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_2d_k_17_hmr.jpg",
           "availableProfiles": [1, 2]
         },
         {
           "id": 2,
           "name": "22 WMR",
           "price": 400,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_2W_k_22_wmr.jpg",
           "availableProfiles": [1, 2]
         },
         {
           "id": 3,
           "name": "22 Long Rifle",
           "price": 350,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_21_k_22_lr.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 4,
           "name": "17 Hornet",
           "price": 350,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_2H_k_17_hornet.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 5,
           "name": "22 Hornet",
           "price": 350,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_23_k_22_hornet.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 6,
           "name": "204 Ruger",
           "price": 350,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_2A_204_ruger.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 7,
           "name": "222 Rem.",
           "price": 350,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_24_k_222_rem.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 8,
           "name": "223 Rem.",
           "price": 360,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_26_k_223_rem.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 9,
           "name": "22-250 Rem.",
           "price": 380,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_28_k_22_250.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 10,
           "name": "243 Win.",
           "price": 400,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_41_k_243_win.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 11,
           "name": "6XC",
           "price": 420,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_50_6XC.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 12,
           "name": "6,5 Creedmoor",
           "price": 450,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_5C_6_5_creedmoor.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 13,
           "name": "6,5 x 47 Lapua",
           "price": 460,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_5L_6_5x47_lapua.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 14,
           "name": "6,5 x 55 SE",
           "price": 470,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_61_k_6_5x57.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 15,
           "name": "6,5-284 Norma",
           "price": 490,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_66_k_6_5_284_norma.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 16,
           "name": "270 Win.",
           "price": 500,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_34_k_270_win.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 17,
           "name": "308 Win.",
           "price": 510,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_31_k_308_win.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 18,
           "name": "30-06 Spring.",
           "price": 520,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_33_k_30_06.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 19,
           "name": "300 Win. Mag.",
           "price": 600,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_35_k_300_win_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 20,
           "name": "338 Lapua",
           "price": 800,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_3a_k_338_lapua.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 21,
           "name": "6,5 x 57",
           "price": 495,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_61_k_6_5x57.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 22,
           "name": "6,5 PRC",
           "price": 520,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_67_k_6_5_prc.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 23,
           "name": "6,5 x 65 RWS",
           "price": 500,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_65_k_6_5_65_rws.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 24,
           "name": "7 x 64",
           "price": 530,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_73_k_7x64.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 25,
           "name": "8 x 57 IS",
           "price": 540,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_81_k_8x57_is.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 26,
           "name": "9,3 x 57",
           "price": 550,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_9E_k_9_3x57.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 27,
           "name": "9,3 x 62",
           "price": 560,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_93_k_9_3x62.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 28,
           "name": "8,5 x 55 Blaser",
           "price": 570,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_86_k_8_5x55_blaser.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 29,
           "name": "8,5 x 63",
           "price": 580,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_87_k_8_5x63.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 30,
           "name": "7,5 x 55 Suisse",
           "price": 540,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_75_k_7_5x55.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 31,
           "name": "6,5 x 68",
           "price": 550,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_69_k_6_5x68.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 32,
           "name": "8 x 68 S",
           "price": 570,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_83_k_8x68_s.jpg",
           "availableProfiles": [2]
         },
         {
           "id": 33,
           "name": "257 Weatherby Mag.",
           "price": 610,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_38_k_257_weath_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 34,
           "name": "270 Weatherby Mag.",
           "price": 610,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_46_k_270_weath_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 35,
           "name": "270 Win. Short Mag.",
           "price": 620,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_53_k_270_wsm.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 36,
           "name": "7 mm Rem. Mag.",
           "price": 630,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_77_k_7mm_rem_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 37,
           "name": "7 mm Blaser Mag.",
           "price": 650,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_7mm_Blaser_Magnum.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 38,
           "name": "300 Blaser Mag.",
           "price": 650,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_300_Blaser_Magnum.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 39,
           "name": "338 Blaser Mag.",
           "price": 700,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_338_Blaser_Magnum.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 40,
           "name": "375 Blaser Mag.",
           "price": 720,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_375_Blaser_Magnum.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 41,
           "name": "300 Win. Short Mag.",
           "price": 620,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_35_k_300_win_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 42,
           "name": "300 Weatherby Mag.",
           "price": 650,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_37_k_300_weath_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 43,
           "name": "338 Win. Mag.",
           "price": 680,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_39_k_338_win_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 44,
           "name": "375 H&H Mag.",
           "price": 750,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_91_k_375_HH_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 45,
           "name": "300 Rem. Ultra Mag.",
           "price": 700,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_78_k_300_rem_ultra_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 46,
           "name": "300 Norma Mag.",
           "price": 750,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_80_k_300_norma_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 47,
           "name": "416 Rem. Mag.",
           "price": 1000,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_96_k_416_Rem_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 48,
           "name": "458 Win. Mag.",
           "price": 1100,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_97_k_458_win_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 49,
           "name": "458 Lott",
           "price": 1150,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_9h_k_458_lott.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 50,
           "name": "500 Jeffery",
           "price": 1200,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_A1_k_500_jeffery.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 51,
           "name": "10,3 x 68 Mag.",
           "price": 900,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_98_k_10_3x68_mag.jpg",
           "availableProfiles": [3]
         },
         {
           "id": 52,
           "name": "10,3 x 60 R",
           "price": 950,
-          "imageUrl": "",
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-caliber/R8_c1_94_k_ch_10_3x60_r.jpg",
           "availableProfiles": [3]
         } 
       ],
@@ -1234,8 +1238,7 @@
         "id": 1, 
         "name": "Illuminator control - sterowanie podświetleniem", 
         "price": 0, 
-        "imageUrl": "assets/BlaserR8/puzzlec/hamber-bolti/illumination-control/R8_ss1_IlluCon.jpg",
-        "availableGunCases": [1,2,3] 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/illumination-control/R8_ss1_IlluCon.jpg"
       }
     ],
     "gunCases": 
@@ -1244,22 +1247,19 @@
         "id": 1, 
         "name": "Bez walizki", 
         "price": 125, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/no-detail.png",
-        "availableSoftGunCovers": [1, 2, 3, 4, 5] 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/no-detail.png"
       },
       {
         "id": 2, 
         "name": "Walika ABS B (1 sztucer, 1 luneta - 82x33x11 cm)", 
         "price": 125, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zk_b_koffer_b.png",
-        "availableSoftGunCovers": [1, 2, 3, 4, 5] 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zk_b_koffer_b.jpg"
       },
       {
         "id": 3, 
         "name": "Walika ABS C (1 sztucer, 1 wymienna lufa, 2 lunety - 84x45x11 cm)", 
         "price": 225, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zk_c_koffer_c.png",
-        "availableSoftGunCovers": [1, 2, 3, 4, 5] 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zk_c_koffer_c.jpg"
       }
     ],
     "softGunCovers": 
@@ -1268,35 +1268,31 @@
         "id": 1, 
         "name": "Bez pokrowca", 
         "price": 123, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/no-detail.png",
-        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/no-detail.png"
       },
       {
         "id": 2, 
         "name": "Loden/Skóra Typ B (krótki) 110 cm", 
         "price": 123, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_lb_futteral_lodenleder_b_kurz.png",
-        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_lb_futteral_lodenleder_b_kurz.jpg"
       },
       {
         "id": 3, 
         "name": "Loden/Skóra Typ C (długi) 128 cm", 
         "price": 343, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cc_futteral_cordura_c_lang.png",
-        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
-      },      {
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cc_futteral_cordura_c_lang.jpg"
+      },      
+      {
         "id": 4, 
         "name": "Cordura Typ B (krótki) 110 cm", 
         "price": 123, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cb_futteral_cordura_b_kurz.png",
-        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cb_futteral_cordura_b_kurz.jpg"
       },
       {
         "id": 5, 
         "name": "Cordura Typ C (długi) 128 cm", 
         "price": 343, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cc_futteral_cordura_c_lang.png",
-        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zu_cc_futteral_cordura_c_lang.jpg"
       }
     ],
     "rifleSlings": [
@@ -1310,37 +1306,37 @@
         "id": 2, 
         "name": "Loden/Skóra - Skóra i loden, ciemnoszary, elastyczny", 
         "price:": 241, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_o_gr_gewehrriemen_lodenleder.png"
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_o_gr_gewehrriemen_lodenleder.jpg"
       },
       {
         "id": 3, 
         "name": "HunTec - Neoprenowy, w kamuflażu HunTec, elastyczny", 
         "price:": 541, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_h_gr_gewehrriemen_huntec.png"
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_h_gr_gewehrriemen_huntec.jpg"
       },
       {
         "id": 4, 
         "name": "Carbon - Regulowany, w stylu carbon, 2 miejsca na naboje", 
         "price:": 241, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_c_gr_gewehrriemen_carbon.png"
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_c_gr_gewehrriemen_carbon.jpg"
       },
       {
         "id": 5, 
         "name": "Skórzany brązowy - Brązowy, regulowany, z szybkozłączem", 
         "price:": 541, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_g_gr_gewehrriemen_leder.png"
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_g_gr_gewehrriemen_leder.jpg"
       },
       {
         "id": 6, 
         "name": "Zielony - Zielony, neoprenowy, z szybkozłączem", 
         "price:": 241, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_g_gr_gewehrriemen.png"
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_g_gr_gewehrriemen.jpg"
       },
       {
         "id": 7, 
         "name": "Antracytowy - Antracytowy, neoprenowy, regulowany, z szybkozłączem", 
         "price:": 241, 
-        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_a_gr_gewehrrieme_anthrazit.png"
+        "imageUrl":"assets/BlaserR8/puzzle/accessory/R8_zg_a_gr_gewehrrieme_anthrazit.jpg"
       }
     ]
     },
@@ -1356,7 +1352,10 @@
         "availableButtstockTypes": [1, 2],
         "availableWoodCategories": [2, 5],
         "availableChamberEngravings": [2,3],
-        "availableGunCases": [2,3]
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+
       },
       {
         "id": 2,
