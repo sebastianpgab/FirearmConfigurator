@@ -1,5 +1,5 @@
 
-<div class="rifle-preview">
+<div class="rifle-preview" *ngIf="state.selectedContour || state.selectedButtstockType || state.selectedChamberEngraving">
     <!-- Kontur wyświetlamy tylko, jeśli NIE ma profilu i NIE wybrano długości -->
     <img 
       *ngIf="state.selectedContour && !state.selectedProfile && !state.onSelectLength"
@@ -48,5 +48,9 @@
     <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.secondaryImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedRecoilPad" [src]="state.selectedRecoilPad.imageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedForearmOption" [src]="state.selectedForearmOption.imageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedChamberEngraving" [src]="state.selectedChamberEngraving.imageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedChamberEngraving" [src]="state.selectedChamberEngraving.secondaryImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedBoltHandle" [src]="state.selectedBoltHandle.imageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedBoltHandle" [src]="state.selectedBoltHandle.secondaryImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedTrigger" [src]="state.selectedTrigger.imageUrl" class="rifle-layer">
   </div> 

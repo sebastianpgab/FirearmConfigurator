@@ -431,6 +431,7 @@
           "id": 1,
           "name": "Zaokrąglony",
           "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-profil/R8_lk_0_lp_normal.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_47.png",
           "availableLengths": [7, 12] 
         },
@@ -438,6 +439,7 @@
           "id": 2,
           "name": "Ryflowany",
           "price": 300,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-profil/R8_lk_k_lp_kanneliert.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
           "availableLengths": [1]
         }
@@ -447,6 +449,7 @@
           "id": 1,
           "name": "420 mm / 16 ½'' (R8 Silence)",
           "price": 100,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_42_ll_420mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_62.png",
           "availableOpenSights": [1] 
         },
@@ -454,6 +457,7 @@
           "id": 2,
           "name": "470 mm / 18 ½ (R8 Silence)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_47_ll_470mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_67.png",
           "availableOpenSights": [1]
         },
@@ -461,6 +465,7 @@
           "id": 3,
           "name": "470 mm / 18 ½ (R8 Standard)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_47_ll_470mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_47.png",
           "availableOpenSights": [1]
         },
@@ -468,6 +473,7 @@
           "id": 4,
           "name": "470 mm / 18 ½ (R8 Semi-Weight)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_47_ll_470mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_47.png",
           "availableOpenSights": [1]
         },
@@ -475,6 +481,7 @@
           "id": 5,
           "name": "470 mm / 18 ½ (R8 Semi-Weight Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_47_ll_470mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_47.png",
           "availableOpenSights": [1]
         },
@@ -482,6 +489,7 @@
           "id": 6,
           "name": "500 mm / 19 ½ (Standard)" ,
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_50_ll_500mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_50.png",
           "availableOpenSights": [1]
         },
@@ -489,6 +497,7 @@
           "id": 7,
           "name": "520 mm / 20 ½ (Standard)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_52_ll_520mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_52.png",
           "availableOpenSights": [3, 8]
         },
@@ -496,6 +505,7 @@
           "id": 8,
           "name": "520 mm / 20 ½ (Semi-Weight)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_52_ll_520mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_52.png",
           "availableOpenSights": [1]
         },
@@ -503,6 +513,7 @@
           "id": 9,
           "name": "520 mm / 20 ½ (Standard Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_52_ll_520mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_kanneliert_52.png",
           "availableOpenSights": [1]
         },
@@ -510,6 +521,7 @@
           "id": 10,
           "name": "520 mm / 20 ½ (Semi-Weight Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_52_ll_520mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_52.png",
           "availableOpenSights": [1]
         },
@@ -517,6 +529,7 @@
           "id": 11,
           "name": "520 mm / 20 ½ (Silence)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_52_ll_520mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_72.png",
           "availableOpenSights": [1]
         },
@@ -524,6 +537,7 @@
           "id": 12,
           "name": "580 mm / 23'' (Standard)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_58_ll_580mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_58.png",
           "availableOpenSights": [4, 9]
         },
@@ -531,6 +545,7 @@
           "id": 13,
           "name": "580 mm / 23'' (Semi-Weight)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_58_ll_580mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_58.png",
           "availableOpenSights": [1]
         },
@@ -538,6 +553,7 @@
           "id": 14,
           "name": "580 mm / 23'' (Standard Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_58_ll_580mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_kanneliert_58.png",
           "availableOpenSights": [1]
         },
@@ -545,6 +561,7 @@
           "id": 15,
           "name": "580 mm / 23'' (Ośmioboczna Ryflowan)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_58_ll_580mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_8kt_kanneliert_58.png",
           "availableOpenSights": [1]
         },
@@ -552,6 +569,7 @@
           "id": 16,
           "name": "580 mm / 23'' (Semi-Weight Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_58_ll_580mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_58.png",
           "availableOpenSights": [1]
         },
@@ -559,6 +577,7 @@
           "id": 17,
           "name": "600 mm / 23 ⅝'' (Standard Safari)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_60_ll_600mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_rund_60.png",
           "availableOpenSights": [1]
         },
@@ -566,6 +585,7 @@
           "id": 18,
           "name": "600 mm / 23 ⅝'' (Ryflowana Safari)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_60_ll_600mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_kanneliert_60.png",
           "availableOpenSights": [1]
         },
@@ -573,6 +593,7 @@
           "id": 19,
           "name": "650 mm / 25 ½'' (Standard)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_65_ll_650mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_65.png",
           "availableOpenSights": [1]
         },
@@ -580,6 +601,7 @@
           "id": 20,
           "name": "650 mm / 25 ½''(Semi-Weight)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_65_ll_650mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_65.png",
           "availableOpenSights": [1]
         },
@@ -587,6 +609,7 @@
           "id": 21,
           "name": "650 mm / 25 ½'' (Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_65_ll_650mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_kanneliert_65.png",
           "availableOpenSights": [1]
         },
@@ -594,6 +617,7 @@
           "id": 22,
           "name": "650 mm / 25 ½'' (Ośmioboczna Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_65_ll_650mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_8kt_kanneliert_65.png",
           "availableOpenSights": [1]
         },
@@ -601,6 +625,7 @@
           "id": 23,
           "name": "650 mm / 25 ½'' (Semi-Weight Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_65_ll_650mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_kanneliert_65.png",
           "availableOpenSights": [1]
         },
@@ -608,6 +633,7 @@
           "id": 24,
           "name": "650 mm / 25 ½'' (Safari Ryflowana)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_65_ll_650mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_kanneliert_65.png",
           "availableOpenSights": [1]
         },
@@ -615,6 +641,7 @@
           "id": 25,
           "name": "685 mm / 27'' (Semi-Weight)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_65_ll_685mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Semi_Weight_rund_68-5.png",
           "availableOpenSights": [1]
         },
@@ -622,6 +649,7 @@
           "id": 26,
           "name": "685 mm / 27'' (Match)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_65_ll_685mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagdmatch_kanneliert_68-5.png",
           "availableOpenSights": [1]
         },
@@ -629,6 +657,7 @@
           "id": 27,
           "name": "700 mm / 27 ½'' (Standard)",
           "price": 150,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_70_ll_700mm.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel//R8_Lauf_Schweiz_rund_70.png",
           "availableOpenSights": [1]
         }
@@ -638,6 +667,7 @@
           "id": 1,
           "name": "Muszka Safari (60)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_s_vs_safari.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_safari_22.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Visier_safari.png",
           "availableMuzzleBrakesOrSuppressors": [1, 2] 
@@ -646,6 +676,7 @@
           "id": 2,
           "name": "Muszka belkowa (50)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_b_vs_Blaser_Kontrastvisier.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [1, 2] 
@@ -654,6 +685,7 @@
           "id": 3,
           "name": "Muszka belkowa (52)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_b_vs_Blaser_Kontrastvisier.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [2, 7, 12] 
@@ -662,6 +694,7 @@
           "id": 4,
           "name": "Muszka belkowa (58)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_b_vs_Blaser_Kontrastvisier.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [3, 8, 13] 
@@ -670,6 +703,7 @@
           "id": 5,
           "name": "Muszka belkowa (65)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_b_vs_Blaser_Kontrastvisier.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [1, 2] 
@@ -678,6 +712,7 @@
           "id": 6,
           "name": "Muszka belkowa (70)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_b_vs_Blaser_Kontrastvisier.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [1, 2] 
@@ -686,6 +721,7 @@
           "id": 7,
           "name": "Muszka HIVIZ (50)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_n_HIVIZ-green.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [1, 2] 
@@ -694,6 +730,7 @@
           "id": 8,
           "name": "Muszka HIVIZ (52)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_n_HIVIZ-green.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [2, 7, 12] 
@@ -702,6 +739,7 @@
           "id": 9,
           "name": "Muszka HIVIZ (58)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_n_HIVIZ-green.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [3, 8, 13] 
@@ -710,6 +748,7 @@
           "id": 10,
           "name": "Muszka HIVIZ (65)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_n_HIVIZ-green.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [1, 2] 
@@ -718,6 +757,17 @@
           "id": 11,
           "name": "Muszka HIVIZ (70)", 
           "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_n_HIVIZ-green.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
+          "availableMuzzleBrakesOrSuppressors": [1, 2] 
+        }
+        ,
+        {
+          "id": 12,
+          "name": "Bez przyrządów celowniczych", 
+          "price": 230,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/no-detail.png",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
           "availableMuzzleBrakesOrSuppressors": [1, 2] 
@@ -728,90 +778,105 @@
           "id": 1,
           "name": "Blaser Dual Brake (50)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_dual_brake.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
           "id": 2,
           "name": "Blaser Dual Brake (52)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_dual_brake.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
           "id": 3,
           "name": "Blaser Dual Brake (58)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_dual_brake.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
           "id": 4,
           "name": "Blaser Dual Brake (65)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_dual_brake.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
           "id": 5,
           "name": "Blaser Dual Brake (70)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_dual_brake.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
         },
         {
           "id": 6,
           "name": "Tłumik (50)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_moderator.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
           "id": 7,
           "name": "Tłumik (52)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_moderator.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
           "id": 8,
           "name": "Tłumik (58)" ,
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_moderator.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
           "id": 9,
           "name": "Tłumik (65)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_moderator.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
           "id": 10,
           "name": "Tłumik (70)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_moderator.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_moderator_17_47.png"
         },
         {
           "id": 11,
           "name": "Gwint na lufie (50)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_muendungsgewinde.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
         },
         {
           "id": 12,
           "name": "Gwint na lufie (52)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_muendungsgewinde.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
         },
         {
           "id": 13,
           "name": "Gwint na lufie (58)" ,
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_muendungsgewinde.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
         },
         {
           "id": 14,
           "name": "Gwint na lufie (65)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_muendungsgewinde.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
         },
         {
           "id": 15,
           "name": "Gwint na lufie (70)",
           "price": 890,
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_muendungsgewinde.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
         }
       ],
@@ -1345,7 +1410,7 @@
         "id": 1,
         "name": "Blaser R8 Luxus",
         "price": 3500,
-        "imageUrl": "assets/riffle_pictures/blaser_r8_ultimate.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_luxus2021.jpg",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
