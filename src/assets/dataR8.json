@@ -1195,7 +1195,8 @@
       { 
         "id": 1, 
         "name": "Czarne z logo", 
-        "price": 100, 
+        "price": 100,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svs_system_schwarz.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_schwarz.png", 
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
         "availableBoltHandles": [1,2,3] 
@@ -1204,14 +1205,16 @@
         "id": 2, 
         "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Sarna", 
         "price": 300, 
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbaf_system_luxus_hirsch_reh_englisch.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_englisch.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
         "availableBoltHandles": [1,2,3] 
       },
       { 
         "id": 3, 
-        "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Dzik", 
-        "price": 300, 
+        "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Dzik",  
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbcf_system_luxus_hirsch_sau_englisch.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_sau_englisch.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
         "availableBoltHandles": [1,2,3] 
@@ -1219,7 +1222,8 @@
       { 
         "id": 4, 
         "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Kozica", 
-        "price": 300, 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbif_system_luxus_hirsch_gams_englisch.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_gams_englisch.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
         "availableBoltHandles": [1,2,3] 
@@ -1229,8 +1233,9 @@
     [
       {
         "id": 1, 
-        "name": "Standardowa kulka", 
+        "name": "Standardowa kulka - syntetyczna", 
         "price": 50, 
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/icon-bolt-handle/R8_sk_0_ball_synthetic.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_rechts.png", 
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/r8_kammerstengelkugel_schwarz.png", 
         "availableTriggers": [1,2,3] 
@@ -1238,7 +1243,8 @@
       { 
         "id": 2, 
         "name": "Drewniana kulka", 
-        "price": 150, 
+        "price": 150,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/icon-bolt-handle/R8_sk_h_ball_walnut.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_rechts.png", 
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/r8_kammerstengelkugel_holz.png", 
         "availableTriggers": [1,2,3]  
@@ -1246,7 +1252,8 @@
       { 
         "id": 3, 
         "name": "DLC - Diamond Like Carbon", 
-        "price": 150, 
+        "price": 150,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/icon-bolt-handle/R8_sk_d_ball_dlc.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_rechts.png", 
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-handle/r8_kammerstengelkugel_dlc.png",
         "availableTriggers": [1,2,3]  
@@ -1256,21 +1263,24 @@
       { 
         "id": 1, 
         "name": "Standardowy", 
-        "price": 0, 
+        "price": 0,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/R8_sz_0_az_abzug_normal.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_schwarz.png", 
         "availableBoltHeads": [1,2] 
       },
       { 
         "id": 2, 
         "name": "Złocony", 
-        "price": 200, 
+        "price": 200,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/R8_sz_g1_az_abzug_titannitrier.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_gold.png", 
         "availableBoltHeads": [1,2] 
       },
       { 
         "id": 3, 
-        "name": "DLC - Diamond Like Carbon", 
+        "name": "DLC - Diamond Like Carbon",
         "price": 200, 
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/SZD_abzug_dlc.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_dlc.png", 
         "availableBoltHeads": [1,2] 
       }
