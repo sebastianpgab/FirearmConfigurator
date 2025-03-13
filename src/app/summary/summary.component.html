@@ -1,1 +1,108 @@
-<p>summary works!</p>
+<section class="content">
+    <h1 class="section-title">Podsumowanie</h1>
+<app-rifle-preview></app-rifle-preview>
+
+<div class="summary-container">
+    <div *ngIf="state.selectedRifle" class="summary-item">
+      <span class="label">Karabin:</span>
+      <span class="value">{{ state.selectedRifle.name }}</span>
+    </div>
+    <div *ngIf="state.selectedHandConfiguration" class="summary-item">
+      <span class="label">Konfiguracja chwytu:</span>
+      <span class="value">{{ state.selectedHandConfiguration.name }}</span>
+    </div>
+    <div *ngIf="state.selectedContour" class="summary-item">
+      <span class="label">Kontur:</span>
+      <span class="value">{{ state.selectedContour.name }}</span>
+    </div>
+    <div *ngIf="state.selectedCaliber" class="summary-item">
+      <span class="label">Kaliber:</span>
+      <span class="value">{{ state.selectedCaliber.name }}</span>
+    </div>
+    <div *ngIf="state.selectedProfile" class="summary-item">
+      <span class="label">Profil:</span>
+      <span class="value">{{ state.selectedProfile.name }}</span>
+    </div>
+    <div *ngIf="state.selectedLength" class="summary-item">
+      <span class="label">Długość:</span>
+      <span class="value">{{ state.selectedLength.name }}</span>
+    </div>
+    <div *ngIf="state.selectedOpenSight" class="summary-item">
+      <span class="label">Celownik otwarty:</span>
+      <span class="value">{{ state.selectedOpenSight.name }}</span>
+    </div>
+    <div *ngIf="state.selectedMuzzleBrakeOrSuppressor" class="summary-item">
+      <span class="label">Hamulec / tłumik:</span>
+      <span class="value">{{ state.selectedMuzzleBrakeOrSuppressor.name }}</span>
+    </div>
+    <div *ngIf="state.selectedButtstockType" class="summary-item">
+      <span class="label">Typ kolby:</span>
+      <span class="value">{{ state.selectedButtstockType.name }}</span>
+    </div>
+    <div *ngIf="state.selectedWoodCategory" class="summary-item">
+      <span class="label">Kategoria drewna:</span>
+      <span class="value">{{ state.selectedWoodCategory.name }}</span>
+    </div>
+    <div *ngIf="state.selectedRecoilPad" class="summary-item">
+      <span class="label">Stopka / amortyzator odrzutu:</span>
+      <span class="value">{{ state.selectedRecoilPad.name }}</span>
+    </div>
+    <div *ngIf="state.selectedIndividualButtstockMeasure" class="summary-item">
+      <span class="label">Indywidualny wymiar kolby:</span>
+      <span class="value">{{ state.selectedIndividualButtstockMeasure.name }}</span>
+    </div>
+    <div *ngIf="state.selectedButtstockMeasuresType" class="summary-item">
+      <span class="label">Rodzaj wymiarów kolby:</span>
+      <span class="value">{{ state.selectedButtstockMeasuresType.name }}</span>
+    </div>
+    <div *ngIf="state.selectedPistolGripCap" class="summary-item">
+      <span class="label">Nasadka chwytu pistoletowego:</span>
+      <span class="value">{{ state.selectedPistolGripCap.name }}</span>
+    </div>
+    <div *ngIf="state.selectedKickstop" class="summary-item">
+      <span class="label">Kickstop:</span>
+      <span class="value">{{ state.selectedKickstop.name }}</span>
+    </div>
+    <div *ngIf="state.selectedStockMagazine" class="summary-item">
+      <span class="label">Magazynek w kolbie:</span>
+      <span class="value">{{ state.selectedStockMagazine.name }}</span>
+    </div>
+    <div *ngIf="state.selectedForearmOption" class="summary-item">
+      <span class="label">Opcja łoża:</span>
+      <span class="value">{{ state.selectedForearmOption.name }}</span>
+    </div>
+    <div *ngIf="state.selectedChamberEngraving" class="summary-item">
+      <span class="label">Grawerowanie komory:</span>
+      <span class="value">{{ state.selectedChamberEngraving.name }}</span>
+    </div>
+    <div *ngIf="state.selectedBoltHandle" class="summary-item">
+      <span class="label">Rączka zamka:</span>
+      <span class="value">{{ state.selectedBoltHandle.name }}</span>
+    </div>
+    <div *ngIf="state.selectedTrigger" class="summary-item">
+      <span class="label">Spust:</span>
+      <span class="value">{{ state.selectedTrigger.name }}</span>
+    </div>
+    <div *ngIf="state.selectedBoltHead" class="summary-item">
+      <span class="label">Głowica zamka:</span>
+      <span class="value">{{ state.selectedBoltHead.name }}</span>
+    </div>
+    <div *ngIf="state.selectedSlidingSafety" class="summary-item">
+      <span class="label">Bezpiecznik suwakowy:</span>
+      <span class="value">{{ state.selectedSlidingSafety.name }}</span>
+    </div>
+    <div *ngIf="state.selectedRifleSling" class="summary-item">
+      <span class="label">Pas do broni:</span>
+      <span class="value">{{ state.selectedRifleSling.name }}</span>
+    </div>
+    <div *ngIf="state.selectedSoftGunCover" class="summary-item">
+      <span class="label">Pokrowiec miękki:</span>
+      <span class="value">{{ state.selectedSoftGunCover.name }}</span>
+    </div>
+    <div *ngIf="state.selectedGunCase" class="summary-item">
+      <span class="label">Futerał / walizka:</span>
+      <span class="value">{{ state.selectedGunCase.name }}</span>
+    </div>
+  </div>
+  
+</section>
