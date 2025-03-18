@@ -136,8 +136,36 @@ body {
 }
 
 .container {
-    margin: 1%;
-    color: blue($color: #000000);
+  margin: 1%;
+  color: blue($color: #000000);
+
+  /* Maksymalna wysokość – doda przewijanie tylko wtedy, gdy treść będzie większa */
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Stylizacja paska przewijania */
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+  box-sizing: border-box;
+
+}
+
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 div {
@@ -269,7 +297,6 @@ div {
     padding-right: 20px; /* Więcej miejsca dla strzałki z prawej */
   }
   
-  
   .custom-button {
     background-color: #3f51b5; /* Primary color */
     color: white; /* Tekst w kolorze białym */
@@ -294,7 +321,7 @@ div {
   position: relative;
   width: 100%; /* Dynamiczna szerokość */
   max-width: 800px; /* Maksymalna szerokość na dużych ekranach */
-  height: auto;
+  height: 230px;
   aspect-ratio: 4/3; /* Zachowanie proporcji obrazu */
 }
 
@@ -306,6 +333,7 @@ div {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  margin-left: 5%;
 }
 
 .two-pixel-shift {
@@ -330,4 +358,33 @@ div {
   }
 }
 
+.summary-container {
+  background-color: #f9f9f9; /* Jasne tło */
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Lekki cień */
+  margin: 20px auto;
+  max-width: 600px;
+}
 
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0; /* Delikatna linia oddzielająca */
+  font-size: 16px;
+  color: #333; /* Ciemniejszy tekst dla kontrastu */
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: bold;
+  color: #555;
+}
+
+.value {
+  color: #222;
+}
