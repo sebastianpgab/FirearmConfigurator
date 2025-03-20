@@ -31,7 +31,12 @@ export class RifleComponent implements OnInit, OnDestroy {
     'pistolGripCap',
     'kickstop',
     'stockMagazine',
-    'forearmOption'
+    'forearmOption',
+    'chamberEngraving',
+    'boltHandle',
+    'trigger',
+    'boltHead',
+    'slidingSafety'
   ];
 
   private subscription!: Subscription;

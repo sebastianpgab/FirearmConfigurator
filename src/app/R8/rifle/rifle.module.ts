@@ -9,7 +9,7 @@ import { RifleComponent } from './rifle.component';
 
 
 @NgModule({
-  declarations: [RifleComponent],
+  declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,6 +17,6 @@ import { RifleComponent } from './rifle.component';
     MatFormFieldModule,
     MatSelectModule,
   ],
-  exports: [RifleComponent]
+  exports: []
 })
 export class RifleModule { }
