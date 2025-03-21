@@ -37,6 +37,9 @@ export class ConfiguratorService {
     selectedTrigger: null,
     selectedBoltHead: null,
     selectedSlidingSafety: null,
+    selectedRifleSling: null,
+    selectedSoftGunCover: null,
+    selectedGunCase: null,
     isDisabledHandConfiguration: true,
     isDisabledCaliber: true,
     isDisabledProfile: true,
@@ -54,7 +57,10 @@ export class ConfiguratorService {
     isDisabledBoltHandle: true,
     isDisabledTrigger: true,
     isDisabledBoltHead: true,
-    isDisabledSlidingSafety: true
+    isDisabledSlidingSafety: true,
+    isDisabledGunCase: true,
+    isDisabledSoftGunCover: true,
+    isDisabledRifleSling: true
   });
 
   /** Strumień do obserwowania stanu (np. w komponencie) */
@@ -124,70 +130,94 @@ export class ConfiguratorService {
   }
 
   /** Pomocnicza metoda do pobrania wybranej opcji na podstawie typu */
-  private getSelectedItem(type: 'openSight' | 'muzzleBrakeOrSuppressor') {
-    const { selectedOpenSight, selectedMuzzleBrakeOrSuppressor } = this.getState();
-    switch (type) {
-      case 'openSight':
-        return selectedOpenSight;
-      case 'muzzleBrakeOrSuppressor':
-        return selectedMuzzleBrakeOrSuppressor;
-      default:
-        return null;
+private getSelectedItem(
+  type: 'openSight' | 'muzzleBrakeOrSuppressor' | 'secondaryOpenSight'
+) {
+  const { selectedOpenSight, selectedMuzzleBrakeOrSuppressor } = this.getState();
+  
+  switch (type) {
+    case 'openSight':
+      return selectedOpenSight;
+    case 'secondaryOpenSight':
+      return selectedOpenSight; // Sekundarny openSight bazuje na tym samym obiekcie
+    case 'muzzleBrakeOrSuppressor':
+      return selectedMuzzleBrakeOrSuppressor;
+    default:
+      return null;
+  }
+}
+
+/** Pobiera pozycję na podstawie długości dla określonego typu elementu */
+private getBasePosition(
+  type: 'openSight' | 'secondaryOpenSight' | 'muzzleBrakeOrSuppressor',
+  length: number
+) {
+  const positionMap: Record<
+    string,
+    Record<number, { top: string; left: string }>
+  > = {
+    openSight: {
+      50: { top: '5%', left: '30%' },
+      52: { top: '0%', left: '-5.5%' },
+      58: { top: '0%', left: '-0.5%' },
+      65: { top: '8%', left: '36%' },
+      70: { top: '9%', left: '38%' }
+    },
+    secondaryOpenSight: {
+      50: { top: '0%', left: '25%' },
+      52: { top: '0%', left: '0%' },
+      58: { top: '0%', left: '0%' },
+      65: { top: '0%', left: '30%' },
+      70: { top: '0%', left: '35%' }
+    },
+    muzzleBrakeOrSuppressor: {
+      50: { top: '2%', left: '50%' },
+      52: { top: '0%', left: '2.3%' },
+      58: { top: '0%', left: '7%' },
+      65: { top: '5%', left: '44%' },
+      70: { top: '6%', left: '42%' }
     }
+  };
+  
+  return positionMap[type]?.[length] ?? { top: '0%', left: '0%' };
+}
+
+/** Pozycja dla pierwszego obrazu */
+public getAttachmentPosition(type: 'openSight' | 'muzzleBrakeOrSuppressor') {
+  const selectedItem = this.getSelectedItem(type);
+  if (!selectedItem) {
+    return { top: '0%', left: '0%' };
   }
 
-  /** Pobiera pozycję na podstawie długości dla określonego typu elementu */
-  private getBasePosition(
-    type: 'openSight' | 'muzzleBrakeOrSuppressor',
-    length: number
-  ) {
-    const positionMap: Record<
-      string,
-      Record<number, { top: string; left: string }>
-    > = {
-      openSight: {
-        50: { top: '5%', left: '30%' },
-        52: { top: '0%', left: '-5.5%' },
-        58: { top: '0%', left: '-0.5%' },
-        65: { top: '8%', left: '36%' },
-        70: { top: '9%', left: '38%' }
-      },
-      muzzleBrakeOrSuppressor: {
-        50: { top: '2%', left: '50%' },
-        52: { top: '0%', left: '2.2%' },
-        58: { top: '0%', left: '7%' },
-        65: { top: '5%', left: '44%' },
-        70: { top: '6%', left: '42%' }
-      }
+  const match = selectedItem.name.match(/\d+/);
+  const length = match ? parseInt(match[0], 10) : 0;
+  const position = this.getBasePosition(type, length);
+
+  // Dodatkowa korekta dla openSight, jeśli jest założony muzzle brake
+  const { selectedMuzzleBrakeOrSuppressor } = this.getState();
+  if (type === 'openSight' && selectedMuzzleBrakeOrSuppressor?.name) {
+    return {
+      top: position.top,
+      left: `calc(${position.left} - 0.8%)`
     };
-    return positionMap[type]?.[length] ?? { top: '0%', left: '0%' };
   }
 
-  /**
-   * Określa pozycję elementu (np. przyrządów celowniczych) na podstawie 
-   * wybranej opcji i długości lufy
-   */
-  public getAttachmentPosition(type: 'openSight' | 'muzzleBrakeOrSuppressor') {
-    const selectedItem = this.getSelectedItem(type);
-    if (!selectedItem) {
-      return { top: '0%', left: '0%' };
-    }
+  return position;
+}
 
-    // Pobranie długości z nazwy (np. "R8 - 52 cm")
-    const match = selectedItem.name.match(/\d+/);
-    const length = match ? parseInt(match[0], 10) : 0;
-    const position = this.getBasePosition(type, length);
-
-    // Jeśli mamy "gwint" (czyli muzzle brake/suppressor), przesuwamy openSight
-    const { selectedMuzzleBrakeOrSuppressor } = this.getState();
-    if (type === 'openSight' && selectedMuzzleBrakeOrSuppressor?.name) {
-      return {
-        top: position.top,
-        left: `calc(${position.left} - 0.8%)`
-      };
-    }
-    return position;
+/** Pozycja dla drugiego obrazu */
+public getSecondaryAttachmentPosition(type: 'secondaryOpenSight') {
+  const selectedItem = this.getSelectedItem(type); // Teraz działa na podstawie secondaryOpenSight
+  if (!selectedItem) {
+    return { top: '0%', left: '0%' };
   }
+
+  const match = selectedItem.name.match(/\d+/);
+  const length = match ? parseInt(match[0], 10) : 0;
+  const position = this.getBasePosition('secondaryOpenSight', length); 
+
+  return position;
+} 
 
   //Zmien opcje X gdy zostanie wybrana opcja Y
   public updateDependentFeature(
