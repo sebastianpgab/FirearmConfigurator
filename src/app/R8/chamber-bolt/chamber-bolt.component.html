@@ -2,21 +2,12 @@
     <section class="content">
       <h1 class="section-title">KOMORA ZAMKA</h1>
   
-      <div class="rifle-preview" *ngIf="state.selectedContour">
-        <img *ngIf="state.selectedContour" [src]="state.selectedContour.imageUrl" class="rifle-layer">
-        <img *ngIf="state.selectedProfile" [src]="state.selectedProfile.imageUrl" class="rifle-layer">
-        <img *ngIf="state.selectedOpenSight" [src]="state.selectedOpenSight.imageUrl" class="rifle-layer">
-        <img *ngIf="state.selectedMuzzleBrakeOrSuppressor" [src]="state.selectedMuzzleBrakeOrSuppressor.imageUrl" class="rifle-layer">
-        <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.imageUrl" class="rifle-layer">
-        <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.imageUrl" class="rifle-layer">
-        <img *ngIf="state.selectedPistolGripCap" [src]="state.selectedPistolGripCap.imageUrl" class="rifle-layer">
-        <img *ngIf="state.selectedForearmOption" [src]="state.selectedForearmOption.imageUrl" class="rifle-layer">
-      </div>
-  
+      <app-rifle-preview></app-rifle-preview>
+
       <div *ngIf="rifles.length > 0">
         <!-- Check if data exists -->
         <form class="container">
-  
+
           <!-- Chamber Engraving -->
           <mat-form-field appearance="fill" style="width: 100%;">
             <mat-label>Zdobienie Komory Zamkowe</mat-label>
@@ -28,7 +19,7 @@
             >
               <mat-option *ngFor="let engraving of chamberEngravings" [value]="engraving">
                 <div class="option-template">
-                  <img [src]="engraving.imageUrl" alt="{{ engraving.name }}" />
+                  <img [src]="engraving.iconImageUrl" alt="{{ engraving.name }}" />
                   <span>{{ engraving.name }}</span>
                 </div>
               </mat-option>
@@ -47,7 +38,7 @@
             >
               <mat-option *ngFor="let handle of boltHandles" [value]="handle">
                 <div class="option-template">
-                  <img [src]="handle.imageUrl" alt="{{ handle.name }}" />
+                  <img [src]="handle.iconImageUrl" alt="{{ handle.name }}" />
                   <span>{{ handle.name }}</span>
                 </div>
               </mat-option>
@@ -66,7 +57,7 @@
             >
               <mat-option *ngFor="let trigger of triggers" [value]="trigger">
                 <div class="option-template">
-                  <img [src]="trigger.imageUrl" alt="{{ trigger.name }}" />
+                  <img [src]="trigger.iconImageUrl" alt="{{ trigger.name }}" />
                   <span>{{ trigger.name }}</span>
                 </div>
               </mat-option>
@@ -92,24 +83,6 @@
             </mat-select>
           </mat-form-field>
   
-          <!-- Sliding Safety -->
-          <mat-form-field appearance="fill" style="width: 100%;">
-            <mat-label>Bezpiecznik suwakowy</mat-label>
-            <mat-select
-              [value]="state.selectedSlidingSafety"
-              [compareWith]="compareOptionsById"
-              (selectionChange)="onSelectSlidingSafety($event.value)"
-              placeholder="Wybierz bezpiecznik suwakowy"
-              [disabled]="state.isDisabledSlidingSafety"
-            >
-              <mat-option *ngFor="let safety of slidingSafeties" [value]="safety">
-                <div class="option-template">
-                  <img [src]="safety.imageUrl" alt="{{ safety.name }}" />
-                  <span>{{ safety.name }}</span>
-                </div>
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
         </form>
 
         <div class="button-container">

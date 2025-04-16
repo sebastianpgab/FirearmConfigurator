@@ -112,13 +112,6 @@ export class ChamberBoltComponent implements OnInit, OnDestroy {
     } else {
       this.boltHeads = [];
     }
-
-    // 5) Jeśli mamy wybrany Bolt Head, aktualizujemy listę slidingSafeties:
-    if (this.state?.selectedBoltHead) {
-      this.updateSlidingSafetiesBasedOnBoltHead();
-    } else {
-      this.slidingSafeties = [];
-    }
   }
 
   // ------------------------------------------
@@ -196,22 +189,8 @@ export class ChamberBoltComponent implements OnInit, OnDestroy {
     this.configuratorService.resetOptionsAfter("boltHead", this.optionHierarchy);
     this.configuratorService.updateState({
       selectedBoltHead: newBoltHead,
-      isDisabledSlidingSafety: false,
     });
 
-    this.updateSlidingSafetiesBasedOnBoltHead();
-  }
-
-  onSelectSlidingSafety(newSlidingSafety: Option): void {
-    const oldSlidingSafetyId = this.state.selectedSlidingSafety?.id;
-    if (oldSlidingSafetyId === newSlidingSafety.id) {
-      return;
-    }
-
-    this.configuratorService.resetOptionsAfter("slidingSafety", this.optionHierarchy);
-    this.configuratorService.updateState({
-      selectedSlidingSafety: newSlidingSafety,
-    });
   }
 
   // ------------------------------------------
@@ -263,18 +242,6 @@ export class ChamberBoltComponent implements OnInit, OnDestroy {
       );
     } else {
       this.boltHeads = [];
-    }
-  }
-
-  private updateSlidingSafetiesBasedOnBoltHead(): void {
-    if (this.state.selectedBoltHead) {
-      this.slidingSafeties = this.configuratorService.filterOptions(
-        this.features,
-        "slidingSafeties",
-        this.state.selectedBoltHead.availableSlidingSafeties
-      );
-    } else {
-      this.slidingSafeties = [];
     }
   }
 

@@ -36,7 +36,6 @@ export class ConfiguratorService {
     selectedBoltHandle: null,
     selectedTrigger: null,
     selectedBoltHead: null,
-    selectedSlidingSafety: null,
     selectedRifleSling: null,
     selectedSoftGunCover: null,
     selectedGunCase: null,
@@ -57,7 +56,6 @@ export class ConfiguratorService {
     isDisabledBoltHandle: true,
     isDisabledTrigger: true,
     isDisabledBoltHead: true,
-    isDisabledSlidingSafety: true,
     isDisabledGunCase: true,
     isDisabledSoftGunCover: true,
     isDisabledRifleSling: true
