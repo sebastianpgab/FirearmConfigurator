@@ -1,0 +1,88 @@
+/************************************************************
+   OPTYMALIZACJA FORMULARZA
+************************************************************/
+
+/* Kontener formularza kontaktowego, np. w contact.component.scss */
+.contact-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  
+    /* Nadpisanie globalnego marginesu dla div */
+    div {
+      margin: 0 !important;
+      box-sizing: border-box;
+    }
+  }
+  
+  /* Ewentualny tytuł formularza */
+  .contact-title {
+    margin: 0 0 16px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Prosta definicja form-group bez sztywnych szerokości */
+  .form-group {
+    width: 100%;          /* Elastyczna szerokość */
+    margin-bottom: 16px;  /* stały odstęp między polami */
+    padding: 0;           /* lub 10px – wedle gustu */
+    border: none;         /* brak obramowania, jeżeli nie chcesz wewn. kwadratów */
+    border-radius: 0;
+    background: none;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Same inputy/textarea z delikatną obwódką */
+  input,
+  textarea {
+    width: 100%;  
+    max-width: 100%;    /* pozwala się skurczyć w mniejszych kontenerach */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  
+    &:hover {
+      border-color: #007bff;
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+    }
+    
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+  
+  textarea {
+    resize: none;
+    height: 80px; /* Wystarczająca wysokość na wiadomość */
+  }
+  
+  /* Przycisk odwołuje się do Twoich globalnych stylów button */
+  button {
+    margin-top: 10px;
+    width: 100%;
+    /* Kolor i styl tła odziedziczy z globalnego button (czerwony). */
+  }
+  
