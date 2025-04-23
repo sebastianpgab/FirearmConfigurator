@@ -1,0 +1,110 @@
+<body>
+  <section class="content">
+    <app-rifle-preview></app-rifle-preview>
+
+    <div *ngIf="rifles.length > 0">
+      <form class="container">
+
+        <!-- Kolor kolby -->
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="stockColor.length">
+          <mat-label>Kolor Kolby</mat-label>
+          <mat-select
+            [value]="state.selectedStockColor"
+            (selectionChange)="onSelectStockColorSynthetic($event.value)"
+            [compareWith]="compareOptionsById"
+            placeholder="Wybierz kolor kolby"
+          >
+            <mat-option *ngFor="let color of stockColor" [value]="color">
+              <div class="option-template">
+                <img [src]="color.iconImageUrl" alt="{{ color.name }}" />
+                <span>{{ color.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Stock Inlay -->
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="stockInlays.length">
+          <mat-label>Stock Inlay</mat-label>
+          <mat-select
+            [value]="state.selectedStockInlay"
+            (selectionChange)="onSelectStockInlaySynthetic($event.value)"
+            [compareWith]="compareOptionsById"
+            placeholder="Wybierz Stock Inlay"
+          >
+            <mat-option *ngFor="let inlay of stockInlays" [value]="inlay">
+              <div class="option-template">
+                <img [src]="inlay.iconImageUrl" alt="{{ inlay.name }}" />
+                <span>{{ inlay.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Modular Stock Option -->
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="modularStockOptions.length">
+          <mat-label>Modułowa Kolba</mat-label>
+          <mat-select
+            [value]="state.selectedModularStockOption"
+            (selectionChange)="onSelectModularStockOptionSynthetic($event.value)"
+            [compareWith]="compareOptionsById"
+            placeholder="Wybierz moduł kolby"
+          >
+            <mat-option *ngFor="let option of modularStockOptions" [value]="option">
+              <div class="option-template">
+                <img [src]="option.iconImageUrl" alt="{{ option.name }}" />
+                <span>{{ option.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Recoil Pad -->
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="recoilPads.length">
+          <mat-label>Stopka</mat-label>
+          <mat-select
+            [value]="state.selectedRecoilPad"
+            (selectionChange)="onSelectRecoilPadSynthetic($event.value)"
+            [compareWith]="compareOptionsById"
+            placeholder="Wybierz stopkę"
+          >
+            <mat-option *ngFor="let pad of recoilPads" [value]="pad">
+              <div class="option-template">
+                <img [src]="pad.iconImageUrl" alt="{{ pad.name }}" />
+                <span>{{ pad.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Kickstop -->
+        <mat-form-field appearance="fill" style="width: 100%;" *ngIf="kickstops.length">
+          <mat-label>Kickstop</mat-label>
+          <mat-select
+            [value]="state.selectedKickstop"
+            (selectionChange)="onSelectKickstopSynthetic($event.value)"
+            [compareWith]="compareOptionsById"
+            placeholder="Wybierz Kickstop"
+          >
+            <mat-option *ngFor="let kick of kickstops" [value]="kick">
+              <div class="option-template">
+                <img [src]="kick.iconImageUrl" alt="{{ kick.name }}" />
+                <span>{{ kick.name }}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </form>
+
+      <div class="button-container">
+        <button class="back-button" (click)="onBack()">← Cofnij</button>
+        <button class="next-button" (click)="onNext()">Dalej →</button>
+      </div>
+    </div>
+
+    <div *ngIf="rifles.length === 0">
+      <p>Brak danych do wyświetlenia.</p>
+    </div>
+  </section>
+</body>
