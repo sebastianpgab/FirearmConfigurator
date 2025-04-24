@@ -4,9 +4,16 @@
     
     <app-rifle-preview></app-rifle-preview>
 
+    <ng-container *ngIf="shouldShowSyntheticStock(); else woodStockForm">
+      <app-synthetic-stock></app-synthetic-stock>
+    </ng-container>
+
+    <ng-template #woodStockForm>
     <div *ngIf="rifles.length > 0">
       <!-- Sprawdzamy, czy mamy dane -->
+
       <form class="container">
+        
         <!-- Typ Kolby -->
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Typ Kolby</mat-label>
@@ -18,7 +25,7 @@
           >
           <mat-option *ngFor="let buttstockType of buttstockTypes" [value]="buttstockType">
             <div class="option-template">
-              <img [src]="buttstockType.imageUrl" alt="{{ buttstockType.name }}" />
+              <img [src]="buttstockType.iconImageUrl" alt="{{ buttstockType.name }}" />
               <span>{{ buttstockType.name }}</span>
             </div>
           </mat-option>
@@ -37,7 +44,7 @@
           >
           <mat-option *ngFor="let woodCategory of woodCategories" [value]="woodCategory">
             <div class="option-template">
-              <img [src]="woodCategory.imageUrl" alt="{{ woodCategory.name }}" />
+              <img [src]="woodCategory.iconImageUrl" alt="{{ woodCategory.name }}" />
               <span>{{ woodCategory.name }}</span>
             </div>
           </mat-option>
@@ -56,7 +63,7 @@
           >
           <mat-option *ngFor="let recoilPad of recoilPads" [value]="recoilPad">
             <div class="option-template">
-              <img [src]="recoilPad.imageUrl" alt="{{ recoilPad.name }}" />
+              <img [src]="recoilPad.iconImageUrl" alt="{{ recoilPad.name }}" />
               <span>{{ recoilPad.name }}</span>
             </div>
           </mat-option>
@@ -144,10 +151,10 @@
         <button class="back-button" (click)="onBack()">← Cofnij</button>
         <button class="next-button" (click)="onNext()">Dalej →</button>
       </div>
-
     </div>
     <div *ngIf="rifles.length === 0">
       <p>Brak danych do wyświetlenia.</p>
     </div>
+  </ng-template>
   </section>
 </body>
