@@ -1,22 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
 import { Rifle } from '../rifle/model';
 import { Option } from "../option/model";
-import { Router } from '@angular/router';
 import { ConfiguratorService } from 'src/app/core/services/configurator.service';
-
 
 @Component({
   selector: 'app-synthetic-stock',
   templateUrl: './synthetic-stock.component.html',
-  styles: [
-  ]
+  styleUrls: []
 })
-export class SyntheticStockComponent {
-
+export class SyntheticStockComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
-
   private optionHierarchy = [
+    "stockColor",
     "stockInlay",
     "modularStockOption",
     "recoilPad",
@@ -26,8 +24,12 @@ export class SyntheticStockComponent {
   features: any;
   rifles: Rifle[] = [];
   allStockColors: Option[] = [];
+  allInlays: Option[] = [];
+  allModularOptions: Option[] = [];
+  allRecoilPads: Option[] = [];
+  allKickstops: Option[] = [];
 
-  stockColor: Option[] = [];
+  stockColors: Option[] = [];
   stockInlays: Option[] = [];
   modularStockOptions: Option[] = [];
   recoilPads: Option[] = [];
@@ -37,7 +39,8 @@ export class SyntheticStockComponent {
 
   constructor(
     private router: Router,
-    private configuratorService: ConfiguratorService
+    private configuratorService: ConfiguratorService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -49,131 +52,103 @@ export class SyntheticStockComponent {
       (data) => {
         this.features = data.features;
         this.rifles = data.rifles;
-        this.allStockColors = this.features.allStockColors;
+
+        this.allStockColors = this.features.stockColorsSynthetic;
+        this.allInlays = this.features.stockInlaysSynthetic;
+        this.allModularOptions = this.features.modularStockOptionsSynthetic;
+        this.allRecoilPads = this.features.recoilPadsSynthetic;
+        this.allKickstops = this.features.kickstopsSynthetic;
 
         this.restoreSelections();
       },
-      (error) => {
-        console.error("Błąd przy ładowaniu danych:", error);
-      }
+      (error) => console.error("Błąd przy ładowaniu danych:", error)
     );
   }
 
-  restoreSelections() {
-    this.updateStockColorBasedOnRifle();
-    this.loadNextAvailableOption();
+  ngOnDestroy(): void {
+    if (this.subscription) this.subscription.unsubscribe();
   }
 
-  onStockColorChange(color: Option) {
-    this.state.selectedStockColor = color;
-    this.loadNextAvailableOption();
+  compareOptionsById = (o1: Option, o2: Option): boolean => {
+    return o1 && o2 ? o1.id === o2.id : o1 === o2;
+  };
+
+  shouldShowOption(key: string): boolean {
+    const rifle = this.state.selectedRifle;
+    return rifle && Array.isArray(rifle[`available${key}`]) && rifle[`available${key}`].length > 0;
   }
 
-  private loadNextAvailableOption(): void {
-    for (const optionName of this.optionHierarchy) {
-      const methodName = `update${this.capitalizeFirstLetter(optionName)}`;
-      if (typeof (this as any)[methodName] === 'function') {
-        const updated = (this as any)[methodName]();
-        if (updated) break;
-      }
-    }
+  private restoreSelections(): void {
+    this.updateStockColorsBasedOnRifle();
+
+    if (this.state.selectedStockColorSynthetic) this.updateStockInlay();
+    if (this.state.selectedStockInlaySynthetic) this.updateModularStockOption();
+    if (this.state.selectedModularStockOptionSynthetic) this.updateRecoilPad();
+    if (this.state.selectedRecoilPadSynthetic) this.updateKickstop();
   }
 
-  private capitalizeFirstLetter(str: string): string {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+  private updateStockColorsBasedOnRifle(): void {
+    const ids = this.state.selectedRifle?.availableStockColorsSynthetic || [];
+    this.stockColors = this.allStockColors.filter(opt => ids.includes(opt.id));
   }
 
-  private updateStockColorBasedOnRifle(): void {
-    if (this.state.selectedRifle) {
-      const availableStockColorIds = this.state.selectedRifle.availableButtstockTypes;
-      this.stockColor = this.allStockColors.filter((option) =>
-        availableStockColorIds.includes(option.id)
-      );
-    } else {
-      this.stockColor = [];
-    }
+  private updateStockInlay(): void {
+    const ids = this.state.selectedRifle?.availableStockInlaysSynthetic || [];
+    this.stockInlays = this.allInlays.filter(opt => ids.includes(opt.id));
   }
 
-  private updateStockInlay(): boolean {
-    if (this.state.selectedStockColor) {
-      const stockInlayIds = this.state.selectedRifle.availableStockInlays
-        ?? this.state.selectedStockColor.availableStockInlays;
-
-      if (stockInlayIds && stockInlayIds.length > 0) {
-        this.stockInlays = this.configuratorService.filterOptions(
-          this.features,
-          "stockInlays",
-          stockInlayIds
-        );
-        return true;
-      }
-    }
-    this.stockInlays = [];
-    return false;
+  private updateModularStockOption(): void {
+    const ids = this.state.selectedRifle?.availableModularStockOptionsSynthetic || [];
+    this.modularStockOptions = this.allModularOptions.filter(opt => ids.includes(opt.id));
   }
 
-  private updateModularStockOption(): boolean {
-    if (this.state.selectedStockColor) {
-      const modularOptionIds = this.state.selectedRifle.availableModularStockOptions
-        ?? this.state.selectedStockColor.availableModularStockOptions;
-
-      if (modularOptionIds && modularOptionIds.length > 0) {
-        this.modularStockOptions = this.configuratorService.filterOptions(
-          this.features,
-          "modularStockOptions",
-          modularOptionIds
-        );
-        return true;
-      }
-    }
-    this.modularStockOptions = [];
-    return false;
+  private updateRecoilPad(): void {
+    const ids = this.state.selectedRifle?.availableRecoilPadsSynthetic || [];
+    this.recoilPads = this.allRecoilPads.filter(opt => ids.includes(opt.id));
   }
 
-  private updateRecoilPad(): boolean {
-    if (this.state.selectedStockColor) {
-      const recoilPadIds = this.state.selectedRifle.availableRecoilPads
-        ?? this.state.selectedStockColor.availableRecoilPads;
-
-      if (recoilPadIds && recoilPadIds.length > 0) {
-        this.recoilPads = this.configuratorService.filterOptions(
-          this.features,
-          "recoilPads",
-          recoilPadIds
-        );
-        return true;
-      }
-    }
-    this.recoilPads = [];
-    return false;
+  private updateKickstop(): void {
+    const ids = this.state.selectedRifle?.availableKickstopsSynthetic || [];
+    this.kickstops = this.allKickstops.filter(opt => ids.includes(opt.id));
   }
 
-  private updateKickstop(): boolean {
-    if (this.state.selectedStockColor) {
-      const kickstopIds = this.state.selectedRifle.availableKickstops
-        ?? this.state.selectedStockColor.availableKickstops;
+  onSelectStockColorSynthetic(option: Option): void {
+    this.configuratorService.resetOptionsAfter("stockColor", this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedStockColorSynthetic: option
+    });
 
-      if (kickstopIds && kickstopIds.length > 0) {
-        this.kickstops = this.configuratorService.filterOptions(
-          this.features,
-          "kickstops",
-          kickstopIds
-        );
-        return true;
-      }
-    }
-    this.kickstops = [];
-    return false;
+    this.updateStockInlay();
+    this.updateModularStockOption();
+    this.updateRecoilPad();
+    this.updateKickstop();
+    this.cdr.detectChanges();
+  }
+
+  onSelectStockInlaySynthetic(option: Option): void {
+    this.configuratorService.resetOptionsAfter("stockInlay", this.optionHierarchy);
+    this.configuratorService.updateState({ selectedStockInlaySynthetic: option });
+  }
+
+  onSelectModularStockOptionSynthetic(option: Option): void {
+    this.configuratorService.resetOptionsAfter("modularStockOption", this.optionHierarchy);
+    this.configuratorService.updateState({ selectedModularStockOptionSynthetic: option });
+  }
+
+  onSelectRecoilPadSynthetic(option: Option): void {
+    this.configuratorService.resetOptionsAfter("recoilPad", this.optionHierarchy);
+    this.configuratorService.updateState({ selectedRecoilPadSynthetic: option });
+  }
+
+  onSelectKickstopSynthetic(option: Option): void {
+    this.configuratorService.updateState({ selectedKickstopSynthetic: option });
   }
 
   onNext(): void {
-    // Przejście do kolejnego kroku, np. chamberBolt
     this.router.navigate(["/r8/chamberBolt"]);
   }
 
   onBack(): void {
-    // Powrót do poprzedniego ekranu, np. barrel
     this.router.navigate(["/r8/barrel"]);
   }
 }
-
