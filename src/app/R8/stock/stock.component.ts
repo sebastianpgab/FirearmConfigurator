@@ -24,7 +24,6 @@ export class StockComponent implements OnInit, OnDestroy {
     "woodCategory",
     "recoilPad",
     "pistolGripCap",
-    "kickstop",
     "stockMagazine",
     "forearmOption",
   ];
@@ -38,8 +37,6 @@ export class StockComponent implements OnInit, OnDestroy {
   buttstockTypes: Option[] = [];
   woodCategories: Option[] = [];
   recoilPads: Option[] = [];
-  //individualButtstockMeasures: Option[] = [];
-  //buttstockMeasuresTypes: Option[] = [];
   pistolGripCaps: Option[] = [];
   kickstops: Option[] = [];
   stockMagazines: Option[] = [];
@@ -81,6 +78,11 @@ export class StockComponent implements OnInit, OnDestroy {
     }
   }
 
+  shouldShowSyntheticStock(): boolean {
+    const rifleName = this.state?.selectedRifle?.name || '';
+    return rifleName.startsWith('Blaser R8 Professional') || rifleName.startsWith('Blaser R8 Ultimate');
+  }
+  
   /**
    * compareOptionsById – funkcja pomocnicza do [compareWith] w mat-select,
    * umożliwia Angularowi wykrycie tej samej opcji (po id), nawet gdy obiekt jest inny referencyjnie.
@@ -143,11 +145,11 @@ export class StockComponent implements OnInit, OnDestroy {
 
   private updateWoodCategoryForSelectedButtstockType(): void {
     if (this.state.selectedButtstockType) {
-      const woodCategoryIds = this.state.selectedButtstockType.availableWoodCategories;
+      const woodCategoryIds = this.state.selectedRifle.availableWoodCategories ?? this.state.selectedButtstockType.availableWoodCategories;
       this.woodCategories = this.configuratorService.filterOptions(
         this.features,
         "woodCategories",
-        woodCategoryIds
+        woodCategoryIds      
       );
     } else {
       this.woodCategories = [];
@@ -317,10 +319,20 @@ export class StockComponent implements OnInit, OnDestroy {
 
   onSelectForearmOption(newForearm: Option): void {
     const oldId = this.state.selectedForearmOption?.id;
-    if (oldId === newForearm.id) {
-      return;
-    }
 
+    if (newForearm.id === 1) {  
+      const availableIds = this.state.selectedStockMagazine?.availableForearmOptions ?? [];
+    
+      this.configuratorService.updateDependentFeature(
+        this.features,            // Obiekt z dostępnymi opcjami
+        "forearmOptions",  // Klucz zmienianej opcji (na podstawie czego zmieniamy)
+        availableIds,             // Lista dostępnych opcji
+        "kickstops",       // Klucz opcji, którą zmieniamy
+        1, // Nowe ID do ustawienia
+        "selectedKickstop"    //Wybra opcja                   
+      );
+    }
+    
     this.configuratorService.resetOptionsAfter("forearmOption", this.optionHierarchy);
     this.configuratorService.updateState({
       selectedForearmOption: newForearm,
