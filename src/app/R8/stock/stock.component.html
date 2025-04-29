@@ -1,160 +1,164 @@
 <body>
   <section class="content">
     <h1 class="section-title">KOLBA</h1>
-    
+
     <app-rifle-preview></app-rifle-preview>
 
-    <ng-container *ngIf="shouldShowSyntheticStock(); else woodStockForm">
-      <app-synthetic-stock></app-synthetic-stock>
+    <!-- Jeśli jest selectedRifle -->
+    <ng-container *ngIf="state?.selectedRifle; else woodStockForm">
+      
+      <!-- Jeśli syntetyczna kolba -->
+      <ng-container *ngIf="shouldShowSyntheticStock(); else woodStockForm">
+        <app-synthetic-stock></app-synthetic-stock>
+      </ng-container>
+    
     </ng-container>
 
+    <!-- Domyślny formularz kolby drewnianej -->
     <ng-template #woodStockForm>
-    <div *ngIf="rifles.length > 0">
-      <!-- Sprawdzamy, czy mamy dane -->
+      <div>
+        <form class="container">
 
-      <form class="container">
-        
-        <!-- Typ Kolby -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Typ Kolby</mat-label>
-          <mat-select
-            [value]="state.selectedButtstockType"
-            [compareWith]="compareOptionsById"
-            (selectionChange)="onSelectButtstockType($event.value)"
-            placeholder="Wybierz typ kolby"
-          >
-          <mat-option *ngFor="let buttstockType of buttstockTypes" [value]="buttstockType">
-            <div class="option-template">
-              <img [src]="buttstockType.iconImageUrl" alt="{{ buttstockType.name }}" />
-              <span>{{ buttstockType.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Kategoria Drewna -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Kategoria Drewna</mat-label>
-          <mat-select
-            [value]="state.selectedWoodCategory"
-            [compareWith]="compareOptionsById"
-            placeholder="Wybierz kategorię drewna"
-            [disabled]="state.isDisabledWoodCategory"
-            (selectionChange)="onSelectWoodCategory($event.value)"
-          >
-          <mat-option *ngFor="let woodCategory of woodCategories" [value]="woodCategory">
-            <div class="option-template">
-              <img [src]="woodCategory.iconImageUrl" alt="{{ woodCategory.name }}" />
-              <span>{{ woodCategory.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Długość Naciągu -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Długość stopki</mat-label>
-          <mat-select
-            [value]="state.selectedRecoilPad"
-            [compareWith]="compareOptionsById"
-            [disabled]="state.isDisabledRecoilPad"
-            (selectionChange)="onSelectRecoilPad($event.value)"
-            placeholder="Wybierz dlugość stopki"
-          >
-          <mat-option *ngFor="let recoilPad of recoilPads" [value]="recoilPad">
-            <div class="option-template">
-              <img [src]="recoilPad.iconImageUrl" alt="{{ recoilPad.name }}" />
-              <span>{{ recoilPad.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Nasadka na Chwyt Pistoletowy -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Nasadka na Chwyt Pistoletowy</mat-label>
-          <mat-select
-            [value]="state.selectedPistolGripCap"
-            [compareWith]="compareOptionsById"
-            (selectionChange)="onSelectPistolGripCap($event.value)"
-            placeholder="Wybierz opcję"
-            [disabled]="state.isDisabledPistolGripCap"
-          >
-          <mat-option *ngFor="let pistolGripCap of pistolGripCaps" [value]="pistolGripCap">
-            <div class="option-template">
-              <img [src]="pistolGripCap.imageUrl" alt="{{ pistolGripCap.name }}" />
-              <span>{{ pistolGripCap.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Kickstop -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Kickstop</mat-label>
-          <mat-select
-            [value]="state.selectedKickstop"
-            [compareWith]="compareOptionsById"
-            (selectionChange)="onSelectKickstop($event.value)"
-            placeholder="Wybierz kickstop"
-            [disabled]="state.isDisabledKickstop"
-          >
-          <mat-option *ngFor="let kickstop of kickstops" [value]="kickstop">
-            <div class="option-template">
-              <img [src]="kickstop.imageUrl" alt="{{ kickstop.name }}" />
-              <span>{{ kickstop.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Magazyn w Kolbie -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Magazyn w Kolbie</mat-label>
-          <mat-select
-            [value]="state.selectedStockMagazine"
-            [compareWith]="compareOptionsById"
-            (selectionChange)="onSelectStockMagazine($event.value)"
-            placeholder="Wybierz magazyn"
-            [disabled]="state.isDisabledStockMagazine"
-          >
-          <mat-option *ngFor="let stockMagazine of stockMagazines" [value]="stockMagazine">
-            <div class="option-template">
-              <img [src]="stockMagazine.imageUrl" alt="{{ stockMagazine.name }}" />
-              <span>{{ stockMagazine.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Opcja Przedłużenia -->
-        <mat-form-field appearance="fill" style="width: 100%;">
-          <mat-label>Opcja Przedłużenia</mat-label>
-          <mat-select
-            [value]="state.selectedForearmOption"
-            [compareWith]="compareOptionsById"
-            (selectionChange)="onSelectForearmOption($event.value)"
-            placeholder="Wybierz opcję"
-            [disabled]="state.isDisabledForearmOption"
-          >
-          <mat-option *ngFor="let forearmOption of forearmOptions" [value]="forearmOption">
-            <div class="option-template">
-              <img [src]="forearmOption.imageUrl" alt="{{ forearmOption.name }}" />
-              <span>{{ forearmOption.name }}</span>
-            </div>
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </form>
+          <!-- Typ Kolby -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Typ Kolby</mat-label>
+            <mat-select
+              [value]="state.selectedButtstockType"
+              [compareWith]="compareOptionsById"
+              (selectionChange)="onSelectButtstockType($event.value)"
+              placeholder="Wybierz typ kolby"
+            >
+              <mat-option *ngFor="let buttstockType of buttstockTypes" [value]="buttstockType">
+                <div class="option-template">
+                  <img [src]="buttstockType.iconImageUrl" alt="{{ buttstockType.name }}" />
+                  <span>{{ buttstockType.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-      <div class="button-container">
-        <button class="back-button" (click)="onBack()">← Cofnij</button>
-        <button class="next-button" (click)="onNext()">Dalej →</button>
+          <!-- Kategoria Drewna -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Kategoria Drewna</mat-label>
+            <mat-select
+              [value]="state.selectedWoodCategory"
+              [compareWith]="compareOptionsById"
+              placeholder="Wybierz kategorię drewna"
+              [disabled]="state.isDisabledWoodCategory"
+              (selectionChange)="onSelectWoodCategory($event.value)"
+            >
+              <mat-option *ngFor="let woodCategory of woodCategories" [value]="woodCategory">
+                <div class="option-template">
+                  <img [src]="woodCategory.iconImageUrl" alt="{{ woodCategory.name }}" />
+                  <span>{{ woodCategory.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Długość Stopki -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Długość stopki</mat-label>
+            <mat-select
+              [value]="state.selectedRecoilPad"
+              [compareWith]="compareOptionsById"
+              [disabled]="state.isDisabledRecoilPad"
+              (selectionChange)="onSelectRecoilPad($event.value)"
+              placeholder="Wybierz długość stopki"
+            >
+              <mat-option *ngFor="let recoilPad of recoilPads" [value]="recoilPad">
+                <div class="option-template">
+                  <img [src]="recoilPad.iconImageUrl" alt="{{ recoilPad.name }}" />
+                  <span>{{ recoilPad.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Kapsel -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Kapsel</mat-label>
+            <mat-select
+              [value]="state.selectedPistolGripCap"
+              [compareWith]="compareOptionsById"
+              (selectionChange)="onSelectPistolGripCap($event.value)"
+              placeholder="Wybierz kapsel"
+              [disabled]="state.isDisabledPistolGripCap"
+            >
+              <mat-option *ngFor="let pistolGripCap of pistolGripCaps" [value]="pistolGripCap">
+                <div class="option-template">
+                  <img [src]="pistolGripCap.imageUrl" alt="{{ pistolGripCap.name }}" />
+                  <span>{{ pistolGripCap.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Kickstop -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Kickstop</mat-label>
+            <mat-select
+              [value]="state.selectedKickstop"
+              [compareWith]="compareOptionsById"
+              (selectionChange)="onSelectKickstop($event.value)"
+              placeholder="Wybierz kickstop"
+              [disabled]="state.isDisabledKickstop"
+            >
+              <mat-option *ngFor="let kickstop of kickstops" [value]="kickstop">
+                <div class="option-template">
+                  <img [src]="kickstop.imageUrl" alt="{{ kickstop.name }}" />
+                  <span>{{ kickstop.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Magazyn w Kolbie -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Magazyn w Kolbie</mat-label>
+            <mat-select
+              [value]="state.selectedStockMagazine"
+              [compareWith]="compareOptionsById"
+              (selectionChange)="onSelectStockMagazine($event.value)"
+              placeholder="Wybierz magazyn"
+              [disabled]="state.isDisabledStockMagazine"
+            >
+              <mat-option *ngFor="let stockMagazine of stockMagazines" [value]="stockMagazine">
+                <div class="option-template">
+                  <img [src]="stockMagazine.imageUrl" alt="{{ stockMagazine.name }}" />
+                  <span>{{ stockMagazine.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Opcja Przedłużenia -->
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Opcja Przedłużenia</mat-label>
+            <mat-select
+              [value]="state.selectedForearmOption"
+              [compareWith]="compareOptionsById"
+              (selectionChange)="onSelectForearmOption($event.value)"
+              placeholder="Wybierz opcję przedłużenia"
+              [disabled]="state.isDisabledForearmOption"
+            >
+              <mat-option *ngFor="let forearmOption of forearmOptions" [value]="forearmOption">
+                <div class="option-template">
+                  <img [src]="forearmOption.imageUrl" alt="{{ forearmOption.name }}" />
+                  <span>{{ forearmOption.name }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </form>
+
+        <div class="button-container">
+          <button class="back-button" (click)="onBack()">← Cofnij</button>
+          <button class="next-button" (click)="onNext()">Dalej →</button>
+        </div>
       </div>
-    </div>
-    <div *ngIf="rifles.length === 0">
-      <p>Brak danych do wyświetlenia.</p>
-    </div>
-  </ng-template>
+    </ng-template>
+
   </section>
 </body>
