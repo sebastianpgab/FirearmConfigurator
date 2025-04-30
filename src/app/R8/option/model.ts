@@ -2,6 +2,7 @@ export interface Option{
     id: number,
     name: string,
     price: number,
+    iconImageUrl?: string;
     imageUrl?: string;
     secondaryImageUrl?: string;
     availableCalibers?: [];
@@ -19,4 +20,8 @@ export interface Option{
     availableStockMagazines? : [];
     availableForearmOptions?: [];
     availableBoltHandles?: [];
+    availableStockInlaysSynthetic?: [];
+    availableModularStockOptionsSynthetic?: [];
+    availableRecoilPadsSynthetic?: [];
+    availableKickstopsSynthetic?: [];
 }

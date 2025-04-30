@@ -10,6 +10,11 @@ export interface ConfiguratorState {
     selectedLength: Option | null;
     selectedOpenSight: Option | null;
     selectedMuzzleBrakeOrSuppressor: Option | null;
+    selectedStockColorSynthetic: Option | null;
+    selectedStockInlaySynthetic: Option | null;
+    selectedModularStockOptionSynthetic: Option | null;
+    selectedRecoilPadSynthetic: Option | null;
+    selectedKickstopSynthetic: Option | null;
     selectedButtstockType: Option | null;
     selectedWoodCategory: Option | null;
     selectedRecoilPad: Option | null;
@@ -23,13 +28,19 @@ export interface ConfiguratorState {
     selectedBoltHandle: Option | null;
     selectedTrigger: Option | null;
     selectedBoltHead: Option | null;
-    selectedSlidingSafety: Option | null;
+    selectedRifleSling: Option | null;
+    selectedSoftGunCover: Option | null;
+    selectedGunCase: Option | null;
     isDisabledHandConfiguration: boolean;
     isDisabledCaliber: boolean;
     isDisabledProfile: boolean;
     isDisabledLength: boolean;
     isDisabledOpenSight: boolean;
     isDisabledMuzzleBrakeOrSuppressor: boolean;
+    isDisabledStockInlaySynthetic: boolean;
+    isDisabledModularStockOptionSynthetic: boolean;
+    isDisabledRecoilPadSynthetic: boolean;
+    isDisabledKickstopSynthetic: boolean;
     isDisabledWoodCategory: boolean;
     isDisabledRecoilPad: boolean;
     isDisabledIndividualButtstockMeasure: boolean;
@@ -41,6 +52,9 @@ export interface ConfiguratorState {
     isDisabledBoltHandle: boolean;
     isDisabledTrigger: boolean;
     isDisabledBoltHead: boolean;
-    isDisabledSlidingSafety: boolean;
+    isDisabledGunCase: boolean;
+    isDisabledSoftGunCover: boolean;
+    isDisabledRifleSling: boolean;
+
   }
   
