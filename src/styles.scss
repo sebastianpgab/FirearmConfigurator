@@ -135,38 +135,6 @@ body {
   display: block;
 }
 
-.container {
-  margin: 1%;
-  color: blue($color: #000000);
-
-  /* Maksymalna wysokość – doda przewijanie tylko wtedy, gdy treść będzie większa */
-  max-height: 400px;
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  /* Stylizacja paska przewijania */
-  scrollbar-width: thin;
-  scrollbar-color: #888 #f1f1f1;
-  box-sizing: border-box;
-
-}
-
-.container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.container::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
-
-.container::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 div {
     margin: 1%;
@@ -264,10 +232,10 @@ div {
     gap: 10px; /* Odstęp między przyciskami */
   }
 
-.button-container button:only-child {
-    margin-left: auto; /* Przesuwa jedyny przycisk na prawo */
-    margin-right: 0;   /* Resetuje prawy margines */
-  }
+  .button-container button:only-child {
+      margin-left: auto; /* Przesuwa jedyny przycisk na prawo */
+      margin-right: 0;   /* Resetuje prawy margines */
+    }
 
   
   button {
@@ -333,7 +301,7 @@ div {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  margin-left: 5%;
+  margin-left: 12%;
 }
 
 .two-pixel-shift {
