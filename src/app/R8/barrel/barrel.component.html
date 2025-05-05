@@ -3,7 +3,7 @@
     <h1 class="section-title">KALIBER & LUFA</h1>
     
     <app-rifle-preview></app-rifle-preview>
-
+    
     <div *ngIf="rifles.length > 0">
       <!-- Sprawdzamy, czy mamy dane -->
       <form class="container">
@@ -18,7 +18,7 @@
           >
             <mat-option *ngFor="let contour of contours" [value]="contour">
               <div class="option-template">
-                <img [src]="contour.imageUrl" alt="{{ contour.name }}" />
+                <img [src]="contour.iconImageUrl" alt="{{ contour.name }}" />
                 <span>{{ contour.name }}</span>
               </div>
             </mat-option>
@@ -38,7 +38,7 @@
           >
             <mat-option *ngFor="let caliber of calibers" [value]="caliber">
               <div class="option-template">
-                <img [src]="caliber.imageUrl" alt="{{ caliber.name }}" />
+                <img [src]="caliber.iconImageUrl" alt="{{ caliber.name }}" />
                 <span>{{ caliber.name }}</span>
               </div>
             </mat-option>
@@ -57,7 +57,7 @@
           >
             <mat-option *ngFor="let profile of profiles" [value]="profile">
               <div class="option-template">
-                <img [src]="profile.imageUrl" alt="{{ profile.name }}" />
+                <img [src]="profile.iconImageUrl" alt="{{ profile.name }}" />
                 <span>{{ profile.name }}</span>
               </div>
             </mat-option>
@@ -77,7 +77,7 @@
           >
             <mat-option *ngFor="let length of lengths" [value]="length">
               <div class="option-template">
-                <img [src]="length.imageUrl" alt="{{ length.name }}">
+                <img [src]="length.iconImageUrl" alt="{{ length.name }}">
                 <span>{{ length.name }}</span>
               </div>
             </mat-option>
@@ -96,7 +96,7 @@
           >
             <mat-option *ngFor="let openSight of openSights" [value]="openSight">
               <div class="option-template">
-                <img [src]="openSight.imageUrl" alt="{{ openSight.name }}">
+                <img [src]="openSight.iconImageUrl" alt="{{ openSight.name }}">
                 <span>{{ openSight.name }}</span>
               </div>
             </mat-option>
@@ -115,7 +115,7 @@
           >
             <mat-option *ngFor="let muzzleBrakeOrSuppressor of muzzleBrakesOrSuppressors" [value]="muzzleBrakeOrSuppressor">
               <div class="option-template">
-                <img [src]="muzzleBrakeOrSuppressor.imageUrl" alt="{{ muzzleBrakeOrSuppressor.name }}">
+                <img [src]="muzzleBrakeOrSuppressor.iconImageUrl" alt="{{ muzzleBrakeOrSuppressor.name }}">
                 <span>{{ muzzleBrakeOrSuppressor.name }}</span>
               </div>
             </mat-option>
