@@ -14,11 +14,11 @@ import { ConfiguratorService } from 'src/app/core/services/configurator.service'
 export class SyntheticStockComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   private optionHierarchy = [
-    "stockColor",
-    "stockInlay",
-    "modularStockOption",
-    "recoilPad",
-    "kickstop"
+    "stockColorSynthetic",
+    "stockInlaySynthetic",
+    "modularStockOptionSynthetic",
+    "recoilPadSynthetic",
+    "kickstopSynthetic"
   ];
 
   features: any;
@@ -113,7 +113,7 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
   }
 
   onSelectStockColorSynthetic(option: Option): void {
-    this.configuratorService.resetOptionsAfter("stockColor", this.optionHierarchy);
+    this.configuratorService.resetOptionsAfter("stockColorSynthetic", this.optionHierarchy);
     this.configuratorService.updateState({
       selectedStockColorSynthetic: option
     });
@@ -126,17 +126,17 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
   }
 
   onSelectStockInlaySynthetic(option: Option): void {
-    this.configuratorService.resetOptionsAfter("stockInlay", this.optionHierarchy);
+    this.configuratorService.resetOptionsAfter("stockInlaySynthetic", this.optionHierarchy);
     this.configuratorService.updateState({ selectedStockInlaySynthetic: option });
   }
 
   onSelectModularStockOptionSynthetic(option: Option): void {
-    this.configuratorService.resetOptionsAfter("modularStockOption", this.optionHierarchy);
+    this.configuratorService.resetOptionsAfter("modularStockOptionSynthetic", this.optionHierarchy);
     this.configuratorService.updateState({ selectedModularStockOptionSynthetic: option });
   }
 
   onSelectRecoilPadSynthetic(option: Option): void {
-    this.configuratorService.resetOptionsAfter("recoilPad", this.optionHierarchy);
+    this.configuratorService.resetOptionsAfter("recoilPadSynthetic", this.optionHierarchy);
     this.configuratorService.updateState({ selectedRecoilPadSynthetic: option });
   }
 
