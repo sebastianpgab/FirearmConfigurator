@@ -17,6 +17,11 @@ export interface Rifle {
     availableOpenSights: number[];
     availableMuzzleBrakesOrSuppressors: number[];
 
+    availableStockInlaysSynthetic: number[];
+    availableModularStockOptionsSynthetic: number[];
+    availableRecoilPadsSynthetic: number[];
+    availableKickstopsSynthetic: number[];
+
     availableButtstockTypes: number[];
     availableWoodCategories: number[];
     availableLengthsOfPull: number[];
