@@ -5,6 +5,7 @@ import { Subscription } from "rxjs";
 import { Rifle } from "../rifle/model";
 import { Option } from "../option/model";
 import { ConfiguratorService } from "src/app/core/services/configurator.service";
+import { BarrelService } from "./barrel.service";
 
 @Component({
   selector: "app-barrel",
@@ -43,7 +44,8 @@ export class BarrelComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private configuratorService: ConfiguratorService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private barrelService: BarrelService
   ) {}
 
   ngOnInit(): void {
@@ -232,19 +234,62 @@ export class BarrelComponent implements OnInit, OnDestroy {
       this.profiles = [];
     }
   }
-
-  private updateLengthsForSelectedProfile(): void {
-    if (this.state.selectedProfile) {
-      const lengthIds = this.state.selectedProfile.availableLengths;
-      this.lengths = this.configuratorService.filterOptions(
-        this.features,
-        "lengths",
-        lengthIds
-      );
-    } else {
-      this.lengths = [];
-    }
+private updateLengthsForSelectedProfile(): void {
+  if (!this.state.selectedProfile) {
+    this.lengths = [];
+    return;
   }
+
+  const lengthIds = this.state.selectedProfile.availableLengths;
+  const allLengths = this.configuratorService.filterOptions(
+    this.features,
+    "lengths",
+    lengthIds
+  );
+
+  const contourType = this.extractContourType(this.state.selectedContour);
+  const selectedCaliber = this.state.selectedCaliber;
+  const rifleType = this.getRifleType(this.state.selectedRifle); // Silence / Safari / Tracking / Standard
+
+  this.barrelService.getBarrelLengthMap().subscribe((map) => {
+    const allowedLengths = map[selectedCaliber.name]?.[contourType];
+
+    // Filtrowanie długości luf po konturze i typie broni (Silence/Safari/.../Standard)
+    const filteredByContourAndRifleType = allLengths.filter(length => {
+      const name = length.name;
+
+      const matchesContour = name.includes(contourType);
+      const matchesRifleType = name.includes(rifleType);
+
+      return matchesContour && matchesRifleType;
+    });
+
+    // Jeśli w pliku JSON są zdefiniowane konkretne długości — filtruj dalej
+    this.lengths = allowedLengths
+      ? filteredByContourAndRifleType.filter(length =>
+          allowedLengths.some((mm: any) => length.name.includes(`${mm}`))
+        )
+      : filteredByContourAndRifleType;
+  });
+}
+
+private extractContourType(contour: any): string {
+  if (!contour.name) return '';
+  if (contour.name.includes('Standard')) return 'Standard';
+  if (contour.name.includes('Semi-Weight')) return 'Semi-Weight';
+  if (contour.name.includes('Match')) return 'Match';
+  if (contour.name.includes('Safari')) return 'Safari';
+  return '';
+}
+
+
+private getRifleType(modelName: any): 'Silence' | 'Safari' | 'Tracking' | 'Standard' {
+  if (modelName.name.includes('Silence')) return 'Silence';
+  if (modelName.name.includes('Safari')) return 'Safari';
+  if (modelName.name.includes('Tracking')) return 'Tracking';
+  return 'Standard';
+}
+
 
   private updateOpenSightsForSelectedLength(): void {
     if (this.state.selectedLength) {
