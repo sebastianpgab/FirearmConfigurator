@@ -9,39 +9,39 @@
     "Standard": [580]
   },
   "222 Rem.": {
-    "Standard": [520, 580],
+    "Standard": [520, 580, "520R", "580R"],
     "Semi-Weight": [520, 580],
     "Match": [600]
   },
   "223 Rem.": {
-    "Standard": [520, 580],
+    "Standard": [520, 580, "520R", "580R"],
     "Match": [600]
   },
   "22-250 Rem.": {
-    "Standard": [520, 580],
+    "Standard": [520, 580, "520R", "580R"],
     "Match": [600]
   },
   "243 Win.": {
-    "Standard": [520, 580],
+    "Standard": [520, 580, "520R", "580R"],
     "Match": [600]
   },
   "6,5 Creedmoor": {
-    "Standard": [580],
+    "Standard": [580, "580R"],
     "Semi-Weight": [520, 580],
     "Match": [600]
   },
   "6,5 x 55 SE": {
-    "Standard": [520, 580],
+    "Standard": [520, 580, "520R", "580R"],
     "Semi-Weight": [520, 580],
     "Match": [600]
   },
   "270 Win.": {
-    "Standard": [520, 580],
+    "Standard": [520, 580, "520R", "580R"],
     "Semi-Weight": [520, 580]
   },
   "308 Win.": {
-    "Standard": [470, 520, 580],
-    "Semi-Weight": [480, 520, 580],
+    "Standard": [470, 520, 580, "520R", "580R"],
+    "Semi-Weight": [470, 520, 580],
     "Match": [600]
   },
   "30-06 Spring.": {
