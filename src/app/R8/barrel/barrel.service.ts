@@ -26,6 +26,10 @@ export class BarrelService {
       isDisabledMuzzleBrakeOrSuppressor: true,
     });
   }
+   getBarrelLengthMap(): Observable<any> {
+    return this.http.get('/assets/barrel-length-map.json');
+   }
+  
 
   
 }

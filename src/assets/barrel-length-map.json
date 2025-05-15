@@ -9,83 +9,111 @@
     "Standard": [580]
   },
   "222 Rem.": {
-    "Standard": [520, 580, "520R", "580R"],
+    "Standard": [520, 580],
+    "Standard Ryflowana": [520, 580],
     "Semi-Weight": [520, 580],
-    "Match": [600]
+    "Standard Semi-Weight": [520, 580],
+    "Match Ryflowana": [600]
   },
   "223 Rem.": {
-    "Standard": [520, 580, "520R", "580R"],
-    "Match": [600]
+    "Standard": [520, 580],
+    "Standard Ryflowana": [520, 580],
+    "Match Ryflowana": [600]
   },
   "22-250 Rem.": {
-    "Standard": [520, 580, "520R", "580R"],
-    "Match": [600]
+    "Standard": [520, 580],
+    "Standard Ryflowana": [520, 580],
+    "Match Ryflowana": [600]
   },
   "243 Win.": {
-    "Standard": [520, 580, "520R", "580R"],
-    "Match": [600]
+    "Standard": [520, 580],
+    "Standard Ryflowana": [520, 580],
+    "Match Ryflowana": [600]
   },
   "6,5 Creedmoor": {
-    "Standard": [580, "580R"],
+    "Standard": [580],
+    "Standard Ryflowana": [580],
     "Semi-Weight": [520, 580],
+    "Semi-Weight Ryflowana": [520, 580],
     "Match": [600]
   },
   "6,5 x 55 SE": {
-    "Standard": [520, 580, "520R", "580R"],
+    "Standard": [520, 580],
+    "Standard Ryflowana": [520, 580],
     "Semi-Weight": [520, 580],
-    "Match": [600]
+    "Semi-Weight Ryflowana": [520, 580],
+    "Match Ryflowana": [600]
   },
   "270 Win.": {
-    "Standard": [520, 580, "520R", "580R"],
-    "Semi-Weight": [520, 580]
+    "Standard": [520, 580],
+    "Standard Ryflowana": [520, 580],
+    "Semi-Weight": [520, 580],
+    "Semi-Weight Ryflowana": [520, 580]
   },
   "308 Win.": {
-    "Standard": [470, 520, 580, "520R", "580R"],
+    "Standard": [470, 520, 580],
+    "Standard Ryflowana": [520, 580],
     "Semi-Weight": [470, 520, 580],
-    "Match": [600]
+    "Semi-Weight Ryflowana": [520, 580],
+    "Match Ryflowana": [600]
   },
   "30-06 Spring.": {
     "Standard": [520, 580],
-    "Semi-Weight": [520, 580]
+    "Standard Ryflowana": [520, 580],
+    "Semi-Weight": [520, 580],
+    "Semi-Weight Ryflowana": [520, 580]
   },
   "300 Win. Mag.": {
     "Standard": [580, 650],
-    "Match": [650]
+    "Standard Ryflowana": [580, 650],
+    "Match Ryflowana": [650]
   },
   "338 Lapua": {
     "Semi-Weight": [685],
-    "Match": [685]
+    "Match Ryflowana": [685]
   },
   "7 x 64": {
     "Standard": [520, 580],
-    "Semi-Weight": [520, 580]
+    "Standard Ryflowana": [520, 580],
+    "Semi-Weight": [520, 580],
+    "Semi-Weight Ryflowana": [520, 580]
   },
   "8 x 57 IS": {
     "Standard": [470, 520, 580],
-    "Semi-Weight": [520, 580]
+    "Standard Ryflowana": [520, 580],
+    "Semi-Weight": [520, 580],
+    "Semi-Weight Ryflowana": [520, 580]
   },
   "9,3 x 62": {
     "Standard": [520, 580],
-    "Semi-Weight": [520, 580]
+    "Semi-Weight": [520, 580],
+    "Semi-Weight Ryflowana": [520, 580]
   },
   "8,5 x 55 Blaser": {
     "Standard": [470, 520, 580],
-    "Semi-Weight": [520, 580]
+    "Semi-Weight": [520, 580],
+    "Semi-Weight Ryflowana": [520, 580]
   },
   "8 x 68 S": {
     "Standard": [580, 650],
-    "Semi-Weight": [580, 650]
+    "Semi-Weight": [580, 650],
+    "Semi-Weight Ryflowana": [580, 650]
   },
   "270 Win. Short Mag.": {
     "Standard": [580, 650],
-    "Semi-Weight": [580, 650]
+    "Standard Ryflowana": [580, 650],
+    "Semi-Weight": [580, 650],
+    "Semi-Weight Ryflowana": [580, 650]
   },
   "7 mm Rem. Mag.": {
-    "Standard": [580, 650]
+    "Standard": [580, 650],
+    "Standard Ryflowana": [580, 650]
   },
   "300 Win. Short Mag.": {
     "Standard": [580, 650],
-    "Semi-Weight": [580, 650]
+    "Standard Ryflowana": [580, 650],
+    "Semi-Weight": [580, 650],
+    "Semi-Weight Ryflowana": [580, 650]
   },
   "338 Win. Mag.": {
     "Standard": [580, 650]
@@ -96,6 +124,7 @@
     "Safari": [600]
   },
   "10,3 x 68 Mag.": {
-    "Semi-Weight": [580, 650]
+    "Semi-Weight": [580, 650],
+    "Semi-Weight Ryflowana": [580, 650]
   }
 }
