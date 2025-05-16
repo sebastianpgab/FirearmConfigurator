@@ -229,49 +229,63 @@ export class BarrelComponent implements OnInit, OnDestroy {
         this.features,
         "profiles",
         profileIds
-      );
-    } else {
+      ); 
+    if (this.state.selectedContour?.id === 3) { //usun wybor ryflowania jesli zostało wybrane id 3 == Match
+      const indexRound = this.profiles.findIndex(profile => profile.id === 1); //znajduje indeks gdzie profil jest Round
+      if (indexRound !== -1) {
+        this.profiles.splice(indexRound, 1); //usuwa jeden element zaczynający się od indexu 'indexRound'
+      }
+    }
+    if (this.state.selectedCaliber?.id === 14) { // jesli został wybrany kaliber Lapua
+      const indexFluted = this.profiles.findIndex(profile => profile.id === 2); //znajduje indeks gdzie profil jest Fluted
+      if (indexFluted !== -1) {
+        this.profiles.pop();
+      } 
+    } 
+    else {
       this.profiles = [];
     }
-  }
-private updateLengthsForSelectedProfile(): void {
-  if (!this.state.selectedProfile) {
-    this.lengths = [];
-    return;
+    }
   }
 
-  const lengthIds = this.state.selectedProfile.availableLengths;
-  const allLengths = this.configuratorService.filterOptions(
-    this.features,
-    "lengths",
-    lengthIds
-  );
+  private updateLengthsForSelectedProfile(): void {
+    if (!this.state.selectedProfile) {
+      this.lengths = [];
+      return;
+    }
 
-  const contourType = this.extractContourType(this.state.selectedContour);
-  const selectedCaliber = this.state.selectedCaliber;
-  const rifleType = this.getRifleType(this.state.selectedRifle); // Silence / Safari / Tracking / Standard
+    const lengthIds = this.state.selectedProfile.availableLengths;
+    const allLengths = this.configuratorService.filterOptions(
+      this.features,
+      "lengths",
+      lengthIds
+    );
 
-  this.barrelService.getBarrelLengthMap().subscribe((map) => {
-    const allowedLengths = map[selectedCaliber.name]?.[contourType];
+    const contourType = this.extractContourType(this.state.selectedContour); // np. 'Standard'
+    const selectedCaliber = this.state.selectedCaliber;
 
-    // Filtrowanie długości luf po konturze i typie broni (Silence/Safari/.../Standard)
-    const filteredByContourAndRifleType = allLengths.filter(length => {
-      const name = length.name;
+    this.barrelService.getBarrelLengthMap().subscribe((map) => {
+      const rifleLengths = map[selectedCaliber.name];
 
-      const matchesContour = name.includes(contourType);
-      const matchesRifleType = name.includes(rifleType);
+      // uwzględniamy oba warianty: zwykły i ryflowany
+      const allowedLengths = [
+        ...(rifleLengths?.[contourType] || []),
+        ...(rifleLengths?.[`${contourType} Ryflowana`] || [])
+      ];
 
-      return matchesContour && matchesRifleType;
+      const filteredByContourAndRifleType = allLengths.filter(length => {
+        const name = length.name.toLowerCase();
+        return name.includes(contourType.toLowerCase());
+      });
+
+      this.lengths = allowedLengths.length > 0
+        ? filteredByContourAndRifleType.filter(length =>
+            allowedLengths.some(mm => length.name.includes(`${mm}`))
+          )
+        : filteredByContourAndRifleType;
     });
+  }
 
-    // Jeśli w pliku JSON są zdefiniowane konkretne długości — filtruj dalej
-    this.lengths = allowedLengths
-      ? filteredByContourAndRifleType.filter(length =>
-          allowedLengths.some((mm: any) => length.name.includes(`${mm}`))
-        )
-      : filteredByContourAndRifleType;
-  });
-}
 
 private extractContourType(contour: any): string {
   if (!contour.name) return '';
