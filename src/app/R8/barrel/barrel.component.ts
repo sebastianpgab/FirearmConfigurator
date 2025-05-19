@@ -240,11 +240,14 @@ export class BarrelComponent implements OnInit, OnDestroy {
       const indexFluted = this.profiles.findIndex(profile => profile.id === 2); //znajduje indeks gdzie profil jest Fluted
       if (indexFluted !== -1) {
         this.profiles.pop();
-      } 
+      }
     } 
-    else {
-      this.profiles = [];
-    }
+     if (this.state.selectedCaliber?.id === 19 && this.state.selectedContour?.id === 1) { // jesli został wybrany kaliber 8x68 S oraz kontur sandard 
+      const indexFluted = this.profiles.findIndex(profile => profile.id === 2); //znajduje indeks gdzie profil jest Fluted
+      if (indexFluted !== -1) {
+        this.profiles.pop();
+      }
+    } 
     }
   }
 
