@@ -21,21 +21,26 @@
       [attr.data-key]="state.selectedLength.imageUrl"
     >
 
-    <ng-container *ngIf="state.selectedOpenSight as openSight">
+    <ng-container *ngIf="state.selectedOpenSight?.imageUrl !== '' && state.selectedOpenSight as openSight">
       <img 
         [src]="openSight.imageUrl" 
         class="rifle-layer"
-        [ngStyle]="{'top': configuratorService.getAttachmentPosition('openSight').top, 'left': configuratorService.getAttachmentPosition('openSight').left}"
+        [ngStyle]="{
+          'top': configuratorService.getAttachmentPosition('openSight').top,
+          'left': configuratorService.getAttachmentPosition('openSight').left
+        }"
       >
       
       <img 
         *ngIf="openSight.secondaryImageUrl" 
         [src]="openSight.secondaryImageUrl" 
         class="rifle-layer"
-        [ngStyle]="{'top': configuratorService.getSecondaryAttachmentPosition('secondaryOpenSight').top, 'left': configuratorService.getSecondaryAttachmentPosition('secondaryOpenSight').left}"
+        [ngStyle]="{
+          'top': configuratorService.getSecondaryAttachmentPosition('secondaryOpenSight').top,
+          'left': configuratorService.getSecondaryAttachmentPosition('secondaryOpenSight').left
+        }"
       >
-    </ng-container>    
-      
+    </ng-container>
   
     <img 
     *ngIf="state.selectedMuzzleBrakeOrSuppressor" 

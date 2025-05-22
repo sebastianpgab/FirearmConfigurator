@@ -230,10 +230,16 @@ export class BarrelComponent implements OnInit, OnDestroy {
         "profiles",
         profileIds
       ); 
-    if (this.state.selectedContour?.id === 3) { //usun wybor ryflowania jesli zostało wybrane id 3 == Match
+    if (this.state.selectedContour?.id === 3) { //usun round
       const indexRound = this.profiles.findIndex(profile => profile.id === 1); //znajduje indeks gdzie profil jest Round
       if (indexRound !== -1) {
         this.profiles.splice(indexRound, 1); //usuwa jeden element zaczynający się od indexu 'indexRound'
+      }
+    }
+    if (this.state.selectedContour?.id === 5 || this.state.selectedContour?.id === 6) { //usun wybor ryflowania 5 == silence lub 6 = tracking
+      const indexFluted = this.profiles.findIndex(profile => profile.id === 2); //znajduje indeks gdzie profil jest Fluted
+      if (indexFluted !== -1) {
+        this.profiles.pop();
       }
     }
     if (this.state.selectedCaliber?.id === 14) { // jesli został wybrany kaliber Lapua
@@ -296,6 +302,8 @@ private extractContourType(contour: any): string {
   if (contour.name.includes('Semi-Weight')) return 'Semi-Weight';
   if (contour.name.includes('Match')) return 'Match';
   if (contour.name.includes('Safari')) return 'Safari';
+  if (contour.name.includes('Silence')) return 'Silence';
+  if (contour.name.includes('Tracking')) return 'Tracking';
   return '';
 }
 
