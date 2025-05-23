@@ -164,34 +164,31 @@ private getBasePosition(
     Record<number, { top: string; left: string }>
   > = {
     openSight: {
-      47: { top: '0%', left: '-10%' },
-      50: { top: '0%', left: '-5.5%' },
+      47: { top: '0%', left: '-9.5%' },
+      50: { top: '0%', left: '-7.5%' },
       52: { top: '0%', left: '-5.5%' },
       58: { top: '0%', left: '-0.5%' },
-      60: { top: '0%', left: '-0.5%' },
-      65: { top: '8%', left: '36%' },
-      685: { top: '0%', left: '30%' },
-      70: { top: '9%', left: '38%' }
+      60: { top: '0%', left: '-0.4%' },
+      65: { top: '0%', left: '6%' },
+      685: { top: '0%', left: '9.3%' },
     },
     secondaryOpenSight: {
       47: { top: '0%', left: '0%' },
-      50: { top: '0%', left: '-5.5%' },
+      50: { top: '0%', left: '0%' },
       52: { top: '0%', left: '0%' },
       58: { top: '0%', left: '0%' },
-      60: { top: '0%', left: '-0.5%' },
-      65: { top: '0%', left: '30%' },
-      685: { top: '0%', left: '30%' },
-      70: { top: '0%', left: '35%' }
+      60: { top: '0%', left: '0%' },
+      65: { top: '0%', left: '0%' },
+      685: { top: '0%', left: '0%' },
     },
     muzzleBrakeOrSuppressor: {
-      47: { top: '5%', left: '30%' },
-      50: { top: '0%', left: '-5.5%' },
-      52: { top: '0%', left: '2.3%' },
-      58: { top: '0%', left: '7%' },
-      60: { top: '0%', left: '-0.5%' },
-      65: { top: '5%', left: '44%' },
-      685: { top: '0%', left: '30%' },
-      70: { top: '6%', left: '42%' }
+      47:  { top: '0%', left: '-6%' },
+      50:  { top: '0%', left: '-5.5%' },    // poprawna
+      52:  { top: '0%', left: '2.3%' },     // poprawna
+      58:  { top: '0%', left: '21.8%' },
+      60:  { top: '0%', left: '22.19%' },
+      65:  { top: '0%', left: '47.15%' },
+      685: { top: '0%', left: '60.02%' },
     }
   };
   
