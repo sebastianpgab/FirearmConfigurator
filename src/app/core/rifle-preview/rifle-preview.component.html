@@ -4,15 +4,21 @@
     <img 
       *ngIf="state.selectedContour && !state.selectedProfile && !state.onSelectLength"
       [src]="state.selectedContour.imageUrl" 
+
       class="rifle-layer"
     />
   
     <!-- Profil wyświetlamy tylko, jeśli NIE wybrano długości -->
     <img 
       *ngIf="state.selectedProfile && !state.onSelectLength"
-      [src]="state.selectedProfile.imageUrl"
+      [src]="
+        (state.selectedContour.name === 'Tracking (17 mm)' || state.selectedContour.name === 'Safari (22 mm)') 
+          ? state.selectedContour.imageUrl 
+          : state.selectedProfile.imageUrl
+      "
       class="rifle-layer"
     />
+
 
     <img 
       *ngIf="state.selectedLength" 
