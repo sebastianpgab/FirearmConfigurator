@@ -161,15 +161,15 @@ private getBasePosition(
 ) {
   const positionMap: Record<
     string,
-    Record<number, { top: string; left: string }>
+    Record<number, { top: string; left: string }> // jesli zmniejszam liczbe to w lewo
   > = {
     openSight: {
       47: { top: '0%', left: '-9.5%' },
-      50: { top: '0%', left: '-7.5%' },
-      52: { top: '0%', left: '-5.5%' },
-      58: { top: '0%', left: '-0.5%' },
-      60: { top: '0%', left: '-0.4%' },
-      65: { top: '0%', left: '6%' },
+      50: { top: '0%', left: '-6.5%' },
+      52: { top: '0%', left: '-5.1%' },
+      58: { top: '0%', left: '-0.3%' },
+      60: { top: '0%', left: '0.0%' },
+      65: { top: '0%', left: '6.1%' },
       685: { top: '0%', left: '9.3%' },
     },
     secondaryOpenSight: {
@@ -182,13 +182,13 @@ private getBasePosition(
       685: { top: '0%', left: '0%' },
     },
     muzzleBrakeOrSuppressor: {
-      47:  { top: '0%', left: '-6%' },
+      47:  { top: '0%', left: '-2.1%' },
       50:  { top: '0%', left: '-5.5%' },    // poprawna
       52:  { top: '0%', left: '2.3%' },     // poprawna
-      58:  { top: '0%', left: '21.8%' },
-      60:  { top: '0%', left: '22.19%' },
-      65:  { top: '0%', left: '47.15%' },
-      685: { top: '0%', left: '60.02%' },
+      58:  { top: '0%', left: '7%' },
+      60:  { top: '0%', left: '9%' },
+      65:  { top: '0%', left: '13.3%' },
+      685: { top: '0%', left: '16.25%' },
     }
   };
   
@@ -208,10 +208,10 @@ public getAttachmentPosition(type: 'openSight' | 'muzzleBrakeOrSuppressor') {
 
   // Dodatkowa korekta dla openSight, jeśli jest założony muzzle brake
   const { selectedMuzzleBrakeOrSuppressor } = this.getState();
-  if (type === 'openSight' && selectedMuzzleBrakeOrSuppressor?.name) {
+  if (type === 'openSight' && selectedMuzzleBrakeOrSuppressor?.name && selectedMuzzleBrakeOrSuppressor?.name !== "Brak") {
     return {
       top: position.top,
-      left: `calc(${position.left} - 0.8%)`
+      left: `calc(${position.left} - 1.2%)`
     };
   }
 
