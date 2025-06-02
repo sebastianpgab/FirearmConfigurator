@@ -307,17 +307,9 @@ private extractContourType(contour: any): string {
   return '';
 }
 
-
-private getRifleType(modelName: any): 'Silence' | 'Safari' | 'Tracking' | 'Standard' {
-  if (modelName.name.includes('Silence')) return 'Silence';
-  if (modelName.name.includes('Safari')) return 'Safari';
-  if (modelName.name.includes('Tracking')) return 'Tracking';
-  return 'Standard';
-}
-
-
   private updateOpenSightsForSelectedLength(): void {
     if (this.state.selectedLength) {
+    this.state.selectedContour.imageUrl = 'assets/BlaserR8/puzzle/empty_png.png';
       const openSightIds = this.state.selectedLength.availableOpenSights;
       this.openSights = this.configuratorService.filterOptions(
         this.features,
@@ -330,18 +322,54 @@ private getRifleType(modelName: any): 'Silence' | 'Safari' | 'Tracking' | 'Stand
   }
 
   private updateMuzzleBrakesOrSuppressorsForSelectedOpenSight(): void {
-    if (this.state.selectedOpenSight) {
-      const muzzleIds = this.state.selectedOpenSight.availableMuzzleBrakesOrSuppressors;
-      this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(
-        this.features,
-        "muzzleBrakesOrSuppressors",
-        muzzleIds
-      );
-    } else {
-      this.muzzleBrakesOrSuppressors = [];
-    }
-    this.cdr.detectChanges();
+      if (this.state.selectedOpenSight) {
+          const muzzleIds = this.state.selectedOpenSight.availableMuzzleBrakesOrSuppressors;
+          this.muzzleBrakesOrSuppressors = this.configuratorService.filterOptions(
+              this.features,
+              "muzzleBrakesOrSuppressors",
+              muzzleIds
+          );
+
+          this.applyCaliberSpecificMuzzleFilter();
+
+      } else {
+          this.muzzleBrakesOrSuppressors = [];
+      }
+
+      this.cdr.detectChanges();
   }
+
+  private applyCaliberSpecificMuzzleFilter(): void {
+      const selectedCaliber = this.state.selectedCaliber.name;
+
+      if (selectedCaliber === '17 HMR' ||  
+          selectedCaliber === '22 WMR' || 
+          selectedCaliber === '22 Hornet') {
+        
+        this.muzzleBrakesOrSuppressors = this.muzzleBrakesOrSuppressors.filter(item => {
+        const normalized = item.name.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+        return normalized === 'gwint na lufie' || normalized === 'brak';
+      });
+
+      } else if (selectedCaliber === '338 Lapua' ||  
+                selectedCaliber === '375 H&H Mag.' || 
+                selectedCaliber === '10,3 x 68 Mag.') {
+
+          this.muzzleBrakesOrSuppressors = this.muzzleBrakesOrSuppressors.filter(item => {
+              const isGwint = item.name.includes('Gwint na lufie');
+              const isBrak = item.name.includes('Brak');
+              const isDualBrake = item.name.includes('Blaser Dual Brake');
+
+              if (selectedCaliber === '338 Lapua') {
+                  return isGwint || isDualBrake;
+              } else {
+                  return isGwint || isBrak || isDualBrake;
+              }
+          });
+      }
+  }
+
+
 
   // --- Nawigacja ---
   onNext(): void {
