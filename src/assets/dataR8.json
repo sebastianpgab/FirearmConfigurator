@@ -357,7 +357,7 @@
           "name": "520 mm / 20 ½ (Silence)",
           "price": 150,
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-length/ll_52_ll_520mm.jpg",
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_72.png",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_67.png",
           "availableOpenSights": [12]
         },
         {
@@ -514,7 +514,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_b_vs_Blaser_Kontrastvisier.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
-          "availableMuzzleBrakesOrSuppressors": [2, 9, 16, 22] 
+          "availableMuzzleBrakesOrSuppressors": [22] 
         },
         {
           "id": 3,
@@ -559,7 +559,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_n_HIVIZ-green.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
-          "availableMuzzleBrakesOrSuppressors": [2, 9, 16, 22] 
+          "availableMuzzleBrakesOrSuppressors": [22] 
         },
         {
           "id": 8,
@@ -613,7 +613,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_b_vs_Blaser_Kontrastvisier.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kontrastvisier_17_50.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
-          "availableMuzzleBrakesOrSuppressors": [2, 7, 12, 22] 
+          "availableMuzzleBrakesOrSuppressors": [1, 8, 15, 22] 
         },
         {
           "id": 14,
@@ -622,7 +622,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/R8_lv_n_HIVIZ-green.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/r8_HIVIZ-Korn.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/barrel/r8_Kimme_17.png",
-          "availableMuzzleBrakesOrSuppressors": [2, 7, 12, 22] 
+          "availableMuzzleBrakesOrSuppressors": [1, 8, 15, 22] 
         },
         {
           "id": 15,
@@ -658,7 +658,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/no-detail.png",
           "imageUrl": "",
           "secondaryImageUrl": "",
-          "availableMuzzleBrakesOrSuppressors": [2, 7, 12, 22] 
+          "availableMuzzleBrakesOrSuppressors": [1, 8, 15, 22] 
         },
         {
           "id": 19,
@@ -867,8 +867,8 @@
           "id": 22,
           "name": "Brak",
           "price": 890,
-          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_muendungsgewinde.jpg",
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_muendungsgewinde_kappe_17.png"
+          "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-open-sight/no-detail.png",
+          "imageUrl": "assets/BlaserR8/puzzle/empty_png.png"
         }
       ],
 
@@ -898,7 +898,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock-type/R8_hd_D_schaftform_safari_dtbacke.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k7.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k7.png",
-          "availableWoodCategories": [9, 10, 11, 12] 
+          "availableWoodCategories": [9, 10, 11, 12, 13, 14, 15, 16] 
         }
       ],
     "woodCategories": [
@@ -976,43 +976,79 @@
         },
         { 
           "id": 9, 
+          "name": "Klasa drewna 3 (safari)", 
+          "price": 400,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_3_sq_klasse3.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k3.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k3.png", 
+          "availableRecoilPads": [1, 2] 
+        },
+        { 
+          "id": 10, 
+          "name": "Klasa drewna 4 (safari)", 
+          "price": 400,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_4_sq_klasse4.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k4.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k4.png", 
+          "availableRecoilPads": [1, 2] 
+        },
+        { 
+          "id": 11, 
+          "name": "Klasa drewna 5 (safari)", 
+          "price": 400,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_5_sq_klasse5.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k5.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k5.png", 
+          "availableRecoilPads": [1, 2] 
+        },
+        { 
+          "id": 12, 
+          "name": "Klasa drewna 6 (safari)", 
+          "price": 400,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_6_sq_klasse6.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k6.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k6.png", 
+          "availableRecoilPads": [1, 2] 
+        },
+        { 
+          "id": 13, 
           "name": "Klasa drewna 7 (safari)", 
           "price": 400,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_7_sq_klasse7.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k7.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k7.png", 
-          "availableRecoilPads": [1] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
-          "id": 10, 
+          "id": 14, 
           "name": "Klasa drewna 8 (safari)", 
           "price": 400,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_8_sq_klasse8.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k8.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k8.png", 
-          "availableRecoilPads": [1] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
-          "id": 11, 
+          "id": 15, 
           "name": "Klasa drewna 9 (safari)", 
           "price": 400,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_9_sq_klasse9.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k9.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k9.png", 
-          "availableRecoilPads": [1] 
+          "availableRecoilPads": [1, 2] 
         },
         { 
-          "id": 12, 
+          "id": 16, 
           "name": "Klasa drewna 10 (safari)", 
           "price": 400, 
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_10_sq_klasse10.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k10.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k10.png", 
-          "availableRecoilPads": [1] 
+          "availableRecoilPads": [1, 2] 
         }
         ,
         { 
-          "id": 13, 
+          "id": 17, 
           "name": "Klasa drewna 4 (intuition)", 
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k4", 
@@ -1020,7 +1056,7 @@
           "availableRecoilPads": [1] 
         },
         {
-          "id": 14, 
+          "id": 18, 
           "name": "Klasa drewna 7 (intuition)", 
           "price": 400, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k7", 
@@ -1035,7 +1071,7 @@
           "price": 0, 
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/icon-recoil-pad/R8_hl_s15_schaftlaenge_std_gk_15.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_1_5cm.png", 
-          "availablePistolGripCaps": [1, 2, 3, 4]
+          "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
         },
         { 
           "id": 2, 
@@ -1109,7 +1145,84 @@
           "id": 5, 
           "name": "Kozica", 
           "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_10_pk_gams.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 6, 
+          "name": "Niedźwiedź", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_11_pk_baer.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 7, 
+          "name": "Lis/Pies", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_12_pk_fuchs_hund.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 8, 
+          "name": "Cietrzew", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_5_pk_auerhahn.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 9, 
+          "name": "Muflon", 
+          "price": 0, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_9_pk_widder.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 10, 
+          "name": "Lew", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_7_pk_loewe.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 11, 
+          "name": "Liść dębu z monogramem", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_rm_pk_eichenlaub_monogra.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 12, 
+          "name": "Liść dębu", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_ro_pk_eichenlaub.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 13, 
+          "name": "Stary niemiecki liść z monogramem", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_sm_pk_altdeutsch_monogra.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 14, 
+          "name": "Stary niemiecki liść", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_so_pk_altdeutsch.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 15, 
+          "name": "Angielskie arabeski z monogramem", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_tm_pk_englisch_monogramm.jpg", 
+          "availableKickstops": [1, 2] 
+        },
+        { 
+          "id": 16, 
+          "name": "Angielskie arabeski", 
+          "price": 0, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/pistol_grip_cap/R8_hp_to_pk_englisch.jpg", 
           "availableKickstops": [1, 2] 
         }
     ],
@@ -1518,20 +1631,20 @@
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [1, 3],
-        "availableWoodCategories": [2, 5],
-        "availableChamberEngravings": [2,3],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableChamberEngravings": [2, 3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
       },
       {
         "id": 3,
-        "name": "Blaser R8 Silence",
+        "name": "Blaser R8 Jaeger",
         "price": 3500,
-        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_luxus2021.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_jaeger.jpg",
         
         "availableHandConfigurations": [1, 2],
-        "availableContours": [5],
+        "availableContours": [1, 2, 3],
         "availableStockColorsSynthetic": [1, 2],
         "availableModularStockOptionsSynthetic": [1, 2],
         "availableRecoilPadsSynthetic": [1, 3],
@@ -1543,7 +1656,7 @@
       },
       {
         "id": 5,
-        "name": "Blaser R8 Ultimate",
+        "name": "Blaser R8 Luxus",
         "price": 3500,
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_luxus2021.jpg",
         
@@ -1560,9 +1673,434 @@
       },
       {
         "id": 6,
-        "name": "Blaser R8 Safari",
+        "name": "Blaser R8 Intution",
         "price": 3500,
-        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_luxus2021.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_compactintuition.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 7,
+        "name": "Blaser R8 Silence",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_silence.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 8,
+        "name": "Blaser R8 Success",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_x2.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 9,
+        "name": "Blaser R8 Success Silence",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 10,
+        "name": "Blaser R8 Success Leather",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 11,
+        "name": "Blaser R8 Success Silence Leather",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 12,
+        "name": "Blaser R8 Success Luxus",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_luxus.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 13,
+        "name": "Blaser R8 Success Silence Luxus",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence_luxus.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 14,
+        "name": "Blaser R8 Success Leather Luxus",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_leather_luxus.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 15,
+        "name": "Blaser R8 Success Silence Leather Luxus",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence_leather_luxus.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 16,
+        "name": "Blaser R8 Professional",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_professional.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 17,
+        "name": "Blaser R8 Professional Tracking",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_prof_nachsuche_gruen.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [6],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 18,
+        "name": "Blaser R8 Professional Success",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2OPSC_prof-succ.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 19,
+        "name": "Blaser R8 Ultimate",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2U_ultimate3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 20,
+        "name": "Blaser R8 Ultimate Leather",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UL_ultimate_leather3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 21,
+        "name": "Blaser R8 Ultimate Silence",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2US_ultimate_slc3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 22,
+        "name": "Blaser R8 Ultimate Silence Leather",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USL_ultimate_slc_leather3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 23,
+        "name": "Blaser R8 Ultimate Carbon",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UC_ultimate_carbon3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 24,
+        "name": "Blaser R8 Ultimate Carbon Leather",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UCL_ultimate_carbon_leather3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 25,
+        "name": "Blaser R8 Ultimate Silence Carbon",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USC_ultimate_slc_carbon3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 26,
+        "name": "Blaser R8 Ultimate Silence Carbon Leather",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USCL_ultimate_slc_carbon_leather3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 27,
+        "name": "Blaser R8 Ultimate X",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UX_ultimate-x3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 28,
+        "name": "Blaser R8 Ultimate X Leather",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UXL_ultimate-x_leather3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 29,
+        "name": "Blaser R8 Ultimate X Silence",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UXS_ultimate-x_slc3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 30,
+        "name": "Blaser R8 Ultimate X Silence Leather",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USXL_ultimate-x_slc_leather3.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [5],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 31,
+        "name": "Blaser R8 Safari Professional Hunter",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_ph.jpg",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [4],
@@ -1576,13 +2114,30 @@
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
       },
       {
-        "id": 7,
-        "name": "Blaser R8 Tracking",
+        "id": 32,
+        "name": "Blaser R8 Safari Kilombero",
         "price": 3500,
-        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_luxus2021.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_kilombero.jpg",
         
         "availableHandConfigurations": [1, 2],
-        "availableContours": [6],
+        "availableContours": [4],
+        "availableButtstockTypes": [1, 3],
+        "availableModularStockOptionsSynthetic": [1, 2],
+        "availableRecoilPadsSynthetic": [1, 3],
+        "availableKickstopsSynthetic": [1],
+        "availableChamberEngravings": [2,3],
+        "availableGunCases": [1, 2, 3],
+        "availableSoftGunCovers": [1, 2, 3, 4, 5],
+        "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
+      },
+      {
+        "id": 33,
+        "name": "Blaser R8 Safari Selous",
+        "price": 3500,
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_selous.jpg",
+        
+        "availableHandConfigurations": [1, 2],
+        "availableContours": [4],
         "availableButtstockTypes": [1, 3],
         "availableModularStockOptionsSynthetic": [1, 2],
         "availableRecoilPadsSynthetic": [1, 3],
