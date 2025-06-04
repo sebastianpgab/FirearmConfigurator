@@ -2,7 +2,7 @@
     <h1 class="section-title">Podsumowanie</h1>
 <app-rifle-preview></app-rifle-preview>
 
-<div class="summary-container">
+<div *ngIf="state.selectedRifle" class="summary-container">
     <div *ngIf="state.selectedRifle" class="summary-item">
       <span class="label">Karabin:</span>
       <span class="value">{{ state.selectedRifle.name }}</span>
@@ -34,6 +34,26 @@
     <div *ngIf="state.selectedMuzzleBrakeOrSuppressor" class="summary-item">
       <span class="label">Hamulec / tłumik:</span>
       <span class="value">{{ state.selectedMuzzleBrakeOrSuppressor.name }}</span>
+    </div>
+    <div *ngIf="state.selectedStockColorSynthetic" class="summary-item">
+      <span class="label">Kolor kolby:</span>
+      <span class="value">{{ state.selectedStockColorSynthetic.name}}</span>
+    </div>
+    <div *ngIf="state.selectedStockInlaySynthetic" class="summary-item">
+      <span class="label">Wstawka:</span>
+      <span class="value">{{ state.selectedStockInlaySynthetic.name}}</span>
+    </div>
+    <div *ngIf="state.selectedModularStockOptionSynthetic" class="summary-item">
+      <span class="label">Modularna kolba:</span>
+      <span class="value">{{ state.selectedModularStockOptionSynthetic.name}}</span>
+    </div>
+    <div *ngIf="state.selectedRecoilPadSynthetic" class="summary-item">
+      <span class="label">Stopka / amortyzator odrzutu:</span>
+      <span class="value">{{ state.selectedRecoilPadSynthetic.name}}</span>
+    </div>
+    <div *ngIf="state.selectedKickstopSynthetic" class="summary-item">
+      <span class="label">Kickstop:</span>
+      <span class="value">{{ state.selectedKickstopSynthetic.name}}</span>
     </div>
     <div *ngIf="state.selectedButtstockType" class="summary-item">
       <span class="label">Typ kolby:</span>
@@ -104,5 +124,7 @@
       <span class="value">{{ state.selectedGunCase.name }}</span>
     </div>
   </div>
+
+  <app-contact></app-contact>
   
 </section>
