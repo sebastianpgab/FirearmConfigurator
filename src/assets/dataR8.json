@@ -899,6 +899,15 @@
           "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_hs_k7.png",
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_safari/R8_holz_safari_vs_k7.png",
           "availableWoodCategories": [9, 10, 11, 12, 13, 14, 15, 16] 
+        },
+        { 
+          "id": 4, 
+          "name": "Bez baki policzkowej", 
+          "price": 250,
+          "iconImageUrl": "assets/BlaserR8/puzzle/no-detail.png",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_individual_hs_re_c_k4.png",
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_vs_b_k4.png",
+          "availableWoodCategories": [19, 20] 
         }
       ],
     "woodCategories": [
@@ -1050,7 +1059,8 @@
         { 
           "id": 17, 
           "name": "Klasa drewna 4 (intuition)", 
-          "price": 400, 
+          "price": 400,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_4_sq_klasse4.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k4", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k4.png", 
           "availableRecoilPads": [1] 
@@ -1058,10 +1068,29 @@
         {
           "id": 18, 
           "name": "Klasa drewna 7 (intuition)", 
-          "price": 400, 
+          "price": 400,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_7_sq_klasse7.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k7", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k7.png", 
           "availableRecoilPads": [1] 
+        },
+        {
+          "id": 19, 
+          "name": "Klasa drewna 4 (success)", 
+          "price": 400,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_4_sq_klasse4.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_individual_hs_re_c_k4.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_vs_b_k4.png", 
+          "availableRecoilPads": [5, 6] 
+        },
+        {
+          "id": 20, 
+          "name": "Klasa drewna 7 (success)", 
+          "price": 400,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_7_sq_klasse7.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_individual_hs_re_c_k7.png", 
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_vs_b_k7.png", 
+          "availableRecoilPads": [5, 6] 
         }
     ],
     "recoilPads": [
@@ -1079,7 +1108,7 @@
           "price": 100, 
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/icon-recoil-pad/R8_hl_s25_schaftlaenge_std_gk_20.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_2_5cm.png", 
-          "availablePistolGripCaps": [1] 
+          "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] 
         },
         { 
           "id": 3, 
@@ -1101,14 +1130,29 @@
           "price": 100, 
           "imageUrl": "assets/lengths_of_pull/r8_prosuc_gummischaftkappe_1_5_cm.png", 
           "availablePistolGripCaps": [1] 
-        }
-        ,
+        },
         { 
           "id": 4, 
           "name": "Stopka 2 cm (ProfeSucc)", 
           "price": 100, 
           "imageUrl": "assets/lengths_of_pull/r8_prosuc_gummischaftkappe_1_5_cm.png", 
           "availablePistolGripCaps": [1] 
+        },
+        { 
+          "id": 5, 
+          "name": "Stopka 1,5 cm (Success)", 
+          "price": 100, 
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/icon-recoil-pad/R8_hl_s15_schaftlaenge_std_gk_15.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_1_5cm_Success.png", 
+          "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] 
+        },
+        { 
+          "id": 6, 
+          "name": "Stopka 2 cm (Success)", 
+          "price": 100,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/icon-recoil-pad/R8_hl_s25_schaftlaenge_std_gk_20.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_2_5cm_Success.png", 
+          "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] 
         }
     ],
     "pistolGripCaps": 
@@ -1233,14 +1277,14 @@
           "name": "Bez kickstopu", 
           "price": 0,
           "imageUrl": "assets/BlaserR8/puzzle/stock/kickstop/no-detail.png",
-          "availableStockMagazines": [1, 2, 3, 4, 5, 6] 
+          "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
         },
         { 
           "id": 2, 
           "name": "Kickstop", 
           "price": 0, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/kickstop/R8_hi_1_kickstop.jpg", 
-          "availableStockMagazines": [1, 2, 3, 4, 5, 6] 
+          "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
         }
     ],
     "stockMagazines": 
@@ -1250,42 +1294,63 @@
           "name": "Bez magazynu", 
           "price": 0, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/no-detail.png", 
-          "availableForearmOptions": [1, 2, 3] 
+          "availableForearmOptions": [2, 3] 
         },
         { 
           "id": 2, 
           "name": "Grawer 1", 
           "price": 120, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_1_sm_schaftmag_1.jpg", 
-          "availableForearmOptions": [1, 2, 3] 
+          "availableForearmOptions": [2, 3] 
         },
         { 
           "id": 3, 
           "name": "Grawer 2", 
           "price": 120, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_2_sm_schaftmag_2.jpg", 
-          "availableForearmOptions": [1, 2, 3] 
+          "availableForearmOptions": [2, 3] 
         },
         { 
           "id": 4, 
-          "name": "Grawer angielskie arabeski", 
+          "name": "Angielskie arabeski", 
           "price": 120, 
           "imageUrl":  "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_3a_sm_schaftmag_arabeske.jpg", 
-          "availableForearmOptions": [1, 2, 3] 
+          "availableForearmOptions": [2, 3] 
         },
         { 
           "id": 5, 
-          "name": "Grawer liść dębu", 
+          "name": "Liść dębu", 
           "price": 120, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_3b_sm_schaftmag_eichenla.jpg", 
-          "availableForearmOptions": [1, 2, 3] 
+          "availableForearmOptions": [2, 3] 
         },
         { 
           "id": 6, 
-          "name": "Grawer stary niemiecki liść ", 
+          "name": "Stary niemiecki liść", 
           "price": 120, 
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_3c_sm_schaftmag_altdeuts.jpg", 
-          "availableForearmOptions": [1, 2, 3] 
+          "availableForearmOptions": [2, 3] 
+        },
+        { 
+          "id": 7, 
+          "name": "Angielskie arabeski z głową zwierzęcia lub monogramem", 
+          "price": 120, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_4m2_sm_schaftmag_arabesk.jpg", 
+          "availableForearmOptions": [2, 3] 
+        },
+        { 
+          "id": 8, 
+          "name": "Liść dębu z głową zwierzęcia lub monogramem", 
+          "price": 120, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_4n2_sm_schaftmag_eichenl.jpg", 
+          "availableForearmOptions": [2, 3] 
+        },
+        { 
+          "id": 9, 
+          "name": " Stary niemiecki liść z głową zwierzęcia lub monogramem", 
+          "price": 120, 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_magazine/R8_hz_4o2_sm_schaftmag_altdeut.jpg", 
+          "availableForearmOptions": [2, 3] 
         }
     ],
     "forearmOptions": 
@@ -1645,10 +1710,7 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableStockColorsSynthetic": [1, 2],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [1, 3],
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1662,10 +1724,6 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableStockColorsSynthetic": [1, 2],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1679,10 +1737,7 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [2],
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1713,7 +1768,7 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableButtstockTypes": [1, 3],
+        "availableButtstockTypes": [4],
         "availableModularStockOptionsSynthetic": [1, 2],
         "availableRecoilPadsSynthetic": [1, 3],
         "availableKickstopsSynthetic": [1],
