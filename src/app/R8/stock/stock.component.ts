@@ -24,6 +24,7 @@ export class StockComponent implements OnInit, OnDestroy {
     "woodCategory",
     "recoilPad",
     "pistolGripCap",
+    "kickstop",
     "stockMagazine",
     "forearmOption",
   ];
@@ -144,8 +145,14 @@ export class StockComponent implements OnInit, OnDestroy {
   }
 
   private updateWoodCategoryForSelectedButtstockType(): void {
-    if (this.state.selectedButtstockType) {
-      const woodCategoryIds = this.state.selectedRifle.availableWoodCategories ?? this.state.selectedButtstockType.availableWoodCategories;
+    if (this.state.selectedButtstockType.availableWoodCategories) {
+      let woodCategoryIds = this.state.selectedRifle.availableWoodCategories ?? this.state.selectedButtstockType.availableWoodCategories;
+
+      if (this.state.selectedRifle.name === 'Blaser R8 Silence') {
+        const idsToRemove = [1, 9];
+        woodCategoryIds = woodCategoryIds.filter((id: number) => !idsToRemove.includes(id));
+      }
+      
       this.woodCategories = this.configuratorService.filterOptions(
         this.features,
         "woodCategories",
@@ -171,7 +178,7 @@ export class StockComponent implements OnInit, OnDestroy {
 
   private updatePistolGripCapForSelectedRecoilPad(): void {
     if (this.state.selectedRecoilPad) {
-      const pistolGripCapIds = this.state.selectedRecoilPad.availablePistolGripCaps;
+      const pistolGripCapIds = this.state.selectedRifle.availablePistolGripCaps;
       this.pistolGripCaps = this.configuratorService.filterOptions(
         this.features,
         "pistolGripCaps",
@@ -184,7 +191,7 @@ export class StockComponent implements OnInit, OnDestroy {
 
   private updateKickstopForSelectedPistolGripCap(): void {
     if (this.state.selectedPistolGripCap) {
-      const kickstopIds = this.state.selectedPistolGripCap.availableKickstops;
+      const kickstopIds = this.state.selectedRifle.availableKickstops;
       this.kickstops = this.configuratorService.filterOptions(
         this.features,
         "kickstops",
@@ -197,7 +204,7 @@ export class StockComponent implements OnInit, OnDestroy {
 
   private updateStockMagazineForSelectedKickstop(): void {
     if (this.state.selectedKickstop) {
-      const magazineIds = this.state.selectedKickstop.availableStockMagazines;
+      const magazineIds = this.state.selectedRifle.availableStockMagazines;
       this.stockMagazines = this.configuratorService.filterOptions(
         this.features,
         "stockMagazines",
@@ -210,7 +217,7 @@ export class StockComponent implements OnInit, OnDestroy {
 
   private updateForearmOptionForSelectedStockMagazine(): void {
     if (this.state.selectedStockMagazine) {
-      const forearmIds = this.state.selectedStockMagazine.availableForearmOptions;
+      const forearmIds = this.state.selectedRifle.availableForearmOptions;
       this.forearmOptions = this.configuratorService.filterOptions(
         this.features,
         "forearmOptions",
