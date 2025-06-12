@@ -21,7 +21,7 @@
 
           <!-- Typ Kolby -->
           <mat-form-field appearance="fill" style="width: 100%;">
-            <mat-label>Typ Kolby</mat-label>
+            <mat-label>Typ kolby</mat-label>
             <mat-select
               [value]="state.selectedButtstockType"
               [compareWith]="compareOptionsById"
@@ -39,7 +39,7 @@
 
           <!-- Kategoria Drewna -->
           <mat-form-field appearance="fill" style="width: 100%;">
-            <mat-label>Kategoria Drewna</mat-label>
+            <mat-label>Klasa drewna</mat-label>
             <mat-select
               [value]="state.selectedWoodCategory"
               [compareWith]="compareOptionsById"
@@ -55,6 +55,36 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <ng-container *ngIf="stockInlays.length">
+            <mat-form-field>
+              <mat-label>Stock Inlay</mat-label>
+              <mat-select
+                [(value)]="state.selectedStockInlay"
+                (selectionChange)="onSelectStockInlay($event.value)"
+                [compareWith]="compareOptionsById">
+                <mat-option
+                  *ngFor="let o of stockInlays"
+                  [value]="o">{{ o.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </ng-container>
+
+          <ng-container *ngIf="stockInlaySeams.length">
+            <mat-form-field>
+              <mat-label>Stock Inlay Seam</mat-label>
+              <mat-select
+                [(value)]="state.selectedStockInlaySeam"
+                (selectionChange)="onSelectStockInlaySeam($event.value)"
+                [compareWith]="compareOptionsById">
+                <mat-option
+                  *ngFor="let o of stockInlaySeams"
+                  [value]="o">{{ o.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </ng-container>
 
           <!-- Długość Stopki -->
           <mat-form-field appearance="fill" style="width: 100%;">
