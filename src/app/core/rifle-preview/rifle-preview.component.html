@@ -12,7 +12,7 @@
     <img 
       *ngIf="state.selectedProfile && !state.onSelectLength"
       [src]="
-        (state.selectedContour.name === 'Tracking (17 mm)' || state.selectedContour.name === 'Safari (22 mm)') 
+        (state.selectedContour.name === 'Tracking (17 mm)' || state.selectedContour.name === 'Safari (22 mm)' || state.selectedContour.name === 'Silence (17 mm)') 
           ? state.selectedContour.imageUrl 
           : state.selectedProfile.imageUrl
       "

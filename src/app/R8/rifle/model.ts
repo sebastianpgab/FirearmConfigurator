@@ -24,6 +24,8 @@ export interface Rifle {
 
     availableButtstockTypes: number[];
     availableWoodCategories: number[];
+    availableStockInlays: number [];
+    availableStockInlaySeams: number [];
     availableLengthsOfPull: number[];
     availableIndividualButtstockMeasures: number[];
     availableButtstockMeasuresTypes: number[];

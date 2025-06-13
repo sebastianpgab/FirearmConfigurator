@@ -18,6 +18,8 @@ export interface ConfiguratorState {
     selectedButtstockType: Option | null;
     selectedWoodCategory: Option | null;
     selectedRecoilPad: Option | null;
+    selectedStockInlay: Option | null;
+    selectedStockInlaySeam: Option | null;
     selectedIndividualButtstockMeasure: Option | null;
     selectedButtstockMeasuresType: Option | null;
     selectedPistolGripCap: Option | null;
@@ -43,6 +45,7 @@ export interface ConfiguratorState {
     isDisabledKickstopSynthetic: boolean;
     isDisabledWoodCategory: boolean;
     isDisabledRecoilPad: boolean;
+    isDisabledStockInlaySeam: boolean;
     isDisabledIndividualButtstockMeasure: boolean;
     isDisabledButtstockMeasuresType: boolean;
     isDisabledPistolGripCap: boolean;
