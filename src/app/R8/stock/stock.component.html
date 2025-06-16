@@ -56,31 +56,39 @@
             </mat-select>
           </mat-form-field>
 
-          <ng-container *ngIf="stockInlays.length">
-            <mat-form-field>
-              <mat-label>Stock Inlay</mat-label>
+          <ng-container *ngIf="isLeatherRifleSelected()">
+            <mat-form-field appearance="fill" style="width: 100%;">
+              <mat-label>Wykończenie kolby</mat-label>
               <mat-select
-                [(value)]="state.selectedStockInlay"
+                [value]="state.selectedStockInlay"
+                [compareWith]="compareOptionsById"
                 (selectionChange)="onSelectStockInlay($event.value)"
-                [compareWith]="compareOptionsById">
-                <mat-option
-                  *ngFor="let o of stockInlays"
-                  [value]="o">{{ o.name }}
+                placeholder="Wybierz wykończenie kolby"
+                >
+                <mat-option *ngFor="let stockInlay of stockInlays" [value]="stockInlay">
+                  <div class="option-template">
+                  <img [src]="stockInlay.iconImageUrl" alt="{{ stockInlay.name }}" />
+                  <span>{{ stockInlay.name }}</span>
+                </div>
                 </mat-option>
               </mat-select>
             </mat-form-field>
           </ng-container>
 
-          <ng-container *ngIf="stockInlaySeams.length">
-            <mat-form-field>
-              <mat-label>Stock Inlay Seam</mat-label>
+          <ng-container *ngIf="(isStockInlaySelected() && state.isDisabledRecoilPad) || !!state.selectedStockInlaySeam">
+            <mat-form-field appearance="fill" style="width: 100%;">
+              <mat-label>Kolor obszycia</mat-label>
               <mat-select
-                [(value)]="state.selectedStockInlaySeam"
+                [value]="state.selectedStockInlaySeam"
+                [compareWith]="compareOptionsById"
                 (selectionChange)="onSelectStockInlaySeam($event.value)"
-                [compareWith]="compareOptionsById">
-                <mat-option
-                  *ngFor="let o of stockInlaySeams"
-                  [value]="o">{{ o.name }}
+                placeholder="Wybierz kolor obszycia"
+                >
+                <mat-option *ngFor="let stockInlaySeam of stockInlaySeams" [value]="stockInlaySeam">
+                  <div class="option-template">
+                  <img [src]="stockInlaySeam.iconImageUrl" alt="{{ stockInlaySeam.name }}" />
+                  <span>{{ stockInlaySeam.name }}</span>
+                </div>
                 </mat-option>
               </mat-select>
             </mat-form-field>
