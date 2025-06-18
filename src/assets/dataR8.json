@@ -889,7 +889,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock-type/R8_hd_D_schaftform_intuition_mcbacke.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k4.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k2.png",
-          "availableWoodCategories": [13, 14] 
+          "availableWoodCategories": [17, 18] 
         },
         { 
           "id": 3, 
@@ -1061,18 +1061,18 @@
           "name": "Klasa drewna 4 (intuition)", 
           "price": 400,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_4_sq_klasse4.jpg",
-          "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k4", 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k4.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k4.png", 
-          "availableRecoilPads": [1] 
+          "availableRecoilPads": [9] 
         },
         {
           "id": 18, 
           "name": "Klasa drewna 7 (intuition)", 
           "price": 400,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_7_sq_klasse7.jpg",
-          "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k7", 
+          "imageUrl": "assets/BlaserR8/puzzle/stock/cheek_piece_intuition_compact/R8_holz_intuition_hs_re_k7.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_standard/R8_holz_standard_vs_k7.png", 
-          "availableRecoilPads": [1] 
+          "availableRecoilPads": [9] 
         },
         {
           "id": 19, 
@@ -1081,7 +1081,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_4_sq_klasse4.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_individual_hs_re_c_k4.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_vs_b_k4.png", 
-          "availableRecoilPads": [5, 6] 
+          "availableRecoilPads": [7, 8] 
         },
         {
           "id": 20, 
@@ -1090,7 +1090,7 @@
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon-stock/R8_hq_7_sq_klasse7.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_individual_hs_re_c_k7.png", 
           "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/ultimates_success/R8_holz_success_vs_b_k7.png", 
-          "availableRecoilPads": [5, 6] 
+          "availableRecoilPads": [7, 8] 
         }
     ],
     "recoilPads": [
@@ -1118,28 +1118,28 @@
           "availablePistolGripCaps": [1] 
         },
         { 
-          "id": 3, 
+          "id": 4, 
           "name": "Stopka 2 cm (ProfeSucc)", 
           "price": 100, 
           "imageUrl": "assets/lengths_of_pull/R8_schaftverlaengerung_professional_1cm.png", 
           "availablePistolGripCaps": [1] 
         },
         { 
-          "id": 4, 
+          "id": 5, 
           "name": "Stopka 1,5 cm (ProfeSucc)", 
           "price": 100, 
           "imageUrl": "assets/lengths_of_pull/r8_prosuc_gummischaftkappe_1_5_cm.png", 
           "availablePistolGripCaps": [1] 
         },
         { 
-          "id": 4, 
+          "id": 6, 
           "name": "Stopka 2 cm (ProfeSucc)", 
           "price": 100, 
           "imageUrl": "assets/lengths_of_pull/r8_prosuc_gummischaftkappe_1_5_cm.png", 
           "availablePistolGripCaps": [1] 
         },
         { 
-          "id": 5, 
+          "id": 7, 
           "name": "Stopka 1,5 cm (Success)", 
           "price": 100, 
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/icon-recoil-pad/R8_hl_s15_schaftlaenge_std_gk_15.jpg",
@@ -1147,13 +1147,226 @@
           "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] 
         },
         { 
-          "id": 6, 
+          "id": 8, 
           "name": "Stopka 2 cm (Success)", 
           "price": 100,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/icon-recoil-pad/R8_hl_s25_schaftlaenge_std_gk_20.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_2_5cm_Success.png", 
           "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] 
+        },
+        { 
+          "id": 9, 
+          "name": "Stopka 1, 5 cm (Intuition)", 
+          "price": 100,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/icon-recoil-pad/R8_hl_s15_schaftlaenge_std_gk_15.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/R8_Gummischafkappe_1_5cm_Intuition.png", 
+          "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] 
         }
+    ],
+    "stockInlays":[
+      {
+          "id": 1, 
+          "name": "Brak", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/no-detail.png",
+          "imageUrl": "assets/BlaserR8/puzzle/empty_png.png", 
+          "availableStockInlaySeams": [1, 2] 
+      },
+      {
+          "id": 2, 
+          "name": "Syntetyczny czarny", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_elasto_schwarz.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_elastomer_schwarz.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 3, 
+          "name": "Skórzana kakao", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_cocoa-v2.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_ultimate_schafteinlagen_hs_re_leder_cocoa.png",
+          "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_ultimate_schafteinlagen_vs_leder_cocoa.png" ,
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 4, 
+          "name": "Skórzana czarna", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_schwarz-v2.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_schwarz.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 5, 
+          "name": "Skórzana mistyczna czerwień", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_mysticrot-v2.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_teak.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 6, 
+          "name": "Skórzana kamienna szarość", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_steingrau-v2.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_steingrau2.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 7, 
+          "name": "Skórzana havanna (czerwonobeżowa)", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_havanna-v2.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_havanna2.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 8, 
+          "name": "Skórzana czarna z czerwonym przeszyciem (Monza)", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_monza-v2.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_monza.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 9, 
+          "name": "Skórzana nakładka Easy Custom Yellowstone", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_yellowstone.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-yellowstone.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 10, 
+          "name": "Skórzana nakładka Easy Custom Verde-Ulysses", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_verdeulysses.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-verdeulysses.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 11, 
+          "name": "Skórzana nakładka Easy Custom ciemnozielona", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_dunkelgruen.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-dunkelgruen.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 12, 
+          "name": "Skórzana nakładka Easy Custom jazzowy niebieski", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_jazzblue.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-jazzblue.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 13, 
+          "name": "Skórzana nakładka Easy Custom Arancia Mira", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_aranciamira.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-aranciamira.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 14, 
+          "name": "Skórzana nakładka Easy Custom sportowa czerwień", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_sportrot.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-sportrot.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 15, 
+          "name": "Skórzana nakładka Easy Custom kredowa", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_kreide.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-kreide.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 16, 
+          "name": "Skórzana nakładka Easy Custom Modena", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_modena.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-modena.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 17, 
+          "name": " Skórzana nakładka Easy Custom jedwabna", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_silk.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-silk.png", 
+          "availableStockInlaySeams": []
+      },
+      {
+          "id": 18, 
+          "name": "Skórzana nakładka Easy Custom beż sawanny", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_savannenbeige.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-savannenbeige.png", 
+          "availableStockInlaySeams": []
+      }
+    ],
+    "stockInlaySeams":[
+      {
+          "id": 1, 
+          "name": "Brak, lub zależne od modelu", 
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/no-detail.png",
+          "imageUrl": "assets/BlaserR8/puzzle/empty_png.png", 
+          "availableKickstops": [1, 2] 
+      },
+      {
+          "id": 2, 
+          "name": "Ton w ton - przeszycia w tym samym kolorze co skórzana nakładka",
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay_seam/r8_schafteinlage_naht_ec_toninton.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/empty_png.png", 
+          "availableKickstops": [1, 2] 
+      },
+      {
+          "id": 3, 
+          "name": "Czarne – przeszycia czarną nicią",
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay_seam/r8_schafteinlage_naht_ec_schwarz.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay_seam/r8_easy_custom_re_naht_schwarz.png", 
+          "availableKickstops": [1, 2] 
+      },
+      {
+          "id": 4, 
+          "name": "Czerwone – przeszycia czerwoną nicią",
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay_seam/r8_schafteinlage_naht_ec_rot.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay_seam/r8_easy_custom_re_naht_rot.png", 
+          "availableKickstops": [1, 2] 
+      },
+      {
+          "id": 5, 
+          "name": "Złote – przeszycia nicią w kolorze złotym",
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay_seam/r8_schafteinlage_naht_ec_gold.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay_seam/r8_easy_custom_re_naht_gold.png", 
+          "availableKickstops": [1, 2] 
+      },
+      {
+          "id": 6, 
+          "name": "Niebieskie – przeszycia niebieską nicią",
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay_seam/r8_schafteinlage_naht_ec_blau.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay_seam/r8_easy_custom_re_naht_blau.png", 
+          "availableKickstops": [1, 2] 
+      },
+      {
+          "id": 7, 
+          "name": "Pomarańczowe – przeszycia nicią w kolorze pomarańczowym",
+          "price": 0,
+          "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay_seam/r8_schafteinlage_naht_ec_orange.jpg",
+          "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay_seam/r8_easy_custom_re_naht_orange.png", 
+          "availableKickstops": [1, 2] 
+      }
     ],
     "pistolGripCaps": 
     [
@@ -1697,6 +1910,9 @@
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [1, 3],
         "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "availableForearmOptions": [2, 3],
         "availableChamberEngravings": [2, 3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1711,7 +1927,11 @@
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [1, 3],
-        "availableChamberEngravings": [2,3],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "availableForearmOptions": [2, 3],
+        "availableChamberEngravings": [2, 3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -1724,6 +1944,13 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
+        "availableButtstockTypes": [1, 3],
+
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "availableForearmOptions": [2, 3],
+
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1738,6 +1965,10 @@
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [2],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "availableForearmOptions": [2, 3],
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1752,9 +1983,11 @@
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "availableForearmOptions": [3],
+
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1769,9 +2002,11 @@
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [4],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1],
+        "availableForearmOptions": [3],
+       
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1781,14 +2016,16 @@
         "id": 9,
         "name": "Blaser R8 Success Silence",
         "price": 3500,
-        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_x2_silence.jpg",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [4],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1],
+        "availableForearmOptions": [3],
+
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -1802,10 +2039,9 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [4],
+        "availableStockInlays": [3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+        
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
