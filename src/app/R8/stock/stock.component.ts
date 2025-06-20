@@ -22,6 +22,8 @@ export class StockComponent implements OnInit, OnDestroy {
     "rifle",
     "buttstockType",
     "woodCategory",
+    "stockInlay",        // ← nowy
+    "stockInlaySeam",    // ← nowy, niżej w hierarchii
     "recoilPad",
     "pistolGripCap",
     "kickstop",
@@ -38,6 +40,8 @@ export class StockComponent implements OnInit, OnDestroy {
   buttstockTypes: Option[] = [];
   woodCategories: Option[] = [];
   recoilPads: Option[] = [];
+  stockInlays: Option[] = [];
+  stockInlaySeams: Option[] = [];
   pistolGripCaps: Option[] = [];
   kickstops: Option[] = [];
   stockMagazines: Option[] = [];
@@ -96,35 +100,55 @@ export class StockComponent implements OnInit, OnDestroy {
    * Przywracamy listy opcji w kolejności (buttstockType -> woodCategory -> lengthOfPull -> ...),
    * jeśli w stanie jest już coś wybrane.
    */
-  private restoreSelections(): void {
-    // 1) buttstockTypes zależne od wybranego karabinu
-    this.updateButtstockTypesBasedOnRifle();
+private restoreSelections(): void {
+  // 1) buttstockTypes zależne od wybranego karabinu
+  this.updateButtstockTypesBasedOnRifle();
 
-    // 2) Jeśli mamy selectedButtstockType, wypełniamy woodCategories
-    if (this.state.selectedButtstockType) {
-      this.updateWoodCategoryForSelectedButtstockType();
-    }
-    // 3) Jeśli selectedWoodCategory, wypełniamy recoilPads
-    if (this.state.selectedWoodCategory) { 
-      this.updateRecoilPadForSelectedWoodCategory();
-    }
-    // 4) Jeśli selectedLengthOfPull, wypełniamy individualButtstockMeasures
-    if (this.state.selectedRecoilPad) {
-      this.updatePistolGripCapForSelectedRecoilPad();
-    }
-    // 5) Jeśli selectedPistolGripCap, wypełniamy kickstops
-    if (this.state.selectedPistolGripCap) {
-      this.updateKickstopForSelectedPistolGripCap();
-    }
-    // 6) Jeśli selectedKickstop, wypełniamy stockMagazines
-    if (this.state.selectedKickstop) {
-      this.updateStockMagazineForSelectedKickstop();
-    }
-    // 7) Jeśli selectedStockMagazine, wypełniamy forearmOptions
-    if (this.state.selectedStockMagazine) {
-      this.updateForearmOptionForSelectedStockMagazine();
+  // 2) Jeśli mamy selectedButtstockType, wypełniamy woodCategories
+  if (this.state.selectedButtstockType) {
+    this.updateWoodCategoryForSelectedButtstockType();
+  }
+
+  // 3) Po wyborze woodCategory – opcjonalnie stockInlay (tylko przy "leather")
+  if (this.state.selectedWoodCategory) {
+    // jeśli to kolba "leather", ładujemy inlaye
+    if (this.state.selectedButtstockType?.name.includes('leather')) {
+      this.updateStockInlayForSelectedWoodCategory();
+    } else {
+      this.stockInlays = [];
     }
   }
+
+  // 4) Po wyborze stockInlay – opcjonalnie stockInlaySeam
+  if (this.state.selectedStockInlay) {
+    this.updateStockInlaySeamForSelectedInlay();
+  }
+
+  // 5) Teraz, gdy mamy już woodCategory (i ewentualnie inlay), wypełniamy recoilPads
+  if (this.state.selectedWoodCategory) {
+    this.updateRecoilPadForSelectedWoodCategory();
+  }
+
+  // 6) Jeśli selectedRecoilPad, wypełniamy pistolGripCap
+  if (this.state.selectedRecoilPad) {
+    this.updatePistolGripCapForSelectedRecoilPad();
+  }
+
+  // 7) Jeśli selectedPistolGripCap, wypełniamy kickstops
+  if (this.state.selectedPistolGripCap) {
+    this.updateKickstopForSelectedPistolGripCap();
+  }
+
+  // 8) Jeśli selectedKickstop, wypełniamy stockMagazines
+  if (this.state.selectedKickstop) {
+    this.updateStockMagazineForSelectedKickstop();
+  }
+
+  // 9) Na końcu – forearmOptions
+  if (this.state.selectedStockMagazine) {
+    this.updateForearmOptionForSelectedStockMagazine();
+  }
+}
 
   // ==============================
   //  Metody prywatne do wypełniania list
@@ -160,6 +184,32 @@ export class StockComponent implements OnInit, OnDestroy {
       );
     } else {
       this.woodCategories = [];
+    }
+  }
+
+  private updateStockInlayForSelectedWoodCategory(): void {
+  if (this.state.selectedRifle?.name.includes('Leather')) {
+    const inlayIds = this.state.selectedRifle.availableStockInlays;
+    this.stockInlays = this.configuratorService.filterOptions(
+      this.features,
+      'stockInlays',
+      inlayIds
+    );
+  } else {
+    this.stockInlays = [];
+  }
+}
+
+  private updateStockInlaySeamForSelectedInlay(): void {
+    if (this.state.selectedStockInlay) {
+      const stockInlaySeamIds = this.state.selectedStockInlay.availableStockInlaySeams;
+      this.stockInlaySeams = this.configuratorService.filterOptions(
+        this.features,
+        'stockInlaySeams',
+        stockInlaySeamIds
+      );
+    } else {
+      this.stockInlaySeams = [];
     }
   }
 
@@ -254,13 +304,50 @@ export class StockComponent implements OnInit, OnDestroy {
       return;
     }
 
+    let isDisabledRecoilPad = false;
+    if(this.state.selectedRifle?.name.includes('Leather')) {
+      isDisabledRecoilPad = true;
+    }
+
     this.configuratorService.resetOptionsAfter("woodCategory", this.optionHierarchy);
     this.configuratorService.updateState({
       selectedWoodCategory: newWoodCategory,
-      isDisabledRecoilPad: false,
+      isDisabledRecoilPad: isDisabledRecoilPad,
     });
 
     this.updateRecoilPadForSelectedWoodCategory();
+    this.updateStockInlayForSelectedWoodCategory();
+  }
+
+  onSelectStockInlay(newInlay: Option): void {
+    const oldId = this.state.selectedStockInlay?.id;
+    if (oldId === newInlay.id) {
+      return;
+    }
+
+    this.configuratorService.resetOptionsAfter('stockInlay', this.optionHierarchy);
+
+    const listOfIds = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+    const isRecoilPadDisabled = listOfIds.includes(newInlay.id);
+
+    this.configuratorService.updateState({
+      selectedStockInlay: newInlay,
+      isDisabledStockInlaySeam: false,
+      isDisabledRecoilPad: isRecoilPadDisabled
+    });
+
+    this.updateStockInlaySeamForSelectedInlay();
+  }
+
+// tu jest bład bo jak wybiore ta opcje to mi automatycznie znika z wiodku
+  onSelectStockInlaySeam(newSeam: Option): void {
+    if (this.state.selectedStockInlaySeam?.id === newSeam.id) return;
+
+    this.configuratorService.resetOptionsAfter('stockInlaySeam', this.optionHierarchy);
+    this.configuratorService.updateState({
+      selectedStockInlaySeam: newSeam
+    });
+    this.state.isDisabledRecoilPad = false
   }
 
   onSelectRecoilPad(newRecoilPad: Option): void {
@@ -277,7 +364,6 @@ export class StockComponent implements OnInit, OnDestroy {
 
     this.updatePistolGripCapForSelectedRecoilPad();
   }
-
 
   onSelectPistolGripCap(newCap: Option): void {
     const oldId = this.state.selectedPistolGripCap?.id;
@@ -344,6 +430,22 @@ export class StockComponent implements OnInit, OnDestroy {
     this.configuratorService.updateState({
       selectedForearmOption: newForearm,
     });
+  }
+
+  isLeatherRifleSelected(): boolean {
+    // najpierw zabezpiecz się przed undefined
+    const name = this.state.selectedRifle?.name ?? '';
+    // returns true jeśli nazwa zawiera "Leather", false w przeciwnym razie
+    return name.includes('Leather') && !! this.state.selectedWoodCategory;
+  }
+
+  isStockInlaySelected(): boolean {
+    const listOfIds = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+    const selectedId = this.state.selectedStockInlay?.id;
+
+    // zabezpieczenie przed undefined
+    if (selectedId == null)  return false;
+    return listOfIds.includes(selectedId);
   }
 
   // ==============================
