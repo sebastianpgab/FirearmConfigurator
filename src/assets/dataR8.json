@@ -1235,7 +1235,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_yellowstone.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-yellowstone.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 10, 
@@ -1243,7 +1243,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_verdeulysses.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-verdeulysses.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 11, 
@@ -1251,7 +1251,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_dunkelgruen.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-dunkelgruen.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 12, 
@@ -1259,7 +1259,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_jazzblue.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-jazzblue.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 13, 
@@ -1267,7 +1267,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_aranciamira.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-aranciamira.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 14, 
@@ -1275,7 +1275,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_sportrot.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-sportrot.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 15, 
@@ -1283,7 +1283,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_kreide.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-kreide.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 16, 
@@ -1291,7 +1291,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_modena.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-modena.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 17, 
@@ -1299,7 +1299,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_silk.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-silk.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       },
       {
           "id": 18, 
@@ -1307,7 +1307,7 @@
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_stock_inlay/r8_schafteinlage_leder_ec_savannenbeige.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/stock/stock_inlay/r8_prosuc_schafteinlagen_re_leder_ec-savannenbeige.png", 
-          "availableStockInlaySeams": []
+          "availableStockInlaySeams": [2, 3, 4, 5, 6, 7]
       }
     ],
     "stockInlaySeams":[
@@ -1593,18 +1593,70 @@
     "stockColorsSynthetic": [
       {
         "id": 1,
-        "name": "stock kolor", 
+        "name": "Brak", 
         "price": 80,
-        "imageUrl": "assets/BlaserR8/puzzle/stock/fore_arm_option/R8_vo_ebenholz_abschl.jpg",
+        "iconImageUrl": "assets/BlaserR8/puzzle/no-detail.png",
+        "imageUrl": "assets/BlaserR8/puzzle/empty_png.png",
         "availableStockInlaysSynthetic": [1],
         "availableModularStockOptionsSynthetic": [1],
         "availableRecoilPadsSynthetic": [1]
       },
       {
         "id": 2,
-        "name": "stock kolor 2", 
+        "name": "Ciemna Zieleń", 
         "price": 80,
-        "imageUrl": "assets/BlaserR8/puzzle/stock/fore_arm_option/R8_vo_ebenholz_abschl.jpg",
+        "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_buttstock_synthetic/r8_prof_schaftfarbe_gruen.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ks_schaft_prof.png",
+        "availableStockInlaysSynthetic": [1],
+        "availableModularStockOptionsSynthetic": [1],
+        "availableRecoilPadsSynthetic": [1]
+      },
+      {
+        "id": 3,
+        "name": "HunTec Camo", 
+        "price": 80,
+        "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_buttstock_synthetic/r8_prof_schaftfarbe_huntec.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ks_schaft_prof_camo.png",
+        "availableStockInlaysSynthetic": [1],
+        "availableModularStockOptionsSynthetic": [1],
+        "availableRecoilPadsSynthetic": [1]
+      },
+      {
+        "id": 4,
+        "name": "Savanna", 
+        "price": 80,
+        "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_buttstock_synthetic/r8_prof_schaftfarbe_savanne.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ks_schaft_prof_savanne.png",
+        "availableStockInlaysSynthetic": [1],
+        "availableModularStockOptionsSynthetic": [1],
+        "availableRecoilPadsSynthetic": [1]
+      },
+      {
+        "id": 5,
+        "name": "Ciemny Brąz", 
+        "price": 80,
+        "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_buttstock_synthetic/r8_prof_schaftfarbe_braun.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ks_schaft_prof_braun.png",
+        "availableStockInlaysSynthetic": [1],
+        "availableModularStockOptionsSynthetic": [1],
+        "availableRecoilPadsSynthetic": [1]
+      },
+      {
+        "id": 6,
+        "name": "Czarny", 
+        "price": 80,
+        "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_buttstock_synthetic/r8_prof_schaftfarbe_schwarz.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_re_schwarz.png",
+        "availableStockInlaysSynthetic": [1],
+        "availableModularStockOptionsSynthetic": [1],
+        "availableRecoilPadsSynthetic": [1]
+      },
+      {
+        "id": 7,
+        "name": "Carbon", 
+        "price": 80,
+        "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_buttstock_synthetic/r8_prof_schaftfarbe_carbon.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ks_schaft_prof.png",
         "availableStockInlaysSynthetic": [1],
         "availableModularStockOptionsSynthetic": [1],
         "availableRecoilPadsSynthetic": [1]
@@ -2035,12 +2087,16 @@
         "id": 10,
         "name": "Blaser R8 Success Leather",
         "price": 3500,
-        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_individual.jpg",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [4],
         "availableStockInlays": [3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1],
+        "availableForearmOptions": [3],
         
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
@@ -2055,10 +2111,13 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [4],
+        "availableStockInlays": [3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1],
+        "availableForearmOptions": [3],
+
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -2072,10 +2131,12 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [4],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1],
+        "availableForearmOptions": [3],
+       
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -2089,10 +2150,13 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [4],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1],
+        "availableForearmOptions": [3],
+
+
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -2106,10 +2170,13 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [4],
+        "availableStockInlays": [3, 4, 5, 6, 7],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1],
+        "availableForearmOptions": [3],
+
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -2123,10 +2190,13 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableButtstockTypes": [4],
+        "availableStockInlays": [3, 4, 5, 6, 7],
+        "availablePistolGripCaps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        "availableKickstops": [1, 2],
+        "availableStockMagazines": [1],
+        "availableForearmOptions": [3],
+        
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
@@ -2140,10 +2210,9 @@
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
-        "availableButtstockTypes": [1, 3],
-        "availableModularStockOptionsSynthetic": [1, 2],
-        "availableRecoilPadsSynthetic": [1, 3],
-        "availableKickstopsSynthetic": [1],
+        "availableStockColorsSynthetic": [2, 4, 5],
+
+        
         "availableChamberEngravings": [2,3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
