@@ -6,13 +6,13 @@
       <mat-label>Kolor Kolby</mat-label>
       <mat-select
         [value]="state.selectedStockColorSynthetic"
-        (selectionChange)="onSelectStockColorSynthetic($event.value)"
         [compareWith]="compareOptionsById"
+        (selectionChange)="onSelectStockColorSynthetic($event.value)"
         placeholder="Wybierz kolor kolby"
       >
         <mat-option *ngFor="let color of stockColors" [value]="color">
           <div class="option-template">
-            <img [src]="color.imageUrl" alt="{{ color.name }}" />
+            <img [src]="color.iconImageUrl" alt="{{ color.name }}" />
             <span>{{ color.name }}</span>
           </div>
         </mat-option>
@@ -30,7 +30,7 @@
       >
         <mat-option *ngFor="let inlay of stockInlays" [value]="inlay">
           <div class="option-template">
-            <img [src]="inlay.imageUrl" alt="{{ inlay.name }}" />
+            <img [src]="inlay.iconImageUrl" alt="{{ inlay.name }}" />
             <span>{{ inlay.name }}</span>
           </div>
         </mat-option>
@@ -48,7 +48,7 @@
       >
         <mat-option *ngFor="let option of modularStockOptions" [value]="option">
           <div class="option-template">
-            <img [src]="option.imageUrl" alt="{{ option.name }}" />
+            <img [src]="option.iconImageUrl" alt="{{ option.name }}" />
             <span>{{ option.name }}</span>
           </div>
         </mat-option>
@@ -66,7 +66,7 @@
       >
         <mat-option *ngFor="let pad of recoilPads" [value]="pad">
           <div class="option-template">
-            <img [src]="pad.imageUrl" alt="{{ pad.name }}" />
+            <img [src]="pad.iconImageUrl" alt="{{ pad.name }}" />
             <span>{{ pad.name }}</span>
           </div>
         </mat-option>
@@ -84,7 +84,7 @@
       >
         <mat-option *ngFor="let kick of kickstops" [value]="kick">
           <div class="option-template">
-            <img [src]="kick.imageUrl" alt="{{ kick.name }}" />
+            <img [src]="kick.iconImageUrl" alt="{{ kick.name }}" />
             <span>{{ kick.name }}</span>
           </div>
         </mat-option>

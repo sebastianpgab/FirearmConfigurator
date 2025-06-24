@@ -40,7 +40,6 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private configuratorService: ConfiguratorService,
-    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -112,18 +111,21 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
     this.kickstops = this.allKickstops.filter(opt => ids.includes(opt.id));
   }
 
-  onSelectStockColorSynthetic(option: Option): void {
-    this.configuratorService.resetOptionsAfter("stockColorSynthetic", this.optionHierarchy);
-    this.configuratorService.updateState({
-      selectedStockColorSynthetic: option
-    });
+onSelectStockColorSynthetic(newStockCategory: Option): void {
+  const oldId = this.state.selectedStockColorSynthetic?.id;
+  if (oldId === newStockCategory.id) return;
 
-    this.updateStockInlay();
-    this.updateModularStockOption();
-    this.updateRecoilPad();
-    this.updateKickstop();
-    this.cdr.detectChanges();
-  }
+  this.configuratorService.resetOptionsAfter("stockColorSynthetic", this.optionHierarchy);
+  this.configuratorService.updateState({
+    selectedStockColorSynthetic: newStockCategory,
+    isDisabledStockInlaySynthetic: false,
+  });
+
+
+}
+
+
+
 
   onSelectStockInlaySynthetic(option: Option): void {
     this.configuratorService.resetOptionsAfter("stockInlaySynthetic", this.optionHierarchy);
