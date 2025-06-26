@@ -11,8 +11,11 @@
     <ul class="dropdown-list show">
       <li *ngFor="let category of categories">
         <a
-          (click)="navigateTo(category)"
+          class="navbar-link"
+          [class.disabled]="!isCategoryEnabled(category.path)"
           [class.active]="isActiveCategory(category)"
+          [attr.aria-disabled]="!isCategoryEnabled(category.path)"
+          (click)="isCategoryEnabled(category.path) && navigateTo(category)"
         >
           {{ category.title }}
         </a>
@@ -26,8 +29,9 @@
       <li *ngFor="let category of categories">
         <a
           class="navbar-link"
-          (click)="navigateTo(category)"
+          [class.disabled]="!isCategoryEnabled(category.path)"
           [class.active]="isActiveCategory(category)"
+          (click)="isCategoryEnabled(category.path) && navigateTo(category)"
         >
           {{ category.title }}
         </a>

@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfiguratorService } from '../services/configurator.service';
 
 interface Category {
   title: string;
@@ -26,7 +27,7 @@ export class NavbarComponent {
 
   @ViewChild('dropdownButton') dropdownButton!: ElementRef;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private configuratorService: ConfiguratorService ) {}
 
   isHomePage(): boolean {
     return this.router.url === '/' || this.router.url === '/home';
@@ -50,4 +51,34 @@ export class NavbarComponent {
   isActiveCategory(category: Category): boolean {
     return this.router.url === category.path;
   }
+
+  isCategoryEnabled(path: string): boolean {
+      console.log('Sprawdzam kategorię:', path);
+
+  const config = this.configuratorService.getState();
+
+  if (path === '/r8/barrel') {
+    return config.selectedRifle !== null;
+  }
+
+  if (path === '/r8/stock') {
+    return config.selectedContour !== null;
+  }
+
+  if (path === '/r8/chamberBolt') {
+    return config.selectedButtstockType !== null || config.selectedStockColorSynthetic !== null;
+  }
+
+  if (path === '/r8/accessory') {
+    return config.selectedChamberEngraving !== null;
+  }
+  console.log(config.selectedGunCase?.name)
+
+  if (path === '/r8/summary') {
+    return config.selectedGunCase !== null;
+  }
+
+  return true; // domyślnie aktywne
+}
+
 }
