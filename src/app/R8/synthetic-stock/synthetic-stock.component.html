@@ -19,7 +19,7 @@
       </mat-select>
     </mat-form-field>
 
-    <!-- Inlay – tylko jeśli dostępny -->
+    <!-- Inlay – tylko jeśli dostępny 
     <mat-form-field appearance="fill" style="width: 100%;" *ngIf="shouldShowOption('StockInlaysSynthetic')">
       <mat-label>Inlay Kolby</mat-label>
       <mat-select
@@ -35,34 +35,17 @@
           </div>
         </mat-option>
       </mat-select>
-    </mat-form-field>
-
-    <!-- Modular -->
-    <mat-form-field appearance="fill" style="width: 100%;" *ngIf="shouldShowOption('ModularStockOptionsSynthetic')">
-      <mat-label>Moduł kolby</mat-label>
-      <mat-select
-        [value]="state.selectedModularStockOptionSynthetic"
-        (selectionChange)="onSelectModularStockOptionSynthetic($event.value)"
-        [compareWith]="compareOptionsById"
-        placeholder="Wybierz moduł"
-      >
-        <mat-option *ngFor="let option of modularStockOptions" [value]="option">
-          <div class="option-template">
-            <img [src]="option.iconImageUrl" alt="{{ option.name }}" />
-            <span>{{ option.name }}</span>
-          </div>
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    </mat-form-field>-->
 
     <!-- Recoil Pad -->
     <mat-form-field appearance="fill" style="width: 100%;" *ngIf="shouldShowOption('RecoilPadsSynthetic')">
       <mat-label>Stopka</mat-label>
       <mat-select
         [value]="state.selectedRecoilPadSynthetic"
-        (selectionChange)="onSelectRecoilPadSynthetic($event.value)"
         [compareWith]="compareOptionsById"
         placeholder="Wybierz stopkę"
+        [disabled]="state.isDisabledRecoilPadSynthetic"
+        (selectionChange)="onSelectRecoilPadSynthetic($event.value)"
       >
         <mat-option *ngFor="let pad of recoilPads" [value]="pad">
           <div class="option-template">
@@ -73,21 +56,41 @@
       </mat-select>
     </mat-form-field>
 
+    <!-- Modular -->
+    <mat-form-field appearance="fill" style="width: 100%;" *ngIf="shouldShowOption('ModularStockOptionsSynthetic')">
+      <mat-label>Moduł kolby</mat-label>
+      <mat-select
+        [value]="state.selectedModularStockOptionSynthetic"
+        [compareWith]="compareOptionsById"
+        placeholder="Wybierz moduł"
+        [disabled]="state.isDisabledModularStockOptionSynthetic"
+        (selectionChange)="onSelectModularStockOptionSynthetic($event.value)"
+      >
+        <mat-option *ngFor="let option of modularStockOptions" [value]="option">
+          <div class="option-template">
+            <img [src]="option.iconImageUrl" alt="{{ option.name }}" />
+            <span>{{ option.name }}</span>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <!-- Kickstop -->
     <mat-form-field appearance="fill" style="width: 100%;" *ngIf="shouldShowOption('KickstopsSynthetic')">
       <mat-label>Kickstop</mat-label>
       <mat-select
         [value]="state.selectedKickstopSynthetic"
-        (selectionChange)="onSelectKickstopSynthetic($event.value)"
         [compareWith]="compareOptionsById"
         placeholder="Wybierz kickstop"
+        [disabled]="state.isDisabledModularStockOptionSynthetic"
+        (selectionChange)="onSelectKickstopSynthetic($event.value)"
       >
         <mat-option *ngFor="let kick of kickstops" [value]="kick">
           <div class="option-template">
             <img [src]="kick.iconImageUrl" alt="{{ kick.name }}" />
             <span>{{ kick.name }}</span>
           </div>
-        </mat-option>
+        </mat-option> 
       </mat-select>
     </mat-form-field>
 

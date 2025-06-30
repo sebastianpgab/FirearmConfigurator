@@ -16,8 +16,8 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
   private optionHierarchy = [
     "stockColorSynthetic",
     "stockInlaySynthetic",
-    "modularStockOptionSynthetic",
     "recoilPadSynthetic",
+    "modularStockOptionSynthetic",
     "kickstopSynthetic"
   ];
 
@@ -79,10 +79,16 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
   private restoreSelections(): void {
     this.updateStockColorsBasedOnRifle();
 
-    this.updateStockInlay();
-    this.updateModularStockOption();
-    this.updateRecoilPad();
-    this.updateKickstop();
+    /*this.updateStockInlay();*/
+    if(this.state.selectedRecoilPadSynthetic){
+      this.updateRecoilPad();
+    }
+    if(this.state.selectedRecoilPadSynthetic){
+     this.updateModularStockOption();
+    }
+    if(this.state.selectedKickstop){
+     this.updateKickstop();
+    }
   }
 
   private updateStockColorsBasedOnRifle(): void {
@@ -90,13 +96,18 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
     this.stockColors = this.allStockColors.filter(opt => ids.includes(opt.id));
   }
 
-  private updateStockInlay(): void {
+  /*private updateStockInlay(): void {
     const ids = this.state.selectedRifle?.availableStockInlaysSynthetic || [];
     this.stockInlays = this.allInlays.filter(opt => ids.includes(opt.id));
-  }
+  }*/
 
   private updateModularStockOption(): void {
-    const ids = this.state.selectedRifle?.availableModularStockOptionsSynthetic || [];
+    var ids = this.state.selectedRifle?.availableModularStockOptionsSynthetic || [];
+    if(this.state.selectedStockColorSynthetic.name === "Ciemna Zieleń" && 
+      this.state.selectedRifle.name === "Blaser R8 Professional")
+    {
+      ids = [1, 2];
+    }
     this.modularStockOptions = this.allModularOptions.filter(opt => ids.includes(opt.id));
   }
 
@@ -117,15 +128,29 @@ onSelectStockColorSynthetic(newStockColor: Option): void {
   this.configuratorService.resetOptionsAfter("stockColorSynthetic", this.optionHierarchy);
   this.configuratorService.updateState({
     selectedStockColorSynthetic: newStockColor,
+    isDisabledRecoilPadSynthetic: false,
   });
+  this.updateRecoilPad();
 }
 
-onSelectStockInlaySynthetic(newStockInlay: Option): void {
+/*onSelectStockInlaySynthetic(newStockInlay: Option): void {
   const oldId = this.state.selectedStockInlaySynthetic?.id;
   if (oldId === newStockInlay.id) return;
 
   this.configuratorService.resetOptionsAfter("stockInlaySynthetic", this.optionHierarchy);
   this.configuratorService.updateState({ selectedStockInlaySynthetic: newStockInlay });
+}*/
+
+onSelectRecoilPadSynthetic(newRecoilPad: Option): void {
+  const oldId = this.state.selectedRecoilPadSynthetic?.id;
+  if (oldId === newRecoilPad.id) return;
+
+  this.configuratorService.resetOptionsAfter("recoilPadSynthetic", this.optionHierarchy);
+  this.configuratorService.updateState({ 
+    selectedRecoilPadSynthetic: newRecoilPad,
+    isDisabledModularStockOptionSynthetic: false
+  });
+  this.updateModularStockOption();
 }
 
 onSelectModularStockOptionSynthetic(newModularStock: Option): void {
@@ -133,15 +158,13 @@ onSelectModularStockOptionSynthetic(newModularStock: Option): void {
   if (oldId === newModularStock.id) return;
 
   this.configuratorService.resetOptionsAfter("modularStockSynthetic", this.optionHierarchy);
-  this.configuratorService.updateState({ selectedModularStockOptionSynthetic: newModularStock });
-}
+  this.configuratorService.updateState({ 
+    selectedModularStockOptionSynthetic: newModularStock,
+    isDisabledKickstopSynthetic: false,
 
-onSelectRecoilPadSynthetic(newRecoilPad: Option): void {
-  const oldId = this.state.selectedRecoilPadSynthetic?.id;
-  if (oldId === newRecoilPad.id) return;
+  });
+  this.updateKickstop();
 
-  this.configuratorService.resetOptionsAfter("recoilPadSynthetic", this.optionHierarchy);
-  this.configuratorService.updateState({ selectedRecoilPadSynthetic: newRecoilPad });
 }
 
 onSelectKickstopSynthetic(newKickstop: Option): void {
