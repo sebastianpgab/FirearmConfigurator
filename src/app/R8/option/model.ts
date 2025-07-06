@@ -5,6 +5,8 @@ export interface Option{
     iconImageUrl?: string;
     imageUrl?: string;
     secondaryImageUrl?: string;
+    thirdImageUrl?: string;
+    fourthImageUrl?: string;
     availableCalibers?: [];
     availableProfiles?: [];
     availableLengths?: [];

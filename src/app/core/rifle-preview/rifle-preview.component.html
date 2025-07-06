@@ -61,11 +61,23 @@
     <img *ngIf="state.selectedStockInlay" [src]="state.selectedStockInlay.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedStockInlay?.secondaryImageUrl" [src]="state.selectedStockInlay?.secondaryImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedStockInlaySeam" [src]="state.selectedStockInlaySeam.imageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedStockColorSynthetic" [src]="state.selectedStockColorSynthetic.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedRecoilPadSynthetic" [src]="state.selectedRecoilPadSynthetic.imageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedModularStockOptionSynthetic" [src]="state.selectedModularStockOptionSynthetic.imageUrl" class="rifle-layer">
+    <img
+      *ngIf="state.selectedStockColorSynthetic && !(state.selectedModularStockOptionSynthetic?.name?.includes('Regulowana baka (Professional)'))"
+      [src]="state.selectedStockColorSynthetic.imageUrl"
+      class="rifle-layer"
+    />
 
-
+    <!-- Zawsze wyświetl modularną opcję, jeśli istnieje -->
+    <img
+      *ngIf="state.selectedModularStockOptionSynthetic"
+      [src]="state.selectedModularStockOptionSynthetic.imageUrl"
+      class="rifle-layer"
+    />
+    <img *ngIf="state.selectedStockColorSynthetic?.secondaryImageUrl" [src]="state.selectedStockColorSynthetic?.secondaryImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedStockColorSynthetic?.thirdImageUrl" [src]="state.selectedStockColorSynthetic?.thirdImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedStockColorSynthetic?.fourthImageUrl" [src]="state.selectedStockColorSynthetic?.fourthImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedModularStockOptionSynthetic?.secondaryImageUrl" [src]="state.selectedModularStockOptionSynthetic?.secondaryImageUrl" class="rifle-layer">
 
     <img *ngIf="state.selectedRecoilPad" [src]="state.selectedRecoilPad.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedChamberEngraving" [src]="state.selectedChamberEngraving.imageUrl" class="rifle-layer">
