@@ -61,6 +61,9 @@ export class AccessoryComponent implements OnInit, OnDestroy {
     }
   }
 
+  compareOptionsById = (o1: Option, o2: Option) =>
+  o1 && o2 ? o1.id === o2.id : o1 === o2;
+
   /**
    * Przywracanie wybranych opcji po załadowaniu stanu.
    */

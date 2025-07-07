@@ -9,8 +9,11 @@
       <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Futerał na broń</mat-label>
         <mat-select
-          [(value)]="selectedGunCase"
+          [value]="state.selectedGunCase"
+         [compareWith]="compareOptionsById"
           placeholder="Wybierz futerał na broń"
+          (selectionChange)="onSelectGunCase($event.value)"
+
         >
           <mat-option *ngFor="let option of gunCases" [value]="option">
             <div class="option-template">
@@ -25,8 +28,10 @@
       <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Pokrowiec miękki</mat-label>
         <mat-select
-          [(value)]="selectedSoftGunCover"
+          [value]="state.selectedSoftGunCover"
+          [compareWith]="compareOptionsById"
           placeholder="Wybierz pokrowiec miękki"
+          (selectionChange)="onSelectSoftGunCover($event.value)"
         >
           <mat-option *ngFor="let option of softGunCovers" [value]="option">
             <div class="option-template">
@@ -41,8 +46,11 @@
       <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Pas do broni</mat-label>
         <mat-select
-          [(value)]="selectedRifleSling"
+          [value]="state.selectedRifleSling"
+          [compareWith]="compareOptionsById"
           placeholder="Wybierz pas do broni"
+          (selectionChange)="onSelectRifleSling($event.value)"
+
         >
           <mat-option *ngFor="let option of rifleSlings" [value]="option">
             <div class="option-template">
