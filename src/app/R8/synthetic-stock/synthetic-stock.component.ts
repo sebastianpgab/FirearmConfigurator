@@ -15,7 +15,6 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   private optionHierarchy = [
     "stockColorSynthetic",
-    "stockInlaySynthetic",
     "recoilPadSynthetic",
     "modularStockOptionSynthetic",
     "kickstopSynthetic"
@@ -41,27 +40,27 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
     private configuratorService: ConfiguratorService,
   ) {}
 
-  ngOnInit(): void {
-    this.subscription = this.configuratorService.state$.subscribe((state) => {
-      this.state = state;
-    });
+ngOnInit(): void {
+  this.subscription = this.configuratorService.state$.subscribe((state) => {
+    this.state = state;
+  });
 
-    this.configuratorService.getData().subscribe(
-      (data) => {
-        this.features = data.features;
-        this.rifles = data.rifles;
+  this.configuratorService.getData().subscribe(
+    (data) => {
+      this.features = data.features;
+      this.rifles = data.rifles;
 
-        this.allStockColors = this.features.stockColorsSynthetic;
-        this.allInlays = this.features.stockInlaysSynthetic;
-        this.allModularOptions = this.features.modularStockOptionsSynthetic;
-        this.allRecoilPads = this.features.recoilPadsSynthetic;
-        this.allKickstops = this.features.kickstopsSynthetic;
+      this.allStockColors = this.features.stockColorsSynthetic;
+      this.allInlays = this.features.stockInlaysSynthetic;
+      this.allModularOptions = this.features.modularStockOptionsSynthetic;
+      this.allRecoilPads = this.features.recoilPadsSynthetic;
+      this.allKickstops = this.features.kickstopsSynthetic;
 
-        this.restoreSelections();
-      },
-      (error) => console.error("Błąd przy ładowaniu danych:", error)
-    );
-  }
+      this.restoreSelections(); // <- zawsze wywołuj po załadowaniu danych
+    },
+    (error) => console.error("Błąd przy ładowaniu danych:", error)
+  );
+}
 
   ngOnDestroy(): void {
     if (this.subscription) this.subscription.unsubscribe();
@@ -102,7 +101,9 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
   }*/
 
   private updateModularStockOption(): void {
-    var ids = this.state.selectedRifle?.availableModularStockOptionsSynthetic || [];
+  let ids = this.state.selectedStockColorSynthetic?.availableModularStockOptionsSynthetic 
+       ?? this.state.selectedRifle?.availableModularStockOptionsSynthetic;
+
     if(this.state.selectedStockColorSynthetic.name === "Ciemna Zieleń" && 
       this.state.selectedRifle.name === "Blaser R8 Professional")
     {
@@ -126,11 +127,20 @@ onSelectStockColorSynthetic(newStockColor: Option): void {
   if (oldId === newStockColor.id) return;
 
   this.configuratorService.resetOptionsAfter("stockColorSynthetic", this.optionHierarchy);
+
+  const isUltimate = this.state.selectedRifle.name.includes("Blaser R8 Ultimate");
+
   this.configuratorService.updateState({
     selectedStockColorSynthetic: newStockColor,
     isDisabledRecoilPadSynthetic: false,
+    isDisabledModularStockOptionSynthetic: !isUltimate
   });
+
   this.updateRecoilPad();
+
+  if (isUltimate) {
+    this.updateModularStockOption();
+  }
 }
 
 /*onSelectStockInlaySynthetic(newStockInlay: Option): void {
@@ -146,18 +156,28 @@ onSelectRecoilPadSynthetic(newRecoilPad: Option): void {
   if (oldId === newRecoilPad.id) return;
 
   this.configuratorService.resetOptionsAfter("recoilPadSynthetic", this.optionHierarchy);
+
+  const isProfessionalSuccess = this.state.selectedRifle.name === "Blaser R8 Professional Success" || this.state.selectedRifle.name === "Blaser R8 Safari Professional Hunter";
+
   this.configuratorService.updateState({ 
     selectedRecoilPadSynthetic: newRecoilPad,
-    isDisabledModularStockOptionSynthetic: false
+    isDisabledModularStockOptionSynthetic: false,
+    isDisabledKickstopSynthetic: isProfessionalSuccess ? false : this.state.selectedKickstopSynthetic
   });
+
+  if (isProfessionalSuccess) {
+    this.updateKickstop();  // <-- tylko dla R8 Professional Success
+  }
+
   this.updateModularStockOption();
 }
+
 
 onSelectModularStockOptionSynthetic(newModularStock: Option): void {
   const oldId = this.state.selectedModularStockSynthetic?.id;
   if (oldId === newModularStock.id) return;
 
-  this.configuratorService.resetOptionsAfter("modularStockSynthetic", this.optionHierarchy);
+  this.configuratorService.resetOptionsAfter("modularStockOptionSynthetic", this.optionHierarchy);
   this.configuratorService.updateState({ 
     selectedModularStockOptionSynthetic: newModularStock,
     isDisabledKickstopSynthetic: false,
