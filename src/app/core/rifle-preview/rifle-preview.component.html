@@ -55,9 +55,19 @@
     [ngStyle]="{'top': configuratorService.getAttachmentPosition('muzzleBrakeOrSuppressor').top, 'left': configuratorService.getAttachmentPosition('muzzleBrakeOrSuppressor').left}"
   >
     <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.imageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.secondaryImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedButtstockType?.secondaryImageUrl" [src]="state.selectedButtstockType?.secondaryImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedButtstockType?.thirdImageUrl" [src]="state.selectedButtstockType?.thirdImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedButtstockType?.fourthImageUrl" [src]="state.selectedButtstockType?.fourthImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedButtstockType?.fifthImageUrl" [src]="state.selectedButtstockType?.fifthImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedButtstockType?.sixthImageUrl" [src]="state.selectedButtstockType?.sixthImageUrl" class="rifle-layer">
+
     <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.imageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedWoodCategory" [src]="state.selectedWoodCategory.secondaryImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedWoodCategory?.secondaryImageUrl" [src]="state.selectedWoodCategory?.secondaryImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedWoodCategory?.thirdImageUrl" [src]="state.selectedWoodCategory?.thirdImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedWoodCategory?.fourthImageUrl" [src]="state.selectedWoodCategory?.fourthImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedWoodCategory?.fifthImageUrl" [src]="state.selectedWoodCategory?.fifthImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedWoodCategory?.sixthImageUrl" [src]="state.selectedWoodCategory?.sixthImageUrl" class="rifle-layer">
+
     <img *ngIf="state.selectedStockInlay" [src]="state.selectedStockInlay.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedStockInlay?.secondaryImageUrl" [src]="state.selectedStockInlay?.secondaryImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedStockInlaySeam" [src]="state.selectedStockInlaySeam.imageUrl" class="rifle-layer">
@@ -69,14 +79,11 @@
     />
 
     <!-- Zawsze wyświetl modularną opcję, jeśli istnieje -->
-    <img
-      *ngIf="state.selectedModularStockOptionSynthetic"
-      [src]="state.selectedModularStockOptionSynthetic.imageUrl"
-      class="rifle-layer"
-    />
     <img *ngIf="state.selectedStockColorSynthetic?.secondaryImageUrl" [src]="state.selectedStockColorSynthetic?.secondaryImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedStockColorSynthetic?.thirdImageUrl" [src]="state.selectedStockColorSynthetic?.thirdImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedStockColorSynthetic?.fourthImageUrl" [src]="state.selectedStockColorSynthetic?.fourthImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedStockColorSynthetic?.fifthImageUrl" [src]="state.selectedStockColorSynthetic?.fifthImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedModularStockOptionSynthetic" [src]="state.selectedModularStockOptionSynthetic.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedModularStockOptionSynthetic?.secondaryImageUrl" [src]="state.selectedModularStockOptionSynthetic?.secondaryImageUrl" class="rifle-layer">
 
     <img *ngIf="state.selectedRecoilPad" [src]="state.selectedRecoilPad.imageUrl" class="rifle-layer">
