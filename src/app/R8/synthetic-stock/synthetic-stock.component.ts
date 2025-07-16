@@ -40,27 +40,31 @@ export class SyntheticStockComponent implements OnInit, OnDestroy {
     private configuratorService: ConfiguratorService,
   ) {}
 
-ngOnInit(): void {
-  this.subscription = this.configuratorService.state$.subscribe((state) => {
-    this.state = state;
-  });
+  ngOnInit(): void {
+    // najpierw pobieramy dane
+    this.configuratorService.getData().subscribe(
+      (data) => {
+        this.features = data.features;
+        this.rifles = data.rifles;
 
-  this.configuratorService.getData().subscribe(
-    (data) => {
-      this.features = data.features;
-      this.rifles = data.rifles;
+        this.allStockColors = this.features.stockColorsSynthetic;
+        this.allInlays = this.features.stockInlaysSynthetic;
+        this.allModularOptions = this.features.modularStockOptionsSynthetic;
+        this.allRecoilPads = this.features.recoilPadsSynthetic;
+        this.allKickstops = this.features.kickstopsSynthetic;
 
-      this.allStockColors = this.features.stockColorsSynthetic;
-      this.allInlays = this.features.stockInlaysSynthetic;
-      this.allModularOptions = this.features.modularStockOptionsSynthetic;
-      this.allRecoilPads = this.features.recoilPadsSynthetic;
-      this.allKickstops = this.features.kickstopsSynthetic;
+        // dopiero teraz subskrybujemy stan
+        this.subscription = this.configuratorService.state$.subscribe((state) => {
+          this.state = state;
 
-      this.restoreSelections(); // <- zawsze wywołuj po załadowaniu danych
-    },
-    (error) => console.error("Błąd przy ładowaniu danych:", error)
-  );
-}
+          // teraz, gdy wszystko gotowe, przywracamy selekcje
+          this.restoreSelections();
+        });
+      },
+      (error) => console.error("Błąd przy ładowaniu danych:", error)
+    );
+  }
+
 
   ngOnDestroy(): void {
     if (this.subscription) this.subscription.unsubscribe();
@@ -77,17 +81,9 @@ ngOnInit(): void {
 
   private restoreSelections(): void {
     this.updateStockColorsBasedOnRifle();
-
-    /*this.updateStockInlay();*/
-    if(this.state.selectedRecoilPadSynthetic){
-      this.updateRecoilPad();
-    }
-    if(this.state.selectedRecoilPadSynthetic){
-     this.updateModularStockOption();
-    }
-    if(this.state.selectedKickstop){
-     this.updateKickstop();
-    }
+    this.updateRecoilPad();
+    this.updateModularStockOption();
+    this.updateKickstop();
   }
 
   private updateStockColorsBasedOnRifle(): void {
@@ -157,7 +153,7 @@ onSelectRecoilPadSynthetic(newRecoilPad: Option): void {
 
   this.configuratorService.resetOptionsAfter("recoilPadSynthetic", this.optionHierarchy);
 
-  const isProfessionalSuccess = this.state.selectedRifle.name === "Blaser R8 Professional Success" || this.state.selectedRifle.name === "Blaser R8 Safari Professional Hunter";
+  const isProfessionalSuccess = this.state.selectedRifle.name === "Blaser R8 Professional Success" || this.state.selectedRifle.name === "Blaser R8 Safari Professional Success Hunter";
 
   this.configuratorService.updateState({ 
     selectedRecoilPadSynthetic: newRecoilPad,

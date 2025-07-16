@@ -85,7 +85,7 @@ export class StockComponent implements OnInit, OnDestroy {
 
   shouldShowSyntheticStock(): boolean {
     const rifleName = this.state?.selectedRifle?.name || '';
-    return rifleName.startsWith('Blaser R8 Professional') || rifleName.startsWith('Blaser R8 Ultimate');
+    return rifleName.startsWith('Blaser R8 Professional') || rifleName.startsWith('Blaser R8 Ultimate') || rifleName.startsWith('Blaser R8 Safari Professional Hunter');
   }
   
   /**
@@ -160,13 +160,19 @@ private restoreSelections(): void {
   private updateButtstockTypesBasedOnRifle(): void {
     if (this.state.selectedRifle) {
       const availableButtstockTypeIds = this.state.selectedRifle.availableButtstockTypes;
-      this.buttstockTypes = this.allButtstockTypes.filter((option) =>
-        availableButtstockTypeIds.includes(option.id)
-      );
+      
+      if (Array.isArray(availableButtstockTypeIds)) {
+        this.buttstockTypes = this.allButtstockTypes.filter((option) =>
+          availableButtstockTypeIds.includes(option.id)
+        );
+      } else {
+        this.buttstockTypes = []; // lub log błędu
+      }
     } else {
       this.buttstockTypes = [];
     }
   }
+
 
   private updateWoodCategoryForSelectedButtstockType(): void {
     if (this.state.selectedButtstockType.availableWoodCategories) {
@@ -214,17 +220,25 @@ private restoreSelections(): void {
   }
 
   private updateRecoilPadForSelectedWoodCategory(): void {
-    if (this.state.selectedWoodCategory) {
-      const recoilPadIds = this.state.selectedWoodCategory.availableRecoilPads;
+    let recoilPadIds: number[] = [];
+
+    if (this.state.selectedRifle.name.startsWith("Blaser R8 Safari")) {
+      recoilPadIds = [12];
+    } else if (this.state.selectedWoodCategory) {
+      recoilPadIds = this.state.selectedWoodCategory.availableRecoilPads;
+    }
+
+    if (recoilPadIds.length > 0) {
       this.recoilPads = this.configuratorService.filterOptions(
         this.features,
-        "recoilPads", 
+        "recoilPads",
         recoilPadIds
       );
     } else {
       this.recoilPads = [];
     }
   }
+
 
   private updatePistolGripCapForSelectedRecoilPad(): void {
     if (this.state.selectedRecoilPad) {

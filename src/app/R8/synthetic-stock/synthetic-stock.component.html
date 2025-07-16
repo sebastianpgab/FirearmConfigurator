@@ -82,7 +82,7 @@
         [value]="state.selectedKickstopSynthetic"
         [compareWith]="compareOptionsById"
         placeholder="Wybierz kickstop"
-        [disabled]="state.isDisabledModularStockOptionSynthetic"
+        [disabled]="state.isDisabledKickstopSynthetic"
         (selectionChange)="onSelectKickstopSynthetic($event.value)"
       >
         <mat-option *ngFor="let kick of kickstops" [value]="kick">
