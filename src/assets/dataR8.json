@@ -64,7 +64,7 @@
           "name": "Silence (17 mm)",
           "price": 300,
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-barrel/R8_a1_silence_17mm.jpg",
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_72.png",
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Safari_Silence_67.png",
           "availableCalibers": [11, 12, 13, 16, 17, 18] 
         },
          {
@@ -2075,7 +2075,7 @@
         "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbaf_system_luxus_hirsch_reh_englisch.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_englisch.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
-        "availableBoltHandles": [1,2,3] 
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
       },
       { 
         "id": 3, 
@@ -2084,7 +2084,7 @@
         "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbcf_system_luxus_hirsch_sau_englisch.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_sau_englisch.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
-        "availableBoltHandles": [1,2,3] 
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
       },
       { 
         "id": 4, 
@@ -2093,7 +2093,168 @@
         "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbif_system_luxus_hirsch_gams_englisch.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_gams_englisch.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
-        "availableBoltHandles": [1,2,3] 
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 5, 
+        "name": "Luxus, Angielskie arabeski, Dzik, Sarna", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlcaf_system_luxus_sau_reh_englisch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_englisch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 6, 
+        "name": "Luxus, Stare niemieckie liście, Jeleń szlachetny, Sarna", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbaa_system_luxus_hirsch_reh_altdeutsch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_altdeutsch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 7, 
+        "name": "Luxus, Stare niemieckie liście, Jeleń szlachetny, Dzik", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbca_system_luxus_hirsch_sau_altdeutsch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_sau_altdeutsch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 8, 
+        "name": "Luxus, Stare niemieckie liście, Jeleń szlachetny, Kozica", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbia_system_luxus_hirsch_gams_altdeutsch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_gams_altdeutsch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 9, 
+        "name": "Luxus, Stare niemieckie liście, Dzik, Sarna", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlcaa_system_luxus_sau_reh_altdeutsch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_altdeutsch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 10, 
+        "name": "Czarne z logo", 
+        "price": 100,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svs_system_schwarz.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_schwarz_ultimate.png", 
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_schwarz.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 11, 
+        "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Sarna (Success)", 
+        "price": 300, 
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbaf_system_luxus_hirsch_reh_englisch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_englisch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_luxus.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 12, 
+        "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Dzik (Success)",  
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbcf_system_luxus_hirsch_sau_englisch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_sau_englisch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_luxus.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 13, 
+        "name": "Luxus, Angielskie arabeski, Jeleń szlachetny, Kozica (Success)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbif_system_luxus_hirsch_gams_englisch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_gams_englisch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_luxus.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 14, 
+        "name": "Luxus, Angielskie arabeski, Dzik, Sarna (Success)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlcaf_system_luxus_sau_reh_englisch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_englisch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_luxus.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 15, 
+        "name": "Luxus, Stare niemieckie liście, Jeleń szlachetny, Sarna (Success)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbaa_system_luxus_hirsch_reh_altdeutsch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_altdeutsch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_luxus.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 16, 
+        "name": "Luxus, Stare niemieckie liście, Jeleń szlachetny, Dzik (Success)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbca_system_luxus_hirsch_sau_altdeutsch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_sau_altdeutsch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_luxus.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 17, 
+        "name": "Luxus, Stare niemieckie liście, Jeleń szlachetny, Kozica (Success)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlbia_system_luxus_hirsch_gams_altdeutsch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_gams_altdeutsch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_luxus.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 18, 
+        "name": "Luxus, Stare niemieckie liście, Dzik, Sarna (Success)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svlcaa_system_luxus_sau_reh_altdeutsch.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_luxus_2021_reh_altdeutsch.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png", 
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_luxus.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 19, 
+        "name": "Standard (Professional)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/no-detail.png",
+        "imageUrl": "assets/BlaserR8/puzzle/empty_png.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 20, 
+        "name": "Standard (Professional Success)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/no-detail.png",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_prosuc_abzugseinheit_schwarz.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 21, 
+        "name": "Czarne z logo (Ultimate X)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/icon-receiver/R8_svs_system_schwarz.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_schwarz_ultimate.png", 
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
+        "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/ultimate-x-magazin-abzugs-einsatz.png",
+        "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
       }
     ],
     "boltHandles": 
@@ -2393,7 +2554,8 @@
         "availableKickstops": [1, 2],
         "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
         "availableForearmOptions": [2, 3],
-        "availableChamberEngravings": [2, 3],
+        "availableChamberEngravings": [1],
+
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2413,7 +2575,7 @@
         "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
         "availableForearmOptions": [2, 3],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [2, 3, 4, 5, 6, 7, 8, 9],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2431,7 +2593,8 @@
         "availableKickstops": [1, 2],
         "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
         "availableForearmOptions": [2, 3],
-        "availableChamberEngravings": [2,3],
+
+        "availableChamberEngravings": [1],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2450,7 +2613,7 @@
         "availableStockMagazines": [1, 2, 3, 4, 5, 6, 7, 8, 9],
         "availableForearmOptions": [3],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [1],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2469,7 +2632,7 @@
         "availableStockMagazines": [1],
         "availableForearmOptions": [3],
        
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2488,7 +2651,7 @@
         "availableStockMagazines": [1],
         "availableForearmOptions": [3],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2508,7 +2671,7 @@
         "availableStockMagazines": [1],
         "availableForearmOptions": [3],
         
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2528,7 +2691,7 @@
         "availableStockMagazines": [1],
         "availableForearmOptions": [3],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2547,7 +2710,7 @@
         "availableStockMagazines": [1],
         "availableForearmOptions": [3],
        
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [11, 12, 13, 14, 15, 16, 17, 18],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2567,7 +2730,7 @@
         "availableForearmOptions": [3],
 
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [11, 12, 13, 14, 15, 16, 17, 18],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2587,7 +2750,7 @@
         "availableStockMagazines": [1],
         "availableForearmOptions": [3],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [11, 12, 13, 14, 15, 16, 17, 18],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2607,7 +2770,7 @@
         "availableStockMagazines": [1],
         "availableForearmOptions": [3],
         
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [11, 12, 13, 14, 15, 16, 17, 18],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2626,7 +2789,7 @@
         "availableKickstopsSynthetic": [1, 2],
 
         
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [19],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2641,9 +2804,8 @@
         "availableContours": [6],
         "availableStockColorsSynthetic": [2],
         "availableRecoilPadsSynthetic": [1, 2],
-
-        
-        "availableChamberEngravings": [2,3],
+       
+        "availableChamberEngravings": [19],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2661,7 +2823,7 @@
         "availableKickstopsSynthetic": [1, 2],
 
         
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [20],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2677,7 +2839,7 @@
         "availableStockColorsSynthetic": [10, 11, 12],
         "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2693,7 +2855,7 @@
         "availableStockColorsSynthetic": [13, 14],
         "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
         
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2710,7 +2872,7 @@
         "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
 
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2726,7 +2888,7 @@
         "availableStockColorsSynthetic": [13, 14],
         "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2742,7 +2904,7 @@
         "availableStockColorsSynthetic": [15],
         "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
         
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2758,7 +2920,7 @@
         "availableStockColorsSynthetic": [16],
         "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
         
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2774,7 +2936,7 @@
         "availableStockColorsSynthetic": [17],
         "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2790,7 +2952,7 @@
         "availableStockColorsSynthetic": [18],
         "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2807,7 +2969,7 @@
         "availableModularStockOptionsSynthetic": [11, 12],
         
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [21],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
