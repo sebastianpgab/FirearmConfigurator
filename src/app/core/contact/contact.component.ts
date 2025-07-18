@@ -18,7 +18,7 @@ export class ContactComponent {
   userEmail = '';
   userPhone = '';
   userMessage = '';
-  preferredContactMethod: 'email' | 'phone' = 'email'; // domyślnie e-mail
+  contactMethod = '';
 
   constructor(
     private contactService: ContactService,
@@ -37,15 +37,6 @@ export class ContactComponent {
       return;
     }
   
-    if (this.preferredContactMethod === 'email' && !this.userEmail.trim()) {
-      alert('Proszę podać adres e-mail.');
-      return;
-    }
-  
-    if (this.preferredContactMethod === 'phone' && !this.userPhone.trim()) {
-      alert('Proszę podać numer telefonu.');
-      return;
-    }
   
     const selectedOptions = [
       { label: 'Karabin', value: this.state.selectedRifle?.name },
@@ -74,17 +65,12 @@ export class ContactComponent {
       .map(item => `${item.label}: ${item.value}`)
       .join('\n'); // ✅ Każda opcja w nowej linii
   
-    // 🌟 Preferowany sposób kontaktu
-    let contactInfo = this.preferredContactMethod === 'email'
-      ? `Preferowana forma kontaktu: E-mail\nAdres: ${this.userEmail}`
-      : `Preferowana forma kontaktu: Telefon\nNumer: ${this.userPhone}`;
   
     // 🌟 Pełna wiadomość (bez HTML, poprawne formatowanie)
     const finalMessage = `
 Wiadomość od ${this.userName}:
 ${this.userMessage}
 
-${contactInfo}
 
 Wybrane opcje:
 ${chosenTextParts || 'Brak wybranych opcji'}
@@ -94,7 +80,7 @@ ${chosenTextParts || 'Brak wybranych opcji'}
     const formData = {
       from_name: this.userName,
       message: finalMessage,
-      reply_to: this.preferredContactMethod === 'email' ? this.userEmail : '',
+      reply_to: this.contactMethod,
     };
   
     // 🌟 Wysyłanie maila
@@ -112,6 +98,6 @@ ${chosenTextParts || 'Brak wybranych opcji'}
     this.userEmail = '';
     this.userPhone = '';
     this.userMessage = '';
-    this.preferredContactMethod = 'email';
+    this.contactMethod = '';
   }
 }
