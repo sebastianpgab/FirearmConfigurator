@@ -260,6 +260,31 @@ public getSecondaryAttachmentPosition(type: 'secondaryOpenSight') {
     console.log(`Aktualizacja ${featureKey2}:`, newSelectedOption);
     this.stateSubject.next({ ...this.stateSubject.value, [featureName]: newSelectedOption });
   }
-  
-  
+
+  /** Dla opcji modularnej kolby typu Ultimate X */
+  public getModularStockOptionPosition(): { [key: string]: string } {
+    const option = this.getState().selectedModularStockOptionSynthetic;
+
+    if (!option) {
+      return { top: '0px', left: '0px', width: '100%', height: '100%' };
+    }
+
+    if (option.name.includes('Ultimate X')) {
+      return {
+        top: '185px',
+        left: '510px',
+        width: 'auto',
+        height: 'auto'
+      };
+    }
+
+    // domyślna pozycja
+    return {
+      top: '0px',
+      left: '0px',
+      width: '100%',
+      height: '100%'
+    };
+  }
+
 }
