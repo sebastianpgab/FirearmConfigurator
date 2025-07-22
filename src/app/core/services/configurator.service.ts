@@ -262,29 +262,34 @@ public getSecondaryAttachmentPosition(type: 'secondaryOpenSight') {
   }
 
   /** Dla opcji modularnej kolby typu Ultimate X */
-  public getModularStockOptionPosition(): { [key: string]: string } {
-    const option = this.getState().selectedModularStockOptionSynthetic;
+public getModularStockOptionPosition(): { [key: string]: string } {
+  const option = this.getState().selectedModularStockOptionSynthetic;
 
-    if (!option) {
-      return { top: '0px', left: '0px', width: '100%', height: '100%' };
-    }
-
-    if (option.name.includes('Ultimate X')) {
-      return {
-        top: '185px',
-        left: '510px',
-        width: 'auto',
-        height: 'auto'
-      };
-    }
-
-    // domyślna pozycja
+  if (!option) {
     return {
-      top: '0px',
-      left: '0px',
+      top: '0%',
+      left: '0%',
       width: '100%',
       height: '100%'
     };
   }
+
+  if (option.name.includes('Ultimate X')) {
+    return {
+      top: '4%',
+      left: '-3.8%',
+      width: '100%',
+      height: '100%'
+    };
+  }
+
+  // domyślna pozycja
+  return {
+    top: '0%',
+    left: '0%',
+    width: '100%',
+    height: '100%'
+  };
+}
 
 }

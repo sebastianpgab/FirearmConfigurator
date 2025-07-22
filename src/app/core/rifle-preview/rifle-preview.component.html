@@ -54,6 +54,9 @@
     class="rifle-layer"
     [ngStyle]="{'top': configuratorService.getAttachmentPosition('muzzleBrakeOrSuppressor').top, 'left': configuratorService.getAttachmentPosition('muzzleBrakeOrSuppressor').left}"
   >
+    <img *ngIf="state.selectedChamberEngraving" [src]="state.selectedChamberEngraving.imageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedChamberEngraving?.secondaryImageUrl" [src]="state.selectedChamberEngraving?.secondaryImageUrl" class="rifle-layer">
+    <img *ngIf="state.selectedChamberEngraving?.thirdImageUrl" [src]="state.selectedChamberEngraving?.thirdImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedButtstockType" [src]="state.selectedButtstockType.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedButtstockType?.secondaryImageUrl" [src]="state.selectedButtstockType?.secondaryImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedButtstockType?.thirdImageUrl" [src]="state.selectedButtstockType?.thirdImageUrl" class="rifle-layer">
@@ -72,23 +75,35 @@
     <img *ngIf="state.selectedStockInlay?.secondaryImageUrl" [src]="state.selectedStockInlay?.secondaryImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedStockInlaySeam" [src]="state.selectedStockInlaySeam.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedRecoilPadSynthetic" [src]="state.selectedRecoilPadSynthetic.imageUrl" class="rifle-layer">
-    <img
-      *ngIf="state.selectedStockColorSynthetic && !(state.selectedModularStockOptionSynthetic?.name?.includes('Regulowana baka (Professional)'))"
-      [src]="state.selectedStockColorSynthetic.imageUrl"
-      class="rifle-layer"
-    />
 
-    <!-- Zawsze wyświetl modularną opcję, jeśli istnieje -->
-    <img *ngIf="state.selectedStockColorSynthetic?.secondaryImageUrl" [src]="state.selectedStockColorSynthetic?.secondaryImageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedStockColorSynthetic?.thirdImageUrl" [src]="state.selectedStockColorSynthetic?.thirdImageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedStockColorSynthetic?.fourthImageUrl" [src]="state.selectedStockColorSynthetic?.fourthImageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedStockColorSynthetic?.fifthImageUrl" [src]="state.selectedStockColorSynthetic?.fifthImageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedModularStockOptionSynthetic" [src]="state.selectedModularStockOptionSynthetic.imageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedModularStockOptionSynthetic?.secondaryImageUrl" [src]="state.selectedModularStockOptionSynthetic?.secondaryImageUrl" class="rifle-layer">
+
+<!-- Warstwy dodatkowe koloru kolby -->
+<img *ngIf="state.selectedStockColorSynthetic?.secondaryImageUrl" [src]="state.selectedStockColorSynthetic.secondaryImageUrl" class="rifle-layer">
+<img *ngIf="state.selectedStockColorSynthetic?.thirdImageUrl" [src]="state.selectedStockColorSynthetic.thirdImageUrl" class="rifle-layer">
+<img *ngIf="state.selectedStockColorSynthetic?.fourthImageUrl" [src]="state.selectedStockColorSynthetic.fourthImageUrl" class="rifle-layer">
+<img *ngIf="state.selectedStockColorSynthetic?.fifthImageUrl" [src]="state.selectedStockColorSynthetic.fifthImageUrl" class="rifle-layer">
+
+<!-- Główna kolba (modularna), czyli np. Ultimate X -->
+<img *ngIf="state.selectedModularStockOptionSynthetic?.secondaryImageUrl" [src]="state.selectedModularStockOptionSynthetic.secondaryImageUrl" class="rifle-layer">
+
+<!-- Kolor kolby, jeśli nie ma baki Professional -->
+<img
+  *ngIf="state.selectedStockColorSynthetic && !(state.selectedModularStockOptionSynthetic?.name?.includes('Regulowana baka (Professional)'))"
+  [src]="state.selectedStockColorSynthetic.imageUrl"
+  class="rifle-layer"
+/>
+
+<!-- Stopka kolby modularnej -->
+<img
+  *ngIf="state.selectedModularStockOptionSynthetic"
+  [src]="state.selectedModularStockOptionSynthetic.imageUrl"
+  class="rifle-layer"
+  [ngStyle]="configuratorService.getModularStockOptionPosition()"
+/>
+
 
     <img *ngIf="state.selectedRecoilPad" [src]="state.selectedRecoilPad.imageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedChamberEngraving" [src]="state.selectedChamberEngraving.imageUrl" class="rifle-layer">
-    <img *ngIf="state.selectedChamberEngraving" [src]="state.selectedChamberEngraving.secondaryImageUrl" class="rifle-layer">
+
     <img *ngIf="state.selectedBoltHandle" [src]="state.selectedBoltHandle.imageUrl" class="rifle-layer">
     <img *ngIf="state.selectedBoltHandle" [src]="state.selectedBoltHandle.secondaryImageUrl" class="rifle-layer">
     <img *ngIf="state.selectedTrigger" [src]="state.selectedTrigger.imageUrl" class="rifle-layer">
