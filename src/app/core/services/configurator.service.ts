@@ -269,17 +269,13 @@ public getModularStockOptionPosition(): { [key: string]: string } {
     return {
       top: '0%',
       left: '0%',
-      width: '100%',
-      height: '100%'
     };
   }
 
   if (option.name.includes('Ultimate X')) {
     return {
-      top: '4%',
+      top: '2.8%',
       left: '-3.8%',
-      width: '100%',
-      height: '100%'
     };
   }
 
@@ -287,8 +283,6 @@ public getModularStockOptionPosition(): { [key: string]: string } {
   return {
     top: '0%',
     left: '0%',
-    width: '100%',
-    height: '100%'
   };
 }
 

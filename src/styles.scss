@@ -284,16 +284,17 @@ div {
     background-color: #1a237e; /* Jeszcze ciemniejszy odcień przy kliknięciu */
   }
   
-//nakładanie obrazów na siebie 
+/* Kontener główny dla podglądu broni */
 .rifle-preview {
   position: relative;
-  width: 100%; /* Dynamiczna szerokość */
-  max-width: 800px; /* Maksymalna szerokość na dużych ekranach */
-  height: 230px;
-  aspect-ratio: 4/3; /* Zachowanie proporcji obrazu */
+  width: 100%;              /* Dynamiczna szerokość */
+  max-width: 800px;         /* Maksymalna szerokość */
+  aspect-ratio: 4/1.4;       /* Zachowanie proporcji */
+  margin: 0 auto;           /* Wyśrodkowanie */
+  overflow: visible;
 }
 
-/* Obrazy broni */
+/* Każda warstwa obrazu (kolba, lufa, przyrządy itd.) */
 .rifle-layer {
   position: absolute;
   top: 0;
@@ -301,15 +302,12 @@ div {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  margin-left: 12%;
 }
 
 .two-pixel-shift {
   /* Zamiast transformu -> minimalne odsunięcie w stylu "nadrzędnym" */
   top: 2px;
   left: 12px;
-  /* UWAGA: przez to część grafiki może wyjść poza kontener, 
-     jeśli 100% dotyczy całego kontenera. */
 }
 
 
