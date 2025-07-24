@@ -221,17 +221,20 @@ export class ChamberBoltComponent implements OnInit, OnDestroy {
     }
   }
 
-  private updateTriggersBasedOnBoltHandle(): void {
-    if (this.state.selectedBoltHandle) {
-      this.triggers = this.configuratorService.filterOptions(
-        this.features,
-        "triggers",
-        this.state.selectedBoltHandle.availableTriggers
-      );
-    } else {
-      this.triggers = [];
-    }
+private updateTriggersBasedOnBoltHandle(): void {
+  let availableTriggers = this.state.selectedRifle?.availableTriggers;
+
+  // Jeśli lista jest pusta lub undefined/null, użyj zapasowej z bolt handle
+  if (!availableTriggers || availableTriggers.length === 0) {
+    availableTriggers = this.state.selectedBoltHandle?.availableTriggers || [];
   }
+
+  this.triggers = this.configuratorService.filterOptions(
+    this.features,
+    "triggers",
+    availableTriggers
+  );
+}
 
   private updateBoltHeadsBasedOnTrigger(): void {
     if (this.state.selectedTrigger) {
