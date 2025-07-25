@@ -237,15 +237,16 @@ private updateTriggersBasedOnBoltHandle(): void {
 }
 
   private updateBoltHeadsBasedOnTrigger(): void {
-    if (this.state.selectedTrigger) {
+    let availableBoltHeads = this.state.selectedRifle?.availableBoltHeads;
+
+    if (!availableBoltHeads || availableBoltHeads.length === 0) { 
+      availableBoltHeads = this.state.selectedTrigger.availableBoltHeads || [];
+    }
       this.boltHeads = this.configuratorService.filterOptions(
         this.features,
         "boltHeads",
-        this.state.selectedTrigger.availableBoltHeads
+        availableBoltHeads
       );
-    } else {
-      this.boltHeads = [];
-    }
   }
 
   // --- Nawigacja ---

@@ -153,7 +153,7 @@ onSelectRecoilPadSynthetic(newRecoilPad: Option): void {
 
   this.configuratorService.resetOptionsAfter("recoilPadSynthetic", this.optionHierarchy);
 
-  const isProfessionalSuccess = this.state.selectedRifle.name === "Blaser R8 Professional Success" || this.state.selectedRifle.name === "Blaser R8 Safari Professional Success Hunter";
+  const isProfessionalSuccess = this.state.selectedRifle.name === "Blaser R8 Professional Success" || this.state.selectedRifle.name === "Blaser R8 Safari Professional Hunter";
 
   this.configuratorService.updateState({ 
     selectedRecoilPadSynthetic: newRecoilPad,
