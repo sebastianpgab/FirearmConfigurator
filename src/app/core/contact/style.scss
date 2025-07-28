@@ -1,88 +1,122 @@
-/************************************************************
-   OPTYMALIZACJA FORMULARZA
-************************************************************/
-
-/* Kontener formularza kontaktowego, np. w contact.component.scss */
 .contact-form {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 16px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  
-    /* Nadpisanie globalnego marginesu dla div */
-    div {
-      margin: 0 !important;
-      box-sizing: border-box;
-    }
+  max-width: 800px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.contact-title {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #007bff;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  background-color: #b30000;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #990000;
+}
+
+.message-success {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.message-error {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
   }
-  
-  /* Ewentualny tytuł formularza */
-  .contact-title {
-    margin: 0 0 16px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 600;
-    color: #333;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Prosta definicja form-group bez sztywnych szerokości */
-  .form-group {
-    width: 100%;          /* Elastyczna szerokość */
-    margin-bottom: 16px;  /* stały odstęp między polami */
-    padding: 0;           /* lub 10px – wedle gustu */
-    border: none;         /* brak obramowania, jeżeli nie chcesz wewn. kwadratów */
-    border-radius: 0;
-    background: none;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 4px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  /* Same inputy/textarea z delikatną obwódką */
-  input,
-  textarea {
-    width: 100%;  
-    max-width: 100%;    /* pozwala się skurczyć w mniejszych kontenerach */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-  
-    &:hover {
-      border-color: #007bff;
-    }
-    
-    &:focus {
-      outline: none;
-      border-color: #007bff;
-      box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
-    }
-    
-    &::placeholder {
-      color: #aaa;
-    }
-  }
-  
-  textarea {
-    resize: none;
-    height: 80px; /* Wystarczająca wysokość na wiadomość */
-  }
-  
-  /* Przycisk odwołuje się do Twoich globalnych stylów button */
-  button {
-    margin-top: 10px;
-    width: 100%;
-    /* Kolor i styl tła odziedziczy z globalnego button (czerwony). */
-  }
-  
+}
+
