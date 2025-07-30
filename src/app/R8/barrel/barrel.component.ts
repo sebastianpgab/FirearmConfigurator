@@ -242,11 +242,8 @@ export class BarrelComponent implements OnInit, OnDestroy {
         this.profiles.pop();
       }
     }
-    if (this.state.selectedCaliber?.id === 14) { // jesli został wybrany kaliber Lapua
-      const indexFluted = this.profiles.findIndex(profile => profile.id === 2); //znajduje indeks gdzie profil jest Fluted
-      if (indexFluted !== -1) {
-        this.profiles.pop();
-      }
+    if (this.state.selectedCaliber?.id === 14) {  // jesli został wybrany kaliber Lapua
+      this.profiles = this.profiles.filter(profile => profile.id === 2); // zostawia tylko Fluted
     } 
      if (this.state.selectedCaliber?.id === 19 && this.state.selectedContour?.id === 1) { // jesli został wybrany kaliber 8x68 S oraz kontur sandard 
       const indexFluted = this.profiles.findIndex(profile => profile.id === 2); //znajduje indeks gdzie profil jest Fluted
@@ -294,7 +291,6 @@ export class BarrelComponent implements OnInit, OnDestroy {
         : filteredByContourAndRifleType;
     });
   }
-
 
 private extractContourType(contour: any): string {
   if (!contour.name) return '';

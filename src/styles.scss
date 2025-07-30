@@ -102,14 +102,12 @@ h1 {
   z-index: 1;
 }
 
-
 body {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.9));
   background-attachment: fixed;
   margin: 0;
   font-family: 'Roboto', sans-serif; /* Nowoczesna czcionka */
 }
-
 
 .title::before {
   content: "";
@@ -134,7 +132,6 @@ body {
   height: auto;
   display: block;
 }
-
 
 div {
     margin: 1%;
@@ -195,8 +192,10 @@ div {
 /*To dotyczy wygladu selctora */
   
   .option-template {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
   }
 
   .option-template img {
@@ -206,8 +205,12 @@ div {
   }
 
   .option-template span {
-    white-space: nowrap;
-    font-size: 16px;
+  font-size: 16px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex: 1 1 auto;   /* ← KLUCZOWE */
+  min-width: 0;     /* ← NIEZBĘDNE przy flexboxie */
   }
 
   @media (max-width: 600px) {
@@ -236,7 +239,6 @@ div {
       margin-left: auto; /* Przesuwa jedyny przycisk na prawo */
       margin-right: 0;   /* Resetuje prawy margines */
     }
-
   
   button {
     display: flex; /* Flexbox w przycisku dla strzałki i tekstu */
@@ -325,25 +327,44 @@ div {
 }
 
 .summary-container {
-  background-color: #f9f9f9; /* Jasne tło */
+  background-color: #ffffff;
   padding: 16px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Lekki cień */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
-  max-width: 600px;
+  max-width: 800px;
+  width: 90%; /* elastyczna szerokość niezależnie od urządzenia */
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 80vh; /* jeśli będzie za długa, pojawi się przewijanie */
 }
 
 .summary-item {
   display: flex;
+  flex-wrap: wrap; /* pozwala zawijać linie, jeśli brakuje miejsca */
   justify-content: space-between;
+  gap: 4px;
   padding: 8px 0;
-  border-bottom: 1px solid #e0e0e0; /* Delikatna linia oddzielająca */
+  border-bottom: 1px solid #e0e0e0;
   font-size: 16px;
-  color: #333; /* Ciemniejszy tekst dla kontrastu */
+  color: #333;
+  line-height: 1.4;
 }
 
 .summary-item:last-child {
   border-bottom: none;
+}
+
+.label {
+  font-weight: 600;
+  flex: 1 1 45%; /* pozwala na dopasowanie w poziomie lub pionie */
+  min-width: 140px;
+}
+
+.value {
+  flex: 1 1 50%;
+  color: #222;
+  word-break: break-word;
 }
 
 .label {
@@ -353,4 +374,8 @@ div {
 
 .value {
   color: #222;
+}
+
+.mat-mdc-select-panel {
+  max-height: 500px !important;
 }
