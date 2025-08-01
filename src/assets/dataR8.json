@@ -763,7 +763,7 @@
           "name": "Blaser Dual Brake (685)",
           "price": 890,
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-break-silencer/r8_dual_brake.jpg",
-          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_A_47.png"
+          "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_dual_brake_22.png"
         },
         {
           "id": 8,
@@ -1778,7 +1778,8 @@
         "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_hs_re_huntec.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_huntec.png", 
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_elastomer_schwarz.png", 
-        "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_elastomer_schwarz.png"      
+        "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_elastomer_schwarz.png",
+        "availableModularStockOptionsSynthetic": [3, 6, 9, 10, 11, 12]      
       },
       {
         "id": 11,
@@ -1789,7 +1790,8 @@
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_braun.png", 
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_elastomer_schwarz.png", 
         "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_elastomer_schwarz.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [4, 7, 9, 10, 11, 12]
       },
       {
         "id": 12,
@@ -1800,7 +1802,8 @@
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_carbon.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_elastomer_schwarz.png",
         "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_elastomer_schwarz.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [5, 8, 9, 10, 11, 12]
       },
       {
         "id": 13,
@@ -1811,7 +1814,8 @@
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_braun.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_leder_cocoa.png",
         "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_leder_cocoa.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [4, 7, 9, 10, 11, 12]
       },
       {
         "id": 14,
@@ -1821,7 +1825,8 @@
         "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_hs_re_huntec.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_huntec.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_leder_cocoa.png",
-        "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_leder_cocoa.png"
+        "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_leder_cocoa.png",
+        "availableModularStockOptionsSynthetic": [3, 6, 9, 10, 11, 12]
       },
       {
         "id": 15,
@@ -1832,7 +1837,8 @@
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_carbon.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_elastomer_schwarz.png",
         "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_elastomer_schwarz.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [5, 8, 9, 10, 11, 12]
       },
       {
         "id": 16,
@@ -1843,7 +1849,8 @@
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_carbon.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_leder_cocoa.png",
         "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_leder_cocoa.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [5, 8, 9, 10, 11, 12]
       },
       {
         "id": 17,
@@ -1854,7 +1861,8 @@
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_carbon.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_elastomer_schwarz.png",
         "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_elastomer_schwarz.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [5, 8, 9, 10, 11, 12]
       },
       {
         "id": 18,
@@ -1865,29 +1873,32 @@
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_carbon.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_leder_cocoa.png",
         "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_leder_cocoa.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [5, 8, 9, 10, 11, 12]
       },
       {
         "id": 19,
         "name": "Ciemny Brąz (Ultimate X)", 
         "price": 80,
         "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_buttstock_synthetic/r8_prof_schaftfarbe_braun.jpg",
-        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_hs_re_braun.png",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/ultimate-x-stock-brown.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_braun.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_elastomer_schwarz.png", 
-        "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_elastomer_schwarz.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/ultimate-x-schafteinlagen-hs-re-elastomer-schwarz.png",
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [13, 14]
       },
       {
         "id": 20,
         "name": "Ciemny Brąz (Ultimate X Leather)", 
         "price": 80,
         "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_buttstock_synthetic/r8_prof_schaftfarbe_braun.jpg",
-        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_hs_re_braun.png",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/ultimate-x-stock-brown.png",
         "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schaft_vs_braun.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_ultimate_schafteinlagen_vs_leder_cocoa.png", 
-        "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_leder_cocoa.png",
-        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png"
+        "fourthImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/ultimate-x-schafteinlagen-hs-re-leder-cocoa.png",
+        "fifthImageUrl": "assets/BlaserR8/puzzle/stock/buttstock_synthetic/r8_prosuc_schaft_vsabschluss_normal.png",
+        "availableModularStockOptionsSynthetic": [13, 14]
       },
       {
         "id": 21,
@@ -1984,14 +1995,16 @@
         "name": "Regulowana stopka kolby", 
         "price": 80,
         "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_module/r8_hu_k_ultimate_vsk-b.jpg",
-        "imageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_vsk.png"
+        "imageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_vsk.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/r8_gummischaftkappe_ultimate_1.png"
       },
       {
         "id": 10,
         "name": "System pochłaniania odrzutu", 
         "price": 80,
         "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_module/r8_hu_d_ultimate_rds-b.jpg",
-        "imageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_rds.png"
+        "imageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_rds.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/r8_gummischaftkappe_ultimate_1.png"
       },
       {
         "id": 11,
@@ -1999,7 +2012,9 @@
         "price": 80,
         "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_module/r8_hu_rk_ultimate_vsr_vsk-b.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_vsk.png",
-        "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_vsr_elastomer_schwarz.png"
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_vsr_elastomer_schwarz.png",
+        "thirdImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/r8_gummischaftkappe_ultimate_1.png"
+
       },
       {
         "id": 12,
@@ -2007,7 +2022,24 @@
         "price": 80,
         "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_module/r8_hu_rd_ultimate_vsr_rds-b.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_rds.png",
-        "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_vsr_elastomer_schwarz.png"
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/r8_ultimate_schafteinlagen_hs_re_vsr_elastomer_schwarz.png",
+        "thirdImageUrl": "assets/BlaserR8/puzzle/stock/recoil_pad/r8_gummischaftkappe_ultimate_1.png"
+      },
+      {
+        "id": 13,
+        "name": "Regulowana baka i regulowana stopka kolby (Ultimate X)", 
+        "price": 80, 
+        "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_module/r8_hu_rk_ultimate_vsr_vsk-b.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/ultimate-x-vsk.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/ultimate-x-schafteinlagen.png"
+      },
+      {
+        "id": 14,
+        "name": "Regulowana baka i system pochłaniania odrzutu (Ultimate X)", 
+        "price": 80,
+        "iconImageUrl": "assets/BlaserR8/puzzle/stock/icon_module/r8_hu_rd_ultimate_vsr_rds-b.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/ultimate-x-rds.png",
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/stock/module_stock_synthetic/ultimate-x-schafteinlagen.png"
       }
     ],
     "recoilPadsSynthetic": [
@@ -2232,7 +2264,7 @@
       },
       { 
         "id": 19, 
-        "name": "Standard (Professional)", 
+        "name": "Standard", 
         "price": 300,
         "iconImageUrl": "assets/BlaserR8/puzzle/no-detail.png",
         "imageUrl": "assets/BlaserR8/puzzle/empty_png.png",
@@ -2255,7 +2287,17 @@
         "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
         "thirdImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/ultimate-x-magazin-abzugs-einsatz.png",
         "availableBoltHandles": [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+      },
+      { 
+        "id": 22, 
+        "name": "Standard (Selous)", 
+        "price": 300,
+        "iconImageUrl": "assets/BlaserR8/puzzle/no-detail.png",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver/r8_system_selous.png", 
+        "secondaryImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/receiver-rail/r8_kammerstengel_links.png",
+        "availableBoltHandles": [8] 
       }
+      
     ],
     "boltHandles": 
     [
@@ -2388,6 +2430,14 @@
         "price": 200, 
         "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/SZDA_abzug_dlc_atzl.jpg",
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_dlc.png", 
+        "availableBoltHeads": [1, 2, 3] 
+      },
+      { 
+        "id": 7, 
+        "name": "Standardowy", 
+        "price": 0,
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/R8_sz_0_az_abzug_normal.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/ultimate-trigger-black.png", 
         "availableBoltHeads": [1, 2, 3] 
       }
     ],
@@ -2526,7 +2576,9 @@
         "id": 1,
         "name": "Blaser R8",
         "price": 3500,
+        "description": "Klasyczny sztucer z drewnem klasy 3 i czarnym systemem. Prostota i niezawodność w jednym.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_jaeger.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2545,7 +2597,10 @@
         "id": 3,
         "name": "Blaser R8 Jaeger",
         "price": 3500,
+        "description": "Drewniana kolba, tytanowy zamek i możliwość wyboru czarnego wariantu.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_jaeger.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_jaeger.png",
+
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2564,7 +2619,9 @@
         "id": 5,
         "name": "Blaser R8 Luxus",
         "price": 3500,
+        "description": "Drewno klasy 4 i bogaty wybór grawerunków. Sztucer z klasy premium.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_luxus2021.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_luxus.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2584,7 +2641,9 @@
         "id": 6,
         "name": "Blaser R8 Intution",
         "price": 3500,
+        "description": "Kolba Monte Carlo i chwyt dopasowany do kobiecej dłoni. Idealna ergonomia dla pań.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_compactintuition.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_intuition.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2603,7 +2662,9 @@
         "id": 7,
         "name": "Blaser R8 Silence",
         "price": 3500,
+        "description": "Zintegrowany tłumik w konstrukcji lufy. Chroni słuch i zapewnia idealne wyważenie.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_silence.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_silence.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
@@ -2622,7 +2683,9 @@
         "id": 8,
         "name": "Blaser R8 Success",
         "price": 3500,
+        "description": "Ergonomiczna dwuczęściowa kolba z ryflowaniem i drewnem klasy 4. Wygodny i elegancki.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_x2.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2641,7 +2704,9 @@
         "id": 9,
         "name": "Blaser R8 Success Silence",
         "price": 3500,
+        "description": "Drewniana kolba klasy 4 z tłumikiem i eleganckim designem. Cicha praca, precyzja i styl.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_x2_silence.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_silence.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
@@ -2660,7 +2725,9 @@
         "id": 10,
         "name": "Blaser R8 Success Leather",
         "price": 3500,
+        "description": "Orzechowa kolba ze skórzanymi wstawkami. Wygoda, styl i pewny chwyt.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_individual.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_leather.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2680,8 +2747,10 @@
         "id": 11,
         "name": "Blaser R8 Success Silence Leather",
         "price": 3500,
+        "description": "Skórzane wstawki, tłumik i elegancka kolba. Komfort i ochrona słuchu.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence.jpg",
-        
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_silence_leather.png",
+
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableButtstockTypes": [4],
@@ -2700,8 +2769,10 @@
         "id": 12,
         "name": "Blaser R8 Success Luxus",
         "price": 3500,
+        "description": "Kolba z drewna klasy 4, stalowy zamek i ozdobne grawerunki. Klasa i precyzja.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_luxus.jpg",
-        
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_luxus.png",
+
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableButtstockTypes": [4],
@@ -2719,7 +2790,9 @@
         "id": 13,
         "name": "Blaser R8 Success Silence Luxus",
         "price": 3500,
+        "description": "Drewniana kolba klasy 4, zamek z grawerunkami i wbudowany tłumik.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence_luxus.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_silence_luxus.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
@@ -2739,7 +2812,9 @@
         "id": 14,
         "name": "Blaser R8 Success Leather Luxus",
         "price": 3500,
+        "description": "Skórzane wstawki, drewno klasy 4 i luksusowe zdobienia. Komfort i styl.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_leather_luxus.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_leather_luxus.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2759,8 +2834,10 @@
         "id": 15,
         "name": "Blaser R8 Success Silence Leather Luxus",
         "price": 3500,
+        "description": "Skóra, drewno klasy 4, tłumik i luksusowe detale. Precyzja w wyciszonej formie.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence_leather_luxus.jpg",
-        
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_silence_leather_luxus.png",
+
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableButtstockTypes": [4],
@@ -2779,7 +2856,9 @@
         "id": 16,
         "name": "Blaser R8 Professional",
         "price": 3500,
+        "description": "Wzmocniona kolba z gumowymi wkładkami. Do pracy w trudnych warunkach.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_professional.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_professional.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2798,7 +2877,9 @@
         "id": 17,
         "name": "Blaser R8 Professional Tracking",
         "price": 3500,
+        "description": "Model z krótką lufą, HIVIZ i bocznym mocowaniem pasa. Idealny do tropienia.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_prof_nachsuche_gruen.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_professional_tracking.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [6],
@@ -2814,7 +2895,9 @@
         "id": 18,
         "name": "Blaser R8 Professional Success",
         "price": 3500,
+        "description": "Wytrzymała kolba syntetyczna i ergonomiczny chwyt. Dla wymagających myśliwych.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2OPSC_prof-succ.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_professional_success.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
@@ -2832,12 +2915,14 @@
         "id": 19,
         "name": "Blaser R8 Ultimate",
         "price": 3500,
+        "description": "Modułowa kolba z regulacją i perfekcyjną ergonomią. Nowoczesny i funkcjonalny.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2U_ultimate3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableStockColorsSynthetic": [10, 11, 12],
-        "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
+        "availableModularStockOptionsSynthetic": [12],
 
         "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
@@ -2848,12 +2933,14 @@
         "id": 20,
         "name": "Blaser R8 Ultimate Leather",
         "price": 3500,
+        "description": "Kolba z tworzywa i skóry, regulowana i odporna. Styl i technologia w jednym.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UL_ultimate_leather3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_leather.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableStockColorsSynthetic": [13, 14],
-        "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
+        "availableModularStockOptionsSynthetic": [12],
         
         "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
@@ -2864,12 +2951,14 @@
         "id": 21,
         "name": "Blaser R8 Ultimate Silence",
         "price": 3500,
+        "description": "Wyciszona kolba z tłumikiem i opcjami regulacji. Nowoczesna konstrukcja.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2US_ultimate_slc3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_silence.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableStockColorsSynthetic": [10, 11, 12],
-        "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
+        "availableModularStockOptionsSynthetic": [12],
 
 
         "availableChamberEngravings": [10],
@@ -2881,12 +2970,14 @@
         "id": 22,
         "name": "Blaser R8 Ultimate Silence Leather",
         "price": 3500,
+        "description": "Wyciszenie, regulacja i skórzane wstawki. Komfort i cisza w każdej sytuacji.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USL_ultimate_slc_leather3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_silence_leather.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableStockColorsSynthetic": [13, 14],
-        "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
+        "availableModularStockOptionsSynthetic": [12],
 
         "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
@@ -2897,12 +2988,14 @@
         "id": 23,
         "name": "Blaser R8 Ultimate Carbon",
         "price": 3500,
+        "description": "Karbonowa kolba o wysokiej wytrzymałości i niskiej wadze. Maksymalna stabilność.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UC_ultimate_carbon3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_carbon.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableStockColorsSynthetic": [15],
-        "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
+        "availableModularStockOptionsSynthetic": [12],
         
         "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
@@ -2913,12 +3006,14 @@
         "id": 24,
         "name": "Blaser R8 Ultimate Carbon Leather",
         "price": 3500,
+        "description": "Wytrzymałość karbonu i komfort skóry. Lekka, solidna i wygodna.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UCL_ultimate_carbon_leather3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_carbon_leather.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableStockColorsSynthetic": [16],
-        "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
+        "availableModularStockOptionsSynthetic": [12],
         
         "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
@@ -2929,12 +3024,14 @@
         "id": 25,
         "name": "Blaser R8 Ultimate Silence Carbon",
         "price": 3500,
+        "description": "Karbonowa kolba z wbudowanym tłumikiem. Lekka, stabilna i cicha.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USC_ultimate_slc_carbon3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_silence_carbon.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableStockColorsSynthetic": [17],
-        "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
+        "availableModularStockOptionsSynthetic": [12],
 
         "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
@@ -2945,12 +3042,14 @@
         "id": 26,
         "name": "Blaser R8 Ultimate Silence Carbon Leather",
         "price": 3500,
+        "description": "Karbon, skóra, tłumik i regulacja. Technologia premium dla wymagających.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USCL_ultimate_slc_carbon_leather3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_silence_carbon_leather.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableStockColorsSynthetic": [18],
-        "availableModularStockOptionsSynthetic": [9, 10, 11, 12],
+        "availableModularStockOptionsSynthetic": [12],
 
         "availableChamberEngravings": [10],
         "availableGunCases": [1, 2, 3],
@@ -2961,15 +3060,18 @@
         "id": 27,
         "name": "Blaser R8 Ultimate X",
         "price": 3500,
+        "description": "10-nabojowy magazynek, nowy system i szyna Picatinny. Idealna na strzelnicę i polowanie.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UX_ultimate-x3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_x.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableStockColorsSynthetic": [19],
-        "availableModularStockOptionsSynthetic": [11, 12],
+        "availableModularStockOptionsSynthetic": [13, 14],
         
 
         "availableChamberEngravings": [21],
+        "availableTriggers": [7],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2978,14 +3080,17 @@
         "id": 28,
         "name": "Blaser R8 Ultimate X Leather",
         "price": 3500,
+        "description": "10-nabojowy magazynek, skórzane wstawki i ergonomiczna kolba.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UXL_ultimate-x_leather3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_x_leather.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [1, 2, 3],
         "availableStockColorsSynthetic": [20],
-        "availableModularStockOptionsSynthetic": [11, 12],
+        "availableModularStockOptionsSynthetic": [13, 14],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [21],
+        "availableTriggers": [7],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -2994,14 +3099,17 @@
         "id": 29,
         "name": "Blaser R8 Ultimate X Silence",
         "price": 3500,
+        "description": "System 10-nabojowy z integralnym tłumikiem i modułową kolbą. Cicho i efektywnie.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UXS_ultimate-x_slc3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_x_silence.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableStockColorsSynthetic": [19],
-        "availableModularStockOptionsSynthetic": [11, 12],
+        "availableModularStockOptionsSynthetic": [13, 14],
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [21],
+        "availableTriggers": [7],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -3010,13 +3118,17 @@
         "id": 30,
         "name": "Blaser R8 Ultimate X Silence Leather",
         "price": 3500,
+        "description": "Tłumik, skóra i 10-nabojowy magazynek. Dla tych, którzy chcą wszystkiego.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USXL_ultimate-x_slc_leather3.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_x_silence_leather.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [5],
         "availableStockColorsSynthetic": [20],
-        "availableModularStockOptionsSynthetic": [11, 12],
+        "availableModularStockOptionsSynthetic": [13, 14],
 
+        "availableChamberEngravings": [21],
+        "availableTriggers": [7],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -3025,7 +3137,9 @@
         "id": 31,
         "name": "Blaser R8 Safari Professional Hunter",
         "price": 3500,
+        "description": "Wytrzymała syntetyczna kolba i polimerowe wstawki. Stworzona do polowań na grubego zwierza.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_ph.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_safari_professional_hunter.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [4],
@@ -3033,8 +3147,7 @@
         "availableRecoilPadsSynthetic": [1, 2],
         "availableKickstopsSynthetic": [2],
         
-
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [19],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -3043,7 +3156,9 @@
         "id": 32,
         "name": "Blaser R8 Safari Kilombero",
         "price": 3500,
+        "description": "Klasyczna broń safari z drewnem, gumową stopką i otwartą muszką. Do afrykańskich wypraw.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_kilombero.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_safari_kilombero.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [4],
@@ -3055,7 +3170,7 @@
         "availableStockMagazines": [1],
         "availableForearmOptions": [2, 3],
         
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [1],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
@@ -3064,7 +3179,9 @@
         "id": 33,
         "name": "Blaser R8 Safari Selous",
         "price": 3500,
+        "description": "Drewno klasy 7, złoty spust i kolorowy zamek. Ekskluzywna broń safari.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_selous.jpg",
+        "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_safari_selous.png",
         
         "availableHandConfigurations": [1, 2],
         "availableContours": [4],
@@ -3077,7 +3194,9 @@
         "availableForearmOptions": [3],
         
 
-        "availableChamberEngravings": [2,3],
+        "availableChamberEngravings": [22],
+        "availableTriggers": [2, 3] ,
+        "availableBoltHeads": [2, 3],
         "availableGunCases": [1, 2, 3],
         "availableSoftGunCovers": [1, 2, 3, 4, 5],
         "availableRifleSlings": [1, 2, 3, 4, 5, 6, 7] 
