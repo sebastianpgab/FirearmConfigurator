@@ -182,7 +182,7 @@ private getBasePosition(
       58: { top: '0%', left: '0%' },
       60: { top: '0%', left: '0%' },
       65: { top: '0%', left: '0%' },
-      685: { top: '0%', left: '0%' },
+      685: { top: '0.%', left: '0%' },
     },
     muzzleBrakeOrSuppressor: {
       47:  { top: '0%', left: '-2.1%' },
@@ -191,7 +191,7 @@ private getBasePosition(
       58:  { top: '0%', left: '7%' },
       60:  { top: '0%', left: '9%' },
       65:  { top: '0%', left: '13.3%' },
-      685: { top: '0%', left: '16.25%' },
+      685: { top: '0%', left: '6.5%' },
     }
   };
   

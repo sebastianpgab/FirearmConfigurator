@@ -2576,7 +2576,7 @@
         "id": 1,
         "name": "Blaser R8",
         "price": 3500,
-        "description": "Klasyczny sztucer z drewnem klasy 3 i czarnym systemem. Prostota i niezawodność w jednym.",
+        "description": "Standardowy model z kolbą z drewna klasy 3 i matową czarną baskilą.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_jaeger.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8.png",
         
@@ -2597,7 +2597,7 @@
         "id": 3,
         "name": "Blaser R8 Jaeger",
         "price": 3500,
-        "description": "Drewniana kolba, tytanowy zamek i możliwość wyboru czarnego wariantu.",
+        "description": "Wersja standardowa z drewnianą kolbą i matową czarną baskilą.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_jaeger.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_jaeger.png",
 
@@ -2619,7 +2619,7 @@
         "id": 5,
         "name": "Blaser R8 Luxus",
         "price": 3500,
-        "description": "Drewno klasy 4 i bogaty wybór grawerunków. Sztucer z klasy premium.",
+        "description": "Klasyczny sztucer z drewnem klasy 4 i możliwością wyboru grawerunków.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_luxus2021.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_luxus.png",
         
@@ -2641,7 +2641,7 @@
         "id": 6,
         "name": "Blaser R8 Intution",
         "price": 3500,
-        "description": "Kolba Monte Carlo i chwyt dopasowany do kobiecej dłoni. Idealna ergonomia dla pań.",
+        "description": "Kolba zaprojektowana dla kobiet: skrócona, w stylu Monte Carlo, z chwytem dostosowanym do drobnych dłoni – zapewnia idealne złożenie do strzału.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_compactintuition.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_intuition.png",
         
@@ -2662,7 +2662,7 @@
         "id": 7,
         "name": "Blaser R8 Silence",
         "price": 3500,
-        "description": "Zintegrowany tłumik w konstrukcji lufy. Chroni słuch i zapewnia idealne wyważenie.",
+        "description": "Model z wbudowanym tłumikiem na całej długości lufy (design typu bull barrel), zapewniającym ochronę słuchu myśliwego i psa. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_silence.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_silence.png",
         
@@ -2683,7 +2683,7 @@
         "id": 8,
         "name": "Blaser R8 Success",
         "price": 3500,
-        "description": "Ergonomiczna dwuczęściowa kolba z ryflowaniem i drewnem klasy 4. Wygodny i elegancki.",
+        "description": "Ergonomiczna, dwuczęściowa kolba z otworem na kciuk, drewno klasy 4 (opcjonalnie klasa 7), drobne ryflowanie dla lepszego chwytu.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_x2.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success.png",
         
@@ -2704,7 +2704,7 @@
         "id": 9,
         "name": "Blaser R8 Success Silence",
         "price": 3500,
-        "description": "Drewniana kolba klasy 4 z tłumikiem i eleganckim designem. Cicha praca, precyzja i styl.",
+        "description": "Wersja z tłumikiem i kolbą Success z drewna klasy 4 (opcjonalnie klasa 7), tłumik na całej długości lufy (bull barrel). Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_x2_silence.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_silence.png",
         
@@ -2725,7 +2725,7 @@
         "id": 10,
         "name": "Blaser R8 Success Leather",
         "price": 3500,
-        "description": "Orzechowa kolba ze skórzanymi wstawkami. Wygoda, styl i pewny chwyt.",
+        "description": "Drewniana kolba Success z wstawkami ze skóry i matową czarną baskilą. Połączenie komfortu i przyczepności.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_individual.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_leather.png",
         
@@ -2747,7 +2747,7 @@
         "id": 11,
         "name": "Blaser R8 Success Silence Leather",
         "price": 3500,
-        "description": "Skórzane wstawki, tłumik i elegancka kolba. Komfort i ochrona słuchu.",
+        "description": "Kolba Success z drewnem klasy 4 i skórzanymi wstawkami, matowa baskila, złoty spust i rygiel, tłumik w stylu bull barrel. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_silence_leather.png",
 
@@ -2769,7 +2769,7 @@
         "id": 12,
         "name": "Blaser R8 Success Luxus",
         "price": 3500,
-        "description": "Kolba z drewna klasy 4, stalowy zamek i ozdobne grawerunki. Klasa i precyzja.",
+        "description": "Kolba Success z drewna klasy 4, z ryflowaniem, baskila i kabłąk w kolorze stalowym z grawerunkami. Opcjonalnie drewno klasy 7.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_luxus.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_luxus.png",
 
@@ -2790,7 +2790,7 @@
         "id": 13,
         "name": "Blaser R8 Success Silence Luxus",
         "price": 3500,
-        "description": "Drewniana kolba klasy 4, zamek z grawerunkami i wbudowany tłumik.",
+        "description": "Kolba Success z drewna klasy 4, luksusowa baskila z grawerunkiem, tłumik typu bull barrel. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence_luxus.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_silence_luxus.png",
         
@@ -2812,7 +2812,7 @@
         "id": 14,
         "name": "Blaser R8 Success Leather Luxus",
         "price": 3500,
-        "description": "Skórzane wstawki, drewno klasy 4 i luksusowe zdobienia. Komfort i styl.",
+        "description": "Kolba Success z drewna klasy 4, skórzane wstawki, luksusowa baskila i kabłąk z grawerunkiem, tłumik typu bull barrel. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_leather_luxus.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_leather_luxus.png",
         
@@ -2834,7 +2834,7 @@
         "id": 15,
         "name": "Blaser R8 Success Silence Leather Luxus",
         "price": 3500,
-        "description": "Skóra, drewno klasy 4, tłumik i luksusowe detale. Precyzja w wyciszonej formie.",
+        "description": "Kolba Success z drewna klasy 4 i skórzanymi wstawkami, luksusowa baskila i kabłąk z grawerunkiem, tłumik typu bull barrel. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_success_silence_leather_luxus.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_success_silence_leather_luxus.png",
 
@@ -2856,7 +2856,7 @@
         "id": 16,
         "name": "Blaser R8 Professional",
         "price": 3500,
-        "description": "Wzmocniona kolba z gumowymi wkładkami. Do pracy w trudnych warunkach.",
+        "description": "Wersja wytrzymała z elastomerowymi wstawkami dla pewnego chwytu w trudnych warunkach, z zaawansowaną stopką redukującą odrzut.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_professional.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_professional.png",
         
@@ -2877,7 +2877,7 @@
         "id": 17,
         "name": "Blaser R8 Professional Tracking",
         "price": 3500,
-        "description": "Model z krótką lufą, HIVIZ i bocznym mocowaniem pasa. Idealny do tropienia.",
+        "description": "Model tropiący z krótszą lufą (50 cm), uchwytami na pasy z boku i przy wylocie lufy oraz celownikami HIVIZ®.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_prof_nachsuche_gruen.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_professional_tracking.png",
         
@@ -2895,7 +2895,7 @@
         "id": 18,
         "name": "Blaser R8 Professional Success",
         "price": 3500,
-        "description": "Wytrzymała kolba syntetyczna i ergonomiczny chwyt. Dla wymagających myśliwych.",
+        "description": "Połączenie odporności kolby syntetycznej z ergonomią Success – dostępne różne kolory kolby.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2OPSC_prof-succ.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_professional_success.png",
         
@@ -2915,7 +2915,7 @@
         "id": 19,
         "name": "Blaser R8 Ultimate",
         "price": 3500,
-        "description": "Modułowa kolba z regulacją i perfekcyjną ergonomią. Nowoczesny i funkcjonalny.",
+        "description": "Nowy standard funkcjonalności: dwuczęściowa kolba z otworem na kciuk, opcje modułowe: regulacja baki, długości kolby i absorpcja odrzutu.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2U_ultimate3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate.png",
         
@@ -2933,7 +2933,7 @@
         "id": 20,
         "name": "Blaser R8 Ultimate Leather",
         "price": 3500,
-        "description": "Kolba z tworzywa i skóry, regulowana i odporna. Styl i technologia w jednym.",
+        "description": "Kolba Ultimate z tworzywa i skórzanymi wstawkami, dostępne moduły regulacyjne.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UL_ultimate_leather3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_leather.png",
         
@@ -2951,7 +2951,7 @@
         "id": 21,
         "name": "Blaser R8 Ultimate Silence",
         "price": 3500,
-        "description": "Wyciszona kolba z tłumikiem i opcjami regulacji. Nowoczesna konstrukcja.",
+        "description": "Połączenie kolby Ultimate z tłumikiem dźwięku na całej długości lufy (bull barrel) i opcjami modułowymi. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2US_ultimate_slc3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_silence.png",
         
@@ -2970,7 +2970,7 @@
         "id": 22,
         "name": "Blaser R8 Ultimate Silence Leather",
         "price": 3500,
-        "description": "Wyciszenie, regulacja i skórzane wstawki. Komfort i cisza w każdej sytuacji.",
+        "description": "Kolba Ultimate z tłumikiem i skórzanymi wstawkami, pełne opcje modułowe. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USL_ultimate_slc_leather3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_silence_leather.png",
         
@@ -2988,7 +2988,7 @@
         "id": 23,
         "name": "Blaser R8 Ultimate Carbon",
         "price": 3500,
-        "description": "Karbonowa kolba o wysokiej wytrzymałości i niskiej wadze. Maksymalna stabilność.",
+        "description": "Kolba z włókna węglowego – lekka, wytrzymała, z UV-ochroną. Ergonomiczna i dostępna z modułami regulacyjnymi.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UC_ultimate_carbon3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_carbon.png",
         
@@ -3006,7 +3006,7 @@
         "id": 24,
         "name": "Blaser R8 Ultimate Carbon Leather",
         "price": 3500,
-        "description": "Wytrzymałość karbonu i komfort skóry. Lekka, solidna i wygodna.",
+        "description": "Kolba z włókna węglowego z wstawkami skórzanymi, z opcjami regulacyjnymi.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UCL_ultimate_carbon_leather3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_carbon_leather.png",
         
@@ -3024,7 +3024,7 @@
         "id": 25,
         "name": "Blaser R8 Ultimate Silence Carbon",
         "price": 3500,
-        "description": "Karbonowa kolba z wbudowanym tłumikiem. Lekka, stabilna i cicha.",
+        "description": "Kolba z włókna węglowego i integralny tłumik, z opcjami Ultimate. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USC_ultimate_slc_carbon3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_silence_carbon.png",
         
@@ -3042,7 +3042,7 @@
         "id": 26,
         "name": "Blaser R8 Ultimate Silence Carbon Leather",
         "price": 3500,
-        "description": "Karbon, skóra, tłumik i regulacja. Technologia premium dla wymagających.",
+        "description": "Kolba z włókna węglowego, skórzane wstawki i tłumik – z pełnym pakietem opcji Ultimate. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USCL_ultimate_slc_carbon_leather3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_silence_carbon_leather.png",
         
@@ -3060,7 +3060,7 @@
         "id": 27,
         "name": "Blaser R8 Ultimate X",
         "price": 3500,
-        "description": "10-nabojowy magazynek, nowy system i szyna Picatinny. Idealna na strzelnicę i polowanie.",
+        "description": "Magazynek 10-nabojowy, idealny do treningu, polowań zbiorowych i zawodów. Wydłużony mechanizm zamka, montaż Picatinny i opcjonalny dwójnóg Blaser.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UX_ultimate-x3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_x.png",
         
@@ -3080,7 +3080,7 @@
         "id": 28,
         "name": "Blaser R8 Ultimate X Leather",
         "price": 3500,
-        "description": "10-nabojowy magazynek, skórzane wstawki i ergonomiczna kolba.",
+        "description": "Kolba Ultimate z opcjami regulacyjnymi, magazynkiem 10-nabojowym i skórzanymi wstawkami.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UXL_ultimate-x_leather3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_x_leather.png",
         
@@ -3099,7 +3099,7 @@
         "id": 29,
         "name": "Blaser R8 Ultimate X Silence",
         "price": 3500,
-        "description": "System 10-nabojowy z integralnym tłumikiem i modułową kolbą. Cicho i efektywnie.",
+        "description": "Połączenie tłumika R8 Silence i funkcji Ultimate X, z opcjami regulacyjnymi. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2UXS_ultimate-x_slc3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_x_silence.png",
         
@@ -3118,7 +3118,7 @@
         "id": 30,
         "name": "Blaser R8 Ultimate X Silence Leather",
         "price": 3500,
-        "description": "Tłumik, skóra i 10-nabojowy magazynek. Dla tych, którzy chcą wszystkiego.",
+        "description": "Tłumik, kolba Ultimate X z wstawkami skórzanymi i opcjami regulacyjnymi. Tłumienie hałasu (.308 Win): –28 dB(C).",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/A2USXL_ultimate-x_slc_leather3.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_ultimate_x_silence_leather.png",
         
@@ -3137,7 +3137,7 @@
         "id": 31,
         "name": "Blaser R8 Safari Professional Hunter",
         "price": 3500,
-        "description": "Wytrzymała syntetyczna kolba i polimerowe wstawki. Stworzona do polowań na grubego zwierza.",
+        "description": "Wytrzymała kolba syntetyczna z wkładkami polimerowymi. Przystosowany do ekstremalnych warunków i polowań na grubą zwierzynę.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_ph.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_safari_professional_hunter.png",
         
@@ -3156,7 +3156,7 @@
         "id": 32,
         "name": "Blaser R8 Safari Kilombero",
         "price": 3500,
-        "description": "Klasyczna broń safari z drewnem, gumową stopką i otwartą muszką. Do afrykańskich wypraw.",
+        "description": "Klasyczny sztucer safari z drewnianą kolbą, czarną baskilą, końcówką z hebanu, stopką redukującą odrzut i przyrządami safari.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_kilombero.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_safari_kilombero.png",
         
@@ -3179,7 +3179,7 @@
         "id": 33,
         "name": "Blaser R8 Safari Selous",
         "price": 3500,
-        "description": "Drewno klasy 7, złoty spust i kolorowy zamek. Ekskluzywna broń safari.",
+        "description": "Luksusowy sztucer safari – stalowa oksydowana baskila, złoty spust i drewno klasy 7.",
         "imageUrl": "assets/BlaserR8/puzzle/rifle/icon-model/R8_ss_bb_selous.jpg",
         "previewLabel": "assets/BlaserR8/puzzle/rifle/preview-label/r8_safari_selous.png",
         
