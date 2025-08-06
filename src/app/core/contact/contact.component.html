@@ -1,3 +1,4 @@
+<div class="page-wrapper">
 <div class="contact-form">
   <h2 class="contact-title">Wyślij wiadomość do sprzedawcy</h2>
 
@@ -12,10 +13,9 @@
     />
   </div>
 
-
-  <!-- Pole na E-MAIL (tylko gdy user wybrał e-mail) -->
+  <!-- E-mail -->
   <div class="form-group">
-    <label for="email"> Twój adres e-mail:</label>
+    <label for="email">Twój adres e-mail:</label>
     <input
       type="email"
       id="email"
@@ -35,4 +35,25 @@
   </div>
 
   <button (click)="sendEmail()">Wyślij</button>
+
+  <!-- Komunikaty -->
+  <div *ngIf="successMessage" class="message-success">
+    ✅ {{ successMessage }}
+  </div>
+
+  <div *ngIf="errorMessage" class="message-error">
+    ❌ {{ errorMessage }}
+  </div>
+</div>
+<footer class="footer">
+  <small>
+    Developed by 
+    <a href="mailto:s.piatkowski@twojabron.pl" class="footer-link">
+      <i class="fa fa-envelope"></i> Sebastian Piątkowski
+    </a> 
+    for TBCH sp. z o.o.
+  </small>
+</footer>
+
+
 </div>

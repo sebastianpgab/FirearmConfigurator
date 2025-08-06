@@ -1,11 +1,14 @@
- 
+<div class="page-wrapper">
 <body>
   <section class="content">
     <h1 class="section-title">Model</h1>
 
     <app-rifle-preview></app-rifle-preview>
-  
-    <form class="container">
+            <p *ngIf="state.selectedRifle?.description" class="rifle-description">
+      {{ state.selectedRifle.description }}
+    </p>
+    <form>
+
         <!-- Wybór modelu --> 
         <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Model</mat-label>
@@ -43,5 +46,18 @@
           </mat-select>
         </mat-form-field>
     </form>
+      <div class="button-container">
+        <button class="next-button" (click)="onNext()">Dalej →</button>
+      </div>
 </section>
 </body>
+<footer class="footer">
+  <small>
+    Developed by 
+    <a href="mailto:s.piatkowski@twojabron.pl" class="footer-link">
+      <i class="fa fa-envelope"></i> Sebastian Piątkowski
+    </a> 
+    for TBCH sp. z o.o.
+  </small>
+</footer>
+</div>

@@ -107,7 +107,9 @@ body {
   background-attachment: fixed;
   margin: 0;
   font-family: 'Roboto', sans-serif; /* Nowoczesna czcionka */
+  overflow-x: hidden; /* ← To blokuje poziomy scroll */
 }
+
 
 .title::before {
   content: "";
@@ -416,3 +418,46 @@ div {
 .mat-mdc-select-panel {
   max-height: 500px !important;
 }
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form {
+  padding: 20px;
+  /* usuwamy flex: 1 – to on dodawał pustą przestrzeń */
+}
+
+/* Stopka bez rozciągania strony */
+.footer {
+  margin-top: auto; /* ← Kluczowy element – przykleja stopkę do dołu */
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+  color: #888;
+  background-color: #f4f4f4;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #666;
+  margin: 0 4px;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #333;
+}
+
+.footer i {
+  margin-right: 4px;
+}
+

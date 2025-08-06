@@ -5,6 +5,7 @@ import { Rifle } from './model';
 import { Option } from '../option/model';
 import { ConfiguratorService } from 'src/app/core/services/configurator.service';
 import { RifleService } from './rifle.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rifle',
@@ -18,7 +19,6 @@ export class RifleComponent implements OnInit, OnDestroy {
    */
   private readonly optionHierarchy: string[] = [
     'rifle',
-    'handConfiguration',
     'contour',
     'caliber',
     'profile',
@@ -54,7 +54,8 @@ export class RifleComponent implements OnInit, OnDestroy {
 
   constructor(
     private configuratorService: ConfiguratorService,
-    private rifleService: RifleService
+    private rifleService: RifleService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -147,4 +148,10 @@ export class RifleComponent implements OnInit, OnDestroy {
   public compareById = (o1: Rifle, o2: Rifle): boolean => {
     return o1 && o2 ? o1.id === o2.id : o1 === o2;
   };
+
+    onNext(): void {
+    // Przejście do kolejnego kroku, np. chamberBolt
+    this.router.navigate(["/r8/barrel"]);
+  }
+
 }

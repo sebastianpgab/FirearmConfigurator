@@ -20,6 +20,7 @@ import { RifleModule } from './R8/rifle/rifle.module';
 import { ContactComponent } from './core/contact/contact.component';
 import { RiflePreviewComponent } from './core/rifle-preview/rifle-preview.component';
 import { RifleComponent } from './R8/rifle/rifle.component';
+import { SyntheticStockComponent } from './R8/synthetic-stock/synthetic-stock.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RifleComponent } from './R8/rifle/rifle.component';
     AccessoryComponent,
     SummaryComponent,
     ContactComponent,
-    RifleComponent
+    RifleComponent,
+    SyntheticStockComponent
   ],
   imports: [
     BrowserModule,

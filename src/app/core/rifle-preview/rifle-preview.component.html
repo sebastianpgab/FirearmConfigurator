@@ -1,5 +1,11 @@
 
-<div class="rifle-preview" *ngIf="state.selectedContour || state.selectedButtstockType || state.selectedChamberEngraving">
+<div class="rifle-preview" *ngIf="state.selectedContour || state.selectedButtstockType || state.selectedChamberEngraving || state.selectedRifle">
+  
+    <img 
+    *ngIf="state.selectedRifle && (!state.selectedContour || state.selectedContour === '')" 
+    [src]="state.selectedRifle.previewLabel" 
+    class="rifle-preview-layer"
+  >
     <!-- Kontur wyświetlamy tylko, jeśli NIE ma profilu i NIE wybrano długości -->
     <img 
       *ngIf="state.selectedContour && !state.selectedProfile && !state.onSelectLength"
