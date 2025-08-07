@@ -79,13 +79,25 @@ h1 {
 @media (max-width: 480px) {
   .section-title {
     font-size: 28px;
-    flex-direction: column;
+    flex-direction: row; /* ← zostaje poziomo */
   }
-  
+
   .section-title::before,
   .section-title::after {
-    display: none;
+    content: '';
+    display: block;
+    height: 2px;
+    background: #990000;
+    flex: 1;
+    margin: 0 10px;
   }
+
+  .section-title .ampersand {
+    margin: 0 15px;
+    top: 0;
+    font-size: 32px;
+  }
+
   
   .section-title .ampersand {
     margin: 5px 0;
@@ -141,8 +153,10 @@ div {
 
 .content {
     width: 60%;
+    max-width: 1200px;
     margin: auto; 
-    padding: 20px; 
+    padding: 20px;
+    box-sizing: border-box;
 
 }
 //formularz
@@ -351,17 +365,27 @@ div {
   left: 12px;
 }
 
+@media screen and (max-width: 768px) {
+  .content {
+    width: 90%;
+  }
+}
+
 
 /* Media queries dla urządzeń mobilnych */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
   .rifle-preview {
-    max-width: 400px; /* Maksymalna szerokość dla tabletów */
+    width: 100%;
+    max-width: 90vw;
+    aspect-ratio: 3.5 / 1;
   }
 }
 
 @media screen and (max-width: 480px) {
   .rifle-preview {
-    max-width: 300px; /* Maksymalna szerokość dla telefonów */
+    width: 100%;
+    max-width: 95vw;
+    aspect-ratio: 2.8 / 1;
   }
 }
 
@@ -419,10 +443,15 @@ div {
   max-height: 500px !important;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
-  min-height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .page-wrapper {
