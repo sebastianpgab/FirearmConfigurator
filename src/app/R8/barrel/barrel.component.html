@@ -126,11 +126,13 @@
       </form>
 
       <div class="button-container">
-        <button class="back-button" (click)="onBack()">← Cofnij</button>
-        <button class="next-button" (click)="onNext()">Dalej →</button>
+        <button class="back-button" (click)="onBack()">
+          <i class="fas fa-chevron-left"></i>&nbsp;Cofnij
+        </button>
+        <button class="next-button" (click)="onNext()">
+          Dalej&nbsp;<i class="fas fa-chevron-right"></i>
+        </button>
       </div>
-
-
     </div>
     <div *ngIf="rifles.length === 0">
       <p>Brak danych do wyświetlenia.</p>
