@@ -31,7 +31,7 @@ export class AccessoryComponent implements OnInit, OnDestroy {
   constructor(
     private accessoryService: AccessoryService,
     private router: Router,
-    private configuratorService: ConfiguratorService
+    public configuratorService: ConfiguratorService
   ) {}
 
   ngOnInit(): void {
@@ -129,6 +129,10 @@ export class AccessoryComponent implements OnInit, OnDestroy {
    * Przejście do następnego kroku.
    */
   onNext(): void {
+    if (!this.state.selectedGunCase) {
+     this.configuratorService.showTemporaryToast('Aby kontynuować, wybierz akcesoria.');
+    return;
+  }
     this.router.navigate(["/r8/summary"]);
   }
 

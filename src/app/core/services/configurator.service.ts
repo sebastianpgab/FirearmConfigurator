@@ -12,6 +12,8 @@ import { ConfiguratorState } from 'src/app/core/services/model';
 export class ConfiguratorService {
   /** Ścieżka do pliku JSON z danymi konfiguracyjnymi */
   private readonly jsonUrl = 'assets/dataR8.json';
+  public toastMessage: string = '';
+  public showToast: boolean = false;
 
   /** Główny stan konfiguratora przechowywany w BehaviorSubject */
   private readonly stateSubject = new BehaviorSubject<ConfiguratorState>({
@@ -80,6 +82,15 @@ export class ConfiguratorService {
     private readonly http: HttpClient,
     private readonly router: Router
   ) {}
+
+  showTemporaryToast(message: string): void {
+  this.toastMessage = message;
+  this.showToast = true;
+
+  setTimeout(() => {
+    this.showToast = false;
+  }, 3000); // znika po 3 sekundach
+}
 
   /** Zwraca aktualny stan konfiguratora (snapshot) */
   public getState(): ConfiguratorState {
@@ -285,5 +296,6 @@ public getModularStockOptionPosition(): { [key: string]: string } {
     left: '0%',
   };
 }
+
 
 }

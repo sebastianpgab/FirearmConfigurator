@@ -43,7 +43,7 @@ export class ChamberBoltComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private configuratorService: ConfiguratorService
+    public configuratorService: ConfiguratorService
   ) {}
 
   ngOnInit(): void {
@@ -251,6 +251,10 @@ private updateTriggersBasedOnBoltHandle(): void {
 
   // --- Nawigacja ---
   onNext(): void {
+    if (!this.state.selectedChamberEngraving) {
+    this.configuratorService.showTemporaryToast('Aby kontynuować, wybierz komorę zamka.');
+    return;
+  }
     this.router.navigate(["/r8/accessory"]);
   }
 

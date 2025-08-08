@@ -43,7 +43,7 @@ export class BarrelComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private configuratorService: ConfiguratorService,
+    public configuratorService: ConfiguratorService,
     private cdr: ChangeDetectorRef,
     private barrelService: BarrelService
   ) {}
@@ -366,11 +366,15 @@ private extractContourType(contour: any): string {
   }
 
 
-
   // --- Nawigacja ---
-  onNext(): void {
-    this.router.navigate(["/r8/stock"]);
+onNext(): void {
+  if (!this.state.selectedContour) {
+    this.configuratorService.showTemporaryToast('Aby kontynuować, wybierz kontur.');
+    return;
   }
+
+  this.router.navigate(['/r8/stock']);
+}
   onBack(): void {
     this.router.navigate(["/r8/model"]);
   }

@@ -490,3 +490,38 @@ html, body {
   margin-right: 4px;
 }
 
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffe6e6; /* jasny czerwony */
+  color: #800000; /* ciemniejszy, spokojny czerwony tekst */
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 15.5px;
+  font-weight: 500;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  animation: fadeInOut 3s ease-in-out;
+  border: 1px solid #ffcccc;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+}

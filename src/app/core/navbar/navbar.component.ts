@@ -33,6 +33,16 @@ export class NavbarComponent {
     return this.router.url === '/' || this.router.url === '/home';
   }
 
+  onCategoryClick(category: Category, event: MouseEvent): void {
+  if (!this.isCategoryEnabled(category.path)) {
+    event.preventDefault();
+    this.configuratorService.showTemporaryToast('Najpierw wybierz wymagane opcje, zanim przejdziesz dalej.');
+    return;
+  }
+
+  this.navigateTo(category);
+}
+
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
     this.dropdownOpen = this.menuOpen;
@@ -53,7 +63,6 @@ export class NavbarComponent {
   }
 
   isCategoryEnabled(path: string): boolean {
-      console.log('Sprawdzam kategorię:', path);
 
   const config = this.configuratorService.getState();
 
@@ -72,7 +81,6 @@ export class NavbarComponent {
   if (path === '/r8/accessory') {
     return config.selectedChamberEngraving !== null;
   }
-  console.log(config.selectedGunCase?.name)
 
   if (path === '/r8/summary') {
     return config.selectedGunCase !== null;

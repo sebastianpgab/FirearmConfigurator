@@ -4,9 +4,8 @@
     <button class="menu-toggle" (click)="toggleMenu()">☰</button>
   </div>
 
-  <!-- Niestandardowy dropdown dla urządzeń mobilnych -->
+  <!-- Dropdown mobilny -->
   <div class="custom-dropdown" *ngIf="menuOpen">
-    <!-- Dodajemy przycisk zamykający -->
     <button class="close-dropdown" (click)="toggleMenu()">✖</button>
     <ul class="dropdown-list show">
       <li *ngFor="let category of categories">
@@ -15,7 +14,7 @@
           [class.disabled]="!isCategoryEnabled(category.path)"
           [class.active]="isActiveCategory(category)"
           [attr.aria-disabled]="!isCategoryEnabled(category.path)"
-          (click)="isCategoryEnabled(category.path) && navigateTo(category)"
+          (click)="onCategoryClick(category, $event)"
         >
           {{ category.title }}
         </a>
@@ -23,7 +22,7 @@
     </ul>
   </div>
 
-  <!-- Linki nawigacyjne -->
+  <!-- Linki desktop -->
   <div class="navbar-links">
     <ul>
       <li *ngFor="let category of categories">
@@ -31,7 +30,7 @@
           class="navbar-link"
           [class.disabled]="!isCategoryEnabled(category.path)"
           [class.active]="isActiveCategory(category)"
-          (click)="isCategoryEnabled(category.path) && navigateTo(category)"
+          (click)="onCategoryClick(category, $event)"
         >
           {{ category.title }}
         </a>

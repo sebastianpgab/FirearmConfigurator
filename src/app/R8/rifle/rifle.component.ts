@@ -53,7 +53,7 @@ export class RifleComponent implements OnInit, OnDestroy {
   public state: any;
 
   constructor(
-    private configuratorService: ConfiguratorService,
+    public configuratorService: ConfiguratorService,
     private rifleService: RifleService,
     private router: Router,
   ) {}
@@ -150,7 +150,10 @@ export class RifleComponent implements OnInit, OnDestroy {
   };
 
     onNext(): void {
-    // Przejście do kolejnego kroku, np. chamberBolt
+    if (!this.state.selectedRifle) {
+    this.configuratorService.showTemporaryToast('Aby kontynuować, wybierz model.');
+    return;
+  }
     this.router.navigate(["/r8/barrel"]);
   }
 

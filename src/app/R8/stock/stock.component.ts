@@ -52,7 +52,7 @@ export class StockComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private configuratorService: ConfiguratorService
+    public configuratorService: ConfiguratorService
   ) {}
 
   ngOnInit(): void {
@@ -466,6 +466,10 @@ private restoreSelections(): void {
   // Nawigacja
   // ==============================
   onNext(): void {
+  if (!this.state.selectedButtstockType) {
+    this.configuratorService.showTemporaryToast('Aby kontynuować, wybierz typ kolby.');
+    return;
+  }
     // Przejście do kolejnego kroku, np. chamberBolt
     this.router.navigate(["/r8/chamberBolt"]);
   }

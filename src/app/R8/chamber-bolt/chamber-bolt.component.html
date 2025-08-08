@@ -1,5 +1,9 @@
 <div class="page-wrapper">
 <body>
+  <div *ngIf="configuratorService.showToast" class="toast">
+    {{ configuratorService.toastMessage }}
+  </div>
+
     <section class="content">
       <h1 class="section-title">KOMORA ZAMKA</h1>
   

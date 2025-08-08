@@ -1,5 +1,10 @@
 <div class="page-wrapper">
 <body>
+  <!--Element odpowiedzialny za komunikat typu wybierz X, żeby przejść dalej-->
+  <div *ngIf="configuratorService.showToast" class="toast">
+    {{ configuratorService.toastMessage }}
+  </div>
+
   <section class="content">
     <h1 class="section-title">KOLBA</h1>
 
