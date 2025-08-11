@@ -1,59 +1,103 @@
 <div class="page-wrapper">
-<div class="contact-form">
-  <h2 class="contact-title">Wyślij wiadomość do sprzedawcy</h2>
+  <div class="contact-form">
+    <h2 class="contact-title">Wyślij wiadomość do sprzedawcy</h2>
 
-  <!-- Imię -->
-  <div class="form-group">
-    <label for="name">Twoje imię:</label>
+    <!-- Imię -->
+    <div class="form-group">
+      <label for="name">Twoje imię:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="userName"
+        placeholder="Wpisz swoje imię"
+        autocomplete="name"
+      />
+    </div>
+
+    <!-- E-mail -->
+    <div class="form-group">
+      <label for="email">Twój adres e-mail:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="userEmail"
+        placeholder="Wpisz swój e-mail"
+        autocomplete="email"
+        required
+        aria-required="true"
+      />
+    </div>
+
+
+    <!-- Wiadomość -->
+    <div class="form-group">
+      <label for="message">Pytanie:</label>
+      <textarea
+        id="message"
+        name="message"
+        [(ngModel)]="userMessage"
+        placeholder="Twoja wiadomość"
+        rows="6"
+      ></textarea>
+    </div>
+
+    <!-- HONEYPOT (ukryte pole) -->
     <input
       type="text"
-      id="name"
-      [(ngModel)]="userName"
-      placeholder="Wpisz swoje imię"
+      name="nickname"
+      [(ngModel)]="honeypot"
+      style="display:none"
+      tabindex="-1"
+      autocomplete="off"
+      aria-hidden="true"
     />
+
+    <!-- Przycisk z blokadą cooldownu i wysyłki -->
+    <button
+      type="button"
+      (click)="sendEmail()"
+      [disabled]="isCooldownActive() || isSending"
+      [attr.aria-busy]="isSending ? 'true' : 'false'"
+      [attr.aria-disabled]="(isCooldownActive() || isSending) ? 'true' : 'false'"
+    >
+      <!-- Jeśli wysyłamy -->
+      <ng-container *ngIf="isSending">Wysyłanie…</ng-container>
+
+      <!-- Jeśli cooldown -->
+      <ng-container *ngIf="!isSending && isCooldownActive()">
+        Wyślij 
+      </ng-container>
+
+      <!-- Normalny stan -->
+      <ng-container *ngIf="!isSending && !isCooldownActive()">
+        Wyślij
+      </ng-container>
+    </button>
+
+    <!-- Info o cooldownie (opcjonalne, możesz zostawić lub usunąć) -->
+    <div *ngIf="isCooldownActive()" class="message-info" aria-live="polite">
+      ⏳ Odczekaj {{ cooldownRemaining }} s przed kolejną wysyłką.
+    </div>
+
+    <!-- Komunikaty -->
+    <div *ngIf="successMessage" class="message-success" aria-live="polite">
+      ✅ {{ successMessage }}
+    </div>
+
+    <div *ngIf="errorMessage" class="message-error" aria-live="assertive">
+      ❌ {{ errorMessage }}
+    </div>
   </div>
 
-  <!-- E-mail -->
-  <div class="form-group">
-    <label for="email">Twój adres e-mail:</label>
-    <input
-      type="email"
-      id="email"
-      [(ngModel)]="userEmail"
-      placeholder="Wpisz swój e-mail"
-    />
-  </div>
-
-  <!-- Wiadomość -->
-  <div class="form-group">
-    <label for="message">Pytanie:</label>
-    <textarea
-      id="message"
-      [(ngModel)]="userMessage"
-      placeholder="Twoja wiadomość"
-    ></textarea>
-  </div>
-
-  <button (click)="sendEmail()">Wyślij</button>
-
-  <!-- Komunikaty -->
-  <div *ngIf="successMessage" class="message-success">
-    ✅ {{ successMessage }}
-  </div>
-
-  <div *ngIf="errorMessage" class="message-error">
-    ❌ {{ errorMessage }}
-  </div>
-</div>
-<footer class="footer">
-  <small>
-    Developed by 
-    <a href="mailto:s.piatkowski@twojabron.pl" class="footer-link">
-      <i class="fa fa-envelope"></i> Sebastian Piątkowski
-    </a> 
-    for TBCH sp. z o.o.
-  </small>
-</footer>
-
-
+  <footer class="footer">
+    <small>
+      Developed by
+      <a href="mailto:sebastianpgab@gmail.com" class="footer-link">
+        <i class="fa fa-envelope"></i> Sebastian Piątkowski
+      </a>
+      for TBCH sp. z o.o.
+    </small>
+  </footer>
 </div>
