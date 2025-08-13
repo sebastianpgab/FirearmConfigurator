@@ -256,7 +256,7 @@
       "profiles": [
         {
           "id": 1,
-          "name": "Zaokrąglony",
+          "name": "Standardowy",
           "price": 0,
           "iconImageUrl": "assets/BlaserR8/puzzle/barrel/icon-profil/R8_lk_0_lp_normal.jpg",
           "imageUrl": "assets/BlaserR8/puzzle/barrel/R8_Lauf_Jagd_rund_47.png",
@@ -2404,8 +2404,8 @@
         "id": 3, 
         "name": "DLC - Diamond Like Carbon",
         "price": 200, 
-        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/SZD_abzug_dlc.jpg",
-        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_dlc.png", 
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/R8_sz_0_az_abzug_normal.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_schwarz.png", 
         "availableBoltHeads": [1, 2, 3] 
       },
       { 
@@ -2428,8 +2428,8 @@
         "id": 6, 
         "name": "Dwupozycyjny spust ATZL Match-Hunt, DLC",
         "price": 200, 
-        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/SZDA_abzug_dlc_atzl.jpg",
-        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_dlc.png", 
+        "iconImageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/icon-trigger/R8_sz_0a_az_abzug_normal_atzl.jpg",
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/trigger/r8_abzugszuengel_schwarz.png", 
         "availableBoltHeads": [1, 2, 3] 
       },
       { 
@@ -2444,7 +2444,7 @@
     "boltHeads": [
       { 
         "id": 1, 
-        "name": "Regularna - klasyczny czarny zamek.", 
+        "name": "Regularna - klasyczny czarny zamek", 
         "price": 100, 
         "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-head/R8_sb_0_ka_kammer_normal.jpg", 
         "availableSlidingSafeties": [1,2] 
@@ -2460,7 +2460,7 @@
         "id": 3, 
         "name": "DLC - Diamond Like Carbon", 
         "price": 250, 
-        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-head/SBD_kammer_dlc.jpg", 
+        "imageUrl": "assets/BlaserR8/puzzle/chamber-bolt/bolt-head/R8_sb_0_ka_kammer_normal.jpg", 
         "availableSlidingSafeties": [1,2] 
       }
     ],

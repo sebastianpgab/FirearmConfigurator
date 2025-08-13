@@ -123,7 +123,7 @@ async sendEmail(): Promise<void> {
       { label: 'Rodzaj wymiarów kolby', value: this.state?.selectedButtstockMeasuresType?.name },
       { label: 'Rączka zamka', value: this.state?.selectedBoltHandle?.name },
       { label: 'Spust', value: this.state?.selectedTrigger?.name },
-      { label: 'Głowica zamka', value: this.state?.selectedBoltHead?.name },
+      { label: 'Główka zamka', value: this.state?.selectedBoltHead?.name },
       { label: 'Bezpiecznik suwakowy', value: this.state?.selectedSlidingSafety?.name },
       { label: 'Pas do broni', value: this.state?.selectedRifleSling?.name },
       { label: 'Pokrowiec miękki', value: this.state?.selectedSoftGunCover?.name },

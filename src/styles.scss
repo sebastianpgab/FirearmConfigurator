@@ -1,3 +1,4 @@
+/* ——— Tytuł / header box ——— */
 .title {
   top: 0; 
   display: flex;
@@ -5,7 +6,7 @@
   align-items: center;
   justify-content: center;
   height: 100px;
-  background: rgba(43, 43, 54, 0.85); /* Półprzezroczyste tło */
+  background: rgba(56, 47, 45, 0.85); /* #382F2D półprzezroczyste */
   color: #ffffff;
   font-size: 24px;
   font-weight: 600;
@@ -28,8 +29,7 @@ h1 {
   z-index: 1;
 }
 
-/*sekcja tytuł w szablonie*/
-
+/* ——— Sekcja tytułowa w szablonie ——— */
 .section-title {
   position: relative;
   text-align: center;
@@ -47,7 +47,7 @@ h1 {
 
 .section-title .ampersand {
   margin: 0 15px;
-  color: #990000; /* Czerwony akcent */
+  color: #EB5F12; /* Akcent */
   font-size: 54px;
   position: relative;
   top: -5px;
@@ -58,7 +58,7 @@ h1 {
   content: '';
   flex: 1;
   height: 2px;
-  background: #990000; /* Czerwone linie */
+  background: #EB5F12; /* Pomarańczowe linie */
   margin: 0 10px;
 }
 
@@ -67,41 +67,26 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 36px;
-  }
-  
-  .section-title .ampersand {
-    font-size: 40px;
-  }
+  .section-title { font-size: 36px; }
+  .section-title .ampersand { font-size: 40px; }
 }
 
 @media (max-width: 480px) {
   .section-title {
     font-size: 28px;
-    flex-direction: row; /* ← zostaje poziomo */
+    flex-direction: row; /* poziomo */
   }
-
   .section-title::before,
   .section-title::after {
-    content: '';
-    display: block;
     height: 2px;
-    background: #990000;
+    background: #EB5F12;
     flex: 1;
     margin: 0 10px;
   }
-
   .section-title .ampersand {
     margin: 0 15px;
     top: 0;
     font-size: 32px;
-  }
-
-  
-  .section-title .ampersand {
-    margin: 5px 0;
-    top: 0;
   }
 }
 
@@ -114,15 +99,16 @@ h1 {
   z-index: 1;
 }
 
+/* ——— Tło strony ——— */
 body {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.9));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(240, 240, 240, 0.92));
   background-attachment: fixed;
   margin: 0;
-  font-family: 'Roboto', sans-serif; /* Nowoczesna czcionka */
-  overflow-x: hidden; /* ← To blokuje poziomy scroll */
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
-
+/* Delikatna animacja poświaty w .title */
 .title::before {
   content: "";
   position: absolute;
@@ -135,6 +121,7 @@ body {
   z-index: 0;
 }
 
+/* ——— Zdjęcie broni ——— */
 .riffle_photo {
   width: 100%;
   max-width: 1200px;
@@ -147,168 +134,153 @@ body {
   display: block;
 }
 
-div {
-    margin: 1%;
-}
+/* Ogólny margines dla div — uwaga na specyfikę layoutu */
+div { margin: 1%; }
 
+/* ——— Główna zawartość ——— */
 .content {
-    width: 60%;
-    max-width: 1200px;
-    margin: auto; 
-    padding: 20px;
-    box-sizing: border-box;
-
+  width: 60%;
+  max-width: 1200px;
+  margin: auto; 
+  padding: 20px;
+  box-sizing: border-box;
 }
-//formularz
-.form-group {
-    margin-bottom: 15%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    width: 300px; /* Szerokość kontenera */
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  select:hover {
-    border-color: #007bff; /* Zmiana koloru obramowania po najechaniu */
-  }
-  
-  select:focus {
-    outline: none;
-    border-color: #007bff; /* Kolor obramowania po zaznaczeniu */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efekt cienia po zaznaczeniu */
-  }
 
-  select.disabled {
-    pointer-events: none;
-    opacity: 0.5;
-    background-color: #f0f0f0;
-    color: #a0a0a0;
-    border: 1px solid #d0d0d0;
-    cursor: not-allowed; /* Zmieniony kursor, wskazuje brak możliwości wyboru */
-  }
-/*To dotyczy wygladu selctora */
-  
-  .option-template {
+/* ——— Formularz ——— */
+.form-group {
+  margin-bottom: 15%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fafafa;
+  width: 300px; /* Szerokość kontenera */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #382F2D; /* ciemny, spójny z brandem */
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:hover {
+  border-color: #EB5F12; /* akcent na hover */
+}
+
+select:focus {
+  outline: none;
+  border-color: #EB5F12; /* akcent w focus */
+  box-shadow: 0 0 0 3px rgba(235, 95, 18, 0.25);
+}
+
+select.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  background-color: #f0f0f0;
+  color: #a0a0a0;
+  border: 1px solid #d0d0d0;
+  cursor: not-allowed;
+}
+
+/* ——— Szablon opcji (np. w mat-option) ——— */
+.option-template {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
-  }
+}
 
-  .option-template img {
-    width: 150px;
-    height: auto;
-    margin-right: 8px;
-  }
+.option-template img {
+  width: 150px;
+  height: auto;
+  margin-right: 8px;
+}
 
-  .option-template span {
+.option-template span {
   font-size: 16px;
   white-space: normal;
   overflow-wrap: break-word;
   word-break: break-word;
-  flex: 1 1 auto;   /* ← KLUCZOWE */
-  min-width: 0;     /* ← NIEZBĘDNE przy flexboxie */
-  }
+  flex: 1 1 auto;
+  min-width: 0;
+}
 
-  @media (max-width: 600px) {
-    .option-template img {
-      width: 30px;
-    }
-  
-    .option-template span {
-      font-size: 14px;
-    }
-  }
+@media (max-width: 600px) {
+  .option-template img { width: 30px; }
+  .option-template span { font-size: 14px; }
+}
 
-  .mat-option:hover .option-template {
-    background-color: #f5f5f5;
-  }
+.mat-option:hover .option-template {
+  background-color: #fff1e8; /* jasny pomarańczowy glaze */
+}
 
-  //przycisk 
+/* ——— Przyciski ——— */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
 
-  .button-container {
-    display: flex;
-    justify-content: space-between; /* Domyślnie rozmieszczenie przycisków */
-    gap: 10px; /* Odstęp między przyciskami */
-  }
+.button-container button:only-child {
+  margin-left: auto; /* jeden przycisk wyrównany do prawej */
+  margin-right: 0;
+}
 
-  .button-container button:only-child {
-      margin-left: auto; /* Przesuwa jedyny przycisk na prawo */
-      margin-right: 0;   /* Resetuje prawy margines */
-    }
-  
-  button {
-    display: flex; /* Flexbox w przycisku dla strzałki i tekstu */
-    align-items: center; /* Wyśrodkowanie w pionie */
-    justify-content: center; /* Wyśrodkowanie w poziomie */
-    padding: 8px 16px; /* Odstępy wewnętrzne */
-    font-size: 16px; /* Rozmiar tekstu */
-    font-weight: 500; /* Trochę pogrubiony tekst */
-    border: none; /* Usunięcie obramowania */
-    border-radius: 4px; /* Zaokrąglone rogi */
-    background-color: #b30000; /* Czerwone tło */
-    color: white; /* Biały tekst */
-    cursor: pointer; /* Wskaźnik ręki */
-    transition: background-color 0.3s ease; /* Płynna zmiana koloru */
-  }
-  
-  button:hover {
-    background-color: #990000; /* Ciemniejszy odcień czerwieni przy najechaniu */
-  }
-  
-  .back-button {
-    padding-left: 20px; /* Więcej miejsca dla strzałki z lewej */
-  }
-  
-  .next-button {
-    padding-right: 20px; /* Więcej miejsca dla strzałki z prawej */
-  }
-  
-  .custom-button {
-    background-color: #3f51b5; /* Primary color */
-    color: white; /* Tekst w kolorze białym */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .custom-button:hover {
-    background-color: #303f9f; /* Ciemniejszy odcień przy najechaniu */
-  }
-  
-  .custom-button:active {
-    background-color: #1a237e; /* Jeszcze ciemniejszy odcień przy kliknięciu */
-  }
-  
-/* Kontener główny dla podglądu broni */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background-color: #EB5F12; /* akcent marki */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.05s ease-in-out;
+}
+
+button:hover { background-color: #c94e0f; }
+button:active { transform: translateY(1px); }
+
+.back-button { padding-left: 20px; }
+.next-button { padding-right: 20px; }
+
+/* Wariant „secondary” w kolorze bazowym */
+.custom-button {
+  background-color: #382F2D; /* bazowy ciemny */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-button:hover { background-color: #2a2422; }
+.custom-button:active { background-color: #1d1817; }
+
+/* ——— Podgląd i opis broni ——— */
 .rifle-preview {
   position: relative;
-  width: 100%;              /* Dynamiczna szerokość */
-  max-width: 800px;         /* Maksymalna szerokość */
-  aspect-ratio: 4/1.4;       /* Zachowanie proporcji */
-  margin: 0 auto;           /* Wyśrodkowanie */
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 4 / 1.4;
+  margin: 0 auto;
   overflow: visible;
 }
 
@@ -316,7 +288,6 @@ div {
   width: 90% !important;
   margin-left: auto !important;
   margin-right: 4% !important;
-
   margin-top: 24px;
   margin-bottom: 24px;
   padding: 20px 28px;
@@ -330,7 +301,7 @@ div {
   background-color: #fdfdfd;
   box-sizing: border-box;
 
-  border-left: 4px solid #aa0000;
+  border-left: 4px solid #EB5F12; /* akcent */
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
 
@@ -338,7 +309,8 @@ div {
 }
 
 /* Każda warstwa obrazu (kolba, lufa, przyrządy itd.) */
-.rifle-layer {
+.rifle-layer,
+.rifle-preview-layer {
   position: absolute;
   top: 0;
   left: 0;
@@ -348,31 +320,21 @@ div {
 }
 
 .rifle-preview-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
   pointer-events: none;
   z-index: 5;
-  transform: translateX(2px); /* np. delikatne przesunięcie w prawo */
+  transform: translateX(2px); /* delikatne przesunięcie */
 }
 
 .two-pixel-shift {
-  /* Zamiast transformu -> minimalne odsunięcie w stylu "nadrzędnym" */
   top: 2px;
   left: 12px;
 }
 
+/* ——— Responsywność podglądu ——— */
 @media screen and (max-width: 768px) {
-  .content {
-    width: 90%;
-  }
+  .content { width: 90%; }
 }
 
-
-/* Media queries dla urządzeń mobilnych */
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .rifle-preview {
     width: 100%;
@@ -389,22 +351,44 @@ div {
   }
 }
 
+/* ——— Podsumowanie konfiguracji ——— */
 .summary-container {
+  position: relative; /* potrzebne, żeby watermark był w środku tego boxa */
   background-color: #ffffff;
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
   max-width: 800px;
-  width: 90%; /* elastyczna szerokość niezależnie od urządzenia */
+  width: 90%;
   box-sizing: border-box;
   overflow-y: auto;
-  max-height: 80vh; /* jeśli będzie za długa, pojawi się przewijanie */
+  max-height: 80vh;
+  user-select: none;
 }
 
+/* watermark */
+.summary-container::before {
+  content: "twojabron.pl";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  font-size: 48px;
+  font-weight: bold;
+  color: #EB5F12;
+  opacity: 0.20; /* przeźroczystość napisu */
+  white-space: nowrap;
+  pointer-events: none; /* żeby nie przeszkadzał w klikaniu */
+  z-index: 0;
+}
+
+/* treść nad watermarkiem */
 .summary-item {
+  position: relative;
+  z-index: 1;
   display: flex;
-  flex-wrap: wrap; /* pozwala zawijać linie, jeśli brakuje miejsca */
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 4px;
   padding: 8px 0;
@@ -418,9 +402,11 @@ div {
   border-bottom: none;
 }
 
+
 .label {
   font-weight: 600;
-  flex: 1 1 45%; /* pozwala na dopasowanie w poziomie lub pionie */
+  color: #555;
+  flex: 1 1 45%;
   min-width: 140px;
 }
 
@@ -430,22 +416,11 @@ div {
   word-break: break-word;
 }
 
-.label {
-  font-weight: bold;
-  color: #555;
-}
+/* ——— Angular Material: panel wysokości ——— */
+.mat-mdc-select-panel { max-height: 500px !important; }
 
-.value {
-  color: #222;
-}
-
-.mat-mdc-select-panel {
-  max-height: 500px !important;
-}
-
-* {
-  box-sizing: border-box;
-}
+/* ——— Reset i layout strony ——— */
+* { box-sizing: border-box; }
 
 html, body {
   margin: 0;
@@ -460,14 +435,11 @@ html, body {
   flex-direction: column;
 }
 
-.contact-form {
-  padding: 20px;
-  /* usuwamy flex: 1 – to on dodawał pustą przestrzeń */
-}
+.contact-form { padding: 20px; }
 
-/* Stopka bez rozciągania strony */
+/* ——— Stopka ——— */
 .footer {
-  margin-top: auto; /* ← Kluczowy element – przykleja stopkę do dołu */
+  margin-top: auto;
   text-align: center;
   padding: 8px;
   font-size: 12px;
@@ -482,21 +454,17 @@ html, body {
   transition: color 0.2s ease;
 }
 
-.footer-link:hover {
-  color: #333;
-}
+.footer-link:hover { color: #EB5F12; } /* akcent na hover */
+.footer i { margin-right: 4px; }
 
-.footer i {
-  margin-right: 4px;
-}
-
+/* ——— Toast (powiadomienie) ——— */
 .toast {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ffe6e6; /* jasny czerwony */
-  color: #800000; /* ciemniejszy, spokojny czerwony tekst */
+  background-color: #fff3eb; /* jasny pomarańcz */
+  color: #EB5F12; /* tekst w kolorze akcentu */
   padding: 10px 24px;
   border-radius: 8px;
   font-size: 15.5px;
@@ -504,24 +472,19 @@ html, body {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   z-index: 9999;
   animation: fadeInOut 3s ease-in-out;
-  border: 1px solid #ffcccc;
+  border: 1px solid #ffd4b8;
 }
 
+/* ——— Animacje ——— */
 @keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-10px);
-  }
-  10% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  90% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-10px);
-  }
+  0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
+
+/* ——— Drobne ułatwienia dostępności ——— */
+:focus-visible {
+  outline: 3px solid rgba(235, 95, 18, 0.5); /* #EB5F12 focus ring */
+  outline-offset: 2px;
 }

@@ -1,25 +1,120 @@
+/* Pasek nawigacyjny */
 .navbar {
-  background-color: #990000; /* Czerwone tło */
-  padding: 10px 20px;
+  background-color: #382F2D; /* ciemne tło */
   width: 100%;
   position: relative;
 }
 
-.navbar-header {
+/* Linia nad navbar (akcent) */
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 4px;              /* grubość linii */
+  background-color: #EB5F12;/* pomarańcz */
+}
+
+/* Wewnętrzny kontener ograniczający szerokość i odsuwający od krawędzi */
+.navbar-inner {
+  max-width: 1200px;        /* stała, elegancka szerokość kontentu */
+  margin: 0 auto;
+  padding: 10px 40px;       /* odsunięcie od krawędzi -> bliżej środka */
+  box-sizing: border-box;
+}
+
+/* Ułożenie: logo - linki - logo */
+.navbar-content {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.menu-toggle {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
+/* LOGO (desktop) – stały rozmiar */
+.navbar-logo-twojabron {
+  height: 85px;   /* stała wysokość */
+  width: auto;    /* proporcje */
+  object-fit: contain;
+  flex: 0 0 auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.navbar-logo-blaser {
+  height: 60px;   /* stała wysokość */
+  width: auto;    /* proporcje */
+  object-fit: contain;
+  flex: 0 0 auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.navbar-logo-left { margin-right: 16px; }
+.navbar-logo-right { margin-left: 16px; }
+
+/* Linki (desktop) – wyśrodkowane między logotypami */
+.navbar-links {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0; padding: 0;
+  gap: 14px; /* równy odstęp między zakładkami */
+}
+
+.navbar-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
   cursor: pointer;
-  display: none; /* Ukryty domyślnie */
 }
 
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #ffddb3;           /* rozjaśniony tekst */
+  transform: translateY(-2px);
+  background-color: #EB5F12;/* tło przy hover */
+}
+
+.navbar-link:hover::after {
+  background-color: #EB5F12;
+}
+
+/* Aktywny link */
+.active {
+  color: #fff;
+  background-color: #EB5F12;
+  border-radius: 5px;
+  padding: 6px 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.active:hover {
+  background-color: #c94e0f; /* ciemniejszy pomarańcz */
+  color: #f8f8f8;
+}
+
+/* Dropdown mobilny */
 .custom-dropdown {
   position: relative;
   width: 100%;
@@ -29,150 +124,53 @@
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
-  background-color: white;
-  margin: 0;
-  padding: 0;
+  left: 0; right: 0;
+  background-color: #ffffff;
+  margin: 0; padding: 0;
   list-style: none;
   border: 1px solid #ccc;
-  max-height: 200px;
+  max-height: 260px;
   overflow-y: auto;
   z-index: 1000;
 }
 
-.dropdown-list.show {
-  display: block;
-}
+.dropdown-list.show { display: block; }
 
 .dropdown-list li a {
   display: block;
   padding: 15px;
   font-size: 18px;
-  color: #333;
+  color: #382F2D;
   text-decoration: none;
 }
 
 .dropdown-list li a:hover {
-  background-color: #f1f1f1;
+  background-color: #fbe6db;
 }
 
+/* Hamburger (widoczny na mobile) */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;            /* desktop: ukryty */
+  flex: 0 0 auto;
+}
+
+/* Zamknij dropdown (mobile) */
 .close-dropdown {
   display: none;
-}
-
-.active {
-  color: #fff; /* Biały kolor tekstu */
-  background-color: #b30000; /* Ciemnoczerwone tło */
-  border-radius: 5px; /* Zaokrąglone rogi */
-  padding: 6px 10px; /* Wewnętrzne odstępy */
-  text-decoration: none; /* Brak podkreślenia */
-  font-weight: normal; /* Normalna grubość czcionki */
-  transition: all 0.3s ease; /* Płynne przejścia */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtelny cień */
-}
-
-.active:hover {
-  background-color: #990000; /* Jeszcze ciemniejszy odcień czerwieni przy najechaniu */
-  color: #f8f8f8; /* Lekko przygaszony biały tekst */
-}
-
-.navbar-link {
-  color: #fff; /* Biały kolor tekstu */
-  text-decoration: none; /* Brak podkreślenia */
-  padding: 8px 12px; /* Wewnętrzne odstępy */
-  display: inline-block; /* Umożliwia dodanie tła i marginesów */
-  transition: all 0.3s ease; /* Płynne przejścia */
-  cursor: pointer; /* Zmiana kursora na "rękę" */
-  position: relative; /* Dla efektu przesunięcia */
-}
-
-.navbar-link::after {
-  content: ''; /* Pseudo-element do efektu */
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background-color: transparent; /* Domyślnie niewidoczne */
-  transition: all 0.3s ease;
+  top: 8px; right: 8px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.navbar-link:hover {
-  color: #ffe6e6; /* Jasnoczerwony tekst przy najechaniu */
-  transform: translateY(-2px); /* Subtelne przesunięcie w górę */
-}
-
-.navbar-link:hover::after {
-  background-color: #fff; /* Pasek podświetlenia */
-  height: 2px; /* Wysokość podświetlenia */
-}
-
-/* Stylizacja dla urządzeń mobilnych */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .navbar-links {
-    display: none;
-  }
-
-  .custom-dropdown {
-    position: relative;
-  }
-
-  .dropdown-list {
-    right: auto;
-  }
-}
-
-/* Stylizacja dla większych ekranów */
-@media (min-width: 769px) {
-  
-  .menu-toggle {
-    display: none;
-  }
-
-  .custom-dropdown {
-    display: none;
-  }
-
-  .navbar-links {
-    display: block;
-  }
-
-  .navbar-links ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .navbar-links ul li {
-    margin-right: 15px;
-  }
-
-  .navbar-links ul li:last-child {
-    margin-right: 0;
-  }
-
-  .navbar-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-
-  .navbar-link:hover {
-    background-color: #cc0000;
-  }
-
+/* Disabled */
 .disabled {
   pointer-events: none;
   cursor: not-allowed;
@@ -180,4 +178,40 @@
   opacity: 0.8;
 }
 
+/* ——— MOBILE ——— */
+@media (max-width: 768px) {
+  .navbar-inner {
+    padding: 10px 16px; /* ciaśniej na telefonach */
+  }
+
+  /* Pokaż hamburger, ukryj logotypy i linki desktop */
+  .menu-toggle {
+    display: block !important;  /* zawsze widoczny na mobile */
+  }
+
+  .navbar-logo {
+    display: none !important;   /* logotypy ukryte na mobile */
+  }
+
+  .navbar-links {
+    display: none !important;   /* ukrywamy wersję desktop */
+  }
+
+  /* Dropdown mobilny – przycisk zamykania */
+  .close-dropdown {
+    display: block;
+    color: #382F2D;
+  }
+
+  /* Lista w dropdownie – większe klikalne pola */
+  .dropdown-list li a {
+    padding: 14px 18px;
+    font-size: 17px;
+  }
+}
+
+/* ——— DESKTOP ——— */
+@media (min-width: 769px) {
+  .menu-toggle { display: none; }
+  .custom-dropdown { display: none; }
 }

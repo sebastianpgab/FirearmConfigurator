@@ -1,12 +1,54 @@
 <nav class="navbar" *ngIf="!isHomePage()">
-  <!-- Nagłówek z przyciskiem hamburger menu -->
-  <div class="navbar-header">
-    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+  <div class="navbar-inner">
+    <div class="navbar-content">
+      <!-- Hamburger (mobile) -->
+      <button
+        class="menu-toggle"
+        (click)="toggleMenu()"
+        aria-label="Otwórz menu"
+        [attr.aria-expanded]="menuOpen"
+        aria-controls="mobile-menu"
+      >
+        ☰
+      </button>
+
+      <!-- Logo po lewej (desktop) -->
+      <img
+        src="assets/blaser_types_pictures/twojabron_logo.png"
+        alt="Twoja Broń"
+        class="navbar-logo-twojabron navbar-logo-left"
+        draggable="false"
+      />
+
+      <!-- Linki desktop (wyśrodkowane) -->
+      <div class="navbar-links">
+        <ul>
+          <li *ngFor="let category of categories">
+            <a
+              class="navbar-link"
+              [class.disabled]="!isCategoryEnabled(category.path)"
+              [class.active]="isActiveCategory(category)"
+              (click)="onCategoryClick(category, $event)"
+            >
+              {{ category.title }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Logo po prawej (desktop) -->
+      <img
+        src="assets/blaser_types_pictures/blaser_logo.png"
+        alt="Blaser"
+        class="navbar-logo-blaser navbar-logo-right"
+        draggable="false"
+      />
+    </div>
   </div>
 
   <!-- Dropdown mobilny -->
-  <div class="custom-dropdown" *ngIf="menuOpen">
-    <button class="close-dropdown" (click)="toggleMenu()">✖</button>
+  <div class="custom-dropdown" *ngIf="menuOpen" id="mobile-menu">
+    <button class="close-dropdown" (click)="toggleMenu()" aria-label="Zamknij menu">✖</button>
     <ul class="dropdown-list show">
       <li *ngFor="let category of categories">
         <a
@@ -14,22 +56,6 @@
           [class.disabled]="!isCategoryEnabled(category.path)"
           [class.active]="isActiveCategory(category)"
           [attr.aria-disabled]="!isCategoryEnabled(category.path)"
-          (click)="onCategoryClick(category, $event)"
-        >
-          {{ category.title }}
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Linki desktop -->
-  <div class="navbar-links">
-    <ul>
-      <li *ngFor="let category of categories">
-        <a
-          class="navbar-link"
-          [class.disabled]="!isCategoryEnabled(category.path)"
-          [class.active]="isActiveCategory(category)"
           (click)="onCategoryClick(category, $event)"
         >
           {{ category.title }}
